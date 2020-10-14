@@ -1,0 +1,7 @@
+name: CityBuildV2
+version: 1.0.0-BETA
+authors:
+  - Justin_SGD
+  - KeinByte
+main: de.crashmash.citybuild.CityBuildV2
+commands:
