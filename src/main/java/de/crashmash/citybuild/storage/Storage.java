@@ -1,7 +1,7 @@
 package de.crashmash.citybuild.storage;
 
 import com.zaxxer.hikari.HikariDataSource;
-import de.crashmash.citybuild.data.Data;
+import de.crashmash.citybuild.data.MySQLData;
 import net.pretronic.databasequery.api.Database;
 import net.pretronic.databasequery.api.collection.DatabaseCollection;
 import net.pretronic.databasequery.api.collection.field.FieldOption;
@@ -23,15 +23,15 @@ public class Storage {
 
     public void createConnection() {
         Bukkit.getLogger();
-        this.databaseDriver = DatabaseDriverFactory.create(Data.MYSQL_CONNECTION, new SQLDatabaseDriverConfigBuilder()
+        this.databaseDriver = DatabaseDriverFactory.create(MySQLData.MYSQL_CONNECTION, new SQLDatabaseDriverConfigBuilder()
                 .setDialect(Dialect.MYSQL)
-                .setAddress(new InetSocketAddress(Data.MYSQL_HOST, Data.MYSQL_PORT))
+                .setAddress(new InetSocketAddress(MySQLData.MYSQL_HOST, MySQLData.MYSQL_PORT))
                 .setDataSourceClassName(HikariDataSource.class.getName())
-                .setUsername(Data.MYSQL_USER)
-                .setPassword(Data.MYSQL_PASSWORD)
+                .setUsername(MySQLData.MYSQL_USER)
+                .setPassword(MySQLData.MYSQL_PASSWORD)
                 .build());
         this.databaseDriver.connect();
-        this.database = databaseDriver.getDatabase(Data.MYSQL_DATABASE);
+        this.database = databaseDriver.getDatabase(MySQLData.MYSQL_DATABASE);
 
         createCollections();
     }

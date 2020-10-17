@@ -32,6 +32,10 @@
             <id>pretronic</id>
             <url>https://repository.pretronic.net/repository/pretronic/</url>
         </repository>
+        <repository>
+            <id>IntellectualSites</id>
+            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -47,6 +51,11 @@
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/spigot-1.16.3.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.plotsquared</groupId>
+            <artifactId>PlotSquared-Core</artifactId>
+            <version>5.13.3</version>
         </dependency>
     </dependencies>
 

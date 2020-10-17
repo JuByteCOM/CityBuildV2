@@ -2,7 +2,7 @@ package de.crashmash.citybuild.data;
 
 import de.crashmash.citybuild.CityBuildV2;
 
-public class Data {
+public class MySQLData {
 
     public static String MYSQL_CONNECTION = CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Connection");
     public static String MYSQL_HOST = CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Host");
