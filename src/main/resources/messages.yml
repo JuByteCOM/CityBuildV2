@@ -15,6 +15,10 @@ Commands:
       IsntSign: '[prefix] &cDu musst auf ein &eSchild &cschauen.'
       IsntOnPlot: '[prefix] &cDas Schild muss sich auf einem Grundstück befinden.'
       IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
-
-
+  ClearChat:
+    Permissions:
+      Use: 'citybuild.clearchat.use'
+    Messages:
+      Usage: '[prefix] &cBitte benutze &f/clearchat'
+      Cleared: '[prefix] &cDer Chat wurde geleert!'
 

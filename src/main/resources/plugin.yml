@@ -7,3 +7,5 @@ main: de.crashmash.citybuild.CityBuildV2
 commands:
   schild:
     description: 'Verändere den Text auf Schilder.'
+  clearchat:
+      description: 'Cleared den Ingame Chat.'

@@ -1,5 +1,6 @@
 package de.crashmash.citybuild;
 
+import de.crashmash.citybuild.commands.ClearChatCommand;
 import de.crashmash.citybuild.commands.SchildCommand;
 import de.crashmash.citybuild.listener.SignChangeListener;
 import de.crashmash.citybuild.storage.Storage;
@@ -48,7 +49,10 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private void loadCommands() {
+
         Objects.requireNonNull(getCommand("schild")).setExecutor(new SchildCommand());
+        Objects.requireNonNull(getCommand("clearchat")).setExecutor(new ClearChatCommand());
+
     }
 
     private void loadListener() {

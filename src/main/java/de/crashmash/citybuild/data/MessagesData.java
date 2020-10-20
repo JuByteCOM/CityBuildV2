@@ -34,4 +34,14 @@ public class MessagesData {
     public static String SCHILD_COMMAND_MESSAGE_NOPLOTOWNER = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Schild.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: ClearChat-Command
+    public static String CLEARCHAT_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.ClearChat.Permissions.Use");
+
+    public static String CLEARCHAT_COMMAND_MESSAGE_USAGE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.ClearChat.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
+    public static String CLEARCHAT_COMMAND_MESSAGE_CLEARED = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.ClearChat.Messages.Cleared").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
 }
