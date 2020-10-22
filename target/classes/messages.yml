@@ -1,0 +1,24 @@
+Prefix: '&8[&4&lCrashMash&8]'
+NoPerms: '[prefix] &cDazu hast du keine Rechte.'
+IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
+Deactivated: '[prefix] &7Der Befehl ist vorübergehend &cdeaktiviert&7.'
+
+Commands:
+  Schild:
+    Permissions:
+      Use: 'citybuild.schild.use'
+      IsntOnPlot: 'citybuild.schild.isntonplot'
+      IsntPlotOwner: 'citybuild.schild.admin'
+      UseColor: 'citybuild.schild.color'
+    Messages:
+      NoPlotsquared: '[prefix] &cEs gab einen Fehler! Bitte melde dich bei einem Teammitglied.'
+      IsntSign: '[prefix] &cDu musst auf ein &eSchild &cschauen.'
+      IsntOnPlot: '[prefix] &cDas Schild muss sich auf einem Grundstück befinden.'
+      IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
+  ClearChat:
+    Permissions:
+      Use: 'citybuild.clearchat.use'
+    Messages:
+      Usage: '[prefix] &cBitte benutze &f/clearchat'
+      Cleared: '[prefix] &cDer Chat wurde geleert!'
+
