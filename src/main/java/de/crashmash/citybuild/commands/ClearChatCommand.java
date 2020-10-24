@@ -22,7 +22,7 @@ public class ClearChatCommand implements CommandExecutor {
                         for (int i = 0; i < 200; i++) {
                             Bukkit.broadcastMessage(" ");
                         }
-                        Bukkit.broadcastMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_CLEARED);
+                        Bukkit.broadcastMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_CLEARED.replace("[playername]", player.getName()).replace("[displayname]", player.getDisplayName()));
                     }else{
                         player.sendMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_USAGE);
                     }
