@@ -29,18 +29,18 @@ public class MessagesData {
             .getString("Commands.Schild.Messages.NoPlotsquared").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_NOTSIGN = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Schild.Messages.IsntSign").replaceAll("&", "§").replace("[prefix]", PREFIX);
-    public static String SCHILD_COMMAND_MESSAGE_NOTONPLOT = CityBuildV2.getPlugin().getMessagesConfig()
-            .getString("Commands.Schild.Messages.IsntSign").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SCHILD_COMMAND_MESSAGE_SIGNNOTONPLOT = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Schild.Messages.SignIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SCHILD_COMMAND_MESSAGE_PLAYERNOTONPLOT = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Schild.Messages.PlayerIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_NOPLOTOWNER = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Schild.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
     //Todo: ClearChat-Command
     public static String CLEARCHAT_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.ClearChat.Permissions.Use");
-
     public static String CLEARCHAT_COMMAND_MESSAGE_USAGE = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.ClearChat.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
-
     public static String CLEARCHAT_COMMAND_MESSAGE_CLEARED = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.ClearChat.Messages.Cleared").replaceAll("&", "§").replace("[prefix]", PREFIX);
 

@@ -13,7 +13,8 @@ Commands:
     Messages:
       NoPlotsquared: '[prefix] &cEs gab einen Fehler! Bitte melde dich bei einem Teammitglied.'
       IsntSign: '[prefix] &cDu musst auf ein &eSchild &cschauen.'
-      IsntOnPlot: '[prefix] &cDas Schild muss sich auf einem Grundstück befinden.'
+      SignIsntOnPlot: '[prefix] &cDas Schild muss sich auf einem Grundstück befinden.'
+      PlayerIsntOnPlot: '[prefix] &cDu musst dich auf einem Grundstück befinden.'
       IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
   ClearChat:
     Permissions:
