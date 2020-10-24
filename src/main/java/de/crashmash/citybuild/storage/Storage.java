@@ -21,6 +21,7 @@ public class Storage {
 
     private DatabaseCollection startKickCollection;
     private DatabaseCollection statusCollection;
+    private DatabaseCollection boosterCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -49,6 +50,12 @@ public class Storage {
                 .field("hasStatus", DataType.BOOLEAN)
                 .field("Status", DataType.STRING)
                 .create();
+
+        this.boosterCollection = database.createCollection("Booster")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("BoosterID", DataType.INTEGER)
+                .field("Amount", DataType.INTEGER)
+                .create();
     }
 
     public boolean isConnected() {
@@ -61,5 +68,9 @@ public class Storage {
 
     public DatabaseCollection getStatusCollection() {
         return statusCollection;
+    }
+
+    public DatabaseCollection getBoosterCollection() {
+        return boosterCollection;
     }
 }
