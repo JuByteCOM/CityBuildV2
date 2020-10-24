@@ -8,4 +8,6 @@ commands:
   schild:
     description: 'Verändere den Text auf Schilder.'
   clearchat:
-      description: 'Cleared den Ingame Chat.'
+    description: 'Cleared den Ingame Chat.'
+  status:
+    description: 'Sende eine Nachricht beim joinen.'

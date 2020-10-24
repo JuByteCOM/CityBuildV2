@@ -20,6 +20,7 @@ public class Storage {
     private Database database;
 
     private DatabaseCollection startKickCollection;
+    private DatabaseCollection statusCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -42,6 +43,12 @@ public class Storage {
                 .field("Reason", DataType.STRING)
                 .field("Duration", DataType.LONG)
                 .create();
+
+        this.statusCollection = database.createCollection("Status")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("hasStatus", DataType.BOOLEAN)
+                .field("Status", DataType.STRING)
+                .create();
     }
 
     public boolean isConnected() {
@@ -52,4 +59,7 @@ public class Storage {
         this.databaseDriver.disconnect();
     }
 
+    public DatabaseCollection getStatusCollection() {
+        return statusCollection;
+    }
 }

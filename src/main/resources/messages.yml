@@ -2,6 +2,7 @@ Prefix: '&8[&4&lCrashMash&8]'
 NoPerms: '[prefix] &cDazu hast du keine Rechte.'
 IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
 Deactivated: '[prefix] &7Der Befehl ist vorübergehend &cdeaktiviert&7.'
+MySQLError: '[prefix] &7cEs gibt ein Fehler mit der Datenbank. Bitte melde dich bei einem Teammitglied.'
 
 Commands:
   Schild:
@@ -20,6 +21,14 @@ Commands:
     Permissions:
       Use: 'citybuild.clearchat.use'
     Messages:
-      Usage: '[prefix] &cBitte benutze &f/clearchat'
+      Usage: '[prefix] &cBitte benutze &e/clearchat'
       Cleared: '[prefix] &cDer Chat wurde geleert!'
+  Status:
+    Permissions:
+      Use: 'citybuild.status.use'
+    Messages:
+      Usage: '[prefix] &cBitte nutze &e/status <off/message>'
+      HasNotStatus: '[prefix] &cDu hast noch kein Status gesetzt. Dies tust du mit &e/status <message>&c.'
+      SetStatus: '[prefix] §7Du hast deinen Status geändert zu &b[status]&7.'
+
 

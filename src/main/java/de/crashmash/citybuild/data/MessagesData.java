@@ -15,6 +15,8 @@ public class MessagesData {
             .replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String DEACTIVATED = CityBuildV2.getPlugin().getMessagesConfig().getString("Deactivated")
             .replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MYSQL_ERROR = CityBuildV2.getPlugin().getMessagesConfig().getString("MySQLError")
+            .replaceAll("&", "§").replace("[prefix]", PREFIX);
 
     //Todo: Schild-Command
     public static String SCHILD_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
@@ -44,4 +46,13 @@ public class MessagesData {
     public static String CLEARCHAT_COMMAND_MESSAGE_CLEARED = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.ClearChat.Messages.Cleared").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: Status-Command
+    public static String STATUS_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Status.Permissions.Use");
+    public static String STATUS_COMMAND_MESSAGE_USAGE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Status.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String STATUS_COMMAND_MESSAGE_HASNOTSTATUS = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Status.Messages.HasNotStatus").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String STATUS_COMMAND_MESSAGE_SETSTATUS = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Status.Messages.SetStatus").replaceAll("&", "§").replace("[prefix]", PREFIX);
 }

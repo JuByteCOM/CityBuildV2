@@ -2,3 +2,6 @@ Settings:
   Commands:
     Schild: true
     ClearChat: true
+    Sign: true
+    Unsign: true
+    Status: true

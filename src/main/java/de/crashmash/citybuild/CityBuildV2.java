@@ -2,6 +2,8 @@ package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.ClearChatCommand;
 import de.crashmash.citybuild.commands.SchildCommand;
+import de.crashmash.citybuild.commands.StatusCommand;
+import de.crashmash.citybuild.listener.PlayerJoinListener;
 import de.crashmash.citybuild.listener.SignChangeListener;
 import de.crashmash.citybuild.storage.Storage;
 import de.crashmash.citybuild.utils.SignEdit;
@@ -52,12 +54,14 @@ public class CityBuildV2 extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("schild")).setExecutor(new SchildCommand());
         Objects.requireNonNull(getCommand("clearchat")).setExecutor(new ClearChatCommand());
+        Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
 
     }
 
     private void loadListener() {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new SignChangeListener(), this);
+        pluginManager.registerEvents(new PlayerJoinListener(), this);
     }
 
     private void sendMessage(String status) {
@@ -117,5 +121,9 @@ public class CityBuildV2 extends JavaPlugin {
 
     public static CityBuildV2 getPlugin() {
         return plugin;
+    }
+
+    public Storage getStorage() {
+        return storage;
     }
 }
