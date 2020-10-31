@@ -1,10 +1,10 @@
 package de.crashmash.citybuild;
 
-import de.crashmash.citybuild.commands.ClearChatCommand;
-import de.crashmash.citybuild.commands.SchildCommand;
-import de.crashmash.citybuild.commands.StatusCommand;
+import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.listener.PlayerJoinListener;
 import de.crashmash.citybuild.listener.SignChangeListener;
+import de.crashmash.citybuild.manager.food.FoodLocation;
+import de.crashmash.citybuild.storage.FoodSQL;
 import de.crashmash.citybuild.storage.Storage;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R2;
@@ -39,6 +39,8 @@ public class CityBuildV2 extends JavaPlugin {
 
         this.storage = new Storage();
         storage.createConnection();
+
+        loadLocations();
     }
 
     @Override
@@ -55,6 +57,8 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("schild")).setExecutor(new SchildCommand());
         Objects.requireNonNull(getCommand("clearchat")).setExecutor(new ClearChatCommand());
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
+        Objects.requireNonNull(getCommand("food")).setExecutor(new FoodCommand());
+        Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
 
     }
 
@@ -70,6 +74,15 @@ public class CityBuildV2 extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§9CityBuild§eV2 §7| §eVersion: §5" + getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage("§9CityBuild§eV2 §7| §eAuthors: §6" + getDescription().getAuthors());
         Bukkit.getConsoleSender().sendMessage("§7================================================");
+    }
+
+    public void loadLocations() {
+        Bukkit.getServer().getScheduler().runTaskLater(this, new Runnable() {
+            @Override
+            public void run() {
+                FoodLocation.setLocations(FoodSQL.loadFood());
+            }
+        },10);
     }
 
     private boolean setupSignEdit() {

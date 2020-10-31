@@ -9,5 +9,7 @@ public class ConfigData {
     public static boolean CONFIG_COMMAND_SIGN = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Sign");
     public static boolean CONFIG_COMMAND_UNSIGN = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Unsign");
     public static boolean CONFIG_COMMAND_STATUS = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Status");
+    public static boolean CONFIG_COMMAND_FOOD = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Food");
+    public static boolean CONFIG_COMMAND_TELEPORT = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Teleport");
 
 }

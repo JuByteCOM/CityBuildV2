@@ -1,5 +1,6 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.storage.StatusSQL;
 import org.bukkit.command.Command;
@@ -14,31 +15,35 @@ public class StatusCommand implements CommandExecutor {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         } else {
             Player player = (Player) commandSender;
-            if(player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
-                if(strings.length >= 1) {
-                    if(StatusSQL.playerExists(player.getUniqueId())) {
-                        if(strings[0].equalsIgnoreCase("off") || strings[0].equalsIgnoreCase("deaktiviert")) {
-                            if(StatusSQL.hasStatus(player.getUniqueId())) {
-                                StatusSQL.setStatus(player.getUniqueId(), null);
+            if(ConfigData.CONFIG_COMMAND_STATUS) {
+                if (player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
+                    if (strings.length >= 1) {
+                        if (StatusSQL.playerExists(player.getUniqueId())) {
+                            if (strings[0].equalsIgnoreCase("off") || strings[0].equalsIgnoreCase("deaktiviert")) {
+                                if (StatusSQL.hasStatus(player.getUniqueId())) {
+                                    StatusSQL.setStatus(player.getUniqueId(), null);
+                                } else {
+                                    player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_HASNOTSTATUS);
+                                }
                             } else {
-                                player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_HASNOTSTATUS);
+                                String message = "";
+                                for (int i = 0; i < strings.length; i++) {
+                                    message = message + strings[i] + " ";
+                                }
+                                StatusSQL.setStatus(player.getUniqueId(), message);
+                                player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_SETSTATUS.replace("[status]", message));
                             }
                         } else {
-                            String message = "";
-                            for (int i = 0; i < strings.length; i++) {
-                                message = message + strings[i] + " ";
-                            }
-                            StatusSQL.setStatus(player.getUniqueId(), message);
-                            player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_SETSTATUS.replace("[status]", message));
+                            player.sendMessage(MessagesData.MYSQL_ERROR);
                         }
                     } else {
-                        player.sendMessage(MessagesData.MYSQL_ERROR);
+                        player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_USAGE);
                     }
                 } else {
-                    player.sendMessage(MessagesData.STATUS_COMMAND_MESSAGE_USAGE);
+                    player.sendMessage(MessagesData.NOPERMS);
                 }
             } else {
-                player.sendMessage(MessagesData.NOPERMS);
+                player.sendMessage(MessagesData.DEACTIVATED);
             }
         }
         return false;

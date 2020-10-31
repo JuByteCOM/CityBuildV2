@@ -8,6 +8,9 @@ public class BoosterCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        if(strings.length == 0) {
+
+        }
         return false;
     }
 }

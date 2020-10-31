@@ -11,3 +11,7 @@ commands:
     description: 'Cleared den Ingame Chat.'
   status:
     description: 'Sende eine Nachricht beim joinen.'
+  food:
+    description: 'Setze ein Essensschwein.'
+  tp:
+    description: 'Teleportiere dich zu einer Location oder zu anderen Spielern.'

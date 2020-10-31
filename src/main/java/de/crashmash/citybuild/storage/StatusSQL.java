@@ -15,22 +15,13 @@ public class StatusSQL {
         if(!playerExists(uuid)) {
             CityBuildV2.getPlugin().getStorage().getStatusCollection().insert()
                     .set("UUID", uuid)
-                    .set("hasStatus", false)
                     .set("Status", (Object) null)
                     .executeAsync();
         }
     }
 
     public static boolean hasStatus(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getStatusCollection()
-                .find()
-                .where("UUID", uuid)
-                .limit(1)
-                .execute();
-        if (!queryResult.isEmpty()) {
-            return queryResult.first().getBoolean("hasStatus");
-        }
-        return false;
+        return getStatus(uuid) != null;
     }
 
     public static String getStatus(UUID uuid) {

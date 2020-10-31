@@ -27,7 +27,8 @@ public class SchildCommand implements CommandExecutor {
                         if (block.getState() instanceof Sign) {
                             if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null ||
                                     player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOTONPLOT)) {
-                                if(PlotUtils.isInPlot(player.getLocation())) {
+                                if(PlotUtils.isInPlot(player.getLocation()) ||
+                                        player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
                                     if (PlotUtils.getPlot(player.getLocation()).isOwner(player.getUniqueId()) ||
                                             player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
                                         Sign sign = (Sign) block.getState();

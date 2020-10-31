@@ -55,4 +55,36 @@ public class MessagesData {
             .getString("Commands.Status.Messages.HasNotStatus").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String STATUS_COMMAND_MESSAGE_SETSTATUS = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Status.Messages.SetStatus").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
+    //Todo: Food-Command
+    public static String FOOD_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Permissions.Use");
+    public static String FOOD_COMMAND_MESSAGE_HELP = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.Help").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_REMOVED = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.PigRemoved").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_SPAWNED = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.PigSpawned").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_LIST = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.List").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_HOVER = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.Hover").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_CLICK = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.Click").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String FOOD_COMMAND_MESSAGE_NAME = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Settings.PigName").replaceAll("&", "§");
+    public static double FOOD_COMMAND_SETTINGS_HEALTH = CityBuildV2.getPlugin().getMessagesConfig()
+            .getDouble("Commands.Food.Settings.Health");
+
+    //Todo: Teleport-Command
+    public static String TELEPORT_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Teleport.Permissions.Use");
+    public static String TELEPORT_COMMAND_MESSAGE_PLAYERNOTFOUND = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String TELEPORT_COMMAND_MESSAGE_TPTOPLAYER = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.TeleportedToPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String TELEPORT_COMMAND_MESSAGE_TPTOLOCATION = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.TeleportedToLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String TELEPORT_COMMAND_MESSAGE_FALSELOCATION = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Food.Messages.FalseLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
 }

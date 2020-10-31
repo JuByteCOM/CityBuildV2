@@ -5,3 +5,5 @@ Settings:
     Sign: true
     Unsign: true
     Status: true
+    Food: true
+    Teleport: true

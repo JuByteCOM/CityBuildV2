@@ -22,6 +22,7 @@ public class Storage {
     private DatabaseCollection startKickCollection;
     private DatabaseCollection statusCollection;
     private DatabaseCollection boosterCollection;
+    private DatabaseCollection foodCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -47,7 +48,6 @@ public class Storage {
 
         this.statusCollection = database.createCollection("Status")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
-                .field("hasStatus", DataType.BOOLEAN)
                 .field("Status", DataType.STRING)
                 .create();
 
@@ -55,6 +55,16 @@ public class Storage {
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("BoosterID", DataType.INTEGER)
                 .field("Amount", DataType.INTEGER)
+                .create();
+
+        this.foodCollection = database.createCollection("Food")
+                .field("ID", DataType.INTEGER, FieldOption.AUTO_INCREMENT, FieldOption.PRIMARY_KEY)
+                .field("LocX", DataType.DOUBLE)
+                .field("LocY", DataType.DOUBLE)
+                .field("LocZ", DataType.DOUBLE)
+                .field("Yaw", DataType.FLOAT)
+                .field("Pitch", DataType.FLOAT)
+                .field("World", DataType.STRING)
                 .create();
     }
 
@@ -72,5 +82,9 @@ public class Storage {
 
     public DatabaseCollection getBoosterCollection() {
         return boosterCollection;
+    }
+
+    public DatabaseCollection getFoodCollection() {
+        return foodCollection;
     }
 }

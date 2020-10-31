@@ -30,5 +30,31 @@ Commands:
       Usage: '[prefix] &cBitte nutze &e/status <off/message>'
       HasNotStatus: '[prefix] &cDu hast noch kein Status gesetzt. Dies tust du mit &e/status <message>&c.'
       SetStatus: '[prefix] §7Du hast deinen Status geändert zu &b[status]&7.'
+  Food:
+    Permissions:
+      Use: 'citybuild.food.use'
+    Messages:
+      Help: |-
+        &f========================
+          &e/food set
+          &e/food list
+          &e/food remove <id>
+        &f========================
+      PigSpawned: '[prefix] &7Das Schwein wurde erfolgreich &agespawnt&7.'
+      PigRemoved: '[prefix] &7Das Schwein mit der Id &e[id] &7wurde &centfernt&7.'
+      List: '&bID: &f[id]'
+      Hover: '&bLocation: &f[location]'
+      Click: 'tp [player] [location]'
+    Settings:
+      PigName: '&cTöte mich!'
+      Health: 8
+  Teleport:
+    Permissions:
+      Use: 'citybuild.teleport.use'
+    Messages:
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &cnicht Online&7.'
+      TeleportedToPlayer: '[prefix] &7Du hast dich zu &e[targetPlayer] &7teleportiert.'
+      TeleportedToLocation: '[prefix] &7Du hast dich zur Location: &e[location] &7teleportiert.'
+      FalseLocation: '[prefix] &7Bitte gib eine korrekte Location an. Nutze: &e/tp x y z'
 
 
