@@ -75,16 +75,20 @@ public class MessagesData {
             .getString("Commands.Food.Settings.PigName").replaceAll("&", "§");
     public static double FOOD_COMMAND_SETTINGS_HEALTH = CityBuildV2.getPlugin().getMessagesConfig()
             .getDouble("Commands.Food.Settings.Health");
+    public static int FOOD_COMMAND_SETTINGS_EXP = CityBuildV2.getPlugin().getMessagesConfig()
+            .getInt("Commands.Food.Settings.Exp");
+    public static int FOOD_COMMAND_SETTINGS_RESPAWNTIME = CityBuildV2.getPlugin().getMessagesConfig()
+            .getInt("Commands.Food.Settings.RespawnTime");
 
     //Todo: Teleport-Command
     public static String TELEPORT_COMMAND_PERMISSION_USE = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Teleport.Permissions.Use");
     public static String TELEPORT_COMMAND_MESSAGE_PLAYERNOTFOUND = CityBuildV2.getPlugin().getMessagesConfig()
-            .getString("Commands.Food.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Teleport.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String TELEPORT_COMMAND_MESSAGE_TPTOPLAYER = CityBuildV2.getPlugin().getMessagesConfig()
-            .getString("Commands.Food.Messages.TeleportedToPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Teleport.Messages.TeleportedToPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String TELEPORT_COMMAND_MESSAGE_TPTOLOCATION = CityBuildV2.getPlugin().getMessagesConfig()
-            .getString("Commands.Food.Messages.TeleportedToLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Teleport.Messages.TeleportedToLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String TELEPORT_COMMAND_MESSAGE_FALSELOCATION = CityBuildV2.getPlugin().getMessagesConfig()
-            .getString("Commands.Food.Messages.FalseLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Teleport.Messages.FalseLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
 }

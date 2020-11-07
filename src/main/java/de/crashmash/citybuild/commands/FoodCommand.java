@@ -61,17 +61,19 @@ public class FoodCommand implements CommandExecutor {
                             }
                         }
                     } else if (strings[0].equalsIgnoreCase("remove")) {
-                        Location location = FoodLocation.getLocation(Integer.parseInt(strings[1]));
-                        World world = FoodLocation.getLocation(Integer.parseInt(strings[1])).getWorld();
-                        for (Entity entity : world.getNearbyEntities(location, 1, 1, 1)) {
-                            if (entity.getType() == EntityType.PIG &&
-                                    Objects.requireNonNull(entity.getCustomName()).equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
-                                entity.remove();
+                        if(FoodLocation.exitsLocation(Integer.parseInt(strings[1]))) {
+                            Location location = FoodLocation.getLocation(Integer.parseInt(strings[1]));
+                            World world = FoodLocation.getLocation(Integer.parseInt(strings[1])).getWorld();
+                            for (Entity entity : world.getNearbyEntities(location, 1, 1, 1)) {
+                                if (entity.getType() == EntityType.PIG &&
+                                        Objects.requireNonNull(entity.getCustomName()).equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
+                                    entity.remove();
+                                }
                             }
+                            FoodLocation.FOOD_LOCATIONS.remove(Integer.parseInt(strings[1]));
+                            FoodSQL.deleteFood(Integer.parseInt(strings[1]));
+                            player.sendMessage(MessagesData.FOOD_COMMAND_MESSAGE_REMOVED.replace("[id]", strings[1]));
                         }
-                        FoodLocation.FOOD_LOCATIONS.remove(Integer.parseInt(strings[1]));
-                        FoodSQL.deleteFood(Integer.parseInt(strings[1]));
-                        player.sendMessage(MessagesData.FOOD_COMMAND_MESSAGE_REMOVED.replace("[id]", strings[1]));
                     } else {
                         player.sendMessage(MessagesData.NOPERMS);
                     }

@@ -1,6 +1,7 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
+import de.crashmash.citybuild.listener.EntityDeathListener;
 import de.crashmash.citybuild.listener.PlayerJoinListener;
 import de.crashmash.citybuild.listener.SignChangeListener;
 import de.crashmash.citybuild.manager.food.FoodLocation;
@@ -66,6 +67,7 @@ public class CityBuildV2 extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new SignChangeListener(), this);
         pluginManager.registerEvents(new PlayerJoinListener(), this);
+        pluginManager.registerEvents(new EntityDeathListener(), this);
     }
 
     private void sendMessage(String status) {

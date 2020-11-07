@@ -42,12 +42,17 @@ Commands:
         &f========================
       PigSpawned: '[prefix] &7Das Schwein wurde erfolgreich &agespawnt&7.'
       PigRemoved: '[prefix] &7Das Schwein mit der Id &e[id] &7wurde &centfernt&7.'
-      List: '&bID: &f[id]'
-      Hover: '&bLocation: &f[location]'
+      List: |-
+        &f========================
+          &bID: &f[id]
+        &f========================
+      Hover: '&b&lKlicken zum Teleportieren.'
       Click: 'tp [player] [location]'
     Settings:
       PigName: '&cTöte mich!'
       Health: 8
+      Exp: 0
+      RespawnTime: 100
   Teleport:
     Permissions:
       Use: 'citybuild.teleport.use'
