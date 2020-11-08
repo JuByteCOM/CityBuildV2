@@ -15,3 +15,11 @@ commands:
     description: 'Setze ein Essensschwein.'
   tp:
     description: 'Teleportiere dich zu einer Location oder zu anderen Spielern.'
+  ja:
+    description: 'Stimme gegen einen Spieler bei einer Abstimmung.'
+    aliases:
+      - yes
+  nein:
+    description: 'Stimme für einen Spieler bei einer Abstimmung.'
+    aliases:
+      - no

@@ -42,10 +42,7 @@ Commands:
         &f========================
       PigSpawned: '[prefix] &7Das Schwein wurde erfolgreich &agespawnt&7.'
       PigRemoved: '[prefix] &7Das Schwein mit der Id &e[id] &7wurde &centfernt&7.'
-      List: |-
-        &f========================
-          &bID: &f[id]
-        &f========================
+      List: '&bID: &f[id]'
       Hover: '&b&lKlicken zum Teleportieren.'
       Click: 'tp [player] [location]'
     Settings:
@@ -61,5 +58,11 @@ Commands:
       TeleportedToPlayer: '[prefix] &7Du hast dich zu &e[targetPlayer] &7teleportiert.'
       TeleportedToLocation: '[prefix] &7Du hast dich zur Location: &e[location] &7teleportiert.'
       FalseLocation: '[prefix] &7Bitte gib eine korrekte Location an. Nutze: &e/tp x y z'
+  Ja:
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/ja'
+      AlreadyVoted: '[prefix] &7Du hast bereits für &aJa &7gevotet.'
+      VotedForNo: '[prefix] &7Du kannst nicht mehr voten, da du bereits für &cNein &7gevotet hast.'
+      SuccessfulVoted: '[prefix] &7Du hast für &aJa &7gevotet.'
 
 

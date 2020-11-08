@@ -54,8 +54,7 @@ public class FoodCommand implements CommandExecutor {
                                 TextComponent textComponent = new TextComponent(TextComponent.fromLegacyText
                                         (MessagesData.FOOD_COMMAND_MESSAGE_LIST.replace("[id]", String.valueOf(iD))));
                                 textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
-                                        new ComponentBuilder(MessagesData.FOOD_COMMAND_MESSAGE_HOVER
-                                                .replace("[location]", x + ", " + y + ", " + z)).create()));
+                                        new ComponentBuilder(MessagesData.FOOD_COMMAND_MESSAGE_HOVER).create()));
                                 textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + x + " " + y + " " + z));
                                 player.spigot().sendMessage(textComponent);
                             }

@@ -91,4 +91,14 @@ public class MessagesData {
             .getString("Commands.Teleport.Messages.TeleportedToLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String TELEPORT_COMMAND_MESSAGE_FALSELOCATION = CityBuildV2.getPlugin().getMessagesConfig()
             .getString("Commands.Teleport.Messages.FalseLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
+    //Todo: Ja-Command
+    public static String JA_COMMAND_MESSAGE_USAGE = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Ja.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String JA_COMMAND_MESSAGE_ALREADYVOTED = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Ja.Messages.AlreadyVoted").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String JA_COMMAND_MESSAGE_VOTEDFORNO = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Ja.Messages.VotedForNo").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String JA_COMMAND_MESSAGE_SUCCESSVOTED = CityBuildV2.getPlugin().getMessagesConfig()
+            .getString("Commands.Ja.Messages.SuccessVoted").replaceAll("&", "§").replace("[prefix]", PREFIX);
 }

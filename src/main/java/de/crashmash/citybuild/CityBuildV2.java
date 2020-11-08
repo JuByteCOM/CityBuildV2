@@ -12,10 +12,13 @@ import de.crashmash.citybuild.utils.SignEdit_1_16_R2;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CityBuildV2 extends JavaPlugin {
@@ -23,6 +26,9 @@ public class CityBuildV2 extends JavaPlugin {
     private static CityBuildV2 plugin;
     private Storage storage;
     private static SignEdit signedit;
+
+    private final List<Player> VOTING_YES = new ArrayList<>();
+    private final List<Player> VOTING_NO = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -60,6 +66,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
         Objects.requireNonNull(getCommand("food")).setExecutor(new FoodCommand());
         Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
+        Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
 
     }
 
@@ -141,4 +148,13 @@ public class CityBuildV2 extends JavaPlugin {
     public Storage getStorage() {
         return storage;
     }
+
+    public List<Player> getVOTING_YES() {
+        return VOTING_YES;
+    }
+
+    public List<Player> getVOTING_NO() {
+        return VOTING_NO;
+    }
+
 }

@@ -50,7 +50,7 @@
             <artifactId>craftbukkit</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/spigot-1.16.3.jar</systemPath>
+            <systemPath>${basedir}/lib/spigot-1.16.4.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.plotsquared</groupId>
