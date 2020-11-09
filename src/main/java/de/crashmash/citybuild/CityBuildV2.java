@@ -66,7 +66,8 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
         Objects.requireNonNull(getCommand("food")).setExecutor(new FoodCommand());
         Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
-        Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
+        Objects.requireNonNull(getCommand("ja")).setExecutor(new YesCommand());
+        Objects.requireNonNull(getCommand("nein")).setExecutor(new NoCommand());
 
     }
 

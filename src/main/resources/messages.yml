@@ -58,11 +58,17 @@ Commands:
       TeleportedToPlayer: '[prefix] &7Du hast dich zu &e[targetPlayer] &7teleportiert.'
       TeleportedToLocation: '[prefix] &7Du hast dich zur Location: &e[location] &7teleportiert.'
       FalseLocation: '[prefix] &7Bitte gib eine korrekte Location an. Nutze: &e/tp x y z'
-  Ja:
+  Yes:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/ja'
       AlreadyVoted: '[prefix] &7Du hast bereits für &aJa &7gevotet.'
       VotedForNo: '[prefix] &7Du kannst nicht mehr voten, da du bereits für &cNein &7gevotet hast.'
       SuccessfulVoted: '[prefix] &7Du hast für &aJa &7gevotet.'
+  No:
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/nein'
+      AlreadyVoted: '[prefix] &7Du hast bereits für &cNein &7gevotet.'
+      VotedForYes: '[prefix] &7Du kannst nicht mehr voten, da du bereits für &aJa &7gevotet hast.'
+      SuccessfulVoted: '[prefix] &7Du hast für &cNein &7gevotet.'
 
 

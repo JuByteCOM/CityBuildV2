@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class JaCommand implements CommandExecutor {
+public class YesCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -19,15 +19,15 @@ public class JaCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if(strings.length == 0) {
                 if (CityBuildV2.getPlugin().getVOTING_YES().contains(player)) {
-                    player.sendMessage(MessagesData.JA_COMMAND_MESSAGE_ALREADYVOTED);
+                    player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_ALREADYVOTED);
                 } else if(CityBuildV2.getPlugin().getVOTING_NO().contains(player)) {
-                    player.sendMessage(MessagesData.JA_COMMAND_MESSAGE_VOTEDFORNO);
+                    player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_VOTEDFORNO);
                 } else {
                     CityBuildV2.getPlugin().getVOTING_YES().add(player);
-                    player.sendMessage(MessagesData.JA_COMMAND_MESSAGE_SUCCESSVOTED);
+                    player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_SUCCESSVOTED);
                 }
             } else {
-                player.sendMessage("");
+                player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_USAGE);
             }
         } else {
             commandSender.sendMessage(MessagesData.DEACTIVATED);
