@@ -44,6 +44,7 @@ public class Storage {
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("Reason", DataType.STRING)
                 .field("Duration", DataType.LONG)
+                .field("Cooldown", DataType.LONG)
                 .create();
 
         this.statusCollection = database.createCollection("Status")
@@ -86,5 +87,9 @@ public class Storage {
 
     public DatabaseCollection getFoodCollection() {
         return foodCollection;
+    }
+
+    public DatabaseCollection getStartKickCollection() {
+        return startKickCollection;
     }
 }

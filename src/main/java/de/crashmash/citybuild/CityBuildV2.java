@@ -5,10 +5,11 @@ import de.crashmash.citybuild.listener.EntityDeathListener;
 import de.crashmash.citybuild.listener.PlayerJoinListener;
 import de.crashmash.citybuild.listener.SignChangeListener;
 import de.crashmash.citybuild.manager.food.FoodLocation;
+import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.FoodSQL;
 import de.crashmash.citybuild.storage.Storage;
 import de.crashmash.citybuild.utils.SignEdit;
-import de.crashmash.citybuild.utils.SignEdit_1_16_R2;
+import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -17,9 +18,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class CityBuildV2 extends JavaPlugin {
 
@@ -27,8 +26,10 @@ public class CityBuildV2 extends JavaPlugin {
     private Storage storage;
     private static SignEdit signedit;
 
-    private final List<Player> VOTING_YES = new ArrayList<>();
-    private final List<Player> VOTING_NO = new ArrayList<>();
+    private final List<String> VOTING_YES = new ArrayList<>();
+    private final List<String> VOTING_NO = new ArrayList<>();
+
+    private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -66,8 +67,9 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
         Objects.requireNonNull(getCommand("food")).setExecutor(new FoodCommand());
         Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
-        Objects.requireNonNull(getCommand("ja")).setExecutor(new YesCommand());
-        Objects.requireNonNull(getCommand("nein")).setExecutor(new NoCommand());
+        Objects.requireNonNull(getCommand("startkick")).setExecutor(new StartkickCommand());
+        Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
+        Objects.requireNonNull(getCommand("nein")).setExecutor(new NeinCommand());
 
     }
 
@@ -96,7 +98,7 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private boolean setupSignEdit() {
-        signedit = new SignEdit_1_16_R2();
+        signedit = new SignEdit_1_16_R3();
         return true;
     }
 
@@ -150,12 +152,15 @@ public class CityBuildV2 extends JavaPlugin {
         return storage;
     }
 
-    public List<Player> getVOTING_YES() {
+    public List<String> getVOTING_YES() {
         return VOTING_YES;
     }
 
-    public List<Player> getVOTING_NO() {
+    public List<String> getVOTING_NO() {
         return VOTING_NO;
     }
 
+    public Map<Player, StartKickPlayer> getSTARTKICKPLAYER_MAP() {
+        return STARTKICKPLAYER_MAP;
+    }
 }

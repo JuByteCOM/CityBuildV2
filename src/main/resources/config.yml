@@ -7,4 +7,6 @@ Settings:
     Status: true
     Food: true
     Teleport: true
-    Ja: true
+    StartKick: true
+    YesCommand: true
+    NoCommand: true

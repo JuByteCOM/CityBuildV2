@@ -1,4 +1,4 @@
-Prefix: '&8[&4&lCrashMash&8]'
+Prefix: '&8[&4&lCityBuild&8]'
 NoPerms: '[prefix] &cDazu hast du keine Rechte.'
 IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
 Deactivated: '[prefix] &7Der Befehl ist vorübergehend &cdeaktiviert&7.'
@@ -22,7 +22,7 @@ Commands:
       Use: 'citybuild.clearchat.use'
     Messages:
       Usage: '[prefix] &cBitte benutze &e/clearchat'
-      Cleared: '[prefix] &cDer Chat wurde geleert!'
+      Cleared: '[prefix] &cDer Chat wurde von [displayname] &cgeleert!'
   Status:
     Permissions:
       Use: 'citybuild.status.use'
@@ -44,7 +44,6 @@ Commands:
       PigRemoved: '[prefix] &7Das Schwein mit der Id &e[id] &7wurde &centfernt&7.'
       List: '&bID: &f[id]'
       Hover: '&b&lKlicken zum Teleportieren.'
-      Click: 'tp [player] [location]'
     Settings:
       PigName: '&cTöte mich!'
       Health: 8
@@ -58,17 +57,56 @@ Commands:
       TeleportedToPlayer: '[prefix] &7Du hast dich zu &e[targetPlayer] &7teleportiert.'
       TeleportedToLocation: '[prefix] &7Du hast dich zur Location: &e[location] &7teleportiert.'
       FalseLocation: '[prefix] &7Bitte gib eine korrekte Location an. Nutze: &e/tp x y z'
-  Yes:
+  StartKick:
+    Permissions:
+      Use: 'citybuild.startkick.use'
+      KickBypass: 'citybuild.startkick.kick.bypass'
+      TimeBypass: 'citybuild.startkick.time.bypass'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/startkick <player> <reason>'
+      AlreadyPoll: '[prefix] &7Es findet bereits eine Abstimmung statt.'
+      TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      SelfKick: '[prefix] &7Du kannst dich &cnicht &7selber StartKicken.'
+      KickBypass: '[prefix] &7Der Spieler &e[targetPlayer] &7kann &cnicht &7gekickt werden.'
+      Started: |-
+        [prefix]&e&lEin &b&lStartKick &e&lwurde gestartet!
+        &e
+        &5
+        [prefix] &eSoll &4&l[targetPlayer] &egekickt werden?
+        [prefix] &7Ersteller: &4&l[player]
+        [prefix] &7Dauer: &4&l[duration] Minuten
+        [prefix] &7Grund: &4&l[reason]
+      VoteForYes: '[prefix] &7Stimme &afür &7den Rauswurf von &e[targetPlayer]&7. &a&l[Klicke hier!]'
+      VoteForNo: '[prefix] &7Stimme &cgegen &7den Rauswurf von &e[targetPlayer]&7. &a&l[Klicke hier!]'
+      Counter: '[prefix] &7Die Abstimmung &cendet &7in &e[counter] &7Sekunden.'
+      PlayerKicked: |-
+        [prefix] &e[targetPlayer] &7wurde gekickt!
+        [prefix] &7Die Abstimmung ging &a[yesVotes]&8/&c[noVotes] &7aus.
+      PlayerNotKicked: |-
+        [prefix] &e[targetPlayer] &7wurde nicht gekickt!
+        [prefix] &7Die Abstimmung ging &a[yesVotes]&8/&c[noVotes] &7aus.
+      BanScreen: |-
+        [prefix]
+        &6
+        &7Du wurdest von der Community &crausgeworfen&7!
+        &7Du kannst am &e[date] &7um &e[time] &7wieder spielen.
+    Settings:
+      KickBypass: true
+      Cooldown: 43200
+      Duration: 300
+      Counter: 30
+      CounterTimes: [30, 15, 10, 5, 3, 2, 1]
+  YesCommand:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/ja'
-      AlreadyVoted: '[prefix] &7Du hast bereits für &aJa &7gevotet.'
-      VotedForNo: '[prefix] &7Du kannst nicht mehr voten, da du bereits für &cNein &7gevotet hast.'
-      SuccessfulVoted: '[prefix] &7Du hast für &aJa &7gevotet.'
-  No:
+      AlreadyVoted: '[prefix] &7Du hast &cbereits &7abgestimmt.'
+      VotedForNo: '[prefix] &7Du hast &cbereits &7für &eNein &7gestimmt.'
+      SuccesfulVoted: '[prefix] &7Du hast für &aJa &7gestimmt.'
+      NoStartKick: '[prefix] &7Es läuft &ckeine &7Abstimmung.'
+  NoCommand:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/nein'
-      AlreadyVoted: '[prefix] &7Du hast bereits für &cNein &7gevotet.'
-      VotedForYes: '[prefix] &7Du kannst nicht mehr voten, da du bereits für &aJa &7gevotet hast.'
-      SuccessfulVoted: '[prefix] &7Du hast für &cNein &7gevotet.'
-
-
+      AlreadyVoted: '[prefix] &7Du hast &cbereits &7abgestimmt.'
+      VotedForYes: '[prefix] &7Du hast &cbereits &7für &eJa &7gestimmt.'
+      SuccesfulVoted: '[prefix] &7Du hast für &cNein &7gestimmt.'
+      NoStartKick: '[prefix] &7Es läuft &ckeine &7Abstimmung.'

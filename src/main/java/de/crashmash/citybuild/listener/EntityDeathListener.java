@@ -24,7 +24,7 @@ public class EntityDeathListener implements Listener {
         Entity entity = event.getEntity();
         event.setDroppedExp(MessagesData.FOOD_COMMAND_SETTINGS_EXP);
         for (ItemStack drop : event.getDrops()) {
-            drop.setType(Material.COOKED_PORKCHOP);
+            drop.setType(Material.PORKCHOP);
             Objects.requireNonNull(event.getEntity().getLocation().getWorld()).dropItemNaturally(entity.getLocation(), drop);
         }
         if(entity.getType() == EntityType.PIG && Objects.requireNonNull(entity.getCustomName()).equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {

@@ -10,7 +10,7 @@ import org.bukkit.craftbukkit.v1_16_R3.entity.CraftHumanEntity;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class SignEdit_1_16_R2 implements SignEdit {
+public class SignEdit_1_16_R3 implements SignEdit {
 
     public void editSign(Player player, Sign sign) {
         String[] lines = new String[4];

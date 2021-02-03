@@ -1,20 +1,25 @@
 name: CityBuildV2
-version: 1.1.0-SNAPSHOT
+version: 1.2.0-SNAPSHOT
 authors:
   - Justin_SGD
   - KeinByte
 main: de.crashmash.citybuild.CityBuildV2
+softdepend:
+  - PlotSquared
+api-version: 1.13
 commands:
   schild:
     description: 'Verändere den Text auf Schilder.'
   clearchat:
-    description: 'Cleared den Ingame Chat.'
+    description: 'Löscht den Ingame Chat.'
   status:
     description: 'Sende eine Nachricht beim joinen.'
   food:
     description: 'Setze ein Essensschwein.'
   tp:
     description: 'Teleportiere dich zu einer Location oder zu anderen Spielern.'
+    aliases:
+      - teleport
   ja:
     description: 'Stimme gegen einen Spieler bei einer Abstimmung.'
     aliases:
@@ -23,3 +28,7 @@ commands:
     description: 'Stimme für einen Spieler bei einer Abstimmung.'
     aliases:
       - no
+  startkick:
+    description: 'Lass die Community entscheiden, ob ein Spieler eine Auszeit bekommt.'
+    aliases:
+      - voteban
