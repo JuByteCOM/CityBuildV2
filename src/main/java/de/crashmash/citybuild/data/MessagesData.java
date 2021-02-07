@@ -136,6 +136,18 @@ public class MessagesData {
     public static List<Integer> STARTKICK_COMMAND_SETTING_COUNTER_TIMES = plugin.getMessagesConfig()
         .getIntegerList("Commands.StartKick.Settings.CounterTimes");
 
+    //Todo: Unstartkick-Command
+    public static String UNSTARTKICK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.Unstartkick.Permissions.Use");
+    public static String UNSTARTKICK_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.Unstartkick.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNSTARTKICK_COMMAND_MESSAGE_PLAYER_NOT_FOUND = plugin.getMessagesConfig()
+            .getString("Commands.Unstartkick.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNSTARTKICK_COMMAND_MESSAGE_NOT_KICKED = plugin.getMessagesConfig()
+            .getString("Commands.Unstartkick.Messages.NotKicked").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNSTARTKICK_COMMAND_MESSAGE_UNKICKED = plugin.getMessagesConfig()
+            .getString("Commands.Unstartkick.Messages.Unkicked").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: Ja-Command
     public static String YES_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
             .getString("Commands.YesCommand.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
@@ -160,4 +172,16 @@ public class MessagesData {
             .getString("Commands.NoCommand.Messages.SuccesfulVoted").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String NO_COMMAND_MESSAGE_NO_STARTKICK = plugin.getMessagesConfig()
             .getString("Commands.NoCommand.Messages.NoStartKick").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
+    //Todo: Slowchat-Command
+    public static String SLOWCHAT_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Permissions.Use");
+    public static String SLOWCHAT_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SLOWCHAT_COMMAND_MESSAGE_ACTIVATED = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Messages.Activated").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SLOWCHAT_COMMAND_MESSAGE_DEACTIVATED = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Messages.Deactivated").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static List<String> SLOWCHAT_COMMAND_MESSAGE_ALIASES = plugin.getMessagesConfig()
+            .getStringList("Commands.SlowChat.Settings.Aliases");
 }

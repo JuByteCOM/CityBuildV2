@@ -4,6 +4,15 @@
     <root id="archive" name="CityBuildV2.jar">
       <element id="module-output" name="CityBuildV2" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/databasequery/pretronicdatabasequery-api/1.2.20.46-SNAPSHOT/pretronicdatabasequery-api-1.2.20.46-20200509.125435-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/databasequery/pretronicdatabasequery-common/1.2.20.46-SNAPSHOT/pretronicdatabasequery-common-1.2.20.46-20200509.125441-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/databasequery/pretronicdatabasequery-sql/1.2.20.46-SNAPSHOT/pretronicdatabasequery-sql-1.2.20.46-20200509.125446-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/libraries/pretroniclibraries-document/1.1.15.126-SNAPSHOT/pretroniclibraries-document-1.1.15.126-20200501.172708-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/libraries/pretroniclibraries-logging/1.1.15.126-SNAPSHOT/pretroniclibraries-logging-1.1.15.126-20200501.172718-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/pretronic/libraries/pretroniclibraries-utility/1.1.15.126-SNAPSHOT/pretroniclibraries-utility-1.1.15.126-20200501.172705-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.4.1/HikariCP-3.4.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

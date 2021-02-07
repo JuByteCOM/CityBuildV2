@@ -43,7 +43,7 @@ public class PlayerJoinListener implements Listener {
             if(StartKick.playerStartKicked(player)) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                 SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                long time = StartKick.getDuration(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION;
+                long time = StartKick.getDuration(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION*1000L;
                 player.kickPlayer(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_BANSCREEN.replace("[date]", simpleDateFormat.format(time))
                         .replace("[time]", simpleTimeFormat.format(time)));
             }

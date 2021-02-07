@@ -1,6 +1,7 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
+import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.EntityDeathListener;
 import de.crashmash.citybuild.listener.PlayerJoinListener;
 import de.crashmash.citybuild.listener.SignChangeListener;
@@ -10,6 +11,10 @@ import de.crashmash.citybuild.storage.FoodSQL;
 import de.crashmash.citybuild.storage.Storage;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
+import net.pretronic.libraries.logging.PretronicLogger;
+import net.pretronic.libraries.logging.PretronicLoggerFactory;
+import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
+import net.pretronic.libraries.logging.level.LogLevel;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -35,6 +40,10 @@ public class CityBuildV2 extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
+        PretronicLogger logger = PretronicLoggerFactory.getLogger();
+        logger.setLevel(LogLevel.INFO);
+        SLF4JStaticBridge.setLogger(logger);
+
         sendMessage("§aEnabled");
 
         loadMySQLConfig();
@@ -49,6 +58,7 @@ public class CityBuildV2 extends JavaPlugin {
         storage.createConnection();
 
         loadLocations();
+
     }
 
     @Override
@@ -61,7 +71,6 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private void loadCommands() {
-
         Objects.requireNonNull(getCommand("schild")).setExecutor(new SchildCommand());
         Objects.requireNonNull(getCommand("clearchat")).setExecutor(new ClearChatCommand());
         Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
@@ -70,6 +79,9 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("startkick")).setExecutor(new StartkickCommand());
         Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
         Objects.requireNonNull(getCommand("nein")).setExecutor(new NeinCommand());
+        Objects.requireNonNull(getCommand("unstartkick")).setExecutor(new UnstartKickCommand());
+        Objects.requireNonNull(getCommand("slowchat")).setAliases(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ALIASES);
+        Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
 
     }
 
@@ -89,12 +101,7 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     public void loadLocations() {
-        Bukkit.getServer().getScheduler().runTaskLater(this, new Runnable() {
-            @Override
-            public void run() {
-                FoodLocation.setLocations(FoodSQL.loadFood());
-            }
-        },10);
+        Bukkit.getServer().getScheduler().runTaskLater(this, () -> FoodLocation.setLocations(FoodSQL.loadFood()),10);
     }
 
     private boolean setupSignEdit() {
@@ -163,4 +170,5 @@ public class CityBuildV2 extends JavaPlugin {
     public Map<Player, StartKickPlayer> getSTARTKICKPLAYER_MAP() {
         return STARTKICKPLAYER_MAP;
     }
+
 }

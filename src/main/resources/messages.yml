@@ -1,3 +1,17 @@
+#█████████████████████████████████████████████████████████████████████████████████████████████████
+#█████████░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░░░███░░░░░░░░██░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+#█████████░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀░░██░░▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+#█████████░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░▄▀░░███░░░░▄▀░░██░░▄▀░░░░█░░░░░░▄▀░░░░░░█░░▄▀░░░░░░░░░░█
+#█████████░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█████░░▄▀▄▀░░▄▀▄▀░░███████░░▄▀░░█████░░▄▀░░█████████
+#█████████░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░▄▀░░░░███░░░░▄▀▄▀▄▀░░░░███████░░▄▀░░█████░░▄▀░░░░░░░░░░█
+#█████████░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀▄▀░░█████░░░░▄▀░░░░█████████░░▄▀░░█████░░▄▀▄▀▄▀▄▀▄▀░░█
+#█░░░░░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░▄▀░░███████░░▄▀░░███████████░░▄▀░░█████░░▄▀░░░░░░░░░░█
+#█░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░████░░▄▀░░███████░░▄▀░░███████████░░▄▀░░█████░░▄▀░░█████████
+#█░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░░░░░░░▄▀░░███████░░▄▀░░███████████░░▄▀░░█████░░▄▀░░░░░░░░░░█
+#█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███████░░▄▀░░███████████░░▄▀░░█████░░▄▀▄▀▄▀▄▀▄▀░░█
+#█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███████░░░░░░███████████░░░░░░█████░░░░░░░░░░░░░░█
+#█████████████████████████████████████████████████████████████████████████████████████████████████
+
 Prefix: '&8[&4&lCityBuild&8]'
 NoPerms: '[prefix] &cDazu hast du keine Rechte.'
 IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
@@ -75,7 +89,7 @@ Commands:
         [prefix] &eSoll &4&l[targetPlayer] &egekickt werden?
         [prefix] &7Ersteller: &4&l[player]
         [prefix] &7Dauer: &4&l[duration] Minuten
-        [prefix] &7Grund: &4&l[reason]
+        [prefix] &7Grund:&4&l[reason]
       VoteForYes: '[prefix] &7Stimme &afür &7den Rauswurf von &e[targetPlayer]&7. &a&l[Klicke hier!]'
       VoteForNo: '[prefix] &7Stimme &cgegen &7den Rauswurf von &e[targetPlayer]&7. &a&l[Klicke hier!]'
       Counter: '[prefix] &7Die Abstimmung &cendet &7in &e[counter] &7Sekunden.'
@@ -96,6 +110,14 @@ Commands:
       Duration: 300
       Counter: 30
       CounterTimes: [30, 15, 10, 5, 3, 2, 1]
+  Unstartkick:
+    Permissions:
+      Use: 'citybuild.unstartkick.use'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/unstartkick <targetPlayer>'
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7wurde &cnicht &7gefunden.'
+      NotKicked: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &cnicht &7gestartkickt.'
+      Unkicked: '[prefix] &7Du hast &e[targetPlayer] &aentstartkickt&7.'
   YesCommand:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/ja'
@@ -110,3 +132,12 @@ Commands:
       VotedForYes: '[prefix] &7Du hast &cbereits &7für &eJa &7gestimmt.'
       SuccesfulVoted: '[prefix] &7Du hast für &cNein &7gestimmt.'
       NoStartKick: '[prefix] &7Es läuft &ckeine &7Abstimmung.'
+  SlowChat:
+    Permissions:
+      Use: 'citybuild.slowchat.use'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/slowchat'
+      Activated: '[prefix] &7Der Chat wurde von &e[player] &cverlangsamt&7!'
+      Deactivated: '[prefix] &7Die Verlangsamung wurde von &e[player] &aaufgehoben&7!'
+    Settings:
+      Aliases: [test]

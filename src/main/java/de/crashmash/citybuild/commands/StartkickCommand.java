@@ -71,10 +71,9 @@ public class StartkickCommand implements CommandExecutor {
         }
         isStartkick = true;
         StringBuilder reason = new StringBuilder();
-        for(int i = 1; i < strings.length; i++) {
-            reason.append(strings[i]);
+        for (int i = 1; i < strings.length; i++) {
+            reason.append(" ").append(strings[i]);
         }
-        reasons = String.valueOf(reason);
 
         TextComponent voteYes = new TextComponent(TextComponent.fromLegacyText
                 (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_YES.replace("[targetPlayer]", player.getDisplayName())));
@@ -152,7 +151,7 @@ public class StartkickCommand implements CommandExecutor {
             StartKick.playerStartKicked(targetPlayer, reasons, System.currentTimeMillis());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
             SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-            long time = StartKick.getDuration(targetPlayer) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION;
+            long time = StartKick.getDuration(targetPlayer) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION* 1000L;
             targetPlayer.kickPlayer(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_BANSCREEN.replace("[date]", simpleDateFormat.format(time))
                 .replace("[time]", simpleTimeFormat.format(time)));
         } else {

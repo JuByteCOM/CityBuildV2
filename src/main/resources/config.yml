@@ -8,5 +8,7 @@ Settings:
     Food: true
     Teleport: true
     StartKick: true
+    Unstartkick: true
     YesCommand: true
     NoCommand: true
+    SlowChat: true
