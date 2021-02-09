@@ -1,10 +1,7 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
-import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.listener.EntityDeathListener;
-import de.crashmash.citybuild.listener.PlayerJoinListener;
-import de.crashmash.citybuild.listener.SignChangeListener;
+import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.food.FoodLocation;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.FoodSQL;
@@ -80,7 +77,6 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
         Objects.requireNonNull(getCommand("nein")).setExecutor(new NeinCommand());
         Objects.requireNonNull(getCommand("unstartkick")).setExecutor(new UnstartKickCommand());
-        Objects.requireNonNull(getCommand("slowchat")).setAliases(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ALIASES);
         Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
 
     }
@@ -90,6 +86,8 @@ public class CityBuildV2 extends JavaPlugin {
         pluginManager.registerEvents(new SignChangeListener(), this);
         pluginManager.registerEvents(new PlayerJoinListener(), this);
         pluginManager.registerEvents(new EntityDeathListener(), this);
+        pluginManager.registerEvents(new PlayerQuitListener(), this);
+        pluginManager.registerEvents(new AsynPlayerChatListener(), this);
     }
 
     private void sendMessage(String status) {

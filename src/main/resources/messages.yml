@@ -135,9 +135,11 @@ Commands:
   SlowChat:
     Permissions:
       Use: 'citybuild.slowchat.use'
+      Bypass: 'citybuild.slowchat.bypass'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/slowchat'
       Activated: '[prefix] &7Der Chat wurde von &e[player] &cverlangsamt&7!'
       Deactivated: '[prefix] &7Die Verlangsamung wurde von &e[player] &aaufgehoben&7!'
+      WriteToFast: '[prefix] &7Da der Chat verlangsamt wurde, kannst du nur alle &c3 Sekunden &7schreiben.'
     Settings:
-      Aliases: [test]
+      ChatCooldown: 3

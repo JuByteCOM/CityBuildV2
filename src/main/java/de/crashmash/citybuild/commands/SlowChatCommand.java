@@ -14,9 +14,6 @@ public class SlowChatCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        command.setAliases(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ALIASES);
-        System.out.println(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ALIASES.size());
-        System.out.println(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ALIASES);
         if(!(commandSender instanceof Player)) {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         } else {
@@ -35,6 +32,8 @@ public class SlowChatCommand implements CommandExecutor {
                                 SLOWCHAT_STATUS = true;
                             }
                         }
+                    } else {
+                        player.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_USAGE);
                     }
                 } else {
                     player.sendMessage(MessagesData.NOPERMS);

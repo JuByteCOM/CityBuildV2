@@ -176,12 +176,16 @@ public class MessagesData {
     //Todo: Slowchat-Command
     public static String SLOWCHAT_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
             .getString("Commands.SlowChat.Permissions.Use");
+    public static String SLOWCHAT_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Permissions.Bypass");
     public static String SLOWCHAT_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
             .getString("Commands.SlowChat.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SLOWCHAT_COMMAND_MESSAGE_ACTIVATED = plugin.getMessagesConfig()
             .getString("Commands.SlowChat.Messages.Activated").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SLOWCHAT_COMMAND_MESSAGE_DEACTIVATED = plugin.getMessagesConfig()
             .getString("Commands.SlowChat.Messages.Deactivated").replaceAll("&", "§").replace("[prefix]", PREFIX);
-    public static List<String> SLOWCHAT_COMMAND_MESSAGE_ALIASES = plugin.getMessagesConfig()
-            .getStringList("Commands.SlowChat.Settings.Aliases");
+    public static String SLOWCHAT_COMMAND_MESSAGE_CHATTET_TO_FAST = plugin.getMessagesConfig()
+            .getString("Commands.SlowChat.Messages.WriteToFast").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static long SLOWCHAT_COMMAND_SETTINGS_CHAT_COOLDOWN = plugin.getMessagesConfig()
+            .getLong("Commands.SlowChat.Settings.ChatCooldown");
 }
