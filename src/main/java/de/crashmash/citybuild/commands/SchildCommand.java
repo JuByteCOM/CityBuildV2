@@ -49,7 +49,11 @@ public class SchildCommand implements CommandExecutor {
                         player.sendMessage(MessagesData.NOPERMS);
                     }
                 } else {
-                    player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTSQUARED);
+                    if(player.hasPermission("citybuild.schild.admin")) {
+                        player.sendMessage("§cPlotSquaredV5 is missing.");
+                    } else {
+                        player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTSQUARED);
+                    }
                 }
             } else {
                 player.sendMessage(MessagesData.DEACTIVATED);

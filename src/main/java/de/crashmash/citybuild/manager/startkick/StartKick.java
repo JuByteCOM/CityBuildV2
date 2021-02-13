@@ -39,10 +39,6 @@ public class StartKick {
         return CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).getDuration() + MessagesData.STARTKICK_COMMAND_SETTING_DURATION *1000L > System.currentTimeMillis();
     }
 
-    public static String getReason(Player player) {
-        return CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).getReason();
-    }
-
     public static long getDuration(Player player) {
         return CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).getDuration();
     }

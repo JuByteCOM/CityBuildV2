@@ -35,13 +35,13 @@ Commands:
     Permissions:
       Use: 'citybuild.clearchat.use'
     Messages:
-      Usage: '[prefix] &cBitte benutze &e/clearchat'
+      Usage: '[prefix] &cBitte nutze: &e/clearchat'
       Cleared: '[prefix] &cDer Chat wurde von [displayname] &cgeleert!'
   Status:
     Permissions:
       Use: 'citybuild.status.use'
     Messages:
-      Usage: '[prefix] &cBitte nutze &e/status <off/message>'
+      Usage: '[prefix] &cBitte nutze: &e/status <off/message>'
       HasNotStatus: '[prefix] &cDu hast noch kein Status gesetzt. Dies tust du mit &e/status <message>&c.'
       SetStatus: '[prefix] §7Du hast deinen Status geändert zu &b[status]&7.'
   Food:

@@ -1,10 +1,14 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
+import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.food.FoodLocation;
+import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.FoodSQL;
+import de.crashmash.citybuild.storage.StartkickSQL;
+import de.crashmash.citybuild.storage.StatusSQL;
 import de.crashmash.citybuild.storage.Storage;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
@@ -12,6 +16,7 @@ import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
 import net.pretronic.libraries.logging.level.LogLevel;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -55,6 +60,7 @@ public class CityBuildV2 extends JavaPlugin {
         storage.createConnection();
 
         loadLocations();
+        loadPlayers();
 
     }
 
@@ -137,6 +143,20 @@ public class CityBuildV2 extends JavaPlugin {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             saveResource("messages.yml", false);
+        }
+    }
+
+    private void loadPlayers() {
+        for(Player all : Bukkit.getOnlinePlayers()) {
+            if (all.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
+                StatusSQL.createPlayer(all.getUniqueId());
+            StartkickSQL.createPlayer(all.getUniqueId());
+            //Todo: Map Einträge
+            if(StartkickSQL.playerExists(all.getUniqueId())) {
+                if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(all)) {
+                    StartKick.createStartKickPlayer(all);
+                }
+            }
         }
     }
 
