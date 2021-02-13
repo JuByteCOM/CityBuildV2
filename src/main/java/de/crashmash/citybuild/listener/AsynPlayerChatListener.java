@@ -3,6 +3,7 @@ package de.crashmash.citybuild.listener;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.commands.SlowChatCommand;
 import de.crashmash.citybuild.data.MessagesData;
+import de.crashmash.citybuild.utils.ColoredChat;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,6 +20,8 @@ public class AsynPlayerChatListener implements Listener {
     @EventHandler
     public void handleAsyncPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
+        event.setMessage(ColoredChat.format(event.getMessage()));
+
         if(SlowChatCommand.SLOWCHAT_STATUS) {
             if(SLOWCHAT_PLAYER.contains(player)) {
                 player.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_CHATTET_TO_FAST);
@@ -41,5 +44,4 @@ public class AsynPlayerChatListener implements Listener {
             }
         }
     }
-
 }

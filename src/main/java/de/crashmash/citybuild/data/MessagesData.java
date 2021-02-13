@@ -1,7 +1,6 @@
 package de.crashmash.citybuild.data;
 
 import de.crashmash.citybuild.CityBuildV2;
-import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 import java.util.Objects;
