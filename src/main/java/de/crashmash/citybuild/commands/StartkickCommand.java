@@ -76,10 +76,10 @@ public class StartkickCommand implements CommandExecutor {
         }
 
         TextComponent voteYes = new TextComponent(TextComponent.fromLegacyText
-                (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_YES.replace("[targetPlayer]", player.getDisplayName())));
+                (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_YES.replace("[targetPlayer]", targetPlayer.getDisplayName())));
         voteYes.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ja"));
         TextComponent voteNo = new TextComponent(TextComponent.fromLegacyText
-                (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_NO.replace("[targetPlayer]", player.getDisplayName())));
+                (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_NO.replace("[targetPlayer]", targetPlayer.getDisplayName())));
         voteNo.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/nein"));
         for(Player all : Bukkit.getOnlinePlayers()) {
             all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_STARTED.replace("[player]", player.getDisplayName())
