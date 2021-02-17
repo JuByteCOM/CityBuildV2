@@ -143,3 +143,8 @@ Commands:
       WriteToFast: '[prefix] &7Da der Chat verlangsamt wurde, kannst du nur alle &c3 Sekunden &7schreiben.'
     Settings:
       ChatCooldown: 3
+
+Settings:
+  ColoredChat:
+    Permissions:
+      Use: 'citybuild.chat.color'

@@ -187,4 +187,8 @@ public class MessagesData {
             .getString("Commands.SlowChat.Messages.WriteToFast").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static long SLOWCHAT_COMMAND_SETTINGS_CHAT_COOLDOWN = plugin.getMessagesConfig()
             .getLong("Commands.SlowChat.Settings.ChatCooldown");
+
+    //Tod: ColoredChat
+    public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
+            .getString("Settings.ColoredChat.Permissions.Use");
 }

@@ -16,7 +16,6 @@ import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
 import net.pretronic.libraries.logging.level.LogLevel;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -44,7 +43,7 @@ public class CityBuildV2 extends JavaPlugin {
 
         PretronicLogger logger = PretronicLoggerFactory.getLogger();
         logger.setLevel(LogLevel.INFO);
-        SLF4JStaticBridge.setLogger(logger);
+        SLF4JStaticBridge.trySetLogger(logger);
 
         sendMessage("§aEnabled");
 
