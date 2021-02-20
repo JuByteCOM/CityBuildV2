@@ -1,6 +1,7 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.food.FoodLocation;
