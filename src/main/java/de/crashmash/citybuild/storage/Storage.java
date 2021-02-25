@@ -23,6 +23,7 @@ public class Storage {
     private DatabaseCollection statusCollection;
     private DatabaseCollection boosterCollection;
     private DatabaseCollection foodCollection;
+    private DatabaseCollection headColloction;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -67,6 +68,11 @@ public class Storage {
                 .field("Pitch", DataType.FLOAT)
                 .field("World", DataType.STRING)
                 .create();
+
+        this.headColloction = database.createCollection("Head")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("Cooldown", DataType.LONG)
+                .create();
     }
 
     public boolean isConnected() {
@@ -91,5 +97,9 @@ public class Storage {
 
     public DatabaseCollection getStartKickCollection() {
         return startKickCollection;
+    }
+
+    public DatabaseCollection getHeadColloction() {
+        return headColloction;
     }
 }

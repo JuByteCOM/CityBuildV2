@@ -188,7 +188,23 @@ public class MessagesData {
     public static long SLOWCHAT_COMMAND_SETTINGS_CHAT_COOLDOWN = plugin.getMessagesConfig()
             .getLong("Commands.SlowChat.Settings.ChatCooldown");
 
-    //Tod: ColoredChat
+    //Todo: Head-Command
+    public static String HEAD_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.Head.Permissions.Use");
+    public static String HEAD_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.Head.Permissions.Bypass");
+    public static String HEAD_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.Head.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String HEAD_COMMAND_MESSAGE_ADDED_HEAD = plugin.getMessagesConfig()
+            .getString("Commands.Head.Messages.AddedHead").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String HEAD_COMMAND_MESSAGE_COOLDOWN = plugin.getMessagesConfig()
+            .getString("Commands.Head.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String HEAD_COMMAND_ITEM_DISPLAYNAME = plugin.getMessagesConfig()
+            .getString("Commands.Head.Item.Displayname").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static int HEAD_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getInt("Commands.Head.Settings.Cooldown");
+
+    //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");
 }

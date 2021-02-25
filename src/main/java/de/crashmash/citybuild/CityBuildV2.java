@@ -5,12 +5,10 @@ import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.food.FoodLocation;
+import de.crashmash.citybuild.manager.head.Head;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
-import de.crashmash.citybuild.storage.FoodSQL;
-import de.crashmash.citybuild.storage.StartkickSQL;
-import de.crashmash.citybuild.storage.StatusSQL;
-import de.crashmash.citybuild.storage.Storage;
+import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
 import net.pretronic.libraries.logging.PretronicLogger;
@@ -37,6 +35,7 @@ public class CityBuildV2 extends JavaPlugin {
     private final List<String> VOTING_NO = new ArrayList<>();
 
     private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
+    private final Map<Player, Long> HEADPLAYER_MAP = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -84,6 +83,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("nein")).setExecutor(new NeinCommand());
         Objects.requireNonNull(getCommand("unstartkick")).setExecutor(new UnstartKickCommand());
         Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
+        Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
 
     }
 
@@ -94,6 +94,7 @@ public class CityBuildV2 extends JavaPlugin {
         pluginManager.registerEvents(new EntityDeathListener(), this);
         pluginManager.registerEvents(new PlayerQuitListener(), this);
         pluginManager.registerEvents(new AsynPlayerChatListener(), this);
+        pluginManager.registerEvents(new PlayerLoginListener(), this);
     }
 
     private void sendMessage(String status) {
@@ -151,10 +152,16 @@ public class CityBuildV2 extends JavaPlugin {
             if (all.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
                 StatusSQL.createPlayer(all.getUniqueId());
             StartkickSQL.createPlayer(all.getUniqueId());
+            HeadSQL.createPlayer(all.getUniqueId());
             //Todo: Map Einträge
             if(StartkickSQL.playerExists(all.getUniqueId())) {
                 if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(all)) {
                     StartKick.createStartKickPlayer(all);
+                }
+            }
+            if(HeadSQL.playerExists(all.getUniqueId())) {
+                if(!CityBuildV2.getPlugin().getHEADPLAYER_MAP().containsKey(all)) {
+                    Head.createHeadPlayer(all);
                 }
             }
         }
@@ -189,4 +196,7 @@ public class CityBuildV2 extends JavaPlugin {
         return STARTKICKPLAYER_MAP;
     }
 
+    public Map<Player, Long> getHEADPLAYER_MAP() {
+        return HEADPLAYER_MAP;
+    }
 }

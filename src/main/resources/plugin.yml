@@ -38,3 +38,8 @@ commands:
       - unkick
   slowchat:
     description: 'Verlangsame den Chat.'
+  head:
+    description: 'Gebe dir den Kopf von anderen Spielern.'
+    aliases:
+      - kopf
+      - skull

@@ -143,6 +143,18 @@ Commands:
       WriteToFast: '[prefix] &7Da der Chat verlangsamt wurde, kannst du nur alle &c3 Sekunden &7schreiben.'
     Settings:
       ChatCooldown: 3
+  Head:
+    Permissions:
+      Use: 'citybuild.head.use'
+      Bypass: 'citybuild.head.bypass'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/head <playerName>'
+      AddedHead: '[prefix] &7Du hast den Kopf von &e[skullName] &aerhalten&7.'
+      Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
+    Item:
+      Displayname: '&eKopf von [skullName]'
+    Settings:
+      Cooldown: 1209600
 
 Settings:
   ColoredChat:

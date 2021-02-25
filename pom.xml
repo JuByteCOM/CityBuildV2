@@ -46,6 +46,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>net.pretronic.libraries</groupId>
+            <artifactId>pretroniclibraries-caching</artifactId>
+            <version>1.2.46.185-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.bukkit.craftbukkit</groupId>
             <artifactId>craftbukkit</artifactId>
             <version>1.0</version>
