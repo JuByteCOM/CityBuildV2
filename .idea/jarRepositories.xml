@@ -12,6 +12,21 @@
       <option name="url" value="https://mvn.intellectualsites.com/content/groups/public/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="inventive-repo" />
+      <option name="name" value="inventive-repo" />
+      <option name="url" value="https://repo.inventivetalent.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="inventive-repo" />
+      <option name="name" value="inventive-repo" />
+      <option name="url" value="http://repo.inventivetalent.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public" />
+      <option name="name" value="Public Repositories" />
+      <option name="url" value="http://repo.mvdw-software.be/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />

@@ -1,10 +1,8 @@
 package de.crashmash.citybuild.commands;
 
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.head.Head;
-import de.crashmash.citybuild.manager.startkick.StartKick;
+import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import org.bukkit.Material;
-import org.bukkit.SkullType;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,7 +22,7 @@ public class HeadCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if(player.hasPermission(MessagesData.HEAD_COMMAND_PERMISSION_USE)) {
                 if(strings.length == 1) {
-                    if(Head.canUseHead(player)) {
+                    if(Cooldown.canUseHead(player)) {
                         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD, 1);
                         SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
                         skullMeta.setOwner(strings[0]);
@@ -32,11 +30,11 @@ public class HeadCommand implements CommandExecutor {
                         itemStack.setItemMeta(skullMeta);
                         player.getInventory().addItem(itemStack);
                         player.sendMessage(MessagesData.HEAD_COMMAND_MESSAGE_ADDED_HEAD.replace("[skullName]", strings[0]));
-                        Head.setCooldownTime(player);
+                        Cooldown.setHeadCooldown(player);
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = Head.getHeadCooldown(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L;
+                        long time = Cooldown.getHeadCooldown(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L;
                         player.sendMessage(MessagesData.HEAD_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }

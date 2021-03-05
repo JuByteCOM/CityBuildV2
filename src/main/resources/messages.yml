@@ -82,6 +82,7 @@ Commands:
       TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
       SelfKick: '[prefix] &7Du kannst dich &cnicht &7selber StartKicken.'
       KickBypass: '[prefix] &7Der Spieler &e[targetPlayer] &7kann &cnicht &7gekickt werden.'
+      Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
       Started: |-
         [prefix]&e&lEin &b&lStartKick &e&lwurde gestartet!
         &e
@@ -155,6 +156,24 @@ Commands:
       Displayname: '&eKopf von [skullName]'
     Settings:
       Cooldown: 1209600
+  Breakblock:
+    Permissions:
+      Use: 'citybuild.breakblock.use'
+      Bypass: 'citybuild.breakblock.bypass'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/breakblock'
+      DisabledWorld: '[prefix] &7Dieser Befehl ist in dieser &eWelt &cnicht &7verfügbar.'
+      DisabledBlockHeight: '[prefix] &7Der Block kann &cnicht &7auf Höhe &e[blockHeight] &7abgebaut werden.'
+      BlockedBlock: '[prefix] &7Dieser Block kann &cnicht &7mit &e/breakblock &7zerstört werden.'
+      ConfirmCommand: '[prefix] &7Bist du dir sicher, dass du den Block abbauen möchtest? Gib &e/breakblock confirm &7ein.'
+      BlockRemoved: '[prefix] &7Du hast den Block &aerfolgreich &7abgebaut.'
+      Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
+    Settings:
+      AviableWorlds: ['world', 'Plotworld']
+      DisabledBlockHeights: [0, 1, 2, 3, 4, 5]
+      BlockedBlocks: [GRASS_BLOCK]
+      DropBlock: false
+      Cooldown: 1800
 
 Settings:
   ColoredChat:

@@ -23,7 +23,7 @@ public class Storage {
     private DatabaseCollection statusCollection;
     private DatabaseCollection boosterCollection;
     private DatabaseCollection foodCollection;
-    private DatabaseCollection headColloction;
+    private DatabaseCollection cooldownCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -69,9 +69,11 @@ public class Storage {
                 .field("World", DataType.STRING)
                 .create();
 
-        this.headColloction = database.createCollection("Head")
+        this.cooldownCollection = database.createCollection("Cooldowns")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
-                .field("Cooldown", DataType.LONG)
+                .field("Head", DataType.LONG)
+                .field("BreakBlock", DataType.LONG)
+                .field("MuteP", DataType.LONG)
                 .create();
     }
 
@@ -99,7 +101,7 @@ public class Storage {
         return startKickCollection;
     }
 
-    public DatabaseCollection getHeadColloction() {
-        return headColloction;
+    public DatabaseCollection getcooldownCollection() {
+        return cooldownCollection;
     }
 }

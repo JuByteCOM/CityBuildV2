@@ -1,11 +1,11 @@
 package de.crashmash.citybuild;
 
 import de.crashmash.citybuild.commands.*;
-import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
+import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.manager.food.FoodLocation;
-import de.crashmash.citybuild.manager.head.Head;
+import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
@@ -35,7 +35,7 @@ public class CityBuildV2 extends JavaPlugin {
     private final List<String> VOTING_NO = new ArrayList<>();
 
     private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
-    private final Map<Player, Long> HEADPLAYER_MAP = new HashMap<>();
+    private final Map<Player, CooldownPlayer> COOLDWNPLAYER_MAP = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -84,6 +84,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("unstartkick")).setExecutor(new UnstartKickCommand());
         Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
         Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
+        Objects.requireNonNull(getCommand("breakblock")).setExecutor(new BreakblockCommand());
 
     }
 
@@ -152,16 +153,16 @@ public class CityBuildV2 extends JavaPlugin {
             if (all.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
                 StatusSQL.createPlayer(all.getUniqueId());
             StartkickSQL.createPlayer(all.getUniqueId());
-            HeadSQL.createPlayer(all.getUniqueId());
+            CooldownSQL.createPlayer(all.getUniqueId());
             //Todo: Map Einträge
             if(StartkickSQL.playerExists(all.getUniqueId())) {
                 if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(all)) {
                     StartKick.createStartKickPlayer(all);
                 }
             }
-            if(HeadSQL.playerExists(all.getUniqueId())) {
-                if(!CityBuildV2.getPlugin().getHEADPLAYER_MAP().containsKey(all)) {
-                    Head.createHeadPlayer(all);
+            if(CooldownSQL.playerExists(all.getUniqueId())) {
+                if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(all)) {
+                    Cooldown.createCooldownPlayer(all);
                 }
             }
         }
@@ -196,7 +197,7 @@ public class CityBuildV2 extends JavaPlugin {
         return STARTKICKPLAYER_MAP;
     }
 
-    public Map<Player, Long> getHEADPLAYER_MAP() {
-        return HEADPLAYER_MAP;
+    public Map<Player, CooldownPlayer> getCOOLDWNPLAYER_MAP() {
+        return COOLDWNPLAYER_MAP;
     }
 }

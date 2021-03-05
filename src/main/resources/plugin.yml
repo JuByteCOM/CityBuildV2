@@ -1,5 +1,5 @@
 name: CityBuildV2
-version: 1.3.2-BETA
+version: 1.5.0-BETA
 authors:
   - Justin_SGD
   - KeinByte
@@ -43,3 +43,5 @@ commands:
     aliases:
       - kopf
       - skull
+  breakblock:
+    description: 'Baue unzerstörbare Blöcke ab.'

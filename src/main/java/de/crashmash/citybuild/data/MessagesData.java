@@ -1,6 +1,8 @@
 package de.crashmash.citybuild.data;
 
 import de.crashmash.citybuild.CityBuildV2;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.Objects;
@@ -124,6 +126,8 @@ public class MessagesData {
             .getString("Commands.StartKick.Messages.PlayerNotKicked").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String STARTKICK_COMMAND_MESSAGE_PLAYER_BANSCREEN = plugin.getMessagesConfig()
             .getString("Commands.StartKick.Messages.BanScreen").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String STARTKICK_COMMAND_MESSAGE_COOLDOWN = plugin.getMessagesConfig()
+            .getString("Commands.StartKick.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static boolean STARTKICK_COMMAND_SETTING_KICK_BYPASS = plugin.getMessagesConfig()
             .getBoolean("Commands.StartKick.Settings.KickBypass");
     public static int STARTKICK_COMMAND_SETTING_COOLDOWN = plugin.getMessagesConfig()
@@ -203,6 +207,36 @@ public class MessagesData {
             .getString("Commands.Head.Item.Displayname").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static int HEAD_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
             .getInt("Commands.Head.Settings.Cooldown");
+
+    //Todo: BreakBlock-Command
+    public static String BREAKBLOCK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Permissions.Use");
+    public static String BREAKBLOCK_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Permissions.Bypass");
+    public static String BREAKBLOCK_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_DISABLED_WORLDS = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.DisabledWorld").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_DISABLED_BLOCK_HEIGHT = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.DisabledBlockHeight").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_BLOCKED_BLOCK = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.BlockedBlock").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_COMMAND = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.ConfirmCommand").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.BlockRemoved").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_COODLOWN = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static List<String> BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS = plugin.getMessagesConfig()
+            .getStringList("Commands.Breakblock.Settings.AviableWorlds");
+    public static List<Integer> BREAKBLOCK_COMMAND_SETTINGS_DISABLES_BLOCK_HEIGHTS = plugin.getMessagesConfig()
+            .getIntegerList("Commands.Breakblock.Settings.DisabledBlockHeights");
+    public static List<String> BREAKBLOCK_COMMAND_SETTINGS_BLOCKED_BLOCKS = plugin.getMessagesConfig()
+            .getStringList("Commands.Breakblock.Settings.BlockedBlocks");
+    public static boolean BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK = plugin.getMessagesConfig()
+            .getBoolean("Commands.Breakblock.Settings.DropBlock");
+    public static int BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getInt("Commands.Breakblock.Settings.Cooldown");
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()

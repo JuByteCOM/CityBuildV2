@@ -65,8 +65,11 @@ public class StartkickCommand implements CommandExecutor {
             if(StartKick.canStartKick(player.getUniqueId())) {
                 StartKick.setCooldownTime(player);
             } else {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-                player.sendMessage("REPLACE".replace("[cooldown]", simpleDateFormat.format(StartKick.getCooldownTime(player))));
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
+                long time = StartKick.getDuration(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION*1000L;
+                player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
+                        .replace("[time]", simpleTimeFormat.format(time)));
             }
         }
         isStartkick = true;
