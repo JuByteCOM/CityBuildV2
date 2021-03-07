@@ -27,6 +27,13 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>de.crashmash</id>
+            <url>http://164.68.98.148:8888/repository/de.crashmash/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>pretronic</id>
@@ -36,7 +43,32 @@
             <id>IntellectualSites</id>
             <url>https://mvn.intellectualsites.com/content/groups/public/</url>
         </repository>
+        <repository>
+            <id>de.crashmash</id>
+            <name>CrashMash</name>
+            <url>http://164.68.98.148:8888/repository/de.crashmash/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>de.crashmash</id>
+            <name>CrashMash</name>
+            <url>http://164.68.98.148:8888/repository/de.crashmash/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
