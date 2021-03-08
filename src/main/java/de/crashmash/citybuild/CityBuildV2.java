@@ -96,6 +96,7 @@ public class CityBuildV2 extends JavaPlugin {
         pluginManager.registerEvents(new PlayerQuitListener(), this);
         pluginManager.registerEvents(new AsynPlayerChatListener(), this);
         pluginManager.registerEvents(new PlayerLoginListener(), this);
+        pluginManager.registerEvents(new PlayerCommandPreprocessListener(), this);
     }
 
     private void sendMessage(String status) {

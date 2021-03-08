@@ -174,6 +174,15 @@ Commands:
       BlockedBlocks: [GRASS_BLOCK]
       DropBlock: false
       Cooldown: 1800
+  CommandSpy:
+    Permissions:
+      Use: 'citybuild.commandspy.use'
+      Bypass: 'citybuild.commandspy.bypass'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/commandspy {player}'
+      EnabledAll: '[prefix] &7Du siehst nun die Befehle von &ejeden Spieler&7.'
+      EnabledPlayer: '[prefix] &7Du siehst nun die Befehle von &e[targetPlayer]&7.'
+      Command: '[prefix] &e[targetPlayer] &7hat &e[command] &7eingegeben&7.'
 
 Settings:
   ColoredChat:

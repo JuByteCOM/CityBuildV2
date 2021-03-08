@@ -238,6 +238,20 @@ public class MessagesData {
     public static int BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
             .getInt("Commands.Breakblock.Settings.Cooldown");
 
+    //Todo: CommandSpy-Command
+    public static String COMMANDSPY_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.CommandSpy.Permissions.Use");
+    public static String COMMANDSPY_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.CommandSpy.Permissions.Bypass");
+    public static String COMMANDSPY_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.CommandSpy.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String COMMANDSPY_COMMAND_MESSAGE_ENABLED_ALL = plugin.getMessagesConfig()
+            .getString("Commands.EnabledAll.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String COMMANDSPY_COMMAND_MESSAGE_ENABLED_PLAYER = plugin.getMessagesConfig()
+            .getString("Commands.EnabledPlayer.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String COMMANDSPY_COMMAND_MESSAGE_COMMAND = plugin.getMessagesConfig()
+            .getString("Commands.EnabledPlayer.Messages.Command").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");
