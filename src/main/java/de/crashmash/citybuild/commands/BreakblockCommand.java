@@ -38,7 +38,7 @@ public class BreakblockCommand implements CommandExecutor {
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = StartKick.getDuration(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION*1000L;
+                        long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN*1000L;
                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_COODLOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }

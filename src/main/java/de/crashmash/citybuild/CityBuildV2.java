@@ -63,7 +63,7 @@ public class CityBuildV2 extends JavaPlugin {
         loadLocations();
         loadPlayers();
 
-        //AutoUpdater updater = new AutoUpdater(CityBuildV2.getPlugin(), 89797, this.getFile(), AutoUpdater.UpdateType.DOWNLOAD, true);
+        //AutoUpdater updater = new AutoUpdater(CityBuildV2.getPlugin(), 88621, this.getFile(), AutoUpdater.UpdateType.CHECK_DOWNLOAD, true);
         //System.out.println(updater.getResult());
         //System.out.println(updater.getVersion());
     }
