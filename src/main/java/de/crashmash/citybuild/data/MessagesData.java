@@ -227,6 +227,8 @@ public class MessagesData {
             .getString("Commands.Breakblock.Messages.BlockRemoved").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String BREAKBLOCK_COMMAND_MESSAGE_COODLOWN = plugin.getMessagesConfig()
             .getString("Commands.Breakblock.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static List<String> BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS = plugin.getMessagesConfig()
             .getStringList("Commands.Breakblock.Settings.AviableWorlds");
     public static List<Integer> BREAKBLOCK_COMMAND_SETTINGS_DISABLES_BLOCK_HEIGHTS = plugin.getMessagesConfig()

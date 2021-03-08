@@ -168,6 +168,7 @@ Commands:
       ConfirmCommand: '[prefix] &7Bist du dir sicher, dass du den Block abbauen möchtest? Gib &e/breakblock confirm &7ein.'
       BlockRemoved: '[prefix] &7Du hast den Block &aerfolgreich &7abgebaut.'
       Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
+      IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
     Settings:
       AviableWorlds: ['world', 'Plotworld']
       DisabledBlockHeights: [0, 1, 2, 3, 4, 5]

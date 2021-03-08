@@ -81,12 +81,14 @@ public class BreakblockCommand implements CommandExecutor {
                                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                         Cooldown.setBreakBlockCooldown(player);
                                     } else {
-                                        if (PlotUtils.getPlot(block.getLocation()) != null) {
+                                        if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null) {
                                             if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
                                                 breackBlockPlayers.remove(player);
                                                 block.setType(Material.AIR);
                                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                                 Cooldown.setBreakBlockCooldown(player);
+                                            } else {
+                                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER);
                                             }
                                         }
                                     }
