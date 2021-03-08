@@ -182,6 +182,8 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/commandspy {player}'
       EnabledAll: '[prefix] &7Du siehst nun die Befehle von &ejeden Spieler&7.'
       EnabledPlayer: '[prefix] &7Du siehst nun die Befehle von &e[targetPlayer]&7.'
+      TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      Disabled: '[prefix] &7Du spionierst nun &cnicht &7mehr andere Spieler aus :D.'
       Command: '[prefix] &e[targetPlayer] &7hat &e[command] &7eingegeben&7.'
 
 Settings:

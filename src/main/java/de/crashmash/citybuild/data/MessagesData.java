@@ -246,11 +246,15 @@ public class MessagesData {
     public static String COMMANDSPY_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
             .getString("Commands.CommandSpy.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String COMMANDSPY_COMMAND_MESSAGE_ENABLED_ALL = plugin.getMessagesConfig()
-            .getString("Commands.EnabledAll.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.CommandSpy.Messages.EnabledAll").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String COMMANDSPY_COMMAND_MESSAGE_ENABLED_PLAYER = plugin.getMessagesConfig()
-            .getString("Commands.EnabledPlayer.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.CommandSpy.Messages.EnabledPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String COMMANDSPY_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = plugin.getMessagesConfig()
+            .getString("Commands.CommandSpy.Messages.TargetPlayerOffline").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String COMMANDSPY_COMMAND_MESSAGE_DISABLED = plugin.getMessagesConfig()
+            .getString("Commands.CommandSpy.Messages.Disabled").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String COMMANDSPY_COMMAND_MESSAGE_COMMAND = plugin.getMessagesConfig()
-            .getString("Commands.EnabledPlayer.Messages.Command").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.CommandSpy.Messages.Command").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()

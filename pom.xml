@@ -6,15 +6,12 @@
 
     <groupId>de.crashmash.citybuild</groupId>
     <artifactId>CityBuildV2</artifactId>
-    <version>1.0.0-BETA</version>
+    <version>1.6.0-BETA</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <plugin.maven.deploy>3.0.0-M1</plugin.maven.deploy>
-
-
     </properties>
 
     <build>
@@ -28,20 +25,8 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${plugin.maven.deploy}</version>
-            </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>crashmash</id>
-            <url>http://164.68.98.148:8888/repository/crashmash/</url>
-        </repository>
-    </distributionManagement>
     <repositories>
         <repository>
             <id>pretronic</id>
@@ -89,6 +74,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.23</version>
+        </dependency>
+        <dependency>
+            <groupId>de.crashmash.developerapi</groupId>
+            <artifactId>DeveloperAPI</artifactId>
+            <version>1.0.8-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

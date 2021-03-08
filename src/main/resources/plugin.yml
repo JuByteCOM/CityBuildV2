@@ -45,3 +45,8 @@ commands:
       - skull
   breakblock:
     description: 'Baue unzerstörbare Blöcke ab.'
+  commandspy:
+    description: 'Spioniere andere Spieler!'
+    aliases:
+      - cmdspy
+      - cspy

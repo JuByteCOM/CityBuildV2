@@ -11,6 +11,7 @@ import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
+import de.crashmash.developerapi.utils.AutoUpdater;
 import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
@@ -36,6 +37,7 @@ public class CityBuildV2 extends JavaPlugin {
 
     private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
     private final Map<Player, CooldownPlayer> COOLDWNPLAYER_MAP = new HashMap<>();
+    private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -61,6 +63,9 @@ public class CityBuildV2 extends JavaPlugin {
         loadLocations();
         loadPlayers();
 
+        //AutoUpdater updater = new AutoUpdater(CityBuildV2.getPlugin(), 89797, this.getFile(), AutoUpdater.UpdateType.DOWNLOAD, true);
+        //System.out.println(updater.getResult());
+        //System.out.println(updater.getVersion());
     }
 
     @Override
@@ -85,6 +90,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
         Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
         Objects.requireNonNull(getCommand("breakblock")).setExecutor(new BreakblockCommand());
+        Objects.requireNonNull(getCommand("commandspy")).setExecutor(new CommandSpyCommand());
 
     }
 
@@ -200,5 +206,9 @@ public class CityBuildV2 extends JavaPlugin {
 
     public Map<Player, CooldownPlayer> getCOOLDWNPLAYER_MAP() {
         return COOLDWNPLAYER_MAP;
+    }
+
+    public Map<Player, Player> getCOMMANDSPY_MAP() {
+        return COMMANDSPY_MAP;
     }
 }
