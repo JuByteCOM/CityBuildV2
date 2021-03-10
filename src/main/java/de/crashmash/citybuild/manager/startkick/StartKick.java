@@ -15,10 +15,8 @@ public class StartKick {
                 StartkickSQL.getDuration(player.getUniqueId()), StartkickSQL.getCooldown(player.getUniqueId())));
     }
 
-    public static boolean canStartKick(UUID uuid) {
+    public static boolean canStartKick(Player player) {
         long time;
-        Player player = Bukkit.getPlayer(uuid);
-        assert player != null;
         if (player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
             return true;
         }
@@ -46,6 +44,7 @@ public class StartKick {
     public static void playerStartKicked(Player player, String reason, long duration) {
         CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setReason(reason);
         CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setDuration(duration);
-        StartkickSQL.setStartKick(player.getUniqueId(), reason, duration);
+        CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setCooldown(System.currentTimeMillis());
+        StartkickSQL.setStartKick(player.getUniqueId(), reason, duration, System.currentTimeMillis());
     }
 }

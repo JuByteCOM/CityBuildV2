@@ -130,8 +130,8 @@ public class MessagesData {
             .getString("Commands.StartKick.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static boolean STARTKICK_COMMAND_SETTING_KICK_BYPASS = plugin.getMessagesConfig()
             .getBoolean("Commands.StartKick.Settings.KickBypass");
-    public static int STARTKICK_COMMAND_SETTING_COOLDOWN = plugin.getMessagesConfig()
-            .getInt("Commands.StartKick.Settings.Cooldown");
+    public static long STARTKICK_COMMAND_SETTING_COOLDOWN = plugin.getMessagesConfig()
+            .getLong("Commands.StartKick.Settings.Cooldown");
     public static int STARTKICK_COMMAND_SETTING_DURATION = plugin.getMessagesConfig()
             .getInt("Commands.StartKick.Settings.Duration");
     public static int STARTKICK_COMMAND_SETTING_COUNTER = plugin.getMessagesConfig()
@@ -205,8 +205,8 @@ public class MessagesData {
             .getString("Commands.Head.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String HEAD_COMMAND_ITEM_DISPLAYNAME = plugin.getMessagesConfig()
             .getString("Commands.Head.Item.Displayname").replaceAll("&", "§").replace("[prefix]", PREFIX);
-    public static int HEAD_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
-            .getInt("Commands.Head.Settings.Cooldown");
+    public static long HEAD_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getLong("Commands.Head.Settings.Cooldown");
 
     //Todo: BreakBlock-Command
     public static String BREAKBLOCK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
@@ -237,8 +237,8 @@ public class MessagesData {
             .getStringList("Commands.Breakblock.Settings.BlockedBlocks");
     public static boolean BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK = plugin.getMessagesConfig()
             .getBoolean("Commands.Breakblock.Settings.DropBlock");
-    public static int BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
-            .getInt("Commands.Breakblock.Settings.Cooldown");
+    public static long BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getLong("Commands.Breakblock.Settings.Cooldown");
 
     //Todo: CommandSpy-Command
     public static String COMMANDSPY_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()

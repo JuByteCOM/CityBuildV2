@@ -34,7 +34,7 @@ public class HeadCommand implements CommandExecutor {
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = Cooldown.getHeadCooldown(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L;
+                        long time = Cooldown.getHeadCooldown(player) + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN;
                         player.sendMessage(MessagesData.HEAD_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }

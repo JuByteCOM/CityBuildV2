@@ -1,5 +1,5 @@
 name: CityBuildV2
-version: 1.5.0-BETA
+version: 1.6.1-BETA
 authors:
   - Justin_SGD
   - KeinByte
@@ -50,3 +50,7 @@ commands:
     aliases:
       - cmdspy
       - cspy
+  cbv2:
+    description: 'Plugin Informationen'
+    aliases:
+      - citybuildv2

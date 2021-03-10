@@ -91,6 +91,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
         Objects.requireNonNull(getCommand("breakblock")).setExecutor(new BreakblockCommand());
         Objects.requireNonNull(getCommand("commandspy")).setExecutor(new CommandSpyCommand());
+        Objects.requireNonNull(getCommand("citybuildv2")).setExecutor(new CityBuildCommand());
 
     }
 

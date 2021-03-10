@@ -19,7 +19,7 @@ public class UnstartKickCommand implements CommandExecutor {
                     OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(strings[0]);
                     if (null != targetPlayer && StartkickSQL.playerExists(targetPlayer.getUniqueId())) {
                         if (StartkickSQL.getDuration(targetPlayer.getUniqueId()) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L > System.currentTimeMillis()) {
-                            StartkickSQL.setStartKick(targetPlayer.getUniqueId(), null, null);
+                            StartkickSQL.setStartKick(targetPlayer.getUniqueId(), null, 0, 0);
                             commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_UNKICKED.replace("[targetPlayer]", targetPlayer.getName()));
                         } else {
                             commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_NOT_KICKED.replace("[targetPlayer]", targetPlayer.getName()));

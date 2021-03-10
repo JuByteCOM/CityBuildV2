@@ -38,7 +38,7 @@ public class BreakblockCommand implements CommandExecutor {
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN*1000L;
+                        long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN;
                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_COODLOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }
@@ -47,7 +47,7 @@ public class BreakblockCommand implements CommandExecutor {
                         if(breackBlockPlayers.contains(player)) {
                             Block block = player.getTargetBlock(null, 5);
                             boolean breakAllowed = true;
-                            if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> !player.getWorld().equals(world)).collect(Collectors.toSet()).isEmpty()) {
+                            if (!MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> player.getWorld().equals(world)).collect(Collectors.toSet()).isEmpty()) {
                                 breakAllowed = false;
                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_WORLDS);
                             }

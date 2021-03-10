@@ -62,16 +62,16 @@ public class StartkickCommand implements CommandExecutor {
             }
         }
         if(!player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
-            if(StartKick.canStartKick(player.getUniqueId())) {
-                StartKick.setCooldownTime(player);
-            } else {
+            if(!StartKick.canStartKick(player)) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                 SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                long time = StartKick.getDuration(player) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION*1000L;
+                long time = StartKick.getCooldownTime(player) + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN;
                 player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                         .replace("[time]", simpleTimeFormat.format(time)));
+                return false;
             }
         }
+        StartKick.setCooldownTime(player);
         isStartkick = true;
         StringBuilder reason = new StringBuilder();
         for (int i = 1; i < strings.length; i++) {

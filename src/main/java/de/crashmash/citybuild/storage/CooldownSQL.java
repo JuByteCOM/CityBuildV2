@@ -66,13 +66,13 @@ public class CooldownSQL {
 
     public static void setBreakBlockCooldown(UUID uuid, long breakBlock) {
         CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
-                .set("Head", breakBlock)
+                .set("BreakBlock", breakBlock)
                 .where("UUID", uuid).executeAsync();
     }
 
     public static void setMutePCooldown(UUID uuid, long muteP) {
         CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
-                .set("Head", muteP)
+                .set("MuteP", muteP)
                 .where("UUID", uuid).executeAsync();
     }
 }

@@ -58,10 +58,11 @@ public class StartkickSQL {
         return 0;
     }
 
-    public static void setStartKick(UUID uuid, String reason, Long duration) {
+    public static void setStartKick(UUID uuid, String reason, long duration, long cooldown) {
         CityBuildV2.getPlugin().getStorage().getStartKickCollection().update()
                 .set("Reason", reason)
                 .set("Duration", duration)
+                .set("Cooldown", cooldown)
                 .where("UUID", uuid).executeAsync();
     }
 
