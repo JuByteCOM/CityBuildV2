@@ -47,7 +47,7 @@ public class BreakblockCommand implements CommandExecutor {
                         if(breackBlockPlayers.contains(player)) {
                             Block block = player.getTargetBlock(null, 5);
                             boolean breakAllowed = true;
-                            if (!MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> player.getWorld().equals(world)).collect(Collectors.toSet()).isEmpty()) {
+                            if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> player.getWorld().getName().equalsIgnoreCase(world)).collect(Collectors.toSet()).isEmpty()) {
                                 breakAllowed = false;
                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_WORLDS);
                             }
