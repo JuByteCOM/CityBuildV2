@@ -9,10 +9,10 @@ public class CityBuildCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        commandSender.sendMessage("§f===============================");
+        commandSender.sendMessage("§7===============================");
         commandSender.sendMessage("§bVersion: §f" + CityBuildV2.getPlugin().getDescription().getVersion());
         commandSender.sendMessage("§bAuthors: §f" + CityBuildV2.getPlugin().getDescription().getAuthors());
-        commandSender.sendMessage("§f===============================");
+        commandSender.sendMessage("§7===============================");
         return false;
     }
 }

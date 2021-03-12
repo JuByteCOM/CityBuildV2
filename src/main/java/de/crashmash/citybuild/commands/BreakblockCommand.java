@@ -1,5 +1,8 @@
 package de.crashmash.citybuild.commands;
 
+import com.plotsquared.core.api.PlotAPI;
+import com.plotsquared.core.location.Location;
+import com.plotsquared.core.plot.PlotArea;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.startkick.StartKick;
@@ -28,6 +31,7 @@ public class BreakblockCommand implements CommandExecutor {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         } else {
             Player player = (Player) commandSender;
+            PlotAPI plotAPI = new PlotAPI();
             if(player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_USE)) {
                 if(strings.length == 0) {
                     if(Cooldown.canUseBreakBlock(player)) {
@@ -65,21 +69,25 @@ public class BreakblockCommand implements CommandExecutor {
                                 }
                             }
                             if (breakAllowed) {
-                                if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
-                                    ItemStack itemStack = new ItemStack(block.getType());
-                                    player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
-                                }
                                 if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") == null) {
                                     breackBlockPlayers.remove(player);
                                     block.setType(Material.AIR);
                                     player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                     Cooldown.setBreakBlockCooldown(player);
+                                    if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                        ItemStack itemStack = new ItemStack(block.getType());
+                                        player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
+                                    }
                                 } else {
-                                    if (!PlotUtils.isInPlot(block.getLocation())) {
+                                    if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
                                         breackBlockPlayers.remove(player);
                                         block.setType(Material.AIR);
                                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                         Cooldown.setBreakBlockCooldown(player);
+                                        if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                            ItemStack itemStack = new ItemStack(block.getType());
+                                            player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
+                                        }
                                     } else {
                                         if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null) {
                                             if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
@@ -87,6 +95,10 @@ public class BreakblockCommand implements CommandExecutor {
                                                 block.setType(Material.AIR);
                                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                                 Cooldown.setBreakBlockCooldown(player);
+                                                if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                                    ItemStack itemStack = new ItemStack(block.getType());
+                                                    player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
+                                                }
                                             } else {
                                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER);
                                             }
