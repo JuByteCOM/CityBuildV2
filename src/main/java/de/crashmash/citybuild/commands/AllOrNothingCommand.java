@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 public class AllOrNothingCommand implements CommandExecutor {
 
@@ -34,23 +35,27 @@ public class AllOrNothingCommand implements CommandExecutor {
                     realResult = ThreadLocalRandom.current().nextInt(minReal, maxReal + 1);
                     startCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(CityBuildV2.getPlugin(), () -> {
                         for(int i : MessagesData.ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES) {
-                            for (Player all : Bukkit.getOnlinePlayers()) {
-                                if(i != 0 && i != 1) {
-                                    if (counter == i) {
+                            if (i != 0 && i != 1) {
+                                if (counter == i) {
+                                    for (Player all : Bukkit.getOnlinePlayers()) {
                                         all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_COUNTER.replace("[counter]", Integer.toString(i)));
-                                    }
-                                    if (counter == 1) {
-                                        all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER.replace("[counter]", Integer.toString(i)));
-                                    }
-                                    if (counter == 0) {
-                                        all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_RESULT.replace("[ingameMoney]", String.valueOf(ingameResult))
-                                            .replace("[realMoney]", String.valueOf(realResult)));
-                                        ingameResult = 0;
-                                        realResult = 0;
-                                        Bukkit.getScheduler().cancelTask(startCountdown);
                                     }
                                 }
                             }
+                        }
+                        if (counter == 1) {
+                            for (Player all : Bukkit.getOnlinePlayers()) {
+                                all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER);
+                            }
+                        }
+                        if (counter == 0) {
+                            for (Player all : Bukkit.getOnlinePlayers()) {
+                                all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_RESULT.replace("[ingameMoney]", String.valueOf(ingameResult))
+                                        .replace("[realMoney]", String.valueOf(realResult)));
+                            }
+                            Bukkit.getScheduler().cancelTask(startCountdown);
+                            ingameResult = 0;
+                            realResult = 0;
                         }
                         counter--;
                     }, 0, 20);
