@@ -1,11 +1,8 @@
 package de.crashmash.citybuild.commands;
 
 import com.plotsquared.core.api.PlotAPI;
-import com.plotsquared.core.location.Location;
-import com.plotsquared.core.plot.PlotArea;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
-import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.utils.PlotUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

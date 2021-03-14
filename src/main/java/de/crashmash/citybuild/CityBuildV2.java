@@ -3,15 +3,14 @@ package de.crashmash.citybuild;
 import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
+import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.manager.food.FoodLocation;
-import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
-import de.crashmash.developerapi.utils.AutoUpdater;
 import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
@@ -63,9 +62,9 @@ public class CityBuildV2 extends JavaPlugin {
         loadLocations();
         loadPlayers();
 
-        AutoUpdater updater = new AutoUpdater(this, 88621, this.getFile(), AutoUpdater.UpdateType.DOWNLOAD, true);
-        System.out.println(updater.getResult());
-        System.out.println(updater.getVersion());
+        //AutoUpdater updater = new AutoUpdater(this, 88621, this.getFile(), AutoUpdater.UpdateType.DOWNLOAD, true);
+        //System.out.println(updater.getResult());
+        //System.out.println(updater.getVersion());
     }
 
     @Override
@@ -92,6 +91,7 @@ public class CityBuildV2 extends JavaPlugin {
         Objects.requireNonNull(getCommand("breakblock")).setExecutor(new BreakblockCommand());
         Objects.requireNonNull(getCommand("commandspy")).setExecutor(new CommandSpyCommand());
         Objects.requireNonNull(getCommand("citybuildv2")).setExecutor(new CityBuildCommand());
+        Objects.requireNonNull(getCommand("allornothing")).setExecutor(new AllOrNothingCommand());
 
     }
 

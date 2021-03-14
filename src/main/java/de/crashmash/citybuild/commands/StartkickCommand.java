@@ -57,7 +57,7 @@ public class StartkickCommand implements CommandExecutor {
         }
         if(MessagesData.STARTKICK_COMMAND_SETTING_KICK_BYPASS) {
             if(targetPlayer.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_KICK_BYPASS)) {
-                player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_KICK_BYPASS.replace("[targetPlayer]", player.getDisplayName()));
+                player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_KICK_BYPASS.replace("[targetPlayer]", targetPlayer.getDisplayName()));
                 return false;
             }
         }

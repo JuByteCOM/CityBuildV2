@@ -258,6 +258,29 @@ public class MessagesData {
     public static String COMMANDSPY_COMMAND_MESSAGE_COMMAND = plugin.getMessagesConfig()
             .getString("Commands.CommandSpy.Messages.Command").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    public static String ALLORNOTHING_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Permissions.Use");
+    public static String ALLORNOTHING_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_COUNTER = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.Counter").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.LastSecondCounter").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_RESULT = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.Result").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static int ALLORNOTHING_COMMAND_SETTINGS_COUNTER = plugin.getMessagesConfig()
+            .getInt("Commands.AllOrNothing.Settings.Counter");
+    public static List<Integer> ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES = plugin.getMessagesConfig()
+            .getIntegerList("Commands.AllOrNothing.Settings.CounterTimes");
+    public static int ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = plugin.getMessagesConfig()
+            .getInt("Commands.AllOrNothing.Settings.MaxIngamemoney");
+    public static int ALLORNOTHING_COMMAND_SETTINGS_MIN_INGAMEMONEY = plugin.getMessagesConfig()
+            .getInt("Commands.AllOrNothing.Settings.MinIngamemoney");
+    public static int ALLORNOTHING_COMMAND_SETTINGS_MAX_REALMONEY = plugin.getMessagesConfig()
+            .getInt("Commands.AllOrNothing.Settings.MaxRealmoney");
+    public static int ALLORNOTHING_COMMAND_SETTINGS_MIN_REALMONEY = plugin.getMessagesConfig()
+            .getInt("Commands.AllOrNothing.Settings.MinRealmoney");
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");
