@@ -258,6 +258,7 @@ public class MessagesData {
     public static String COMMANDSPY_COMMAND_MESSAGE_COMMAND = plugin.getMessagesConfig()
             .getString("Commands.CommandSpy.Messages.Command").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: AllOrNothing-Command
     public static String ALLORNOTHING_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Permissions.Use");
     public static String ALLORNOTHING_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
@@ -266,6 +267,8 @@ public class MessagesData {
             .getString("Commands.AllOrNothing.Messages.Counter").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Messages.LastSecondCounter").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_ALLREADY_RUN_COMMAND = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.AlreadyRunCommand").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ALLORNOTHING_COMMAND_MESSAGE_RESULT = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Messages.Result").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static int ALLORNOTHING_COMMAND_SETTINGS_COUNTER = plugin.getMessagesConfig()

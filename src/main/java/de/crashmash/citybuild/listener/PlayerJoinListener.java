@@ -12,6 +12,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.Objects;
+
 public class PlayerJoinListener implements Listener {
 
     @EventHandler
@@ -37,7 +39,7 @@ public class PlayerJoinListener implements Listener {
         if(player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
             if(StatusSQL.playerExists(player.getUniqueId())) {
                 if(StatusSQL.hasStatus(player.getUniqueId())) {
-                    player.chat(StatusSQL.getStatus(player.getUniqueId()).replaceAll("&", "§"));
+                    player.chat(Objects.requireNonNull(StatusSQL.getStatus(player.getUniqueId())).replaceAll("&", "§"));
                 }
             } else {
                 StatusSQL.createPlayer(player.getUniqueId());

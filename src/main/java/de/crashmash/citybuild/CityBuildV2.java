@@ -9,6 +9,7 @@ import de.crashmash.citybuild.manager.food.FoodLocation;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
+import de.crashmash.citybuild.utils.AdvancedLicense;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
 import net.pretronic.libraries.logging.PretronicLogger;
@@ -40,6 +41,7 @@ public class CityBuildV2 extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        if (!new AdvancedLicense("DIPK-B9VF-QC8C-XSV4", "https://www.lizenz.crashmash.de/verify.php", this).setConsoleLog(AdvancedLicense.LogType.NONE).register()) return;
         plugin = this;
 
         PretronicLogger logger = PretronicLoggerFactory.getLogger();

@@ -193,6 +193,7 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/allesodernichts'
       Counter: '[prefix] &7Zahlen werden in &e[counter] Sekunden &7generiert.'
       LastSecondCounter: '[prefix] &7Zahlen werden in &eeiner Sekunde &7generiert.'
+      AlreadyRunCommand: '[prefix] &7Es &cläuft &7bereits &eZahlengenerierung.'
       Result: |-
         [prefix] &bIngamegeld: &f[ingameMoney]$
         [prefix] &bEchtgeld: &f[realMoney]€
