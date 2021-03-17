@@ -72,7 +72,7 @@ public class AdvancedLicense {
 
         int responseCode = con.getResponseCode();
         if (debug) {
-            System.out.println("\nSending 'GET' request to URL : " + url);
+            System.out.println("Sending 'GET' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
         }
 

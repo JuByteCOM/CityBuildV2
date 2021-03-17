@@ -8,6 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class AllOrNothingCommand implements CommandExecutor {
@@ -40,20 +42,20 @@ public class AllOrNothingCommand implements CommandExecutor {
                             for (int i : MessagesData.ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES) {
                                 if (i != 0 && i != 1) {
                                     if (counter == i) {
-                                        for (Player all : Bukkit.getOnlinePlayers()) {
-                                            all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_COUNTER.replace("[counter]", Integer.toString(i)));
+                                        for (Player players : Bukkit.getOnlinePlayers()) {
+                                            players.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_COUNTER.replace("[counter]", Integer.toString(i)));
                                         }
                                     }
                                 }
                             }
                             if (counter == 1) {
-                                for (Player all : Bukkit.getOnlinePlayers()) {
-                                    all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER);
+                                for (Player players : Bukkit.getOnlinePlayers()) {
+                                    players.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER);
                                 }
                             }
                             if (counter == 0) {
-                                for (Player all : Bukkit.getOnlinePlayers()) {
-                                    all.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_RESULT.replace("[ingameMoney]", String.valueOf(ingameResult))
+                                for (Player players : Bukkit.getOnlinePlayers()) {
+                                    players.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_RESULT.replace("[ingameMoney]", String.valueOf(ingameResult))
                                             .replace("[realMoney]", String.valueOf(realResult)));
                                 }
                                 Bukkit.getScheduler().cancelTask(startCountdown);
@@ -66,6 +68,29 @@ public class AllOrNothingCommand implements CommandExecutor {
                         }, 0, 20);
                     } else {
                         player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_ALLREADY_RUN_COMMAND);
+                    }
+                } else if(strings.length == 1) {
+                    if (strings[0].equalsIgnoreCase("admin")) {
+                        player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SETTINGS_INFORMATION);
+                    }
+                } else if(strings.length == 4) {
+                    int amount = Integer.parseInt(strings[3]);
+                    if (strings[0].equalsIgnoreCase("admin") && strings[1].equalsIgnoreCase("set")) {
+                        if (amount >= 0) {
+                            if (strings[2].equalsIgnoreCase("maxingamemoney")) {
+                                CityBuildV2.getPlugin().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxIngamemoney", amount);
+                                MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
+                                player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_INGAMEMONEY.replace("[amount]", String.valueOf(amount)));
+                            } else if (strings[2].equalsIgnoreCase("maxirealmoney")) {
+                                CityBuildV2.getPlugin().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxRealmoney", amount);
+                                MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
+                                player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_REALMONEY.replace("[amount]", String.valueOf(amount)));
+                            } else {
+                                player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_USAGE_ADMIN);
+                            }
+                        }
+                    } else {
+                        player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_USAGE);
                     }
                 } else {
                     player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_USAGE);

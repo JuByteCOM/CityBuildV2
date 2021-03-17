@@ -1,5 +1,7 @@
 package de.crashmash.citybuild;
 
+import com.google.common.base.Charsets;
+import com.sun.istack.internal.NotNull;
 import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
@@ -24,6 +26,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class CityBuildV2 extends JavaPlugin {
@@ -39,9 +43,12 @@ public class CityBuildV2 extends JavaPlugin {
     private final Map<Player, CooldownPlayer> COOLDWNPLAYER_MAP = new HashMap<>();
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
 
+    private FileConfiguration newConfig = null;
+    private final File configFile = new File(getDataFolder(), "messages.yml");
+
+
     @Override
     public void onEnable() {
-        if (!new AdvancedLicense("DIPK-B9VF-QC8C-XSV4", "https://www.lizenz.crashmash.de/verify.php", this).setConsoleLog(AdvancedLicense.LogType.NONE).register()) return;
         plugin = this;
 
         PretronicLogger logger = PretronicLoggerFactory.getLogger();
@@ -125,8 +132,12 @@ public class CityBuildV2 extends JavaPlugin {
         return true;
     }
 
-    public static File getFileFolder() {
-        return new File(plugin.getDataFolder().toString());
+    public void reloadMessagesConfig() {
+        this.newConfig = YamlConfiguration.loadConfiguration(this.configFile);
+        InputStream defConfigStream = this.getResource("messages.yml");
+        if (defConfigStream != null) {
+            this.newConfig.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
+        }
     }
 
     private void loadConfig() {
@@ -146,16 +157,25 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     public FileConfiguration getMySQLConfig() {
-        File file = new File(getFileFolder(), "mysql.yml");
+        File file = new File(getDataFolder(), "mysql.yml");
         return YamlConfiguration.loadConfiguration(file);
     }
 
-    private void loadMessagesConfig() {
+    public void loadMessagesConfig() {
         File file = new File(getDataFolder(), "messages.yml");
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             saveResource("messages.yml", false);
         }
+    }
+
+    @NotNull
+    public FileConfiguration getMessagesConfig() {
+        if (this.newConfig == null) {
+            this.reloadMessagesConfig();
+        }
+
+        return this.newConfig;
     }
 
     private void loadPlayers() {
@@ -176,11 +196,6 @@ public class CityBuildV2 extends JavaPlugin {
                 }
             }
         }
-    }
-
-    public FileConfiguration getMessagesConfig() {
-        File file = new File(getFileFolder(), "messages.yml");
-        return YamlConfiguration.loadConfiguration(file);
     }
 
     public static SignEdit getSignEdit() {

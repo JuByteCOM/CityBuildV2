@@ -263,6 +263,8 @@ public class MessagesData {
             .getString("Commands.AllOrNothing.Permissions.Use");
     public static String ALLORNOTHING_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_USAGE_ADMIN = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.UsageAdmin").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ALLORNOTHING_COMMAND_MESSAGE_COUNTER = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Messages.Counter").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ALLORNOTHING_COMMAND_MESSAGE_LAST_SECOND_COUNTER = plugin.getMessagesConfig()
@@ -271,6 +273,12 @@ public class MessagesData {
             .getString("Commands.AllOrNothing.Messages.AlreadyRunCommand").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ALLORNOTHING_COMMAND_MESSAGE_RESULT = plugin.getMessagesConfig()
             .getString("Commands.AllOrNothing.Messages.Result").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_INGAMEMONEY = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.SetMaxIngamemoney").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_REALMONEY = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.SetMaxRealmoney").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String ALLORNOTHING_COMMAND_MESSAGE_SETTINGS_INFORMATION = plugin.getMessagesConfig()
+            .getString("Commands.AllOrNothing.Messages.SettingsInformation").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static int ALLORNOTHING_COMMAND_SETTINGS_COUNTER = plugin.getMessagesConfig()
             .getInt("Commands.AllOrNothing.Settings.Counter");
     public static List<Integer> ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES = plugin.getMessagesConfig()

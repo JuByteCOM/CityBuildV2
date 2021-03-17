@@ -191,9 +191,17 @@ Commands:
       Use: 'citybuild.allornothing.use'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/allesodernichts'
+      UsageAdmin: '[prefix] &cBitte nutze: &emaxingamemoney &7oder &emaxrealmoney'
       Counter: '[prefix] &7Zahlen werden in &e[counter] Sekunden &7generiert.'
       LastSecondCounter: '[prefix] &7Zahlen werden in &eeiner Sekunde &7generiert.'
       AlreadyRunCommand: '[prefix] &7Es &cläuft &7bereits &eZahlengenerierung.'
+      SetMaxIngamemoney: '[prefix] &7Du hast den Maixmalwert vom Ingamegeld auf &e[amount] &agesetzt&7.'
+      SetMaxRealmoney: '[prefix] &7Du hast den Maixmalwert vom Echtgeld auf &e[amount] &agesetzt&7.'
+      SettingsInformation: |-
+        &7------------[prefix]&7------------
+          &e/aon admin set maxingamemoney <amount>
+          &e/aon admin set maxrealmoney <amount>
+        &7------------[prefix]&7------------
       Result: |-
         [prefix] &bIngamegeld: &f[ingameMoney]$
         [prefix] &bEchtgeld: &f[realMoney]€
