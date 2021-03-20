@@ -1,5 +1,5 @@
 name: CityBuildV2
-version: 1.7.2-BETA
+version: 1.8.0-BETA
 authors:
   - Justin_SGD
   - KeinByte
@@ -7,55 +7,3 @@ main: de.crashmash.citybuild.CityBuildV2
 softdepend:
   - PlotSquared
 api-version: 1.13
-commands:
-  schild:
-    description: 'Verändere den Text auf Schilder.'
-  clearchat:
-    description: 'Löscht den Ingame Chat.'
-  status:
-    description: 'Sende eine Nachricht beim joinen.'
-  food:
-    description: 'Setze ein Essensschwein.'
-  tp:
-    description: 'Teleportiere dich zu einer Location oder zu anderen Spielern.'
-    aliases:
-      - teleport
-  ja:
-    description: 'Stimme gegen einen Spieler bei einer Abstimmung.'
-    aliases:
-      - yes
-  nein:
-    description: 'Stimme für einen Spieler bei einer Abstimmung.'
-    aliases:
-      - no
-  startkick:
-    description: 'Lass die Community entscheiden, ob ein Spieler eine Auszeit bekommt.'
-    aliases:
-      - voteban
-  unstartkick:
-    description: 'Entsperre ein gekickten Spieler.'
-    aliases:
-      - unkick
-  slowchat:
-    description: 'Verlangsame den Chat.'
-  head:
-    description: 'Gebe dir den Kopf von anderen Spielern.'
-    aliases:
-      - kopf
-      - skull
-  breakblock:
-    description: 'Baue unzerstörbare Blöcke ab.'
-  commandspy:
-    description: 'Spioniere andere Spieler!'
-    aliases:
-      - cmdspy
-      - cspy
-  cbv2:
-    description: 'Plugin Informationen'
-    aliases:
-      - citybuildv2
-  allornothing:
-    description: 'Generiere zufällige Zahlen.'
-    aliases:
-      - allesodernichts
-      - aon

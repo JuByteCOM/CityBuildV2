@@ -1,14 +1,61 @@
 Settings:
   Commands:
-    Schild: true
-    ClearChat: true
-    Sign: true
-    Unsign: true
-    Status: true
-    Food: true
-    Teleport: true
-    StartKick: true
-    Unstartkick: true
-    YesCommand: true
-    NoCommand: true
-    SlowChat: true
+    CityBuildV2:
+      Name: 'citybuildv2'
+      Aliases: ['cbv2']
+    Schild:
+      Name: 'schild'
+      Aliases: []
+      Active: true
+    ClearChat:
+      Name: 'clearchat'
+      Aliases: ['cc', 'chatclear']
+      Active: true
+    Status:
+      Name: 'status'
+      Aliases: []
+      Active: true
+    Food:
+      Name: 'food'
+      Aliases: []
+      Active: true
+    Teleport:
+      Name: 'teleport'
+      Aliases: ['tp']
+      Active: true
+    StartKick:
+      Name: 'startkick'
+      Aliases: ['votekick']
+      Active: true
+    Unstartkick:
+      Name: 'unstartkick'
+      Aliases: ['unvotekick']
+      Active: true
+    YesCommand:
+      Name: 'yes'
+      Aliases: ['ja']
+      Active: true
+    NoCommand:
+      Name: 'no'
+      Aliases: ['nein']
+      Active: true
+    SlowChat:
+      Name: 'slowchat'
+      Aliases: ['chatslow']
+      Active: true
+    Head:
+      Name: 'head'
+      Aliases: ['kopf', 'skull']
+      Active: true
+    Breakblock:
+      Name: 'breakblock'
+      Aliases: ['bb']
+      Active: true
+    ComandSpy:
+      Name: 'commandspy'
+      Aliases: ['cspy']
+      Active: true
+    AllOrNothing:
+      Name: 'allornothing'
+      Aliases: ['allesodernichts', 'aon']
+      Active: true

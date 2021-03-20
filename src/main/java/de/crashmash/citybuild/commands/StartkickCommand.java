@@ -4,9 +4,11 @@ import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.startkick.StartKick;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,7 +16,7 @@ import org.bukkit.entity.Player;
 
 import java.text.SimpleDateFormat;
 
-public class StartkickCommand implements CommandExecutor {
+public class StartkickCommand extends AbstractCommand {
 
     private final CityBuildV2 plugin = CityBuildV2.getPlugin();
     public static boolean isStartkick = false;
@@ -23,6 +25,10 @@ public class StartkickCommand implements CommandExecutor {
     private static int startCountdown;
     private String reasons = "";
 
+    public StartkickCommand() {
+        super(ConfigData.CONFIG_COMMAND_STARTKICK_NAME, null, "Let the community decide if a player should be kicked.", ConfigData.CONFIG_COMMAND_STARTKICK_ALIASES);
+    }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(!(commandSender instanceof Player)) {
@@ -30,10 +36,6 @@ public class StartkickCommand implements CommandExecutor {
             return false;
         }
         Player player = (Player) commandSender;
-        if(!ConfigData.CONFIG_COMMAND_STARTKICK) {
-            player.sendMessage(MessagesData.DEACTIVATED);
-            return false;
-        }
         if(!player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_USE)) {
             player.sendMessage(MessagesData.NOPERMS);
             return false;
@@ -94,17 +96,42 @@ public class StartkickCommand implements CommandExecutor {
 
         startCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
             for(int i : MessagesData.STARTKICK_COMMAND_SETTING_COUNTER_TIMES) {
-                for (Player all : Bukkit.getOnlinePlayers()) {
-                    if(i != 0) {
-                        if (counter == i) {
-                            all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COUNTER.replace("[counter]", Integer.toString(i)));
-                        }
-                        if (counter == 0) {
-                            startStartKick(targetPlayer);
-                            Bukkit.getScheduler().cancelTask(startCountdown);
+                if (i != 0 && i != 1) {
+                    if (counter == i) {
+                        for (Player players : Bukkit.getOnlinePlayers()) {
+                            players.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COUNTER.replace("[counter]", Integer.toString(i)));
                         }
                     }
                 }
+                if (i != 30) {
+                    if(MessagesData.STARTKICK_COMMAND_SETTING_PLAY_SOUND) {
+                        if (counter == i) {
+                            for (Player players : Bukkit.getOnlinePlayers()) {
+                                players.playSound(players.getLocation(), MessagesData.STARTKICK_COMMAND_SETTING_COUNTER_SOUND, 1F, 1F);
+                            }
+                        }
+                    }
+                }
+            }
+            if(counter == 30) {
+                if(MessagesData.STARTKICK_COMMAND_SETTING_PLAY_SOUND) {
+                    for (Player players : Bukkit.getOnlinePlayers()) {
+                        players.playSound(players.getLocation(), MessagesData.STARTKICK_COMMAND_SETTING_START_SOUND, 1F, 1F);
+                    }
+                }
+            }
+            if (counter == 1) {
+                for (Player players : Bukkit.getOnlinePlayers()) {
+                    players.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_LASTSECOND_COUNTER);
+                }
+            }
+            if (counter == 0) {
+                if(MessagesData.STARTKICK_COMMAND_SETTING_PLAY_SOUND) {
+                    for (Player players : Bukkit.getOnlinePlayers())
+                        players.playSound(players.getLocation(), MessagesData.STARTKICK_COMMAND_SETTING_STARTKICK_SOUND, 1F, 1F);
+                }
+                startStartKick(targetPlayer);
+                Bukkit.getScheduler().cancelTask(startCountdown);
             }
             counter--;
         }, 0, 20);
@@ -156,7 +183,7 @@ public class StartkickCommand implements CommandExecutor {
             SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
             long time = StartKick.getDuration(targetPlayer) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION* 1000L;
             targetPlayer.kickPlayer(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_BANSCREEN.replace("[date]", simpleDateFormat.format(time))
-                .replace("[time]", simpleTimeFormat.format(time)));
+                    .replace("[time]", simpleTimeFormat.format(time)));
         } else {
             for(Player all : Bukkit.getOnlinePlayers())
                 all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_NOT_KICKED.replace("[targetPlayer]", targetPlayer.getDisplayName())

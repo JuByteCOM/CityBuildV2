@@ -1,10 +1,11 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,7 +13,11 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.text.SimpleDateFormat;
 
-public class HeadCommand implements CommandExecutor {
+public class HeadCommand extends AbstractCommand {
+
+    public HeadCommand() {
+        super(ConfigData.CONFIG_COMMAND_HEAD_NAME, null, "Give yourself decorative heads from other players.", ConfigData.CONFIG_COMMAND_HEAD_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

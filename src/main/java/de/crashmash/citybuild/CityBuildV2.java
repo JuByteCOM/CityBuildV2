@@ -3,6 +3,7 @@ package de.crashmash.citybuild;
 import com.google.common.base.Charsets;
 import com.sun.istack.internal.NotNull;
 import de.crashmash.citybuild.commands.*;
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
@@ -11,9 +12,9 @@ import de.crashmash.citybuild.manager.food.FoodLocation;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
-import de.crashmash.citybuild.utils.AdvancedLicense;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
@@ -86,22 +87,64 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private void loadCommands() {
-        Objects.requireNonNull(getCommand("schild")).setExecutor(new SchildCommand());
-        Objects.requireNonNull(getCommand("clearchat")).setExecutor(new ClearChatCommand());
-        Objects.requireNonNull(getCommand("status")).setExecutor(new StatusCommand());
-        Objects.requireNonNull(getCommand("food")).setExecutor(new FoodCommand());
-        Objects.requireNonNull(getCommand("tp")).setExecutor(new TeleportCommand());
-        Objects.requireNonNull(getCommand("startkick")).setExecutor(new StartkickCommand());
-        Objects.requireNonNull(getCommand("ja")).setExecutor(new JaCommand());
-        Objects.requireNonNull(getCommand("nein")).setExecutor(new NeinCommand());
-        Objects.requireNonNull(getCommand("unstartkick")).setExecutor(new UnstartKickCommand());
-        Objects.requireNonNull(getCommand("slowchat")).setExecutor(new SlowChatCommand());
-        Objects.requireNonNull(getCommand("head")).setExecutor(new HeadCommand());
-        Objects.requireNonNull(getCommand("breakblock")).setExecutor(new BreakblockCommand());
-        Objects.requireNonNull(getCommand("commandspy")).setExecutor(new CommandSpyCommand());
-        Objects.requireNonNull(getCommand("citybuildv2")).setExecutor(new CityBuildCommand());
-        Objects.requireNonNull(getCommand("allornothing")).setExecutor(new AllOrNothingCommand());
-
+        if(ConfigData.CONFIG_COMMAND_SCHILD_ACTIVE) {
+            AbstractCommand command = new SchildCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_ALLORNOTHING_ACTIVE) {
+            AbstractCommand command = new AllOrNothingCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_BREAKBLOCK_ACTIVE) {
+            AbstractCommand command = new BreakblockCommand();
+            command.register();
+        }
+        AbstractCommand cityBuildCommand = new CityBuildCommand();
+        cityBuildCommand.register();
+        if(ConfigData.CONFIG_COMMAND_CHATCLEAR_ACTIVE) {
+            AbstractCommand command = new ClearChatCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_COMMANDSPY_ACTIVE) {
+            AbstractCommand command = new CommandSpyCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_FOOD_ACTIVE) {
+            AbstractCommand command = new FoodCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_HEAD_ACTIVE) {
+            AbstractCommand command = new HeadCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_JA_ACTIVE) {
+            AbstractCommand command = new JaCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_NEIN_ACTIVE) {
+            AbstractCommand command = new NeinCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_SLOWCHAT_ACTIVE) {
+            AbstractCommand command = new SlowChatCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_STARTKICK_ACTIVE) {
+            AbstractCommand command = new StartkickCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_STATUS_ACTIVE) {
+            AbstractCommand command = new StatusCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_TELEPORT_ACTIVE) {
+            AbstractCommand command = new TeleportCommand();
+            command.register();
+        }
+        if(ConfigData.CONFIG_COMMAND_UNSTARTKICK_ACTIVE) {
+            AbstractCommand command = new UnstartKickCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {

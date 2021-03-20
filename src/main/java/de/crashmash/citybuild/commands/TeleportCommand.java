@@ -1,6 +1,8 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -8,7 +10,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class TeleportCommand implements CommandExecutor {
+public class TeleportCommand extends AbstractCommand {
+
+    public TeleportCommand() {
+        super(ConfigData.CONFIG_COMMAND_TELEPORT_NAME, null, "Teleport to other players or coordinates.", ConfigData.CONFIG_COMMAND_TELEPORT_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

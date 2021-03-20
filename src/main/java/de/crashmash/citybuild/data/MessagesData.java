@@ -120,6 +120,8 @@ public class MessagesData {
             .getString("Commands.StartKick.Messages.VoteForNo").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String STARTKICK_COMMAND_MESSAGE_COUNTER = plugin.getMessagesConfig()
             .getString("Commands.StartKick.Messages.Counter").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String STARTKICK_COMMAND_MESSAGE_LASTSECOND_COUNTER = plugin.getMessagesConfig()
+            .getString("Commands.StartKick.Messages.LastsecondCounter").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String STARTKICK_COMMAND_MESSAGE_PLAYER_KICKED = plugin.getMessagesConfig()
             .getString("Commands.StartKick.Messages.PlayerKicked").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String STARTKICK_COMMAND_MESSAGE_PLAYER_NOT_KICKED = plugin.getMessagesConfig()
@@ -138,6 +140,14 @@ public class MessagesData {
             .getInt("Commands.StartKick.Settings.Counter");
     public static List<Integer> STARTKICK_COMMAND_SETTING_COUNTER_TIMES = plugin.getMessagesConfig()
         .getIntegerList("Commands.StartKick.Settings.CounterTimes");
+    public static boolean STARTKICK_COMMAND_SETTING_PLAY_SOUND = plugin.getMessagesConfig()
+            .getBoolean("Commands.StartKick.Settings.PlaySound");
+    public static String STARTKICK_COMMAND_SETTING_START_SOUND = plugin.getMessagesConfig()
+            .getString("Commands.StartKick.Settings.StartSound");
+    public static String STARTKICK_COMMAND_SETTING_COUNTER_SOUND = plugin.getMessagesConfig()
+            .getString("Commands.StartKick.Settings.CounterSound");
+    public static String STARTKICK_COMMAND_SETTING_STARTKICK_SOUND = plugin.getMessagesConfig()
+            .getString("Commands.StartKick.Settings.StartKickSound");
 
     //Todo: Unstartkick-Command
     public static String UNSTARTKICK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()

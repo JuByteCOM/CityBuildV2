@@ -3,38 +3,39 @@ package de.crashmash.citybuild.commands;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.storage.StartkickSQL;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class UnstartKickCommand implements CommandExecutor {
+public class UnstartKickCommand extends AbstractCommand {
+
+    public UnstartKickCommand() {
+        super(ConfigData.CONFIG_COMMAND_UNSTARTKICK_NAME, null, "Unkick other players who have been kicked out by the community.", ConfigData.CONFIG_COMMAND_UNSTARTKICK_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(ConfigData.CONFIG_COMMAND_UNSTARTKICK) {
-            if (commandSender.hasPermission(MessagesData.UNSTARTKICK_COMMAND_PERMISSION_USE)) {
-                if (strings.length == 1) {
-                    OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(strings[0]);
-                    if (null != targetPlayer && StartkickSQL.playerExists(targetPlayer.getUniqueId())) {
-                        if (StartkickSQL.getDuration(targetPlayer.getUniqueId()) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L > System.currentTimeMillis()) {
-                            StartkickSQL.setStartKick(targetPlayer.getUniqueId(), null, 0, 0);
-                            commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_UNKICKED.replace("[targetPlayer]", targetPlayer.getName()));
-                        } else {
-                            commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_NOT_KICKED.replace("[targetPlayer]", targetPlayer.getName()));
-                        }
+        if (commandSender.hasPermission(MessagesData.UNSTARTKICK_COMMAND_PERMISSION_USE)) {
+            if (strings.length == 1) {
+                OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(strings[0]);
+                if (null != targetPlayer && StartkickSQL.playerExists(targetPlayer.getUniqueId())) {
+                    if (StartkickSQL.getDuration(targetPlayer.getUniqueId()) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L > System.currentTimeMillis()) {
+                        StartkickSQL.setStartKick(targetPlayer.getUniqueId(), null, 0, 0);
+                        commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_UNKICKED.replace("[targetPlayer]", targetPlayer.getName()));
                     } else {
-                        commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_PLAYER_NOT_FOUND.replace("[targetPlayer]", strings[0]));
+                        commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_NOT_KICKED.replace("[targetPlayer]", targetPlayer.getName()));
                     }
                 } else {
-                    commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_USAGE);
+                    commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_PLAYER_NOT_FOUND.replace("[targetPlayer]", strings[0]));
                 }
             } else {
-                commandSender.sendMessage(MessagesData.NOPERMS);
+                commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_USAGE);
             }
         } else {
-            commandSender.sendMessage(MessagesData.DEACTIVATED);
+            commandSender.sendMessage(MessagesData.NOPERMS);
         }
         return false;
     }

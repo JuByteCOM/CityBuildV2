@@ -1,9 +1,11 @@
 package de.crashmash.citybuild.commands;
 
 import com.plotsquared.core.api.PlotAPI;
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.utils.PlotUtils;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -18,9 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BreakblockCommand implements CommandExecutor {
+public class BreakblockCommand extends AbstractCommand {
 
     private final List<Player> breackBlockPlayers = new ArrayList<>();
+
+    public BreakblockCommand() {
+        super(ConfigData.CONFIG_COMMAND_BREAKBLOCK_NAME, null, "Remove indestructible blocks.", ConfigData.CONFIG_COMMAND_BREAKBLOCK_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

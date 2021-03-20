@@ -1,7 +1,9 @@
 package de.crashmash.citybuild.commands;
 
 import de.crashmash.citybuild.CityBuildV2;
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +12,13 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-public class CommandSpyCommand implements CommandExecutor {
+public class CommandSpyCommand extends AbstractCommand {
 
     private final Map<Player, Player> commandSpy_Map = CityBuildV2.getPlugin().getCOMMANDSPY_MAP();
+
+    public CommandSpyCommand() {
+        super(ConfigData.CONFIG_COMMAND_COMMANDSPY_NAME, null, "Spy on commands given by players.", ConfigData.CONFIG_COMMAND_COMMANDSPY_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

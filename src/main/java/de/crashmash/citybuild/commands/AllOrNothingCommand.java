@@ -1,7 +1,9 @@
 package de.crashmash.citybuild.commands;
 
 import de.crashmash.citybuild.CityBuildV2;
+import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class AllOrNothingCommand implements CommandExecutor {
+public class AllOrNothingCommand extends AbstractCommand {
 
     private int counter = MessagesData.ALLORNOTHING_COMMAND_SETTINGS_COUNTER;
     private int startCountdown;
@@ -21,6 +23,10 @@ public class AllOrNothingCommand implements CommandExecutor {
     private int realResult = 0;
 
     private boolean isAllOrNothing = false;
+
+    public AllOrNothingCommand() {
+        super(ConfigData.CONFIG_COMMAND_ALLORNOTHING_COMMANDSPY_NAME, null, "Let other players decide your luck!", ConfigData.CONFIG_COMMAND_ALLORNOTHING_ALIASES);
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
