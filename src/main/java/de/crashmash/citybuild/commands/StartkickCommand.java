@@ -79,6 +79,7 @@ public class StartkickCommand extends AbstractCommand {
         for (int i = 1; i < strings.length; i++) {
             reason.append(" ").append(strings[i]);
         }
+        reasons = "" + reason;
 
         TextComponent voteYes = new TextComponent(TextComponent.fromLegacyText
                 (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_YES.replace("[targetPlayer]", targetPlayer.getDisplayName())));

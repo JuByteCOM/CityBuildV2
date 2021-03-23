@@ -9,6 +9,8 @@ import de.crashmash.citybuild.listener.*;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.manager.food.FoodLocation;
+import de.crashmash.citybuild.manager.mutep.MuteP;
+import de.crashmash.citybuild.manager.mutep.MutepPlayer;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
@@ -43,6 +45,7 @@ public class CityBuildV2 extends JavaPlugin {
     private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
     private final Map<Player, CooldownPlayer> COOLDWNPLAYER_MAP = new HashMap<>();
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
+    private final Map<Player, MutepPlayer> MUTEPPLAYER_MAP = new HashMap<>();
 
     private FileConfiguration newConfig = null;
     private final File configFile = new File(getDataFolder(), "messages.yml");
@@ -62,9 +65,9 @@ public class CityBuildV2 extends JavaPlugin {
         loadConfig();
         loadMessagesConfig();
 
-        loadCommands();
         loadListener();
         setupSignEdit();
+        loadCommands();
 
         this.storage = new Storage();
         storage.createConnection();
@@ -145,6 +148,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new UnstartKickCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_MUTEP_ACTIVE) {
+            AbstractCommand command = new MutePCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
@@ -222,20 +229,25 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private void loadPlayers() {
-        for(Player all : Bukkit.getOnlinePlayers()) {
-            if (all.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
-                StatusSQL.createPlayer(all.getUniqueId());
-            StartkickSQL.createPlayer(all.getUniqueId());
-            CooldownSQL.createPlayer(all.getUniqueId());
+        for(Player players : Bukkit.getOnlinePlayers()) {
+            if (players.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
+                StatusSQL.createPlayer(players.getUniqueId());
+            StartkickSQL.createPlayer(players.getUniqueId());
+            CooldownSQL.createPlayer(players.getUniqueId());
             //Todo: Map Einträge
-            if(StartkickSQL.playerExists(all.getUniqueId())) {
-                if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(all)) {
-                    StartKick.createStartKickPlayer(all);
+            if(StartkickSQL.playerExists(players.getUniqueId())) {
+                if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(players)) {
+                    StartKick.createStartKickPlayer(players);
                 }
             }
-            if(CooldownSQL.playerExists(all.getUniqueId())) {
-                if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(all)) {
-                    Cooldown.createCooldownPlayer(all);
+            if(CooldownSQL.playerExists(players.getUniqueId())) {
+                if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(players)) {
+                    Cooldown.createCooldownPlayer(players);
+                }
+            }
+            if(MutepSQL.playerExists(players.getUniqueId())) {
+                if(!(CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().containsKey(players))) {
+                    MuteP.createMutePPlayer(players);
                 }
             }
         }
@@ -271,5 +283,9 @@ public class CityBuildV2 extends JavaPlugin {
 
     public Map<Player, Player> getCOMMANDSPY_MAP() {
         return COMMANDSPY_MAP;
+    }
+
+    public Map<Player, MutepPlayer> getMUTEPPLAYER_MAP() {
+        return MUTEPPLAYER_MAP;
     }
 }

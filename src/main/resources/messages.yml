@@ -15,7 +15,6 @@
 Prefix: '&8[&4&lCityBuild&8]'
 NoPerms: '[prefix] &cDazu hast du keine Rechte.'
 IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
-Deactivated: '[prefix] &7Der Befehl ist vorübergehend &cdeaktiviert&7.'
 MySQLError: '[prefix] &7cEs gibt ein Fehler mit der Datenbank. Bitte melde dich bei einem Teammitglied.'
 
 Commands:
@@ -174,6 +173,7 @@ Commands:
       BlockRemoved: '[prefix] &7Du hast den Block &aerfolgreich &7abgebaut.'
       Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
       IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
+      BlockIsntOnPlot: '[prefix] &cDer Block muss sich auf einem Grundstück befinden.'
     Settings:
       AviableWorlds: ['world', 'Plotworld']
       DisabledBlockHeights: [0, 1, 2, 3, 4, 5]
@@ -217,6 +217,23 @@ Commands:
       MinIngamemoney: 0
       MaxRealmoney: 50
       MinRealmoney: 0
+  MuteP:
+    Permissions:
+      Use: 'citybuild.mutep.use'
+      MuteBypass: 'citybuild.mutep.bypass.mute'
+      TimeBypass: 'citybuild.mutep.bypass.time'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/muteP <player> <reason>'
+      Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
+      TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      SelfMute: '[prefix] &7Du kannst dich &cnicht &7selber muten.'
+      MuteBypass: '[prefix] &7Der Spieler &e[targetPlayer] &7kann &cnicht &7gemutet werden.'
+      MuteSuccesful: '[prefix] &7Der Spieler &e[player] &7hat &e[targetPlayer] &7für &e[duration] Minuten &7wegen &e[reason] &cgemutet&7.'
+      MuteScreen: '[prefix] &7Du kannst &cnicht &7in den Chat schreiben, da du von &e[player] &7wegen &e[reason] &7gemutet wurdest.'
+      PlayerAlreadyMuted: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &cbereits &7gemutet.'
+    Settings:
+      Cooldown: 43200
+      Duration: 900
 
 Settings:
   ColoredChat:

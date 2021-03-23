@@ -59,3 +59,7 @@ Settings:
       Name: 'allornothing'
       Aliases: ['allesodernichts', 'aon']
       Active: true
+    MuteP:
+      Name: 'mutep'
+      Aliases: ['muteplayer']
+      Active: true

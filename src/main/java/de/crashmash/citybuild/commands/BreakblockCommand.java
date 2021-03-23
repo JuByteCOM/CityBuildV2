@@ -10,7 +10,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -74,37 +73,39 @@ public class BreakblockCommand extends AbstractCommand {
                             if (breakAllowed) {
                                 if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") == null) {
                                     breackBlockPlayers.remove(player);
-                                    block.setType(Material.AIR);
                                     player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                     Cooldown.setBreakBlockCooldown(player);
                                     if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                         ItemStack itemStack = new ItemStack(block.getType());
                                         player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
                                     }
+                                    block.setType(Material.AIR);
                                 } else {
                                     if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
                                         breackBlockPlayers.remove(player);
-                                        block.setType(Material.AIR);
                                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                         Cooldown.setBreakBlockCooldown(player);
                                         if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                             ItemStack itemStack = new ItemStack(block.getType());
                                             player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
                                         }
+                                        block.setType(Material.AIR);
                                     } else {
                                         if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null) {
                                             if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
                                                 breackBlockPlayers.remove(player);
-                                                block.setType(Material.AIR);
                                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                                 Cooldown.setBreakBlockCooldown(player);
                                                 if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                                     ItemStack itemStack = new ItemStack(block.getType());
                                                     player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
                                                 }
+                                                block.setType(Material.AIR);
                                             } else {
                                                 player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER);
                                             }
+                                        } else {
+                                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_BLOCK_ISNT_ON_PLOT);
                                         }
                                     }
                                 }

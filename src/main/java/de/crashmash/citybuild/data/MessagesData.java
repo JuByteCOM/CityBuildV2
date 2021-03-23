@@ -18,8 +18,6 @@ public class MessagesData {
             .replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String ISNOT_PLAYER = plugin.getMessagesConfig().getString("IsntPlayer")
             .replaceAll("&", "§").replace("[prefix]", PREFIX);
-    public static String DEACTIVATED = plugin.getMessagesConfig().getString("Deactivated")
-            .replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String MYSQL_ERROR = plugin.getMessagesConfig().getString("MySQLError")
             .replaceAll("&", "§").replace("[prefix]", PREFIX);
 
@@ -239,6 +237,8 @@ public class MessagesData {
             .getString("Commands.Breakblock.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER = plugin.getMessagesConfig()
             .getString("Commands.Breakblock.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String BREAKBLOCK_COMMAND_MESSAGE_BLOCK_ISNT_ON_PLOT = plugin.getMessagesConfig()
+            .getString("Commands.Breakblock.Messages.BlockIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static List<String> BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS = plugin.getMessagesConfig()
             .getStringList("Commands.Breakblock.Settings.AviableWorlds");
     public static List<Integer> BREAKBLOCK_COMMAND_SETTINGS_DISABLES_BLOCK_HEIGHTS = plugin.getMessagesConfig()
@@ -301,6 +301,34 @@ public class MessagesData {
             .getInt("Commands.AllOrNothing.Settings.MaxRealmoney");
     public static int ALLORNOTHING_COMMAND_SETTINGS_MIN_REALMONEY = plugin.getMessagesConfig()
             .getInt("Commands.AllOrNothing.Settings.MinRealmoney");
+
+    //Todo: MuteP-Command
+    public static String MUTEP_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Permissions.Use");
+    public static String MUTEP_COMMAND_PERMISSION_BYPASS_MUTE = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Permissions.MuteBypass");
+    public static String MUTEP_COMMAND_PERMISSION_BYPASS_TIME = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Permissions.TimeBypass");
+    public static String MUTEP_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_COOLDOWN = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_TARGET_PLAYER_OFFLINE = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.TargetPlayerOffline").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_SELF_MUTE = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.SelfMute").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_MUTE_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.MuteBypass").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_MUTE_SUCCESFUL = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.MuteSuccesful").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_MUTE_SCREEN = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.MuteScreen").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String MUTEP_COMMAND_MESSAGE_PLAYER_IS_MUTED = plugin.getMessagesConfig()
+            .getString("Commands.MuteP.Messages.PlayerAlreadyMuted").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static int MUTEP_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getInt("Commands.MuteP.Settings.Cooldown");
+    public static int MUTEP_COMMAND_SETTINGS_DURATION = plugin.getMessagesConfig()
+            .getInt("Commands.MuteP.Settings.Duration");
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()

@@ -3,8 +3,10 @@ package de.crashmash.citybuild.listener;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
+import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.storage.CooldownSQL;
+import de.crashmash.citybuild.storage.MutepSQL;
 import de.crashmash.citybuild.storage.StartkickSQL;
 import de.crashmash.citybuild.storage.StatusSQL;
 import org.bukkit.entity.Player;
@@ -23,6 +25,7 @@ public class PlayerJoinListener implements Listener {
         StatusSQL.createPlayer(player.getUniqueId());
         StartkickSQL.createPlayer(player.getUniqueId());
         CooldownSQL.createPlayer(player.getUniqueId());
+        MutepSQL.createPlayer(player.getUniqueId());
         //Todo: Map Einträge
         if(StartkickSQL.playerExists(player.getUniqueId())) {
             if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(player)) {
@@ -32,6 +35,11 @@ public class PlayerJoinListener implements Listener {
         if(CooldownSQL.playerExists(player.getUniqueId())) {
             if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(player)) {
                 Cooldown.createCooldownPlayer(player);
+            }
+        }
+        if(MutepSQL.playerExists(player.getUniqueId())) {
+            if(!(CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().containsKey(player))) {
+                MuteP.createMutePPlayer(player);
             }
         }
 

@@ -65,4 +65,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_ALLORNOTHING_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.AllOrNothing.Aliases");
     public static boolean CONFIG_COMMAND_ALLORNOTHING_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.AllOrNothing.Active");
 
+    public static String CONFIG_COMMAND_MUTEP_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.MuteP.Name");
+    public static List<String> CONFIG_COMMAND_MUTEP_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.MuteP.Aliases");
+    public static boolean CONFIG_COMMAND_MUTEP_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.MuteP.Active");
+
 }

@@ -24,6 +24,7 @@ public class Storage {
     private DatabaseCollection boosterCollection;
     private DatabaseCollection foodCollection;
     private DatabaseCollection cooldownCollection;
+    private DatabaseCollection mutePCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -75,6 +76,14 @@ public class Storage {
                 .field("BreakBlock", DataType.LONG)
                 .field("MuteP", DataType.LONG)
                 .create();
+
+        this.mutePCollection = database.createCollection("MuteP")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("Reason", DataType.STRING)
+                .field("Duration", DataType.LONG)
+                .field("Cooldown", DataType.LONG)
+                .field("Creator", DataType.UUID)
+                .create();
     }
 
     public boolean isConnected() {
@@ -103,5 +112,9 @@ public class Storage {
 
     public DatabaseCollection getcooldownCollection() {
         return cooldownCollection;
+    }
+
+    public DatabaseCollection getMutePCollection() {
+        return mutePCollection;
     }
 }
