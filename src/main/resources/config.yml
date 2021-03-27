@@ -63,3 +63,7 @@ Settings:
       Name: 'mutep'
       Aliases: ['muteplayer']
       Active: true
+    TpHere:
+      Name: 'tphere'
+      Aliases: [ 'th' ]
+      Active: true

@@ -93,6 +93,16 @@ public class MessagesData {
     public static String TELEPORT_COMMAND_MESSAGE_FALSELOCATION = plugin.getMessagesConfig()
             .getString("Commands.Teleport.Messages.FalseLocation").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: TPHERE-Command
+    public static String TPHERE_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.TpHere.Permissions.Use");
+    public static String TPHERE_COMMAND_MESSAGE_PLAYERNOTFOUND = plugin.getMessagesConfig()
+            .getString("Commands.TpHere.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String TPHERE_COMMAND_MESSAGE_TPTARGETTOYOU = plugin.getMessagesConfig()
+            .getString("Commands.TpHere.Messages.TeleportPlayerToYou").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String TPHERE_COMMAND_MESSAGE_TPTARGETTOYOU_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.TpHere.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: Startkick-Command
     public static String STARTKICK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
             .getString("Commands.StartKick.Permissions.Use");

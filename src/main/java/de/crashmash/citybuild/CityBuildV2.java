@@ -1,7 +1,6 @@
 package de.crashmash.citybuild;
 
 import com.google.common.base.Charsets;
-import com.sun.istack.internal.NotNull;
 import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
@@ -152,6 +151,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new MutePCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_TPHERE_ACTIVE) {
+            AbstractCommand command = new MutePCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
@@ -219,7 +222,6 @@ public class CityBuildV2 extends JavaPlugin {
         }
     }
 
-    @NotNull
     public FileConfiguration getMessagesConfig() {
         if (this.newConfig == null) {
             this.reloadMessagesConfig();

@@ -29,6 +29,10 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_TELEPORT_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Teleport.Aliases");
     public static boolean CONFIG_COMMAND_TELEPORT_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Teleport.Active");
 
+    public static String CONFIG_COMMAND_TPHERE_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.TpHere.Name");
+    public static List<String> CONFIG_COMMAND_TPHERE_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.TpHere.Aliases");
+    public static boolean CONFIG_COMMAND_TPHERE_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.TpHere.Active");
+
     public static String CONFIG_COMMAND_STARTKICK_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.StartKick.Name");
     public static List<String> CONFIG_COMMAND_STARTKICK_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.StartKick.Aliases");
     public static boolean CONFIG_COMMAND_STARTKICK_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.StartKick.Active");

@@ -234,6 +234,13 @@ Commands:
     Settings:
       Cooldown: 43200
       Duration: 900
+  TpHere:
+    Permissions:
+      Use: 'citybuild.tphere.use'
+    Messages:
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      TeleportPlayerToYou: '[prefix] &7Du hast den Spieler §c[targetPlayer] §7zu dier teleportiert!'
+      Usage: '[prefix] &cBitte nutze: &e/tphere <player>'
 
 Settings:
   ColoredChat:
