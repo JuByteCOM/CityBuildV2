@@ -73,4 +73,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_MUTEP_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.MuteP.Aliases");
     public static boolean CONFIG_COMMAND_MUTEP_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.MuteP.Active");
 
+    public static String CONFIG_COMMAND_UNMUTEP_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.UnmuteP.Name");
+    public static List<String> CONFIG_COMMAND_UNMUTEP_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.UnmuteP.Aliases");
+    public static boolean CONFIG_COMMAND_UNMUTEP_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.UnmuteP.Active");
+
 }

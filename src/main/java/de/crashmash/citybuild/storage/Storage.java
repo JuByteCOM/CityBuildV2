@@ -25,6 +25,7 @@ public class Storage {
     private DatabaseCollection foodCollection;
     private DatabaseCollection cooldownCollection;
     private DatabaseCollection mutePCollection;
+    private DatabaseCollection historyCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -82,6 +83,14 @@ public class Storage {
                 .field("Reason", DataType.STRING)
                 .field("Duration", DataType.LONG)
                 .field("Cooldown", DataType.LONG)
+                .field("Creator", DataType.UUID)
+                .create();
+
+        this.historyCollection = database.createCollection("History")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("Type", DataType.STRING)
+                .field("Reason", DataType.LONG)
+                .field("Duration", DataType.LONG)
                 .field("Creator", DataType.UUID)
                 .create();
     }

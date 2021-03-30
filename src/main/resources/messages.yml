@@ -234,13 +234,23 @@ Commands:
     Settings:
       Cooldown: 43200
       Duration: 900
+  UnmuteP:
+    Permissions:
+      Use: 'ciytbuild.unmutep.use'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/unmutep <player>'
+      IsntMuted: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &cnicht &7gemutet.'
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7wurde &cnicht &7gefunden.'
+      Unmuted: '[prefix] &7Der Spieler &e[targetPlayer] &7wurde &aentmutet&7.'
+      UnmutedTargetPlayer: '[prefix] &7Du kannst nun wieder schreiben, da du &aentmutet &7wurdest.'
   TpHere:
     Permissions:
       Use: 'citybuild.tphere.use'
     Messages:
-      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
-      TeleportPlayerToYou: '[prefix] &7Du hast den Spieler §c[targetPlayer] §7zu dier teleportiert!'
       Usage: '[prefix] &cBitte nutze: &e/tphere <player>'
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      TeleportPlayerToYou: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7zu dir teleportiert!'
+
 
 Settings:
   ColoredChat:

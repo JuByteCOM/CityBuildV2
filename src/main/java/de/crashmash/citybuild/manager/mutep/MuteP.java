@@ -5,7 +5,6 @@ import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.storage.MutepSQL;
 import org.bukkit.entity.Player;
 
-import java.security.cert.CertPathValidatorException;
 import java.util.UUID;
 
 public class MuteP {
@@ -37,10 +36,6 @@ public class MuteP {
         return CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(player).getDuration() + MessagesData.MUTEP_COMMAND_SETTINGS_DURATION *1000L > System.currentTimeMillis();
     }
 
-    public static long getDuration(Player player) {
-        return CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(player).getDuration();
-    }
-
     public static String getReason(Player player) {
         return CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(player).getReason();
     }
@@ -53,5 +48,11 @@ public class MuteP {
         CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setReason(reason);
         CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setDuration(System.currentTimeMillis());
         MutepSQL.setMuteP(targetPlayer.getUniqueId(), reason, System.currentTimeMillis(), creator.getUniqueId());
+    }
+
+    public static void playerUnmutedP(Player targetPlayer) {
+        CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setReason(null);
+        CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setDuration(0);
+        MutepSQL.setMuteP(targetPlayer.getUniqueId(), null, 0, null);
     }
 }

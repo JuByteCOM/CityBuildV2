@@ -64,12 +64,12 @@ public class CityBuildV2 extends JavaPlugin {
         loadConfig();
         loadMessagesConfig();
 
+        this.storage = new Storage();
+        storage.createConnection();
+
         loadListener();
         setupSignEdit();
         loadCommands();
-
-        this.storage = new Storage();
-        storage.createConnection();
 
         loadLocations();
         loadPlayers();
@@ -151,8 +151,12 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new MutePCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_UNMUTEP_ACTIVE) {
+            AbstractCommand command = new UnmutePCommand();
+            command.register();
+        }
         if(ConfigData.CONFIG_COMMAND_TPHERE_ACTIVE) {
-            AbstractCommand command = new MutePCommand();
+            AbstractCommand command = new TpHereCommand();
             command.register();
         }
     }

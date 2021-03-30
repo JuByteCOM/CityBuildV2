@@ -340,6 +340,20 @@ public class MessagesData {
     public static int MUTEP_COMMAND_SETTINGS_DURATION = plugin.getMessagesConfig()
             .getInt("Commands.MuteP.Settings.Duration");
 
+    //Todo: Unmutep-Command
+    public static String UNMUTEP_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Permissions.Use");
+    public static String UNMUTEP_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNMUTEP_COMMAND_MESSAGE_ISNT_MUTED = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Messages.IsntMuted").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNMUTEP_COMMAND_MESSAGE_PLAYER_NOT_FOUND = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNMUTEP_COMMAND_MESSAGE_UNMUTED = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Messages.Unmuted").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String UNMUTEP_COMMAND_MESSAGE_UNMUTED_TARGETPLAYER = plugin.getMessagesConfig()
+            .getString("Commands.UnmuteP.Messages.UnmutedTargetPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");

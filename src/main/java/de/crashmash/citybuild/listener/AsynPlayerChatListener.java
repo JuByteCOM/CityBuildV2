@@ -7,6 +7,7 @@ import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.utils.ColoredChat;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,8 +43,15 @@ public class AsynPlayerChatListener implements Listener {
             }
         }
         if(MuteP.playerIsMutedP(player)) {
-            player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", Objects.requireNonNull(Bukkit.getPlayer(MuteP.getCreator(player))).getName())
-                .replace("[reason]", MuteP.getReason(player)));
+            Player creator = Bukkit.getPlayer(MuteP.getCreator(player));
+            if(creator != null) {
+                    player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", creator.getName())
+                        .replace("[reason]", MuteP.getReason(player)));
+            } else {
+                String offlineCreator = Bukkit.getOfflinePlayer(MuteP.getCreator(player)).getName();
+                player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", offlineCreator)
+                        .replace("[reason]", MuteP.getReason(player)));
+            }
             event.setCancelled(true);
         }
     }
