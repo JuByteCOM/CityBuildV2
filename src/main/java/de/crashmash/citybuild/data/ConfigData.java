@@ -77,4 +77,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_UNMUTEP_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.UnmuteP.Aliases");
     public static boolean CONFIG_COMMAND_UNMUTEP_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.UnmuteP.Active");
 
+    public static String CONFIG_COMMAND_GLOW_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Glow.Name");
+    public static List<String> CONFIG_COMMAND_GLOW_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Glow.Aliases");
+    public static boolean CONFIG_COMMAND_GLOW_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Glow.Active");
+
 }

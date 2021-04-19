@@ -5,10 +5,7 @@ import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.manager.startkick.StartKick;
-import de.crashmash.citybuild.storage.CooldownSQL;
-import de.crashmash.citybuild.storage.MutepSQL;
-import de.crashmash.citybuild.storage.StartkickSQL;
-import de.crashmash.citybuild.storage.StatusSQL;
+import de.crashmash.citybuild.storage.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -51,6 +48,17 @@ public class PlayerJoinListener implements Listener {
                 }
             } else {
                 StatusSQL.createPlayer(player.getUniqueId());
+            }
+        }
+
+        //Todo: Glow
+        if(player.hasPermission(MessagesData.GLOW_COMMAND_PERMISSION_USE)) {
+            if(GlowSQL.playerExists(player.getUniqueId())) {
+                if(GlowSQL.getGlowEffect(player.getUniqueId())) {
+                    player.setGlowing(true);
+                }
+            } else {
+                GlowSQL.createPlayer(player.getUniqueId());
             }
         }
     }

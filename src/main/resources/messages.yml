@@ -250,7 +250,12 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/tphere <player>'
       PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
       TeleportPlayerToYou: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7zu dir teleportiert!'
-
+  Glow:
+    Permissions:
+      Use: 'citybuild.glow.use'
+    Messages:
+      ToggleOn: '[prefix] &cAn'
+      ToggleOff: '[prefix] &7Aus'
 
 Settings:
   ColoredChat:

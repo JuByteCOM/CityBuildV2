@@ -71,3 +71,7 @@ Settings:
       Name: 'tphere'
       Aliases: ['tph']
       Active: true
+    Glow:
+      Name: 'glow'
+      Aliases: ['light']
+      Active: true

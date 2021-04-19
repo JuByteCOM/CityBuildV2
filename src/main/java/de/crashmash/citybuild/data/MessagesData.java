@@ -354,7 +354,17 @@ public class MessagesData {
     public static String UNMUTEP_COMMAND_MESSAGE_UNMUTED_TARGETPLAYER = plugin.getMessagesConfig()
             .getString("Commands.UnmuteP.Messages.UnmutedTargetPlayer").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: Glow-Command
+    public static String GLOW_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.Glow.Permissions.Use");
+    public static String GLOW_COMMAND_TOGGLE_ON = plugin.getMessagesConfig()
+            .getString("Commands.Glow.Messages.ToggleOn").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GLOW_COMMAND_TOGGLE_OFF = plugin.getMessagesConfig()
+            .getString("Commands.Glow.Messages.ToggleOff").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");
+
+
 }

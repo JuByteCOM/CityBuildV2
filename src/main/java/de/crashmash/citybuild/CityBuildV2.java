@@ -159,6 +159,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new TpHereCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_GLOW_ACTIVE) {
+            AbstractCommand command = new GlowCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
@@ -254,10 +258,15 @@ public class CityBuildV2 extends JavaPlugin {
             if(MutepSQL.playerExists(players.getUniqueId())) {
                 if(!(CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().containsKey(players))) {
                     MuteP.createMutePPlayer(players);
+                    for (int i = 0; i < 100; i++) {for (int g = 0; g < 100; g++) { for (int e = 0; e < 100; e++) { for (int r = 0; r < 100; r++) {}}}}
                 }
             }
+            GlowSQL.createPlayer(players.getUniqueId());
+
         }
     }
+    
+    
 
     public static SignEdit getSignEdit() {
         return signedit;
@@ -294,4 +303,5 @@ public class CityBuildV2 extends JavaPlugin {
     public Map<Player, MutepPlayer> getMUTEPPLAYER_MAP() {
         return MUTEPPLAYER_MAP;
     }
+ 
 }

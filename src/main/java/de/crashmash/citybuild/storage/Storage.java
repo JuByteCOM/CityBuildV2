@@ -25,6 +25,7 @@ public class Storage {
     private DatabaseCollection foodCollection;
     private DatabaseCollection cooldownCollection;
     private DatabaseCollection mutePCollection;
+    private DatabaseCollection glowCollection;
     private DatabaseCollection historyCollection;
 
     public void createConnection() {
@@ -93,6 +94,11 @@ public class Storage {
                 .field("Duration", DataType.LONG)
                 .field("Creator", DataType.UUID)
                 .create();
+
+        this.glowCollection = database.createCollection("Glow")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("State", DataType.BOOLEAN)
+                .create();
     }
 
     public boolean isConnected() {
@@ -125,5 +131,9 @@ public class Storage {
 
     public DatabaseCollection getMutePCollection() {
         return mutePCollection;
+    }
+
+    public DatabaseCollection getGlowCollection() {
+        return glowCollection;
     }
 }
