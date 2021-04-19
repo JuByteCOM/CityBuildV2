@@ -23,7 +23,7 @@ public class GlowSQL {
     public static void setGlowEffect(UUID uuid, Boolean state){
         CityBuildV2.getPlugin().getStorage().getGlowCollection().update()
                 .set("State", state)
-                .where("UUID", uuid);
+                .where("UUID", uuid).executeAsync();
     }
 
     public static boolean getGlowEffect(UUID uuid){

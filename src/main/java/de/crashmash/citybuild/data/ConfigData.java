@@ -9,9 +9,9 @@ public class ConfigData {
     public static String CONFIG_COMMAND_CITYBUILDV2_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.CityBuildV2.Name");
     public static List<String> CONFIG_COMMAND_CITYBUILDV2_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.CityBuildV2.Aliases");
 
-    public static String CONFIG_COMMAND_SCHILD_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Schild.Name");
-    public static List<String> CONFIG_COMMAND_SCHILD_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Schild.Aliases");
-    public static boolean CONFIG_COMMAND_SCHILD_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Schild.Active");
+    public static String CONFIG_COMMAND_SCHILD_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Signedit.Name");
+    public static List<String> CONFIG_COMMAND_SCHILD_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Signedit.Aliases");
+    public static boolean CONFIG_COMMAND_SCHILD_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Signedit.Active");
 
     public static String CONFIG_COMMAND_CHATCLEAR_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.ClearChat.Name");
     public static List<String> CONFIG_COMMAND_CHATCLEAR_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.ClearChat.Aliases");

@@ -3,9 +3,9 @@ Settings:
     CityBuildV2:
       Name: 'citybuildv2'
       Aliases: ['cbv2']
-    Schild:
-      Name: 'schild'
-      Aliases: []
+    Signeidt:
+      Name: 'signedit'
+      Aliases: ['schild']
       Active: true
     ClearChat:
       Name: 'clearchat'
@@ -51,7 +51,7 @@ Settings:
       Name: 'breakblock'
       Aliases: ['bb']
       Active: true
-    ComandSpy:
+    CommandSpy:
       Name: 'commandspy'
       Aliases: ['cspy']
       Active: true

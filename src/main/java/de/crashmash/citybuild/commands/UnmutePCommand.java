@@ -11,6 +11,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UnmutePCommand extends AbstractCommand {
 
     public UnmutePCommand() {
@@ -49,5 +52,15 @@ public class UnmutePCommand extends AbstractCommand {
             }
         }
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        if (strings.length == 1) {
+            final List<String> players = new ArrayList<>();
+
+            return players;
+        }
+        return null;
     }
 }

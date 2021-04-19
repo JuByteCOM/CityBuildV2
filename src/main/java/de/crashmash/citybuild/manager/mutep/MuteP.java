@@ -33,7 +33,7 @@ public class MuteP {
     }
 
     public static boolean playerIsMutedP(Player player) {
-        return CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(player).getDuration() + MessagesData.MUTEP_COMMAND_SETTINGS_DURATION *1000L > System.currentTimeMillis();
+        return CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(player).getDuration() + MessagesData.MUTEP_COMMAND_SETTINGS_DURATION * 1000L > System.currentTimeMillis();
     }
 
     public static String getReason(Player player) {

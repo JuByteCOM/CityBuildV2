@@ -30,7 +30,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CityBuildV2 extends JavaPlugin {
 
@@ -48,7 +51,6 @@ public class CityBuildV2 extends JavaPlugin {
 
     private FileConfiguration newConfig = null;
     private final File configFile = new File(getDataFolder(), "messages.yml");
-
 
     @Override
     public void onEnable() {
@@ -74,9 +76,6 @@ public class CityBuildV2 extends JavaPlugin {
         loadLocations();
         loadPlayers();
 
-        //AutoUpdater updater = new AutoUpdater(this, 88621, this.getFile(), AutoUpdater.UpdateType.DOWNLOAD, true);
-        //System.out.println(updater.getResult());
-        //System.out.println(updater.getVersion());
     }
 
     @Override
@@ -90,7 +89,7 @@ public class CityBuildV2 extends JavaPlugin {
 
     private void loadCommands() {
         if(ConfigData.CONFIG_COMMAND_SCHILD_ACTIVE) {
-            AbstractCommand command = new SchildCommand();
+            AbstractCommand command = new SigneditCommand();
             command.register();
         }
         if(ConfigData.CONFIG_COMMAND_ALLORNOTHING_ACTIVE) {

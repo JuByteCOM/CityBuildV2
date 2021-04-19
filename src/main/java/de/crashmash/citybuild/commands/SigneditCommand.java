@@ -12,9 +12,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SchildCommand extends AbstractCommand {
+public class SigneditCommand extends AbstractCommand {
 
-    public SchildCommand() {
+    public SigneditCommand() {
         super(ConfigData.CONFIG_COMMAND_SCHILD_NAME, null, "Look at a sign to edit signs.", ConfigData.CONFIG_COMMAND_SCHILD_ALIASES);
     }
 

@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class CommandSpyCommand extends AbstractCommand {
@@ -56,5 +58,17 @@ public class CommandSpyCommand extends AbstractCommand {
             player.sendMessage(MessagesData.NOPERMS);
         }
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        if (strings.length == 1) {
+            final List<String> players = new ArrayList<>();
+            for(Player all : Bukkit.getOnlinePlayers()) {
+                players.add(all.getName());
+            }
+            return players;
+        }
+        return null;
     }
 }

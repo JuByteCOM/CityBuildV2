@@ -9,6 +9,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TpHereCommand extends AbstractCommand {
 
     public TpHereCommand(){
@@ -18,35 +21,40 @@ public class TpHereCommand extends AbstractCommand {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
-       if (!(commandSender instanceof Player)){
+       if (!(commandSender instanceof Player)) {
            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
-       }else{
+       } else {
 
            Player player = (Player) commandSender;
-
            if (player.hasPermission(MessagesData.TPHERE_COMMAND_PERMISSION_USE)){
                if (strings.length == 1){
-
                    Player target = Bukkit.getPlayer(strings[0]);
-
-                   if (target != null){
-
+                   if (target != null) {
                        target.teleport(player);
                        player.sendMessage(MessagesData.TPHERE_COMMAND_MESSAGE_TPTARGETTOYOU.replace("[targetPlayer]", target.getName()));
-
-                   }else{
+                   } else {
                        player.sendMessage(MessagesData.TPHERE_COMMAND_MESSAGE_PLAYERNOTFOUND.replace("[targetPlayer]", strings[0]));
                    }
-
-               }else {
+               } else {
                    player.sendMessage(MessagesData.TPHERE_COMMAND_MESSAGE_TPTARGETTOYOU_USAGE);
                }
-           }else {
+           } else {
                player.sendMessage(MessagesData.NOPERMS);
            }
-
        }
 
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        if (strings.length == 1) {
+            final List<String> players = new ArrayList<>();
+            for(Player all : Bukkit.getOnlinePlayers()) {
+                players.add(all.getName());
+            }
+            return players;
+        }
+        return null;
     }
 }

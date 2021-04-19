@@ -49,6 +49,7 @@ public class AsynPlayerChatListener implements Listener {
                         .replace("[reason]", MuteP.getReason(player)));
             } else {
                 String offlineCreator = Bukkit.getOfflinePlayer(MuteP.getCreator(player)).getName();
+                assert offlineCreator != null;
                 player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", offlineCreator)
                         .replace("[reason]", MuteP.getReason(player)));
             }

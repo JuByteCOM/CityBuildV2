@@ -18,7 +18,7 @@ IsntPlayer: '[prefix] &cNur Spieler dürfen diesen Befehl ausführen.'
 MySQLError: '[prefix] &7cEs gibt ein Fehler mit der Datenbank. Bitte melde dich bei einem Teammitglied.'
 
 Commands:
-  Schild:
+  Signedit:
     Permissions:
       Use: 'citybuild.schild.use'
       IsntOnPlot: 'citybuild.schild.isntonplot'
@@ -254,6 +254,7 @@ Commands:
     Permissions:
       Use: 'citybuild.glow.use'
     Messages:
+      Usage: '[prefix] &cBitte nutze: &e/glow'
       ToggleOn: '[prefix] &cAn'
       ToggleOff: '[prefix] &7Aus'
 

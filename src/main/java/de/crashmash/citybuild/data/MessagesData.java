@@ -23,23 +23,23 @@ public class MessagesData {
 
     //Todo: Schild-Command
     public static String SCHILD_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Permissions.Use");
+            .getString("Commands.Signedit.Permissions.Use");
     public static String SCHILD_COMMAND_PERMISSION_NOTONPLOT = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Permissions.IsntOnPlot");
+            .getString("Commands.Signedit.Permissions.IsntOnPlot");
     public static String SCHILD_COMMAND_PERMISSION_NOPLOTOWNER = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Permissions.IsntPlotOwner");
+            .getString("Commands.Signedit.Permissions.IsntPlotOwner");
     public static String SCHILD_COMMAND_PERMISSION_COLOR = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Permissions.UseColor");
+            .getString("Commands.Signedit.Permissions.UseColor");
     public static String SCHILD_COMMAND_MESSAGE_NOPLOTSQUARED = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Messages.NoPlotsquared").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Signedit.Messages.NoPlotsquared").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_NOTSIGN = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Messages.IsntSign").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Signedit.Messages.IsntSign").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_SIGNNOTONPLOT = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Messages.SignIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Signedit.Messages.SignIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_PLAYERNOTONPLOT = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Messages.PlayerIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Signedit.Messages.PlayerIsntOnPlot").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String SCHILD_COMMAND_MESSAGE_NOPLOTOWNER = plugin.getMessagesConfig()
-            .getString("Commands.Schild.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
+            .getString("Commands.Signedit.Messages.IsntPlotOwner").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
     //Todo: ClearChat-Command
     public static String CLEARCHAT_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
@@ -357,6 +357,8 @@ public class MessagesData {
     //Todo: Glow-Command
     public static String GLOW_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
             .getString("Commands.Glow.Permissions.Use");
+    public static String GLOW_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.Glow.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String GLOW_COMMAND_TOGGLE_ON = plugin.getMessagesConfig()
             .getString("Commands.Glow.Messages.ToggleOn").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String GLOW_COMMAND_TOGGLE_OFF = plugin.getMessagesConfig()
