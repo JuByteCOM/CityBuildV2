@@ -255,8 +255,8 @@ Commands:
       Use: 'citybuild.glow.use'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/glow'
-      ToggleOn: '[prefix] &cAn'
-      ToggleOff: '[prefix] &7Aus'
+      ToggleOn: '[prefix] &7Du hast den &aGlow-Effekt &7aktiviert.'
+      ToggleOff: '[prefix] &7Du hast den &aGlow-Effekt &7deaktiviert.'
 
 Settings:
   ColoredChat:
