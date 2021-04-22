@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameModeCommand extends AbstractCommand {
@@ -86,4 +87,17 @@ public class GameModeCommand extends AbstractCommand {
 
         return false;
     }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        if (strings.length == 2) {
+            final List<String> players = new ArrayList<>();
+            for(Player all : Bukkit.getOnlinePlayers()) {
+                players.add(all.getName());
+            }
+            return players;
+        }
+        return null;
+    }
+
 }

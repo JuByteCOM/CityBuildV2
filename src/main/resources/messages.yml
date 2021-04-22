@@ -255,13 +255,13 @@ Commands:
       Use: 'citybuild.glow.use'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/glow'
-      ToggleOn: '[prefix] &7Du hast den &aGlow-Effekt &7aktiviert.'
-      ToggleOff: '[prefix] &7Du hast den &aGlow-Effekt &7deaktiviert.'
+      ToggleOn: '[prefix] &7Du hast den &eGlow-Effekt &aaktiviert.'
+      ToggleOff: '[prefix] &7Du hast den &eGlow-Effekt &cdeaktiviert.'
   GameMode:
     Permissions:
       Use:
-        Self: 'citybuild.glow.use'
-        Other: 'citybuild.glow.use.other'
+        Self: 'citybuild.gamemode.use'
+        Other: 'citybuild.gamemode.use.other'
     Messages:
       PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
       Usage: '[prefix] &cBitte nutze: &e/gamemode <0,1,2,3> <player>'
