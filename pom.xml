@@ -6,7 +6,7 @@
 
     <groupId>de.crashmash.citybuild</groupId>
     <artifactId>CityBuildV2</artifactId>
-    <version>1.7.0-BETA</version>
+    <version>1.8.0-BETA</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +69,7 @@
             <groupId>com.plotsquared</groupId>
             <artifactId>PlotSquared-Core</artifactId>
             <version>5.13.3</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -76,7 +77,12 @@
             <version>8.0.23</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>de.crashmash.developerapi</groupId>
+            <artifactId>DeveloperAPI</artifactId>
+            <version>1.4.2-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
