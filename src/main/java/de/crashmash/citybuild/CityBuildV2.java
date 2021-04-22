@@ -162,6 +162,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new GlowCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_GAMEMODE_ACTIVE) {
+            AbstractCommand command = new GameModeCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {

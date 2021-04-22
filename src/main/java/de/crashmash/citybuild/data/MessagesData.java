@@ -364,6 +364,32 @@ public class MessagesData {
     public static String GLOW_COMMAND_TOGGLE_OFF = plugin.getMessagesConfig()
             .getString("Commands.Glow.Messages.ToggleOff").replaceAll("&", "§").replace("[prefix]", PREFIX);
 
+    //Todo: GameMode-Command
+    public static String GAMEMODE_COMMAND_PERMISSION_USE_SELF = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Permissions.Use.Self");
+    public static String GAMEMODE_COMMAND_PERMISSION_USE_OTHER = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Permissions.Use.Other");
+    public static String GAMEMODE_COMMAND_MESSAGE_PLAYER_NOT_FOUND = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_SURVIVAL_SELF = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Survival.Self").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_SURVIVAL_OTHER = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Survival.Other").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_CREATIVE_SELF = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Creative.Self").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_CREATIVE_OTHER = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Creative.Other").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_ADVENTURE_SELF = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Adventure.Self").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_ADVENTURE_OTHER = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Adventure.Other").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_SPECTATOR_SELF = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Spectator.Self").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GAMEMODE_COMMAND_MESSAGE_SPECTATOR_OTHER = plugin.getMessagesConfig()
+            .getString("Commands.GameMode.Messages.Spectator.Other").replaceAll("&", "§").replace("[prefix]", PREFIX);
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()
             .getString("Settings.ColoredChat.Permissions.Use");

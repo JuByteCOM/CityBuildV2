@@ -81,4 +81,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_GLOW_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Glow.Aliases");
     public static boolean CONFIG_COMMAND_GLOW_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Glow.Active");
 
+    public static String CONFIG_COMMAND_GAMEMODE_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.GameMode.Name");
+    public static List<String> CONFIG_COMMAND_GAMEMODE_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.GameMode.Aliases");
+    public static boolean CONFIG_COMMAND_GAMEMODE_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.GameMode.Active");
+
 }

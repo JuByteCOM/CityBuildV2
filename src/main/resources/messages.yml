@@ -257,6 +257,26 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/glow'
       ToggleOn: '[prefix] &7Du hast den &aGlow-Effekt &7aktiviert.'
       ToggleOff: '[prefix] &7Du hast den &aGlow-Effekt &7deaktiviert.'
+  GameMode:
+    Permissions:
+      Use:
+        Self: 'citybuild.glow.use'
+        Other: 'citybuild.glow.use.other'
+    Messages:
+      PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      Usage: '[prefix] &cBitte nutze: &e/gamemode <0,1,2,3> <player>'
+      Survival:
+        Self: '[prefix] &7Du bist jetzt im §aSurvival-Modus§7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aSurvival-Modus §7gesetzt.'
+      Creative:
+        Self: '[prefix] &7Du bist jetzt im §aCreative-Modus§7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aCreative-Modus §7gesetzt.'
+      Adventure:
+        Self: '[prefix] &7Du bist jetzt im §aAdventure-Modus§7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aAdventure-Modus §7gesetzt.'
+      Spectator:
+        Self: '[prefix] &7Du bist jetzt im §aSpectator-Modus§7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aSpectator-Modus §7gesetzt.'
 
 Settings:
   ColoredChat:

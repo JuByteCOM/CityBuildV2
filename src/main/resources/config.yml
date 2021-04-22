@@ -75,3 +75,7 @@ Settings:
       Name: 'glow'
       Aliases: ['light']
       Active: true
+    GameMode:
+      Name: 'gamemode'
+      Aliases: [ 'gm' ]
+      Active: true
