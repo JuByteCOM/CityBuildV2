@@ -1,10 +1,12 @@
 name: CityBuildV2
-version: 2.1.0-RELEASE
+version: 2.2.0-RELEASE
 authors:
   - Justin_SGD
   - KeinByte
+  - Forumat
 main: de.crashmash.citybuild.CityBuildV2
 softdepend:
   - PlotSquared
   - AutoUpdaterAPI
+  - DeveloperAPI
 api-version: 1.13

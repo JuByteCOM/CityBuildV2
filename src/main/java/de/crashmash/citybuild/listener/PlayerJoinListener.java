@@ -15,8 +15,6 @@ import java.util.Objects;
 
 public class PlayerJoinListener implements Listener {
 
-    private boolean updateAviable = false;
-
     @EventHandler
     public void handleJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();

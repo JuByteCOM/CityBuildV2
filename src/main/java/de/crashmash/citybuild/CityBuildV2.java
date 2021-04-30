@@ -13,6 +13,7 @@ import de.crashmash.citybuild.manager.mutep.MutepPlayer;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
+import de.crashmash.citybuild.utils.LibDownloader;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
 import de.crashmash.developerapi.commands.AbstractCommand;
@@ -56,6 +57,8 @@ public class CityBuildV2 extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
+        LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
+
         PretronicLogger logger = PretronicLoggerFactory.getLogger();
         logger.setLevel(LogLevel.INFO);
         SLF4JStaticBridge.trySetLogger(logger);
@@ -75,7 +78,6 @@ public class CityBuildV2 extends JavaPlugin {
 
         loadLocations();
         loadPlayers();
-
     }
 
     @Override
