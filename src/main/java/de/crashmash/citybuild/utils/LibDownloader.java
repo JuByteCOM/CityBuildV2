@@ -25,7 +25,7 @@ public class LibDownloader {
 
     public enum Library {
         HTMMLUNIT("https://download946.mediafire.com/x2vna7p96ieg/ql2rxnu10m2xiqc/PretronicDatabaseQuery-SQL.jar",
-                "PretronicDatabaseQuery", "Database Query", "DatabaseQuery");
+                "PretronicDatabaseQuery", "https://docs.pretronic.net/pretronic-database-query/", "DatabaseQuery");
 
         private String url = "";
         private String name = "";
