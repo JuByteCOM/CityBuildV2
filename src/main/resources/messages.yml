@@ -276,6 +276,19 @@ Commands:
       Spectator:
         Self: '[prefix] &7Du bist jetzt im §aSpectator-Modus§7.'
         Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aSpectator-Modus §7gesetzt.'
+  Spawn:
+    Permissions:
+      Use: 'citybuild.spawn.use'
+      Admin: 'ciytbuild.spawn.admin'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/spawn'
+      AdminUsage: '[prefix] &cBitte nutze: &e/spawn admin <set/remove>'
+      TeleportToSpawn: '[prefix] &7Du wurdest zum &eSpawn &ateleportiert&7.'
+      SpawnNotFound: '[prefix] &7Der &eSpawn &7wurde noch &cnicht &7gesetzt.'
+      SpawnSet: '[prefix] &7Du hast den &eSpawn &7erfolgreich &7gesetzt.'
+      SpawnRemove: '[prefix] &7Du hast den &eSpawn &centfernt&7.'
+    Settings:
+      SpawnOnJoin: true
 
 Settings:
   ColoredChat:

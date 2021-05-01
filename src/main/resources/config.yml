@@ -79,3 +79,7 @@ Settings:
       Name: 'gamemode'
       Aliases: ['gm']
       Active: true
+    Spawn:
+      Name: 'Spawn'
+      Aliases: []
+      Active: true

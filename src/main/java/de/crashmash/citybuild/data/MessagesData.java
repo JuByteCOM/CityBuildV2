@@ -389,6 +389,26 @@ public class MessagesData {
             .getString("Commands.GameMode.Messages.Spectator.Self").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String GAMEMODE_COMMAND_MESSAGE_SPECTATOR_OTHER = plugin.getMessagesConfig()
             .getString("Commands.GameMode.Messages.Spectator.Other").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    
+    //Todo: Spawn-Command
+    public static String SPAWN_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Permissions.Use");
+    public static String SPAWN_COMMAND_PERMISSION_ADMIN = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Permissions.Admin");
+    public static String SPAWN_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SPAWN_COMMAND_MESSAGE_ADMINUSAGE = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.AdminUsage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SPAWN_COMMAND_MESSAGE_SPAWN_NOT_FOUND = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.SpawnNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SPAWN_COMMAND_MESSAGE_TELEPORT_TO_SPAWN = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.TeleportToSpawn").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SPAWN_COMMAND_MESSAGE_SPAWN_SET = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.SpawnSet").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String SPAWN_COMMAND_MESSAGE_SPAWN_REMOVE = plugin.getMessagesConfig()
+            .getString("Commands.Spawn.Messages.SpawnRemove").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static boolean SPAWN_COMMAND_SETTING_SPAWN_ON_JOIN = plugin.getMessagesConfig()
+            .getBoolean("Commands.Spawn.Settings.SpawnOnJoin");
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig()

@@ -5,6 +5,7 @@ import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
+import de.crashmash.citybuild.manager.Locations;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.manager.food.FoodLocation;
@@ -168,6 +169,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new GameModeCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_SPAWN_ACTIVE) {
+            AbstractCommand command = new SpawnCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
@@ -191,6 +196,7 @@ public class CityBuildV2 extends JavaPlugin {
 
     public void loadLocations() {
         Bukkit.getServer().getScheduler().runTaskLater(this, () -> FoodLocation.setLocations(FoodSQL.loadFood()),10);
+        Bukkit.getServer().getScheduler().runTaskLater(this, () -> Locations.setLocations(LocationSQL.loadLocations()),10);
     }
 
     private boolean setupSignEdit() {

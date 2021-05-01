@@ -6,12 +6,9 @@ import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class AllOrNothingCommand extends AbstractCommand {
@@ -25,7 +22,7 @@ public class AllOrNothingCommand extends AbstractCommand {
     private boolean isAllOrNothing = false;
 
     public AllOrNothingCommand() {
-        super(ConfigData.CONFIG_COMMAND_ALLORNOTHING_COMMANDSPY_NAME, null, "Let other players decide your luck!", ConfigData.CONFIG_COMMAND_ALLORNOTHING_ALIASES);
+        super(ConfigData.CONFIG_COMMAND_ALLORNOTHING_NAME, null, "Let other players decide your luck!", ConfigData.CONFIG_COMMAND_ALLORNOTHING_ALIASES);
     }
 
     @Override

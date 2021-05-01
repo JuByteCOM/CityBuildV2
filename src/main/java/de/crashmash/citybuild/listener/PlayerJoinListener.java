@@ -2,6 +2,7 @@ package de.crashmash.citybuild.listener;
 
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.MessagesData;
+import de.crashmash.citybuild.manager.Locations;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.manager.startkick.StartKick;
@@ -59,6 +60,13 @@ public class PlayerJoinListener implements Listener {
                 }
             } else {
                 GlowSQL.createPlayer(player.getUniqueId());
+            }
+        }
+
+        //Todo: SpawnTP
+        if(MessagesData.SPAWN_COMMAND_SETTING_SPAWN_ON_JOIN) {
+            if (Locations.exitsLocation("Spawn")) {
+                player.teleport(Locations.getLocation("Spawn"));
             }
         }
     }

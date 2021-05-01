@@ -26,7 +26,7 @@ public class Storage {
     private DatabaseCollection cooldownCollection;
     private DatabaseCollection mutePCollection;
     private DatabaseCollection glowCollection;
-    private DatabaseCollection historyCollection;
+    private DatabaseCollection locationCollection;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -76,7 +76,6 @@ public class Storage {
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("Head", DataType.LONG)
                 .field("BreakBlock", DataType.LONG)
-                .field("MuteP", DataType.LONG)
                 .create();
 
         this.mutePCollection = database.createCollection("MuteP")
@@ -87,17 +86,19 @@ public class Storage {
                 .field("Creator", DataType.UUID)
                 .create();
 
-        this.historyCollection = database.createCollection("History")
-                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
-                .field("Type", DataType.STRING)
-                .field("Reason", DataType.LONG)
-                .field("Duration", DataType.LONG)
-                .field("Creator", DataType.UUID)
-                .create();
-
         this.glowCollection = database.createCollection("Glow")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("State", DataType.BOOLEAN)
+                .create();
+
+        this.locationCollection = database.createCollection("Locations")
+                .field("Name", DataType.STRING, FieldOption.PRIMARY_KEY)
+                .field("LocX", DataType.DOUBLE)
+                .field("LocY", DataType.DOUBLE)
+                .field("LocZ", DataType.DOUBLE)
+                .field("Yaw", DataType.FLOAT)
+                .field("Pitch", DataType.FLOAT)
+                .field("World", DataType.STRING)
                 .create();
     }
 
@@ -135,5 +136,9 @@ public class Storage {
 
     public DatabaseCollection getGlowCollection() {
         return glowCollection;
+    }
+
+    public DatabaseCollection getLocationCollection() {
+        return locationCollection;
     }
 }

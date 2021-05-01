@@ -65,7 +65,7 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_COMMANDSPY_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.CommandSpy.Aliases");
     public static boolean CONFIG_COMMAND_COMMANDSPY_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.CommandSpy.Active");
 
-    public static String CONFIG_COMMAND_ALLORNOTHING_COMMANDSPY_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.AllOrNothing.Name");
+    public static String CONFIG_COMMAND_ALLORNOTHING_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.AllOrNothing.Name");
     public static List<String> CONFIG_COMMAND_ALLORNOTHING_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.AllOrNothing.Aliases");
     public static boolean CONFIG_COMMAND_ALLORNOTHING_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.AllOrNothing.Active");
 
@@ -84,5 +84,9 @@ public class ConfigData {
     public static String CONFIG_COMMAND_GAMEMODE_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.GameMode.Name");
     public static List<String> CONFIG_COMMAND_GAMEMODE_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.GameMode.Aliases");
     public static boolean CONFIG_COMMAND_GAMEMODE_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.GameMode.Active");
+
+    public static String CONFIG_COMMAND_SPAWN_NAME = CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Spawn.Name");
+    public static List<String> CONFIG_COMMAND_SPAWN_ALIASES = CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Spawn.Aliases");
+    public static boolean CONFIG_COMMAND_SPAWN_ACTIVE = CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Spawn.Active");
 
 }
