@@ -33,92 +33,100 @@ public class BreakblockCommand extends AbstractCommand {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         } else {
             Player player = (Player) commandSender;
-            PlotAPI plotAPI = new PlotAPI();
-            if(player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_USE)) {
-                if(strings.length == 0) {
-                    if(Cooldown.canUseBreakBlock(player)) {
-                        if (!breackBlockPlayers.contains(player)) {
-                            breackBlockPlayers.add(player);
+            if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") != null) {
+                PlotAPI plotAPI = new PlotAPI();
+                if (player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_USE)) {
+                    if (strings.length == 0) {
+                        if (Cooldown.canUseBreakBlock(player)) {
+                            if (!breackBlockPlayers.contains(player)) {
+                                breackBlockPlayers.add(player);
+                            }
+                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_COMMAND);
+                        } else {
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                            SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
+                            long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN;
+                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_COODLOWN.replace("[date]", simpleDateFormat.format(time))
+                                    .replace("[time]", simpleTimeFormat.format(time)));
                         }
-                        player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_COMMAND);
-                    } else {
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN;
-                        player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_COODLOWN.replace("[date]", simpleDateFormat.format(time))
-                                .replace("[time]", simpleTimeFormat.format(time)));
-                    }
-                } else if(strings.length == 1) {
-                    if(strings[0].equalsIgnoreCase("confirm")) {
-                        if(breackBlockPlayers.contains(player)) {
-                            Block block = player.getTargetBlock(null, 5);
-                            boolean breakAllowed = true;
-                            if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> player.getWorld().getName().equalsIgnoreCase(world)).collect(Collectors.toSet()).isEmpty()) {
-                                breakAllowed = false;
-                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_WORLDS);
-                            }
-                            if (breakAllowed) {
-                                if (!MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DISABLES_BLOCK_HEIGHTS.stream().filter(y -> block.getLocation().getBlockY() == y).collect(Collectors.toSet()).isEmpty()) {
+                    } else if (strings.length == 1) {
+                        if (strings[0].equalsIgnoreCase("confirm")) {
+                            if (breackBlockPlayers.contains(player)) {
+                                Block block = player.getTargetBlock(null, 5);
+                                boolean breakAllowed = true;
+                                if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_AVIABLE_WORLDS.stream().filter(world -> player.getWorld().getName().equalsIgnoreCase(world)).collect(Collectors.toSet()).isEmpty()) {
                                     breakAllowed = false;
-                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_BLOCK_HEIGHT.replace("[blockHeight]", String.valueOf(block.getLocation().getBlockY())));
+                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_WORLDS);
                                 }
-                            }
-                            if (breakAllowed) {
-                                if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_BLOCKED_BLOCKS.stream().filter(material -> block.getType() !=
-                                        Material.matchMaterial(material)).collect(Collectors.toSet()).isEmpty()) {
-                                    breakAllowed = false;
-                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_BLOCKED_BLOCK);
-                                }
-                            }
-                            if (breakAllowed) {
-                                if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") == null) {
-                                    breackBlockPlayers.remove(player);
-                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
-                                    Cooldown.setBreakBlockCooldown(player);
-                                    if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
-                                        ItemStack itemStack = new ItemStack(block.getType());
-                                        player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
+                                if (breakAllowed) {
+                                    if (!MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DISABLES_BLOCK_HEIGHTS.stream().filter(y -> block.getLocation().getBlockY() == y).collect(Collectors.toSet()).isEmpty()) {
+                                        breakAllowed = false;
+                                        player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_DISABLED_BLOCK_HEIGHT.replace("[blockHeight]", String.valueOf(block.getLocation().getBlockY())));
                                     }
-                                    block.setType(Material.AIR);
-                                } else {
-                                    if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
+                                }
+                                if (breakAllowed) {
+                                    if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_BLOCKED_BLOCKS.stream().filter(material -> block.getType() !=
+                                            Material.matchMaterial(material)).collect(Collectors.toSet()).isEmpty()) {
+                                        breakAllowed = false;
+                                        player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_BLOCKED_BLOCK);
+                                    }
+                                }
+                                if (breakAllowed) {
+                                    if (Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") == null) {
                                         breackBlockPlayers.remove(player);
                                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                         Cooldown.setBreakBlockCooldown(player);
-                                        if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                        if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                             ItemStack itemStack = new ItemStack(block.getType());
                                             player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
                                         }
                                         block.setType(Material.AIR);
                                     } else {
-                                        if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null) {
-                                            if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
-                                                breackBlockPlayers.remove(player);
-                                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
-                                                Cooldown.setBreakBlockCooldown(player);
-                                                if(MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
-                                                    ItemStack itemStack = new ItemStack(block.getType());
-                                                    player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
-                                                }
-                                                block.setType(Material.AIR);
-                                            } else {
-                                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER);
+                                        if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
+                                            breackBlockPlayers.remove(player);
+                                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
+                                            Cooldown.setBreakBlockCooldown(player);
+                                            if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                                ItemStack itemStack = new ItemStack(block.getType());
+                                                player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
                                             }
+                                            block.setType(Material.AIR);
                                         } else {
-                                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_BLOCK_ISNT_ON_PLOT);
+                                            if (PlotUtils.getPlot(player.getTargetBlock(null, 5).getLocation()) != null) {
+                                                if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
+                                                    breackBlockPlayers.remove(player);
+                                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
+                                                    Cooldown.setBreakBlockCooldown(player);
+                                                    if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
+                                                        ItemStack itemStack = new ItemStack(block.getType());
+                                                        player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
+                                                    }
+                                                    block.setType(Material.AIR);
+                                                } else {
+                                                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_ISNT_PLOT_OWNER);
+                                                }
+                                            } else {
+                                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_BLOCK_ISNT_ON_PLOT);
+                                            }
                                         }
                                     }
                                 }
+                            } else {
+                                player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_USAGE);
                             }
-                        } else {
-                            player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_USAGE);
                         }
+                    } else {
+                        player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_USAGE);
                     }
                 } else {
-                    player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_USAGE);
+                    player.sendMessage(MessagesData.NOPERMS);
                 }
             } else {
-                player.sendMessage(MessagesData.NOPERMS);
+                if(player.hasPermission("citybuild.breakblock.admin")) {
+                    player.sendMessage("§cPlotSquaredV5 is missing.");
+                } else {
+                    player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTSQUARED);
+                }
             }
         }
         return false;
