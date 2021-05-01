@@ -366,9 +366,9 @@ public class MessagesData {
 
     //Todo: GameMode-Command
     public static String GAMEMODE_COMMAND_PERMISSION_USE_SELF = plugin.getMessagesConfig()
-            .getString("Commands.GameMode.Permissions.Use.Self");
+            .getString("Commands.GameMode.Permissions.UseSelf");
     public static String GAMEMODE_COMMAND_PERMISSION_USE_OTHER = plugin.getMessagesConfig()
-            .getString("Commands.GameMode.Permissions.Use.Other");
+            .getString("Commands.GameMode.Permissions.UseOther");
     public static String GAMEMODE_COMMAND_MESSAGE_PLAYER_NOT_FOUND = plugin.getMessagesConfig()
             .getString("Commands.GameMode.Messages.PlayerNotFound").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String GAMEMODE_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
