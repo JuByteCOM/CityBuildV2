@@ -22,7 +22,42 @@ public class GameModeCommand extends AbstractCommand {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
         if(!(commandSender instanceof Player)){
-            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
+            if (strings.length == 2){
+                if (commandSender.hasPermission(MessagesData.GAMEMODE_COMMAND_PERMISSION_USE_OTHER)){
+
+                    Player target = Bukkit.getPlayer(strings[1]);
+
+                    if (target != null){
+                        if (strings[0].equalsIgnoreCase("0")){
+                            target.setGameMode(GameMode.SURVIVAL);
+                            target.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_SURVIVAL_SELF);
+                            commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_SURVIVAL_OTHER.replace("[targetPlayer]", target.getName()));
+                        }else if (strings[0].equalsIgnoreCase("1")){
+                            target.setGameMode(GameMode.CREATIVE);
+                            target.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_CREATIVE_SELF);
+                            commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_CREATIVE_OTHER.replace("[targetPlayer]", target.getName()));
+                        }else if (strings[0].equalsIgnoreCase("2")){
+                            target.setGameMode(GameMode.ADVENTURE);
+                            target.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_ADVENTURE_SELF);
+                            commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_ADVENTURE_OTHER.replace("[targetPlayer]", target.getName()));
+                        }else if (strings[0].equalsIgnoreCase("3")){
+                            target.setGameMode(GameMode.SPECTATOR);
+                            target.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_SPECTATOR_SELF);
+                            commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_SPECTATOR_OTHER.replace("[targetPlayer]", target.getName()));
+
+                        }else{
+                            commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_USAGE);
+                        }
+                    }else{
+                        commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_PLAYER_NOT_FOUND);
+                    }
+
+                }else{
+                    commandSender.sendMessage(MessagesData.NOPERMS);
+                }
+            }else{
+                commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_USAGE);
+            }
         }else{
             Player player = (Player) commandSender;
             if (player.hasPermission(MessagesData.GAMEMODE_COMMAND_PERMISSION_USE_SELF)){
