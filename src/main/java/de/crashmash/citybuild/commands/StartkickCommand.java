@@ -33,49 +33,47 @@ public class StartkickCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(!(commandSender instanceof Player)) {
-            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
-            return false;
-        }
-        Player player = (Player) commandSender;
-        if(!player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_USE)) {
-            player.sendMessage(MessagesData.NOPERMS);
+        if(!commandSender.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_USE)) {
+            commandSender.sendMessage(MessagesData.NOPERMS);
             return false;
         }
         if(!(strings.length >= 2)) {
-            player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_USAGE);
+            commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_USAGE);
             return false;
         }
         if(isStartkick) {
-            player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_ALLREADY_POLL);
+            commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_ALLREADY_POLL);
             return false;
         }
         Player targetPlayer = Bukkit.getPlayer(strings[0]);
         if(targetPlayer == null) {
-            player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_TARGET_PLAYER_OFFLINE.replace("[targetPlayer]", strings[0]));
+            commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_TARGET_PLAYER_OFFLINE.replace("[targetPlayer]", strings[0]));
             return false;
         }
-        if(targetPlayer.equals(player)) {
-            player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_SELF_KICK);
+        if(targetPlayer.equals(commandSender)) {
+            commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_SELF_KICK);
             return false;
         }
         if(MessagesData.STARTKICK_COMMAND_SETTING_KICK_BYPASS) {
             if(targetPlayer.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_KICK_BYPASS)) {
-                player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_KICK_BYPASS.replace("[targetPlayer]", targetPlayer.getDisplayName()));
+                commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_KICK_BYPASS.replace("[targetPlayer]", targetPlayer.getDisplayName()));
                 return false;
             }
         }
-        if(!player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
-            if(!StartKick.canStartKick(player)) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                long time = StartKick.getCooldownTime(player) + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN;
-                player.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
-                        .replace("[time]", simpleTimeFormat.format(time)));
-                return false;
+        if (commandSender instanceof Player) {
+            Player player = (Player) commandSender;
+            if(!commandSender.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
+                if (!StartKick.canStartKick(player)) {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                    SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
+                    long time = StartKick.getCooldownTime(player) + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN;
+                    commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
+                            .replace("[time]", simpleTimeFormat.format(time)));
+                    return false;
+                }
             }
+            StartKick.setCooldownTime(player);
         }
-        StartKick.setCooldownTime(player);
         isStartkick = true;
         StringBuilder reason = new StringBuilder();
         for (int i = 1; i < strings.length; i++) {
@@ -90,7 +88,7 @@ public class StartkickCommand extends AbstractCommand {
                 (MessagesData.STARTKICK_COMMAND_MESSAGE_VOTE_FOR_NO.replace("[targetPlayer]", targetPlayer.getDisplayName())));
         voteNo.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/nein"));
         for(Player all : Bukkit.getOnlinePlayers()) {
-            all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_STARTED.replace("[player]", player.getDisplayName())
+            all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_STARTED.replace("[player]", commandSender.getName())
                     .replace("[reason]", reason.toString()).replace("[duration]", Integer.toString(MessagesData.STARTKICK_COMMAND_SETTING_DURATION/60))
                     .replace("[targetPlayer]", targetPlayer.getDisplayName()));
             all.spigot().sendMessage(voteYes);

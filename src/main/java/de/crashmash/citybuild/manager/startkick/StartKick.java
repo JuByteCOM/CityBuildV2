@@ -44,7 +44,6 @@ public class StartKick {
     public static void playerStartKicked(Player player, String reason, long duration) {
         CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setReason(reason);
         CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setDuration(duration);
-        CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().get(player).setCooldown(System.currentTimeMillis());
-        StartkickSQL.setStartKick(player.getUniqueId(), reason, duration, System.currentTimeMillis());
+        StartkickSQL.setStartKick(player.getUniqueId(), reason, duration, 0);
     }
 }

@@ -47,7 +47,7 @@ public class Storage {
         this.startKickCollection = database.createCollection("StartKick")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("Reason", DataType.STRING)
-                .field("Duration", DataType.INTEGER)
+                .field("Duration", DataType.LONG)
                 .field("Cooldown", DataType.LONG)
                 .create();
 

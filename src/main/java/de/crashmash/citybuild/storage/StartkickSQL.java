@@ -16,8 +16,8 @@ public class StartkickSQL {
             CityBuildV2.getPlugin().getStorage().getStartKickCollection().insert()
                     .set("UUID", uuid)
                     .set("Reason", (Object) null)
-                    .set("Duration", 0)
-                    .set("Cooldown", 0)
+                    .set("Duration", 0L)
+                    .set("Cooldown", 0L)
                     .executeAsync();
         }
     }

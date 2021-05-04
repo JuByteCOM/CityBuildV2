@@ -45,4 +45,8 @@ public class MutepPlayer {
     public UUID getCreator() {
         return creator;
     }
+
+    public void setCreator(UUID creator) {
+        this.creator = creator;
+    }
 }

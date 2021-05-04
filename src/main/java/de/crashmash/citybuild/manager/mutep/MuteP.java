@@ -47,6 +47,7 @@ public class MuteP {
     public static void playerMutedP(Player targetPlayer, String reason, Player creator) {
         CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setReason(reason);
         CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setDuration(System.currentTimeMillis());
+        CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().get(targetPlayer).setCreator(creator.getUniqueId());
         MutepSQL.setMuteP(targetPlayer.getUniqueId(), reason, System.currentTimeMillis(), creator.getUniqueId());
     }
 

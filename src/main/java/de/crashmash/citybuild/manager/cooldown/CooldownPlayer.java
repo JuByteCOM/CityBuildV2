@@ -7,13 +7,11 @@ public class CooldownPlayer {
     private UUID uuid;
     private long head;
     private long breakBlock;
-    private long muteP;
 
-    public CooldownPlayer(UUID uuid, long head, long breakBlock, long muteP) {
+    public CooldownPlayer(UUID uuid, long head, long breakBlock) {
         this.uuid = uuid;
         this.head = head;
         this.breakBlock = breakBlock;
-        this.muteP = muteP;
     }
 
     public long getHead() {
@@ -30,13 +28,5 @@ public class CooldownPlayer {
 
     public void setBreakBlock(long breakBlock) {
         this.breakBlock = breakBlock;
-    }
-
-    public long getMuteP() {
-        return muteP;
-    }
-
-    public void setMuteP(long muteP) {
-        this.muteP = muteP;
     }
 }

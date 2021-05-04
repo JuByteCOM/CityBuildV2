@@ -17,7 +17,6 @@ public class CooldownSQL {
                     .set("UUID", uuid)
                     .set("Head", 0)
                     .set("BreakBlock", 0)
-                    .set("MuteP", 0)
                     .executeAsync();
         }
     }
@@ -46,18 +45,6 @@ public class CooldownSQL {
         return 0;
     }
 
-    public static long getMutePCooldown(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getcooldownCollection()
-                .find()
-                .where("UUID", uuid)
-                .limit(1)
-                .execute();
-        if(!queryResult.isEmpty()) {
-            return queryResult.first().getLong("MuteP");
-        }
-        return 0;
-    }
-
     public static void setHeadCooldown(UUID uuid, long head) {
         CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
                 .set("Head", head)
@@ -67,12 +54,6 @@ public class CooldownSQL {
     public static void setBreakBlockCooldown(UUID uuid, long breakBlock) {
         CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
                 .set("BreakBlock", breakBlock)
-                .where("UUID", uuid).executeAsync();
-    }
-
-    public static void setMutePCooldown(UUID uuid, long muteP) {
-        CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
-                .set("MuteP", muteP)
                 .where("UUID", uuid).executeAsync();
     }
 }
