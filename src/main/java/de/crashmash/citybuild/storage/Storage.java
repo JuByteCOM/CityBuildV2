@@ -27,6 +27,7 @@ public class Storage {
     private DatabaseCollection mutePCollection;
     private DatabaseCollection glowCollection;
     private DatabaseCollection locationCollection;
+    private DatabaseCollection playerInformation;
 
     public void createConnection() {
         Bukkit.getLogger();
@@ -100,6 +101,14 @@ public class Storage {
                 .field("Pitch", DataType.FLOAT)
                 .field("World", DataType.STRING)
                 .create();
+
+        /*this.playerInformation = database.createCollection("PlayerInformations")
+                .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
+                .field("Name", DataType.STRING)
+                .field("FirstJoin", DataType.LONG)
+                .field("LastJoin", DataType.LONG)
+                .field("Playtime", DataType.LONG)
+                .create();*/
     }
 
     public boolean isConnected() {
