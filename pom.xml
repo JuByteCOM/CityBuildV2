@@ -42,11 +42,27 @@
         </repository>
         <repository>
             <id>crashmash</id>
-            <url>http://164.68.98.148:8888/repository/crashmash/</url>
+            <url>http://164.68.98.148:8888/repository/jubyte</url>
+        </repository>
+        <repository>
+            <id>bansystem-repo</id>
+            <url>https://raw.githubusercontent.com/DevKrieger/repository/master/</url>
         </repository>
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>ch.dkrieger.bansystem.lib</groupId>
+            <artifactId>bansystem-lib</artifactId>
+            <version>2.1.2</version>
+            <scope>provide</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.dkrieger.bansystem.bukkit</groupId>
+            <artifactId>bansystem-bukkit</artifactId>
+            <version>2.1.2</version>
+            <scope>provide</scope>
+        </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
@@ -76,6 +92,11 @@
             <artifactId>pretroniclibraries-caching</artifactId>
             <version>1.2.46.185-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer.hikari</groupId>
+            <artifactId>hik </artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 

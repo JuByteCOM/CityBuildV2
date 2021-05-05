@@ -14,6 +14,9 @@ import de.crashmash.citybuild.manager.mutep.MutepPlayer;
 import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
+import de.crashmash.citybuild.storage.playerdata.AbstractPlayerDataHandler;
+import de.crashmash.citybuild.storage.playerdata.implementation.DefaultPlayerDataHandlerImplementation;
+import de.crashmash.citybuild.storage.playerdata.implementation.DKBansPlayerDataHandlerImplementation;
 import de.crashmash.citybuild.utils.LibDownloader;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
@@ -51,6 +54,8 @@ public class CityBuildV2 extends JavaPlugin {
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
     private final Map<Player, MutepPlayer> MUTEPPLAYER_MAP = new HashMap<>();
 
+    private AbstractPlayerDataHandler playerDataHandler;
+
     private FileConfiguration newConfig = null;
     private final File configFile = new File(getDataFolder(), "messages.yml");
 
@@ -79,6 +84,19 @@ public class CityBuildV2 extends JavaPlugin {
 
         loadLocations();
         loadPlayers();
+
+        findPlayerDataProvider();
+    }
+
+    private void findPlayerDataProvider() {
+
+        if (Bukkit.getPluginManager().isPluginEnabled("DKBans")) {
+            this.playerDataHandler = new DKBansPlayerDataHandlerImplementation();
+            return;
+        }
+
+
+        this.playerDataHandler = new DefaultPlayerDataHandlerImplementation();
     }
 
     @Override

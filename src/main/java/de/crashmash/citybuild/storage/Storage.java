@@ -102,13 +102,13 @@ public class Storage {
                 .field("World", DataType.STRING)
                 .create();
 
-        /*this.playerInformation = database.createCollection("PlayerInformations")
+        this.playerInformation = database.createCollection("PlayerInformations")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("Name", DataType.STRING)
                 .field("FirstJoin", DataType.LONG)
                 .field("LastJoin", DataType.LONG)
                 .field("Playtime", DataType.LONG)
-                .create();*/
+                .create();
 
     }
 
@@ -142,6 +142,10 @@ public class Storage {
 
     public DatabaseCollection getMutePCollection() {
         return mutePCollection;
+    }
+
+    public DatabaseCollection getPlayerInformation() {
+        return playerInformation;
     }
 
     public DatabaseCollection getGlowCollection() {
