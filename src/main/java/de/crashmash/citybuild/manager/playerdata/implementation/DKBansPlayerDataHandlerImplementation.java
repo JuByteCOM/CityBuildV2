@@ -1,10 +1,7 @@
-package de.crashmash.citybuild.storage.playerdata.implementation;
+package de.crashmash.citybuild.manager.playerdata.implementation;
 
 import ch.dkrieger.bansystem.lib.BanSystem;
-import ch.dkrieger.bansystem.lib.DKBansPlatform;
-import ch.dkrieger.bansystem.lib.player.NetworkPlayer;
-import ch.dkrieger.bansystem.lib.storage.DKBansStorage;
-import de.crashmash.citybuild.storage.playerdata.AbstractPlayerDataHandler;
+import de.crashmash.citybuild.manager.playerdata.AbstractPlayerDataHandler;
 
 import java.util.UUID;
 

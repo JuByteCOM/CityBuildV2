@@ -1,7 +1,7 @@
-package de.crashmash.citybuild.storage.playerdata.implementation;
+package de.crashmash.citybuild.manager.playerdata.implementation;
 
 import de.crashmash.citybuild.CityBuildV2;
-import de.crashmash.citybuild.storage.playerdata.AbstractPlayerDataHandler;
+import de.crashmash.citybuild.manager.playerdata.AbstractPlayerDataHandler;
 
 import java.util.UUID;
 

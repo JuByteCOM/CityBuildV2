@@ -35,7 +35,7 @@ Commands:
       Use: 'citybuild.clearchat.use'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/clearchat'
-      Cleared: '[prefix] &cDer Chat wurde von [displayname] &cgeleert!'
+      Cleared: '[prefix] &cDer Chat wurde von [player] &cgeleert!'
   Status:
     Permissions:
       Use: 'citybuild.status.use'

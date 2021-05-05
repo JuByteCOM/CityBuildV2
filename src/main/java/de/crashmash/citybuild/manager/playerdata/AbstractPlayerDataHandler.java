@@ -1,4 +1,4 @@
-package de.crashmash.citybuild.storage.playerdata;
+package de.crashmash.citybuild.manager.playerdata;
 
 import de.crashmash.citybuild.CityBuildV2;
 

@@ -19,29 +19,24 @@ public class SlowChatCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(!(commandSender instanceof Player)) {
-            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
-        } else {
-            Player player = (Player) commandSender;
-            if(player.hasPermission(MessagesData.SLOWCHAT_COMMAND_PERMISSION_USE)) {
-                if(strings.length == 0) {
-                    if(SLOWCHAT_STATUS) {
-                        for(Player all : Bukkit.getOnlinePlayers()) {
-                            all.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_DEACTIVATED.replace("[player]", player.getDisplayName()));
-                            SLOWCHAT_STATUS = false;
-                        }
-                    } else {
-                        for(Player all : Bukkit.getOnlinePlayers()) {
-                            all.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ACTIVATED.replace("[player]", player.getDisplayName()));
-                            SLOWCHAT_STATUS = true;
-                        }
+        if(commandSender.hasPermission(MessagesData.SLOWCHAT_COMMAND_PERMISSION_USE)) {
+            if(strings.length == 0) {
+                if(SLOWCHAT_STATUS) {
+                    for(Player all : Bukkit.getOnlinePlayers()) {
+                        all.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_DEACTIVATED.replace("[player]", commandSender.getName()));
+                        SLOWCHAT_STATUS = false;
                     }
                 } else {
-                    player.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_USAGE);
+                    for(Player all : Bukkit.getOnlinePlayers()) {
+                        all.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_ACTIVATED.replace("[player]", commandSender.getName()));
+                        SLOWCHAT_STATUS = true;
+                    }
                 }
             } else {
-                player.sendMessage(MessagesData.NOPERMS);
+                commandSender.sendMessage(MessagesData.SLOWCHAT_COMMAND_MESSAGE_USAGE);
             }
+        } else {
+            commandSender.sendMessage(MessagesData.NOPERMS);
         }
         return false;
     }

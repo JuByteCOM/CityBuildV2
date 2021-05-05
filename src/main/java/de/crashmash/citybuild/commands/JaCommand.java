@@ -16,28 +16,23 @@ public class JaCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(!(commandSender instanceof Player)) {
-            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
-        } else {
-            Player player = (Player) commandSender;
-            if(strings.length == 0) {
-                if (StartkickCommand.isStartkick) {
-                    if(!CityBuildV2.getPlugin().getVOTING_YES().contains(player.getName())) {
-                        if(!CityBuildV2.getPlugin().getVOTING_NO().contains(player.getName())) {
-                            CityBuildV2.getPlugin().getVOTING_YES().add(player.getName());
-                            player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_SUCCESFUL_VOTED);
-                        } else {
-                            player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_VOTED_FOR_NO);
-                        }
+        if(strings.length == 0) {
+            if (StartkickCommand.isStartkick) {
+                if(!CityBuildV2.getPlugin().getVOTING_YES().contains(commandSender.getName())) {
+                    if(!CityBuildV2.getPlugin().getVOTING_NO().contains(commandSender.getName())) {
+                        CityBuildV2.getPlugin().getVOTING_YES().add(commandSender.getName());
+                        commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_SUCCESFUL_VOTED);
                     } else {
-                        player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_ALREADY_VOTED);
+                        commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_VOTED_FOR_NO);
                     }
                 } else {
-                    player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_NO_STARTKICK);
+                    commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_ALREADY_VOTED);
                 }
             } else {
-                player.sendMessage(MessagesData.YES_COMMAND_MESSAGE_USAGE);
+                commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_NO_STARTKICK);
             }
+        } else {
+            commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_USAGE);
         }
         return false;
     }

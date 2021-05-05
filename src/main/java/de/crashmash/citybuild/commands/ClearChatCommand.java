@@ -17,22 +17,17 @@ public class ClearChatCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(!(commandSender instanceof Player)) {
-            commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
-        } else {
-            Player player = (Player) commandSender;
-            if (player.hasPermission(MessagesData.CLEARCHAT_COMMAND_PERMISSION_USE)){
-                if (strings.length == 0){
-                    for (int i = 0; i < 200; i++) {
-                        Bukkit.broadcastMessage(" ");
-                    }
-                    Bukkit.broadcastMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_CLEARED.replace("[playername]", player.getName()).replace("[displayname]", player.getDisplayName()));
-                }else{
-                    player.sendMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_USAGE);
+        if (commandSender.hasPermission(MessagesData.CLEARCHAT_COMMAND_PERMISSION_USE)){
+            if (strings.length == 0){
+                for (int i = 0; i < 200; i++) {
+                    Bukkit.broadcastMessage(" ");
                 }
+                Bukkit.broadcastMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_CLEARED.replace("[player]", commandSender.getName()));
             }else{
-                player.sendMessage(MessagesData.NOPERMS);
+                commandSender.sendMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_USAGE);
             }
+        }else{
+            commandSender.sendMessage(MessagesData.NOPERMS);
         }
         return false;
     }
