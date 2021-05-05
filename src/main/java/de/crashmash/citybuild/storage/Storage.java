@@ -109,6 +109,7 @@ public class Storage {
                 .field("LastJoin", DataType.LONG)
                 .field("Playtime", DataType.LONG)
                 .create();*/
+
     }
 
     public boolean isConnected() {
