@@ -20,7 +20,9 @@ public class ClearChatCommand extends AbstractCommand {
         if (commandSender.hasPermission(MessagesData.CLEARCHAT_COMMAND_PERMISSION_USE)){
             if (strings.length == 0){
                 for (int i = 0; i < 200; i++) {
-                    Bukkit.broadcastMessage(" ");
+                    for(Player players : Bukkit.getOnlinePlayers()) {
+                        players.sendMessage(" ");
+                    }
                 }
                 Bukkit.broadcastMessage(MessagesData.CLEARCHAT_COMMAND_MESSAGE_CLEARED.replace("[player]", commandSender.getName()));
             }else{
