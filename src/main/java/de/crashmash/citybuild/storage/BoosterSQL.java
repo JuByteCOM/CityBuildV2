@@ -12,7 +12,7 @@ import java.util.UUID;
 public class BoosterSQL {
 
     public static List<BoosterEntry> getBoosters(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getBoosterCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getBoosterCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -28,7 +28,7 @@ public class BoosterSQL {
     }
 
     public static BoosterEntry getBoosterEntry(UUID uuid, BoosterType boosterType) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getBoosterCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getBoosterCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -45,7 +45,7 @@ public class BoosterSQL {
     }
 
     public static void setBooster(UUID uuid, BoosterType boosterType, int amount) {
-        CityBuildV2.getPlugin().getStorage().getBoosterCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getBoosterCollection().update()
                 .set("Amount", amount)
                 .where("UUID", uuid)
                 .where("BoosterID", boosterType).executeAsync();
@@ -54,7 +54,7 @@ public class BoosterSQL {
     public static void createPlayer(UUID uuid) {
         for(BoosterType boosterType : BoosterType.values()) {
             if(!hasBooster(uuid, boosterType)) {
-                CityBuildV2.getPlugin().getStorage().getBoosterCollection().insert()
+                CityBuildV2.getPLUGIN().getStorage().getBoosterCollection().insert()
                         .set("UUID", uuid)
                         .set("BoosterID", boosterType.getId())
                         .set("Amount", 0).executeAsync();

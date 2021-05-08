@@ -41,7 +41,7 @@ public class AllOrNothingCommand extends AbstractCommand {
                         int maxReal = MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_REALMONEY;
                         ingameResult = ThreadLocalRandom.current().nextInt(minIngame, maxIngame + 1);
                         realResult = ThreadLocalRandom.current().nextInt(minReal, maxReal + 1);
-                        startCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(CityBuildV2.getPlugin(), () -> {
+                        startCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(CityBuildV2.getPLUGIN(), () -> {
                             for (int i : MessagesData.ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES) {
                                 if (i != 0 && i != 1) {
                                     if (counter == i) {
@@ -81,11 +81,11 @@ public class AllOrNothingCommand extends AbstractCommand {
                     if (strings[0].equalsIgnoreCase("admin") && strings[1].equalsIgnoreCase("set")) {
                         if (amount >= 0) {
                             if (strings[2].equalsIgnoreCase("maxingamemoney")) {
-                                CityBuildV2.getPlugin().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxIngamemoney", amount);
+                                CityBuildV2.getPLUGIN().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxIngamemoney", amount);
                                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                                 player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_INGAMEMONEY.replace("[amount]", String.valueOf(amount)));
-                            } else if (strings[2].equalsIgnoreCase("maxirealmoney")) {
-                                CityBuildV2.getPlugin().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxRealmoney", amount);
+                            } else if (strings[2].equalsIgnoreCase("maxrealmoney")) {
+                                CityBuildV2.getPLUGIN().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxRealmoney", amount);
                                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                                 player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_REALMONEY.replace("[amount]", String.valueOf(amount)));
                             } else {

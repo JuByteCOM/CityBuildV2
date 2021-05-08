@@ -1,15 +1,13 @@
 package de.crashmash.citybuild.data;
 
 import de.crashmash.citybuild.CityBuildV2;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.Objects;
 
 public class MessagesData {
     
-    private final static CityBuildV2 plugin = CityBuildV2.getPlugin();
+    private final static CityBuildV2 plugin = CityBuildV2.getPLUGIN();
 
     //Todo: General
     public static String PREFIX = Objects.requireNonNull(plugin.getMessagesConfig().getString("Prefix"))

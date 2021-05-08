@@ -13,7 +13,6 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.*;
 
@@ -48,7 +47,7 @@ public class FoodCommand extends AbstractCommand {
                         String World = Objects.requireNonNull(player.getLocation().getWorld()).getName();
                         FoodSQL.createFood(LocX, LocY, LocZ, Yaw, Pitch, World);
                         FoodLocation.FOOD_LOCATIONS.clear();
-                        CityBuildV2.getPlugin().loadLocations();
+                        CityBuildV2.getPLUGIN().loadLocations();
                         player.sendMessage(MessagesData.FOOD_COMMAND_MESSAGE_SPAWNED);
                     } else if (strings[0].equalsIgnoreCase("list")) {
                         for (int iD : FoodLocation.getLocationNames()) {

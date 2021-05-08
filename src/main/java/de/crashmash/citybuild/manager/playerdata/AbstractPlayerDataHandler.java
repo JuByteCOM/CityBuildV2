@@ -7,15 +7,15 @@ import java.util.UUID;
 public abstract class AbstractPlayerDataHandler {
 
     public boolean playerExists(String name) {
-        return !CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("Name", name).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("Name", name).execute().isEmpty();
     }
 
     public UUID getUUID(String playerName) {
-        return CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("Name", playerName).execute().first().getUniqueId("UUID");
+        return CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("Name", playerName).execute().first().getUniqueId("UUID");
     }
 
     public String getName(UUID playerUUID) {
-        return CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("UUID", playerUUID.toString()).execute().first().getString("Name");
+        return CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("UUID", playerUUID.toString()).execute().first().getString("Name");
     }
 
     public abstract long getFirstJoin(UUID playerUUID);

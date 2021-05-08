@@ -1,13 +1,13 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.storage.StartkickSQL;
+import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class UnstartKickCommand extends AbstractCommand {
@@ -21,9 +21,11 @@ public class UnstartKickCommand extends AbstractCommand {
         if (commandSender.hasPermission(MessagesData.UNSTARTKICK_COMMAND_PERMISSION_USE)) {
             if (strings.length == 1) {
                 OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(strings[0]);
-                if (null != targetPlayer && StartkickSQL.playerExists(targetPlayer.getUniqueId())) {
-                    if (StartkickSQL.getDuration(targetPlayer.getUniqueId()) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION * 1000L > System.currentTimeMillis()) {
-                        StartkickSQL.setStartKick(targetPlayer.getUniqueId(), null, 0, 0);
+                if (null != targetPlayer) {
+                    StartKickPlayer startKickPlayer = CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(targetPlayer.getUniqueId());
+                    if (startKickPlayer.isStartKicked()) {
+                        startKickPlayer.setReason(null);
+                        startKickPlayer.setDuration(0);
                         commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_UNKICKED.replace("[targetPlayer]", targetPlayer.getName()));
                     } else {
                         commandSender.sendMessage(MessagesData.UNSTARTKICK_COMMAND_MESSAGE_NOT_KICKED.replace("[targetPlayer]", targetPlayer.getName()));

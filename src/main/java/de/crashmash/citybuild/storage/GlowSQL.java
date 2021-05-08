@@ -8,12 +8,12 @@ import java.util.UUID;
 public class GlowSQL {
 
     public static boolean playerExists(UUID uuid) {
-        return !CityBuildV2.getPlugin().getStorage().getGlowCollection().find().where("UUID", uuid).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getGlowCollection().find().where("UUID", uuid).execute().isEmpty();
     }
 
     public static void createPlayer(UUID uuid) {
         if(!playerExists(uuid)) {
-            CityBuildV2.getPlugin().getStorage().getGlowCollection().insert()
+            CityBuildV2.getPLUGIN().getStorage().getGlowCollection().insert()
                     .set("UUID", uuid)
                     .set("State", false)
                     .executeAsync();
@@ -21,13 +21,13 @@ public class GlowSQL {
     }
 
     public static void setGlowEffect(UUID uuid, Boolean state){
-        CityBuildV2.getPlugin().getStorage().getGlowCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getGlowCollection().update()
                 .set("State", state)
                 .where("UUID", uuid).executeAsync();
     }
 
     public static boolean getGlowEffect(UUID uuid){
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getGlowCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getGlowCollection()
                 .find()
                 .where("UUID",uuid)
                 .limit(1)

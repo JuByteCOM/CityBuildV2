@@ -57,7 +57,7 @@ public class SpawnCommand extends AbstractCommand {
                             LocationSQL.updateLocation("Spawn", LocX, LocY, LocZ, Yaw, Pitch, World);
                         }
                         Locations.LOCATIONS.clear();
-                        Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPlugin(), () -> Locations.setLocations(LocationSQL.loadLocations()),10);
+                        Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPLUGIN(), () -> Locations.setLocations(LocationSQL.loadLocations()),10);
                         player.sendMessage(MessagesData.SPAWN_COMMAND_MESSAGE_SPAWN_SET);
                     } else if (strings[1].equalsIgnoreCase("remove")) {
                         if (Locations.exitsLocation("Spawn")) {

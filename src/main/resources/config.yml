@@ -3,7 +3,7 @@ Settings:
     CityBuildV2:
       Name: 'citybuildv2'
       Aliases: ['cbv2']
-    Signeidt:
+    Signedit:
       Name: 'signedit'
       Aliases: ['schild']
       Active: true

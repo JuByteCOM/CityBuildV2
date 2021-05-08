@@ -11,7 +11,7 @@ import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.manager.food.FoodLocation;
 import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.manager.mutep.MutepPlayer;
-import de.crashmash.citybuild.manager.startkick.StartKick;
+import de.crashmash.citybuild.manager.startkick.StartKickCache;
 import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.manager.playerdata.AbstractPlayerDataHandler;
@@ -42,9 +42,10 @@ import java.util.Map;
 
 public class CityBuildV2 extends JavaPlugin {
 
-    private static CityBuildV2 plugin;
+    private static CityBuildV2 PLUGIN;
     private Storage storage;
     private static SignEdit signedit;
+    private StartKickCache startKickCache;
 
     private final List<String> VOTING_YES = new ArrayList<>();
     private final List<String> VOTING_NO = new ArrayList<>();
@@ -61,9 +62,10 @@ public class CityBuildV2 extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        plugin = this;
+        PLUGIN = this;
 
-        LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
+        if (!Bukkit.getPluginManager().isPluginEnabled("McNative"))
+            LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
 
         PretronicLogger logger = PretronicLoggerFactory.getLogger();
         logger.setLevel(LogLevel.INFO);
@@ -77,6 +79,8 @@ public class CityBuildV2 extends JavaPlugin {
 
         this.storage = new Storage();
         storage.createConnection();
+
+        startKickCache = new StartKickCache();
 
         loadListener();
         setupSignEdit();
@@ -271,21 +275,15 @@ public class CityBuildV2 extends JavaPlugin {
         for(Player players : Bukkit.getOnlinePlayers()) {
             if (players.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
                 StatusSQL.createPlayer(players.getUniqueId());
-            StartkickSQL.createPlayer(players.getUniqueId());
             CooldownSQL.createPlayer(players.getUniqueId());
             //Todo: Map Einträge
-            if(StartkickSQL.playerExists(players.getUniqueId())) {
-                if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(players)) {
-                    StartKick.createStartKickPlayer(players);
-                }
-            }
             if(CooldownSQL.playerExists(players.getUniqueId())) {
-                if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(players)) {
+                if(!CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().containsKey(players)) {
                     Cooldown.createCooldownPlayer(players);
                 }
             }
             if(MutepSQL.playerExists(players.getUniqueId())) {
-                if(!(CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().containsKey(players))) {
+                if(!(CityBuildV2.getPLUGIN().getMUTEPPLAYER_MAP().containsKey(players))) {
                     MuteP.createMutePPlayer(players);
                     for (int i = 0; i < 100; i++) {for (int g = 0; g < 100; g++) { for (int e = 0; e < 100; e++) { for (int r = 0; r < 100; r++) {}}}}
                 }
@@ -294,15 +292,13 @@ public class CityBuildV2 extends JavaPlugin {
 
         }
     }
-    
-    
 
     public static SignEdit getSignEdit() {
         return signedit;
     }
 
-    public static CityBuildV2 getPlugin() {
-        return plugin;
+    public static CityBuildV2 getPLUGIN() {
+        return PLUGIN;
     }
 
     public Storage getStorage() {
@@ -332,5 +328,8 @@ public class CityBuildV2 extends JavaPlugin {
     public Map<Player, MutepPlayer> getMUTEPPLAYER_MAP() {
         return MUTEPPLAYER_MAP;
     }
- 
+
+    public StartKickCache getStartKickCache() {
+        return startKickCache;
+    }
 }

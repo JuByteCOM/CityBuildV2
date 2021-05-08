@@ -1,5 +1,9 @@
 package de.crashmash.citybuild.manager.startkick;
 
+import de.crashmash.citybuild.CityBuildV2;
+import de.crashmash.citybuild.data.MessagesData;
+import org.bukkit.entity.Player;
+
 import java.util.UUID;
 
 public class StartKickPlayer {
@@ -16,6 +20,10 @@ public class StartKickPlayer {
         this.cooldown = cooldown;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public String getReason() {
         return reason;
     }
@@ -30,13 +38,38 @@ public class StartKickPlayer {
 
     public void setReason(String reason) {
         this.reason = reason;
+        CityBuildV2.getPLUGIN().getStorage().getStartKickCollection().update()
+                .set("Reason", reason)
+                .where("UUID", uuid).executeAsync();
     }
 
     public void setDuration(long duration) {
         this.duration = duration;
+        CityBuildV2.getPLUGIN().getStorage().getStartKickCollection().update()
+                .set("Duration", duration)
+                .where("UUID", uuid).executeAsync();
     }
 
-    public void setCooldown(long cooldown) {
-        this.cooldown = cooldown;
+    public void setCooldown() {
+        this.cooldown = System.currentTimeMillis() + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN*1000L;
+        CityBuildV2.getPLUGIN().getStorage().getStartKickCollection().update()
+                .set("Cooldown", cooldown)
+                .where("UUID", uuid).executeAsync();
+    }
+
+    public boolean hasCooldown(Player player) {
+        if (player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
+            return true;
+        }
+        return System.currentTimeMillis() >= getCooldown();
+    }
+
+    public boolean isStartKicked() {
+        return getDuration() > System.currentTimeMillis();
+    }
+
+    public void setStartKick(String reason) {
+        setDuration(System.currentTimeMillis() + MessagesData.STARTKICK_COMMAND_SETTING_DURATION*1000L);
+        setReason(reason);
     }
 }

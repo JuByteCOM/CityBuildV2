@@ -34,7 +34,7 @@ public class EntityDeathListener implements Listener {
                                 drop.setType(Material.PORKCHOP);
                                 Objects.requireNonNull(event.getEntity().getLocation().getWorld()).dropItemNaturally(entity.getLocation(), drop);
                             }
-                            Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPlugin(), () -> {
+                            Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPLUGIN(), () -> {
                                 LivingEntity livingEntity = entity.getWorld().spawn(entity.getLocation(), Pig.class);
                                 livingEntity.setCustomName(MessagesData.FOOD_COMMAND_MESSAGE_NAME);
                                 livingEntity.setAI(false);

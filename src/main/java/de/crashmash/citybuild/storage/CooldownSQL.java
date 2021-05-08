@@ -8,12 +8,12 @@ import java.util.UUID;
 public class CooldownSQL {
 
     public static boolean playerExists(UUID uuid) {
-        return !CityBuildV2.getPlugin().getStorage().getcooldownCollection().find().where("UUID", uuid).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().find().where("UUID", uuid).execute().isEmpty();
     }
 
     public static void createPlayer(UUID uuid) {
         if(!playerExists(uuid)) {
-            CityBuildV2.getPlugin().getStorage().getcooldownCollection().insert()
+            CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().insert()
                     .set("UUID", uuid)
                     .set("Head", 0)
                     .set("BreakBlock", 0)
@@ -22,7 +22,7 @@ public class CooldownSQL {
     }
 
     public static long getHeadCooldown(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getcooldownCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getcooldownCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -34,7 +34,7 @@ public class CooldownSQL {
     }
 
     public static long getBreakBlockCooldown(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getcooldownCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getcooldownCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -46,13 +46,13 @@ public class CooldownSQL {
     }
 
     public static void setHeadCooldown(UUID uuid, long head) {
-        CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().update()
                 .set("Head", head)
                 .where("UUID", uuid).executeAsync();
     }
 
     public static void setBreakBlockCooldown(UUID uuid, long breakBlock) {
-        CityBuildV2.getPlugin().getStorage().getcooldownCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().update()
                 .set("BreakBlock", breakBlock)
                 .where("UUID", uuid).executeAsync();
     }

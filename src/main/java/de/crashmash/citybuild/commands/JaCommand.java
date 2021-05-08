@@ -6,7 +6,6 @@ import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class JaCommand extends AbstractCommand {
 
@@ -18,9 +17,9 @@ public class JaCommand extends AbstractCommand {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(strings.length == 0) {
             if (StartkickCommand.isStartkick) {
-                if(!CityBuildV2.getPlugin().getVOTING_YES().contains(commandSender.getName())) {
-                    if(!CityBuildV2.getPlugin().getVOTING_NO().contains(commandSender.getName())) {
-                        CityBuildV2.getPlugin().getVOTING_YES().add(commandSender.getName());
+                if(!CityBuildV2.getPLUGIN().getVOTING_YES().contains(commandSender.getName())) {
+                    if(!CityBuildV2.getPLUGIN().getVOTING_NO().contains(commandSender.getName())) {
+                        CityBuildV2.getPLUGIN().getVOTING_YES().add(commandSender.getName());
                         commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_SUCCESFUL_VOTED);
                     } else {
                         commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_VOTED_FOR_NO);

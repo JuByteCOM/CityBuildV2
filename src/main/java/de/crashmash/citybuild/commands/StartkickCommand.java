@@ -3,14 +3,12 @@ package de.crashmash.citybuild.commands;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.startkick.StartKick;
+import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -20,7 +18,7 @@ import java.util.List;
 
 public class StartkickCommand extends AbstractCommand {
 
-    private final CityBuildV2 plugin = CityBuildV2.getPlugin();
+    private final CityBuildV2 plugin = CityBuildV2.getPLUGIN();
     public static boolean isStartkick = false;
 
     private int counter = MessagesData.STARTKICK_COMMAND_SETTING_COUNTER;
@@ -62,17 +60,18 @@ public class StartkickCommand extends AbstractCommand {
         }
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
+            StartKickPlayer startKickPlayer = CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(player.getUniqueId());
             if(!commandSender.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
-                if (!StartKick.canStartKick(player)) {
+                if (startKickPlayer.hasCooldown(player)) {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                     SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                    long time = StartKick.getCooldownTime(player) + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN;
+                    long time = startKickPlayer.getCooldown();
                     commandSender.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                             .replace("[time]", simpleTimeFormat.format(time)));
                     return false;
                 }
             }
-            StartKick.setCooldownTime(player);
+            startKickPlayer.setCooldown();
         }
         isStartkick = true;
         StringBuilder reason = new StringBuilder();
@@ -187,14 +186,15 @@ public class StartkickCommand extends AbstractCommand {
             for(Player all : Bukkit.getOnlinePlayers())
                 all.sendMessage("§c" + no_string);
         }
+        StartKickPlayer startKickPlayer = CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(targetPlayer.getUniqueId());
         if(yes_int > no_int) {
             for(Player all : Bukkit.getOnlinePlayers())
                 all.sendMessage(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_KICKED.replace("[targetPlayer]", targetPlayer.getDisplayName())
                         .replace("[yesVotes]", Integer.toString(yes_int)).replace("[noVotes]", Integer.toString(no_int)));
-            StartKick.playerStartKicked(targetPlayer, reasons, System.currentTimeMillis());
+            startKickPlayer.setStartKick(reasons);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
             SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-            long time = StartKick.getDuration(targetPlayer) + MessagesData.STARTKICK_COMMAND_SETTING_DURATION* 1000L;
+            long time = startKickPlayer.getDuration();
             targetPlayer.kickPlayer(MessagesData.STARTKICK_COMMAND_MESSAGE_PLAYER_BANSCREEN.replace("[date]", simpleDateFormat.format(time))
                     .replace("[time]", simpleTimeFormat.format(time)));
         } else {

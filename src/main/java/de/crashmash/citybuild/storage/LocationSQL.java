@@ -12,11 +12,11 @@ import java.util.Map;
 public class LocationSQL {
 
     public static boolean existsLocation(String name) {
-        return !CityBuildV2.getPlugin().getStorage().getLocationCollection().find().where("Name", name).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getLocationCollection().find().where("Name", name).execute().isEmpty();
     }
 
     public static void createLocation(String name, double locX, double locY, double locZ, float yaw, float pitch, String world) {
-        CityBuildV2.getPlugin().getStorage().getLocationCollection().insert()
+        CityBuildV2.getPLUGIN().getStorage().getLocationCollection().insert()
                 .set("Name", name)
                 .set("LocX", locX)
                 .set("LocY", locY)
@@ -28,7 +28,7 @@ public class LocationSQL {
     }
 
     public static void updateLocation(String name, double locX, double locY, double locZ, float yaw, float pitch, String world) {
-        CityBuildV2.getPlugin().getStorage().getLocationCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getLocationCollection().update()
                 .set("LocX", locX)
                 .set("LocY", locY)
                 .set("LocZ", locZ)
@@ -40,14 +40,14 @@ public class LocationSQL {
 
     public static void deleteLoc(String name) {
         if(existsLocation(name)) {
-            CityBuildV2.getPlugin().getStorage().getLocationCollection().delete()
+            CityBuildV2.getPLUGIN().getStorage().getLocationCollection().delete()
                     .where("Name", name).executeAsync();
         }
     }
 
     public static Map<String,Location> loadLocations() {
         Map<String,Location> locations = new HashMap<>();
-        QueryResult result = CityBuildV2.getPlugin().getStorage().getLocationCollection().find().execute();
+        QueryResult result = CityBuildV2.getPLUGIN().getStorage().getLocationCollection().find().execute();
         for (QueryResultEntry entry : result) {
             Location location = new Location(Bukkit.getWorld(entry.getString("World")),
                     entry.getDouble("LocX"),

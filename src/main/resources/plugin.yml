@@ -9,4 +9,6 @@ softdepend:
   - PlotSquared
   - AutoUpdaterAPI
   - DeveloperAPI
+  - DKBans
+  - McNative
 api-version: 1.13

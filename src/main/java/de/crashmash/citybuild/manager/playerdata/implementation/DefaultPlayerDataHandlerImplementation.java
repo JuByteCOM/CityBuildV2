@@ -9,31 +9,31 @@ public class DefaultPlayerDataHandlerImplementation extends AbstractPlayerDataHa
 
     @Override
     public long getFirstJoin(UUID playerUUID) {
-        return CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("FirstJoin");
+        return CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("FirstJoin");
     }
 
     @Override
     public long getLastJoin(UUID playerUUID) {
-        return CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("LastJoin");
+        return CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("LastJoin");
     }
 
     @Override
     public long getPlaytime(UUID playerUUID) {
-        return CityBuildV2.getPlugin().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("Playtime");
+        return CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().find().where("UUID", playerUUID).execute().first().getLong("Playtime");
     }
 
     @Override
     public void setFirstJoin(UUID playerUUID) {
-        CityBuildV2.getPlugin().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("FirstJoin", System.currentTimeMillis());
+        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("FirstJoin", System.currentTimeMillis());
     }
 
     @Override
     public void setLastJoin(UUID playerUUID) {
-        CityBuildV2.getPlugin().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("LastJoin", System.currentTimeMillis());
+        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("LastJoin", System.currentTimeMillis());
     }
 
     @Override
     public void setPlaytime(UUID playerUUID, long toAdd) {
-        CityBuildV2.getPlugin().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("Playtime", getPlaytime(playerUUID)+toAdd);
+        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update().where("UUID", playerUUID).set("Playtime", getPlaytime(playerUUID)+toAdd);
     }
 }

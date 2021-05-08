@@ -85,25 +85,25 @@
             <groupId>net.pretronic.databasequery</groupId>
             <artifactId>pretronicdatabasequery-sql</artifactId>
             <version>1.2.20.46-SNAPSHOT</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>net.pretronic.libraries</groupId>
             <artifactId>pretroniclibraries-caching</artifactId>
             <version>1.2.46.185-SNAPSHOT</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.23</version>
-            <scope>provided</scope>
+            <version>8.0.19</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>3.4.1</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

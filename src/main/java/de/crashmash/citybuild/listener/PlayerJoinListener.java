@@ -5,7 +5,6 @@ import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.manager.Locations;
 import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.mutep.MuteP;
-import de.crashmash.citybuild.manager.startkick.StartKick;
 import de.crashmash.citybuild.storage.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,25 +20,21 @@ public class PlayerJoinListener implements Listener {
         Player player = event.getPlayer();
         //ToDo: MySQL Einträge
         StatusSQL.createPlayer(player.getUniqueId());
-        StartkickSQL.createPlayer(player.getUniqueId());
         CooldownSQL.createPlayer(player.getUniqueId());
         MutepSQL.createPlayer(player.getUniqueId());
         //Todo: Map Einträge
-        if(StartkickSQL.playerExists(player.getUniqueId())) {
-            if(!CityBuildV2.getPlugin().getSTARTKICKPLAYER_MAP().containsKey(player)) {
-                StartKick.createStartKickPlayer(player);
-            }
-        }
         if(CooldownSQL.playerExists(player.getUniqueId())) {
-            if(!CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().containsKey(player)) {
+            if(!CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().containsKey(player)) {
                 Cooldown.createCooldownPlayer(player);
             }
         }
         if(MutepSQL.playerExists(player.getUniqueId())) {
-            if(!(CityBuildV2.getPlugin().getMUTEPPLAYER_MAP().containsKey(player))) {
+            if(!(CityBuildV2.getPLUGIN().getMUTEPPLAYER_MAP().containsKey(player))) {
                 MuteP.createMutePPlayer(player);
             }
         }
+
+        //Todo: Cache
 
         //Todo: Status
         if(player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {

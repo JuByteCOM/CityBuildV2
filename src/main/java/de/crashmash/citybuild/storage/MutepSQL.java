@@ -8,12 +8,12 @@ import java.util.UUID;
 public class MutepSQL {
 
     public static boolean playerExists(UUID uuid) {
-        return !CityBuildV2.getPlugin().getStorage().getMutePCollection().find().where("UUID", uuid).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getMutePCollection().find().where("UUID", uuid).execute().isEmpty();
     }
 
     public static void createPlayer(UUID uuid) {
         if(!playerExists(uuid)) {
-            CityBuildV2.getPlugin().getStorage().getMutePCollection().insert()
+            CityBuildV2.getPLUGIN().getStorage().getMutePCollection().insert()
                     .set("UUID", uuid)
                     .set("Reason", (Object) null)
                     .set("Duration", 0)
@@ -24,7 +24,7 @@ public class MutepSQL {
     }
 
     public static String getReason(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getMutePCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getMutePCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -36,7 +36,7 @@ public class MutepSQL {
     }
 
     public static long getDuration(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getMutePCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getMutePCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -48,7 +48,7 @@ public class MutepSQL {
     }
 
     public static long getCooldown(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getMutePCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getMutePCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -60,7 +60,7 @@ public class MutepSQL {
     }
 
     public static UUID getCreator(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getMutePCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getMutePCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -72,7 +72,7 @@ public class MutepSQL {
     }
 
     public static void setMuteP(UUID uuid, String reason, long duration, UUID creator) {
-        CityBuildV2.getPlugin().getStorage().getMutePCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getMutePCollection().update()
                 .set("Reason", reason)
                 .set("Duration", duration)
                 .set("Creator", creator)
@@ -80,7 +80,7 @@ public class MutepSQL {
     }
 
     public static void setCooldown(UUID uuid, Long cooldown) {
-        CityBuildV2.getPlugin().getStorage().getMutePCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getMutePCollection().update()
                 .set("Cooldown", cooldown)
                 .where("UUID", uuid).executeAsync();
     }

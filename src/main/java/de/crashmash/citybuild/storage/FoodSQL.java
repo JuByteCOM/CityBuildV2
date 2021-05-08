@@ -12,11 +12,11 @@ import java.util.Map;
 public class FoodSQL {
 
     public static boolean existsFood(int id) {
-        return !CityBuildV2.getPlugin().getStorage().getFoodCollection().find().where("ID", id).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getFoodCollection().find().where("ID", id).execute().isEmpty();
     }
 
     public static void createFood(double locX, double locY, double locZ, float yaw, float pitch, String world) {
-        CityBuildV2.getPlugin().getStorage().getFoodCollection().insert()
+        CityBuildV2.getPLUGIN().getStorage().getFoodCollection().insert()
                 .set("LocX", locX)
                 .set("LocY", locY)
                 .set("LocZ", locZ)
@@ -28,14 +28,14 @@ public class FoodSQL {
 
     public static void deleteFood(int id) {
         if(existsFood(id)) {
-            CityBuildV2.getPlugin().getStorage().getFoodCollection().delete()
+            CityBuildV2.getPLUGIN().getStorage().getFoodCollection().delete()
                     .where("ID", id).executeAsync();
         }
     }
 
     public static Map<Integer, Location> loadFood() {
         Map<Integer, Location> locations = new HashMap<>();
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getFoodCollection().find().execute();
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getFoodCollection().find().execute();
         for(QueryResultEntry entry : queryResult) {
             Location location = new Location(Bukkit.getWorld(entry.getString("World")),
                     entry.getDouble("LocX"),

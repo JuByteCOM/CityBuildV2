@@ -3,11 +3,9 @@ package de.crashmash.citybuild.listener;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.commands.SlowChatCommand;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.cooldown.Cooldown;
 import de.crashmash.citybuild.manager.mutep.MuteP;
 import de.crashmash.citybuild.utils.ColoredChat;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +13,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class AsynPlayerChatListener implements Listener {
 
@@ -37,7 +34,7 @@ public class AsynPlayerChatListener implements Listener {
                 System.out.println("Keine Rechte");
                 if(!SLOWCHAT_PLAYER.contains(player)) {
                     SLOWCHAT_PLAYER.add(player);
-                    Bukkit.getScheduler().runTaskLater(CityBuildV2.getPlugin(),
+                    Bukkit.getScheduler().runTaskLater(CityBuildV2.getPLUGIN(),
                             () -> SLOWCHAT_PLAYER.remove(player), MessagesData.SLOWCHAT_COMMAND_SETTINGS_CHAT_COOLDOWN * 20);
                 }
             }

@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 public class Cooldown {
 
     public static void createCooldownPlayer(Player player) {
-        CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().put(player, new CooldownPlayer(player.getUniqueId(),
+        CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().put(player, new CooldownPlayer(player.getUniqueId(),
                 CooldownSQL.getHeadCooldown(player.getUniqueId()), CooldownSQL.getBreakBlockCooldown(player.getUniqueId())));
     }
 
@@ -17,16 +17,16 @@ public class Cooldown {
         if (player.hasPermission(MessagesData.HEAD_COMMAND_PERMISSION_BYPASS)) {
             return true;
         }
-        time = CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).getHead() + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN * 1000L;
+        time = CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).getHead() + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN * 1000L;
         return System.currentTimeMillis() >= time;
     }
 
     public static long getHeadCooldown(Player player) {
-        return (CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).getHead() + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN * 1000L);
+        return (CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).getHead() + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN * 1000L);
     }
 
     public static void setHeadCooldown(Player player) {
-        CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).setHead(System.currentTimeMillis());
+        CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).setHead(System.currentTimeMillis());
         CooldownSQL.setHeadCooldown(player.getUniqueId(), System.currentTimeMillis());
     }
 
@@ -35,16 +35,16 @@ public class Cooldown {
         if (player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_BYPASS)) {
             return true;
         }
-        time = CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).getBreakBlock() + (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN * 1000L);
+        time = CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).getBreakBlock() + (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN * 1000L);
         return System.currentTimeMillis() >= time;
     }
 
     public static long getBreakBlockCooldown(Player player) {
-        return (CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).getBreakBlock() + (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN * 1000L));
+        return (CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).getBreakBlock() + (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN * 1000L));
     }
 
     public static void setBreakBlockCooldown(Player player) {
-        CityBuildV2.getPlugin().getCOOLDWNPLAYER_MAP().get(player).setBreakBlock(System.currentTimeMillis());
+        CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().get(player).setBreakBlock(System.currentTimeMillis());
         CooldownSQL.setBreakBlockCooldown(player.getUniqueId(), System.currentTimeMillis());
     }
 }

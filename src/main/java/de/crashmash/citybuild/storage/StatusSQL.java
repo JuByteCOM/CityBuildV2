@@ -8,12 +8,12 @@ import java.util.UUID;
 public class StatusSQL {
 
     public static boolean playerExists(UUID uuid) {
-        return !CityBuildV2.getPlugin().getStorage().getStatusCollection().find().where("UUID", uuid).execute().isEmpty();
+        return !CityBuildV2.getPLUGIN().getStorage().getStatusCollection().find().where("UUID", uuid).execute().isEmpty();
     }
 
     public static void createPlayer(UUID uuid) {
         if(!playerExists(uuid)) {
-            CityBuildV2.getPlugin().getStorage().getStatusCollection().insert()
+            CityBuildV2.getPLUGIN().getStorage().getStatusCollection().insert()
                     .set("UUID", uuid)
                     .set("Status", (Object) null)
                     .executeAsync();
@@ -25,7 +25,7 @@ public class StatusSQL {
     }
 
     public static String getStatus(UUID uuid) {
-        QueryResult queryResult = CityBuildV2.getPlugin().getStorage().getStatusCollection()
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getStatusCollection()
                 .find()
                 .where("UUID", uuid)
                 .limit(1)
@@ -37,7 +37,7 @@ public class StatusSQL {
     }
 
     public static void setStatus(UUID uuid, String status) {
-        CityBuildV2.getPlugin().getStorage().getStatusCollection().update()
+        CityBuildV2.getPLUGIN().getStorage().getStatusCollection().update()
                 .set("Status", status)
                 .where("UUID", uuid).executeAsync();
     }
