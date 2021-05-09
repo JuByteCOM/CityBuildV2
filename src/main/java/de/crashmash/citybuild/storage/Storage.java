@@ -77,6 +77,7 @@ public class Storage {
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
                 .field("Head", DataType.LONG)
                 .field("BreakBlock", DataType.LONG)
+                .field("GiftRank", DataType.LONG)
                 .create();
 
         this.mutePCollection = database.createCollection("MuteP")

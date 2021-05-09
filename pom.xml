@@ -41,8 +41,8 @@
             <url>https://repo.codemc.org/repository/nms/</url>
         </repository>
         <repository>
-            <id>crashmash</id>
-            <url>http://164.68.98.148:8888/repository/jubyte</url>
+            <id>JuByte</id>
+            <url>http://45.88.110.196:8080/repository/jubyte/</url>
         </repository>
         <repository>
             <id>bansystem-repo</id>

@@ -5,18 +5,18 @@ import de.crashmash.citybuild.commands.*;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
 import de.crashmash.citybuild.listener.*;
-import de.crashmash.citybuild.manager.Locations;
-import de.crashmash.citybuild.manager.cooldown.Cooldown;
-import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
+import de.crashmash.citybuild.manager.glow.GlowCache;
+import de.crashmash.citybuild.manager.locations.Locations;
+import de.crashmash.citybuild.manager.cooldown.CooldownCache;
 import de.crashmash.citybuild.manager.food.FoodLocation;
-import de.crashmash.citybuild.manager.mutep.MuteP;
+import de.crashmash.citybuild.manager.mutep.MutePCache;
 import de.crashmash.citybuild.manager.mutep.MutepPlayer;
-import de.crashmash.citybuild.manager.startkick.StartKickCache;
-import de.crashmash.citybuild.manager.startkick.StartKickPlayer;
-import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.manager.playerdata.AbstractPlayerDataHandler;
-import de.crashmash.citybuild.manager.playerdata.implementation.DefaultPlayerDataHandlerImplementation;
 import de.crashmash.citybuild.manager.playerdata.implementation.DKBansPlayerDataHandlerImplementation;
+import de.crashmash.citybuild.manager.playerdata.implementation.DefaultPlayerDataHandlerImplementation;
+import de.crashmash.citybuild.manager.startkick.StartKickCache;
+import de.crashmash.citybuild.manager.status.StatusCache;
+import de.crashmash.citybuild.storage.*;
 import de.crashmash.citybuild.utils.LibDownloader;
 import de.crashmash.citybuild.utils.SignEdit;
 import de.crashmash.citybuild.utils.SignEdit_1_16_R3;
@@ -45,15 +45,17 @@ public class CityBuildV2 extends JavaPlugin {
     private static CityBuildV2 PLUGIN;
     private Storage storage;
     private static SignEdit signedit;
+
     private StartKickCache startKickCache;
+    private CooldownCache cooldownCache;
+    private MutePCache mutePCache;
+    private GlowCache glowCache;
+    private StatusCache statusCache;
 
     private final List<String> VOTING_YES = new ArrayList<>();
     private final List<String> VOTING_NO = new ArrayList<>();
 
-    private final Map<Player, StartKickPlayer> STARTKICKPLAYER_MAP = new HashMap<>();
-    private final Map<Player, CooldownPlayer> COOLDWNPLAYER_MAP = new HashMap<>();
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
-    private final Map<Player, MutepPlayer> MUTEPPLAYER_MAP = new HashMap<>();
 
     private AbstractPlayerDataHandler playerDataHandler;
 
@@ -81,13 +83,16 @@ public class CityBuildV2 extends JavaPlugin {
         storage.createConnection();
 
         startKickCache = new StartKickCache();
+        cooldownCache = new CooldownCache();
+        mutePCache = new MutePCache();
+        glowCache = new GlowCache();
+        statusCache = new StatusCache();
 
         loadListener();
         setupSignEdit();
         loadCommands();
 
         loadLocations();
-        loadPlayers();
 
         findPlayerDataProvider();
     }
@@ -195,8 +200,8 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new SpawnCommand();
             command.register();
         }
-            AbstractCommand command = new GiftRankCommand();
-            command.register();
+        AbstractCommand command = new GiftRankCommand();
+        command.register();
     }
 
     private void loadListener() {
@@ -273,28 +278,6 @@ public class CityBuildV2 extends JavaPlugin {
         return this.newConfig;
     }
 
-    private void loadPlayers() {
-        for(Player players : Bukkit.getOnlinePlayers()) {
-            if (players.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE))
-                StatusSQL.createPlayer(players.getUniqueId());
-            CooldownSQL.createPlayer(players.getUniqueId());
-            //Todo: Map Einträge
-            if(CooldownSQL.playerExists(players.getUniqueId())) {
-                if(!CityBuildV2.getPLUGIN().getCOOLDWNPLAYER_MAP().containsKey(players)) {
-                    Cooldown.createCooldownPlayer(players);
-                }
-            }
-            if(MutepSQL.playerExists(players.getUniqueId())) {
-                if(!(CityBuildV2.getPLUGIN().getMUTEPPLAYER_MAP().containsKey(players))) {
-                    MuteP.createMutePPlayer(players);
-                    for (int i = 0; i < 100; i++) {for (int g = 0; g < 100; g++) { for (int e = 0; e < 100; e++) { for (int r = 0; r < 100; r++) {}}}}
-                }
-            }
-            GlowSQL.createPlayer(players.getUniqueId());
-
-        }
-    }
-
     public static SignEdit getSignEdit() {
         return signedit;
     }
@@ -315,23 +298,27 @@ public class CityBuildV2 extends JavaPlugin {
         return VOTING_NO;
     }
 
-    public Map<Player, StartKickPlayer> getSTARTKICKPLAYER_MAP() {
-        return STARTKICKPLAYER_MAP;
-    }
-
-    public Map<Player, CooldownPlayer> getCOOLDWNPLAYER_MAP() {
-        return COOLDWNPLAYER_MAP;
-    }
-
     public Map<Player, Player> getCOMMANDSPY_MAP() {
         return COMMANDSPY_MAP;
     }
 
-    public Map<Player, MutepPlayer> getMUTEPPLAYER_MAP() {
-        return MUTEPPLAYER_MAP;
-    }
-
     public StartKickCache getStartKickCache() {
         return startKickCache;
+    }
+
+    public CooldownCache getCooldownCache() {
+        return cooldownCache;
+    }
+
+    public MutePCache getMutePCache() {
+        return mutePCache;
+    }
+
+    public GlowCache getGlowCache() {
+        return glowCache;
+    }
+
+    public StatusCache getStatusCache() {
+        return statusCache;
     }
 }

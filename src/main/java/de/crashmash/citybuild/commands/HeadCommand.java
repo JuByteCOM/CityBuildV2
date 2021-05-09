@@ -1,8 +1,9 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.cooldown.Cooldown;
+import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -27,7 +28,8 @@ public class HeadCommand extends AbstractCommand {
             Player player = (Player) commandSender;
             if(player.hasPermission(MessagesData.HEAD_COMMAND_PERMISSION_USE)) {
                 if(strings.length == 1) {
-                    if(Cooldown.canUseHead(player)) {
+                    CooldownPlayer cooldownPlayer = CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
+                    if(cooldownPlayer.hasHeadCooldown(player)) {
                         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD, 1);
                         SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
                         skullMeta.setOwner(strings[0]);
@@ -35,11 +37,11 @@ public class HeadCommand extends AbstractCommand {
                         itemStack.setItemMeta(skullMeta);
                         player.getInventory().addItem(itemStack);
                         player.sendMessage(MessagesData.HEAD_COMMAND_MESSAGE_ADDED_HEAD.replace("[skullName]", strings[0]));
-                        Cooldown.setHeadCooldown(player);
+                        cooldownPlayer.setHead();
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = Cooldown.getHeadCooldown(player) + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN;
+                        long time = cooldownPlayer.getHead();
                         player.sendMessage(MessagesData.HEAD_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }

@@ -2,11 +2,6 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="crashmash" />
-      <option name="name" value="crashmash" />
-      <option name="url" value="http://164.68.98.148:8888/repository/jubyte" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -15,6 +10,26 @@
       <option name="id" value="IntellectualSites" />
       <option name="name" value="IntellectualSites" />
       <option name="url" value="https://mvn.intellectualsites.com/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="bansystem-repo" />
+      <option name="name" value="bansystem-repo" />
+      <option name="url" value="https://raw.githubusercontent.com/DevKrieger/repository/master/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="pretronic" />
+      <option name="name" value="pretronic" />
+      <option name="url" value="https://repository.pretronic.net/repository/pretronic/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="crashmash" />
+      <option name="name" value="crashmash" />
+      <option name="url" value="http://164.68.98.148:8888/repository/jubyte" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="inventive-repo" />
@@ -32,24 +47,14 @@
       <option name="url" value="http://repo.mvdw-software.be/content/groups/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Maven Central repository" />
-      <option name="url" value="https://repo1.maven.org/maven2" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="bansystem-repo" />
-      <option name="name" value="bansystem-repo" />
-      <option name="url" value="https://raw.githubusercontent.com/DevKrieger/repository/master/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="pretronic" />
-      <option name="name" value="pretronic" />
-      <option name="url" value="https://repository.pretronic.net/repository/pretronic/" />
+      <option name="id" value="JuByte" />
+      <option name="name" value="JuByte" />
+      <option name="url" value="http://45.88.110.196:8080/repository/jubyte/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="nms-repo" />

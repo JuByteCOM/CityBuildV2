@@ -1,8 +1,9 @@
 package de.crashmash.citybuild.commands;
 
+import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.mutep.MuteP;
+import de.crashmash.citybuild.manager.mutep.MutepPlayer;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -29,19 +30,21 @@ public class MutePCommand extends AbstractCommand {
             Player player = (Player) commandSender;
             if(player.hasPermission(MessagesData.MUTEP_COMMAND_PERMISSION_USE)) {
                 if (strings.length >= 2) {
-                    if(MuteP.canUseMuteP(player)) {
+                    MutepPlayer mutepPlayer = CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(player.getUniqueId());
+                    if(mutepPlayer.hasCooldown(player)) {
                         Player targetPlayer = Bukkit.getPlayer(strings[0]);
                         if(targetPlayer != null) {
                             if(!targetPlayer.equals(player)) {
                                 if (!targetPlayer.hasPermission(MessagesData.MUTEP_COMMAND_PERMISSION_BYPASS_MUTE)) {
-                                    if(!MuteP.playerIsMutedP(player)) {
+                                    MutepPlayer mutepTargetPlayer = CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(targetPlayer.getUniqueId());
+                                    if(!mutepTargetPlayer.playerIsMutep()) {
                                         StringBuilder reason = new StringBuilder();
                                         for (int i = 1; i < strings.length; i++) {
                                             reason.append(strings[i]);
                                         }
                                         reasons = "" + reason;
-                                        MuteP.setCooldownTime(player);
-                                        MuteP.playerMutedP(targetPlayer, reasons, player);
+                                        mutepPlayer.setCooldown();
+                                        mutepTargetPlayer.playerMutep(reasons, targetPlayer);
                                         for (Player players : Bukkit.getOnlinePlayers()) {
                                             players.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SUCCESFUL.replace("[player]", player.getDisplayName()).replace("[targetPlayer]", targetPlayer.getDisplayName())
                                                     .replace("[reason]", reasons).replace("[duration]", Integer.toString(MessagesData.MUTEP_COMMAND_SETTINGS_DURATION / 60)));
@@ -62,7 +65,7 @@ public class MutePCommand extends AbstractCommand {
                     } else {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                        long time = MuteP.getCooldownTime(player) + MessagesData.MUTEP_COMMAND_SETTINGS_COOLDOWN;
+                        long time = mutepPlayer.getCooldown();
                         player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_COOLDOWN.replace("[date]", simpleDateFormat.format(time))
                                 .replace("[time]", simpleTimeFormat.format(time)));
                     }

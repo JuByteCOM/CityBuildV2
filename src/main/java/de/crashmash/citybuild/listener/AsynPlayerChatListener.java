@@ -3,7 +3,7 @@ package de.crashmash.citybuild.listener;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.commands.SlowChatCommand;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.mutep.MuteP;
+import de.crashmash.citybuild.manager.mutep.MutepPlayer;
 import de.crashmash.citybuild.utils.ColoredChat;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -39,16 +39,17 @@ public class AsynPlayerChatListener implements Listener {
                 }
             }
         }
-        if(MuteP.playerIsMutedP(player)) {
-            Player creator = Bukkit.getPlayer(MuteP.getCreator(player));
+        MutepPlayer mutepPlayer = CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(player.getUniqueId());
+        if(mutepPlayer.playerIsMutep()) {
+            Player creator = Bukkit.getPlayer(mutepPlayer.getCreator());
             if(creator != null) {
                     player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", creator.getName())
-                        .replace("[reason]", MuteP.getReason(player)));
+                        .replace("[reason]", mutepPlayer.getReason()));
             } else {
-                String offlineCreator = Bukkit.getOfflinePlayer(MuteP.getCreator(player)).getName();
+                String offlineCreator = Bukkit.getOfflinePlayer(mutepPlayer.getCreator()).getName();
                 assert offlineCreator != null;
                 player.sendMessage(MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN.replace("[player]", offlineCreator)
-                        .replace("[reason]", MuteP.getReason(player)));
+                        .replace("[reason]", mutepPlayer.getReason()));
             }
             event.setCancelled(true);
         }

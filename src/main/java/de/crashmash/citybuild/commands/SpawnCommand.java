@@ -3,7 +3,7 @@ package de.crashmash.citybuild.commands;
 import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.Locations;
+import de.crashmash.citybuild.manager.locations.Locations;
 import de.crashmash.citybuild.storage.LocationSQL;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;

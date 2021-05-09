@@ -1,9 +1,10 @@
 package de.crashmash.citybuild.commands;
 
 import com.plotsquared.core.api.PlotAPI;
+import de.crashmash.citybuild.CityBuildV2;
 import de.crashmash.citybuild.data.ConfigData;
 import de.crashmash.citybuild.data.MessagesData;
-import de.crashmash.citybuild.manager.cooldown.Cooldown;
+import de.crashmash.citybuild.manager.cooldown.CooldownPlayer;
 import de.crashmash.citybuild.utils.PlotUtils;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
@@ -36,8 +37,9 @@ public class BreakblockCommand extends AbstractCommand {
             if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") != null) {
                 PlotAPI plotAPI = new PlotAPI();
                 if (player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_USE)) {
+                    CooldownPlayer cooldownPlayer = CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
                     if (strings.length == 0) {
-                        if (Cooldown.canUseBreakBlock(player)) {
+                        if (cooldownPlayer.hasBreakblockCooldown(player)) {
                             if (!breackBlockPlayers.contains(player)) {
                                 breackBlockPlayers.add(player);
                             }
@@ -45,7 +47,7 @@ public class BreakblockCommand extends AbstractCommand {
                         } else {
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                             SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
-                            long time = Cooldown.getBreakBlockCooldown(player) + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN;
+                            long time = cooldownPlayer.getBreakBlock();
                             player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_COODLOWN.replace("[date]", simpleDateFormat.format(time))
                                     .replace("[time]", simpleTimeFormat.format(time)));
                         }
@@ -75,7 +77,7 @@ public class BreakblockCommand extends AbstractCommand {
                                     if (Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") == null) {
                                         breackBlockPlayers.remove(player);
                                         player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
-                                        Cooldown.setBreakBlockCooldown(player);
+                                        cooldownPlayer.setBreakBlock();
                                         if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                             ItemStack itemStack = new ItemStack(block.getType());
                                             player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
@@ -85,7 +87,7 @@ public class BreakblockCommand extends AbstractCommand {
                                         if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
                                             breackBlockPlayers.remove(player);
                                             player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
-                                            Cooldown.setBreakBlockCooldown(player);
+                                            cooldownPlayer.setBreakBlock();
                                             if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                                 ItemStack itemStack = new ItemStack(block.getType());
                                                 player.getWorld().dropItemNaturally(block.getLocation(), itemStack);
@@ -96,7 +98,7 @@ public class BreakblockCommand extends AbstractCommand {
                                                 if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
                                                     breackBlockPlayers.remove(player);
                                                     player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
-                                                    Cooldown.setBreakBlockCooldown(player);
+                                                    cooldownPlayer.setBreakBlock();
                                                     if (MessagesData.BREAKBLOCK_COMMAND_SETTINGS_DROP_BLOCK) {
                                                         ItemStack itemStack = new ItemStack(block.getType());
                                                         player.getWorld().dropItemNaturally(block.getLocation(), itemStack);

@@ -1,4 +1,4 @@
-package de.crashmash.citybuild.manager;
+package de.crashmash.citybuild.manager.locations;
 
 import org.bukkit.Location;
 
