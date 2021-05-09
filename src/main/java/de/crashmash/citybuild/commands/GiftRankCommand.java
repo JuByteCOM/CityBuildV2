@@ -30,11 +30,16 @@ public class GiftRankCommand extends AbstractCommand {
                     if (targetPlayer != null){
                         CooldownPlayer cooldownPlayer = CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
                         if (cooldownPlayer.hasGiftRankCooldown(player)){
+
+                            if (targetPlayer.hasPermission(MessagesData.GIFTRANK_COMMAND_PERMISSION_HIGHER_RANK)){
+                                player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_HIGHER_RANK);
+                                return true;
+                            }
                             System.out.println(MessagesData.GIFTRANK_COMMAND_SETTINGS_DISPATCHCOMMAND);
                             Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), MessagesData.GIFTRANK_COMMAND_SETTINGS_DISPATCHCOMMAND.replace("[targetPlayer]", targetPlayer.getName()));
                             player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_ADDED_RANK.replace("[targetPlayer]", targetPlayer.getName()));
                             cooldownPlayer.setGiftRank();
-                            targetPlayer.kickPlayer(MessagesData.GIFTRANK_COMMAND_MESSAGE_KICK_SCREEN.replace("[targetPlayer]", targetPlayer.getName()));
+                            targetPlayer.kickPlayer(MessagesData.GIFTRANK_COMMAND_MESSAGE_KICK_SCREEN.replace("[playerName]", player.getName()));
                         }else{
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
                             SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -43,7 +48,7 @@ public class GiftRankCommand extends AbstractCommand {
                                     .replace("[time]", simpleTimeFormat.format(time)));
                         }
                     }else{
-                        player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE.replace("[targetPlayer]", targetPlayer.getName()));
+                        player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE);
                     }
                 }else{
                     player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_USAGE);

@@ -413,6 +413,8 @@ public class MessagesData {
             .getString("Commands.GiftRank.Permissions.Use");
     public static String GIFTRANK_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
             .getString("Commands.GiftRank.Permissions.Bypass");
+    public static String GIFTRANK_COMMAND_PERMISSION_HIGHER_RANK = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Permissions.HigherRank");
     public static String GIFTRANK_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
             .getString("Commands.GiftRank.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
     public static String GIFTRANK_COMMAND_MESSAGE_ADDED_RANK = plugin.getMessagesConfig()
