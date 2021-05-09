@@ -224,6 +224,31 @@ public class MessagesData {
     public static long HEAD_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
             .getLong("Commands.Head.Settings.Cooldown");
 
+    //Todo: GiftRank-Command
+    public static String GIFTRANK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Permissions.Use");
+    public static String GIFTRANK_COMMAND_PERMISSION_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Permissions.Bypass");
+    public static String GIFTRANK_COMMAND_MESSAGE_USAGE = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.Usage").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK_COMMAND_MESSAGE_ADDED_RANK = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.AddedRank").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK_COMMAND_MESSAGE_COOLDOWN = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.Cooldown").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK_COMMAND_MESSAGE_HIGHER_RANK = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.HigherRank").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.TargetPlayerOffline").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK_COMMAND_MESSAGE_HAS_BYPASS = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.HasBypass").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static String GIFTRANK__COMMAND_MESSAGE_PLAYER_KICKSCREEN = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Messages.KickScreen").replaceAll("&", "§").replace("[prefix]", PREFIX);
+    public static long GIFTRANK_COMMAND_SETTINGS_COOLDOWN = plugin.getMessagesConfig()
+            .getLong("Commands.GiftRank.Settings.Cooldown");
+    public static String GIFTRANK_COMMAND_SETTINGS_DISPATCH_RANK = plugin.getMessagesConfig()
+            .getString("Commands.GiftRank.Settings.DispatchRank");
+
+
     //Todo: BreakBlock-Command
     public static String BREAKBLOCK_COMMAND_PERMISSION_USE = plugin.getMessagesConfig()
             .getString("Commands.Breakblock.Permissions.Use");

@@ -7,11 +7,13 @@ public class CooldownPlayer {
     private UUID uuid;
     private long head;
     private long breakBlock;
+    private long giftRank;
 
-    public CooldownPlayer(UUID uuid, long head, long breakBlock) {
+    public CooldownPlayer(UUID uuid, long head, long breakBlock, long giftRank) {
         this.uuid = uuid;
         this.head = head;
         this.breakBlock = breakBlock;
+        this.giftRank = giftRank;
     }
 
     public long getHead() {
@@ -29,4 +31,13 @@ public class CooldownPlayer {
     public void setBreakBlock(long breakBlock) {
         this.breakBlock = breakBlock;
     }
+
+    public long getGiftRank() {
+        return giftRank;
+    }
+
+    public void setGiftRank(long giftRank) {
+        this.giftRank = giftRank;
+    }
+
 }

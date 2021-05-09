@@ -289,7 +289,25 @@ Commands:
       SpawnRemove: '[prefix] &7Du hast den &eSpawn &centfernt&7.'
     Settings:
       SpawnOnJoin: true
-
+GiftRank:
+  Permissions:
+    Use: 'citybuild.giftrank.use'
+    Bypass: 'citybuild.giftrank.bypass'
+  Messages:
+    Usage: '[prefix] &cBitte nutze: &e/giftrank <playerName>'
+    AddedRank: '[prefix] &7Du hast dem Spieler &e[targetName] &7einen Premium-Rang &ageschenkt!&7.'
+    Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
+    HigherRank: '[prefix] &7Der Spieler hat &cbereits &7einen höheren Rang!'
+    HasBypass: '[prefix] &7Du hast keinen Cooldown da du einen Bypass hast!'
+    TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+    KickScreen: |-
+      [prefix]
+      &6
+      &7Du wurdest von der Community &crausgeworfen&7!
+      &7Du kannst am &e[date] &7um &e[time] &7wieder spielen.
+  Settings:
+    Cooldown: 1209600
+    DispatchRank: '/lp user [targetName] parent set Premium'
 Settings:
   ColoredChat:
     Permissions:

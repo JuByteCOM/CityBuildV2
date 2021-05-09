@@ -17,6 +17,7 @@ public class CooldownSQL {
                     .set("UUID", uuid)
                     .set("Head", 0)
                     .set("BreakBlock", 0)
+                    .set("GiftRank", 0)
                     .executeAsync();
         }
     }
@@ -45,6 +46,18 @@ public class CooldownSQL {
         return 0;
     }
 
+    public static long getGiftRankCooldown(UUID uuid) {
+        QueryResult queryResult = CityBuildV2.getPLUGIN().getStorage().getcooldownCollection()
+                .find()
+                .where("UUID", uuid)
+                .limit(1)
+                .execute();
+        if(!queryResult.isEmpty()) {
+            return queryResult.first().getLong("GiftRank");
+        }
+        return 0;
+    }
+
     public static void setHeadCooldown(UUID uuid, long head) {
         CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().update()
                 .set("Head", head)
@@ -54,6 +67,12 @@ public class CooldownSQL {
     public static void setBreakBlockCooldown(UUID uuid, long breakBlock) {
         CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().update()
                 .set("BreakBlock", breakBlock)
+                .where("UUID", uuid).executeAsync();
+    }
+
+    public static void setGiftRankCooldown(UUID uuid, long giftRank) {
+        CityBuildV2.getPLUGIN().getStorage().getcooldownCollection().update()
+                .set("GiftRank", giftRank)
                 .where("UUID", uuid).executeAsync();
     }
 }

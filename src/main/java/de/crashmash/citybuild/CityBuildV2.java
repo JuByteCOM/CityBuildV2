@@ -195,6 +195,8 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new SpawnCommand();
             command.register();
         }
+            AbstractCommand command = new GiftRankCommand();
+            command.register();
     }
 
     private void loadListener() {
