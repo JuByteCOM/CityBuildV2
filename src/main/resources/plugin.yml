@@ -4,7 +4,7 @@ authors:
   - Justin_SGD
   - KeinByte
   - Forumat
-main: de.crashmash.citybuild.CityBuildV2
+main: de.jubyte.citybuild.CityBuildV2
 softdepend:
   - PlotSquared
   - AutoUpdaterAPI

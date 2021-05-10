@@ -28,22 +28,27 @@
         </plugins>
     </build>
     <repositories>
+        <!--Pretronic-->
         <repository>
             <id>pretronic</id>
             <url>https://repository.pretronic.net/repository/pretronic/</url>
         </repository>
+        <!--PlotSquared-->
         <repository>
             <id>IntellectualSites</id>
             <url>https://mvn.intellectualsites.com/content/groups/public/</url>
         </repository>
+        <!--Spigot-->
         <repository>
             <id>nms-repo</id>
             <url>https://repo.codemc.org/repository/nms/</url>
         </repository>
+        <!--JuByte-->
         <repository>
             <id>JuByte</id>
-            <url>http://45.88.110.196:8080/repository/jubyte/</url>
+            <url>http://45.88.110.196:8088/repository/jubyte/</url>
         </repository>
+        <!--DKBansV2-->
         <repository>
             <id>bansystem-repo</id>
             <url>https://raw.githubusercontent.com/DevKrieger/repository/master/</url>

@@ -304,10 +304,11 @@ Commands:
       KickScreen: |-
         [prefix]
         &6
-        &7Du hast einen §6Premium-Rang §7von §e[playerName] §7bekommen&7!
+        &7Du hast einen §6Premium-Rang §7von §e[targetPlayer] §7bekommen&7!
     Settings:
       Cooldown: 1209600
-      DispatchCommand: '/lp user [targetName] parent set Premium'
+      KickTargetPlayer: true
+      DispatchCommand: 'lp user [targetPlayer] parent set Premium'
 
 Settings:
   ColoredChat:

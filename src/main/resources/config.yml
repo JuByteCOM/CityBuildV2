@@ -83,3 +83,7 @@ Settings:
       Name: 'Spawn'
       Aliases: []
       Active: true
+    GiftRank:
+      Name: 'giftrank'
+      Aliases: ['premium', 'gold']
+      Active: true
