@@ -2,6 +2,7 @@ package de.jubyte.citybuild;
 
 import com.google.common.base.Charsets;
 import de.crashmash.developerapi.commands.AbstractCommand;
+import de.crashmash.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.commands.*;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.listener.*;
@@ -45,6 +46,7 @@ public class CityBuildV2 extends JavaPlugin {
     private static CityBuildV2 PLUGIN;
     private Storage storage;
     private static SignEdit signedit;
+    private MessageHandler messageHandler;
 
     private StartKickCache startKickCache;
     private CooldownCache cooldownCache;
@@ -78,6 +80,9 @@ public class CityBuildV2 extends JavaPlugin {
         loadMySQLConfig();
         loadConfig();
         loadMessagesConfig();
+
+        File file = new File(getDataFolder(), "messages.yml");
+        this.messageHandler = new MessageHandler(file, "Prefix", "[prefix]");
 
         this.storage = new Storage();
         storage.createConnection();
@@ -322,5 +327,9 @@ public class CityBuildV2 extends JavaPlugin {
 
     public StatusCache getStatusCache() {
         return statusCache;
+    }
+
+    public MessageHandler getMessageHandler() {
+        return messageHandler;
     }
 }

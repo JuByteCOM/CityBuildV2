@@ -83,7 +83,7 @@
         <dependency>
             <groupId>de.crashmash.developerapi</groupId>
             <artifactId>DeveloperAPI</artifactId>
-            <version>1.5.1-SNAPSHOT</version>
+            <version>1.6.12-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
