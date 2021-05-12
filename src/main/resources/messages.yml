@@ -298,6 +298,7 @@ Commands:
       AddedRank: '[prefix] &7Du hast dem Spieler&e [targetPlayer] &7einen Premium-Rang &ageschenkt!&7.'
       Cooldown: '[prefix] &7Du musst noch bis zum &e[date] &7um &e[time] Uhr &7warten.'
       HigherRank: '[prefix] &7Der Spieler hat &cbereits &7einen höheren Rang!'
+      RankSet: '[prefix] &7Der Spieler&e [player] &7hat dir einen &6Premium-Rang &ageschenkt!&7.'
       HasBypass: '[prefix] &7Du hast keinen Cooldown da du einen Bypass hast!'
       TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
       KickScreen: |-

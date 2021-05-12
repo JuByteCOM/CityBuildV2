@@ -418,6 +418,8 @@ public class MessagesData {
             .getPrefixString("Commands.GiftRank.Messages.TargetPlayerOffline");
     public static String GIFTRANK_COMMAND_MESSAGE_KICK_SCREEN = messageHandler
             .getPrefixString("Commands.GiftRank.Messages.KickScreen");
+    public static String GIFTRANK_COMMAND_MESSAGE_RANK_SET = messageHandler
+            .getPrefixString("Commands.GiftRank.Messages.RankSet");
     public static long GIFTRANK_COMMAND_SETTING_COOLDOWN = plugin.getMessagesConfig()
             .getLong("Commands.GiftRank.Settings.Cooldown");
     public static boolean GIFTRANK_COMMAND_SETTING_KICK = plugin.getMessagesConfig()
