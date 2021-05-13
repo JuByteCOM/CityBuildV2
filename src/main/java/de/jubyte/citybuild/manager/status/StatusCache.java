@@ -42,7 +42,7 @@ public class StatusCache {
     private void insertStatusPlayer(UUID uuid) {
         CityBuildV2.getPLUGIN().getStorage().getStatusCollection().insert()
                 .set("UUID", uuid)
-                .set("Status", false)
+                .set("Status", (Object) null)
                 .execute();
     }
 
