@@ -4,6 +4,7 @@ import de.crashmash.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.CityBuildV2;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MessagesData {
 
@@ -247,5 +248,17 @@ public class MessagesData {
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 
+    /*
+    CheckPlot
+     */
+    public static String CHECKPLOT_USE_PERM = messageHandler.getString("Commands.CheckPlot.Permission.Use");
+    public static String CHECKPLOT_CLEAR_PERM = messageHandler.getString("Commands.CheckPlot.Permission.Clear");
+    public static String CHECKPLOT_USAGE = messageHandler.getPrefixString("Commands.CheckPlot.Messages.Usage");
+    public static String CHECKPLOT_CLEAR_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearReady");
+    public static String CHECKPLOT_CLEAR_NOT_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearNotReady");
+    public static String CHECKPLOT_CLEARED = messageHandler.getPrefixString("Commands.CheckPlot.Messages.Cleared");
+    public static Long CHECKPLOT_TIME = Long.valueOf(messageHandler.getString("Commands.CheckPlot.Settings.TimeToClear"));
+    public static TimeUnit CHECKPLOT_UNIT = TimeUnit.valueOf(messageHandler.getString("Commands.CheckPlot.Settings.Unit"));
+    public static String CHECKPLOT_NOT_IN_PLOT = messageHandler.getPrefixString("Commands.CheckPlot.Messages.NotInPlot");
 
 }

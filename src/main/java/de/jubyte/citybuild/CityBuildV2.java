@@ -321,6 +321,10 @@ public class CityBuildV2 extends JavaPlugin {
         return mutePCache;
     }
 
+    public AbstractPlayerDataHandler getPlayerDataHandler() {
+        return playerDataHandler;
+    }
+
     public GlowCache getGlowCache() {
         return glowCache;
     }

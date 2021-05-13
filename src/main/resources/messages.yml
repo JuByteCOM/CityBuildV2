@@ -309,6 +309,19 @@ Commands:
       Cooldown: 1209600
       KickTargetPlayer: true
       DispatchCommand: 'lp user [targetPlayer] parent set Premium'
+  CheckPlot:
+    Permission:
+      Use: 'citybuild.checkplot.use'
+      Clear: 'citybuild.checkplot.clear'
+    Messages:
+      Usage: "[prefix] &cBitte nutze: &e/checkplot"
+      ClearReady: "[prefix] &aDas Plot darf gecleart werden!"
+      ClearNotReady: "[prefix] &cDas Plot darf erst am &e[date] &cgecleart werden!"
+      Cleared: "[prefix] &aDas Plot wurde gecleart."
+      NotInPlot: "[prefix] &cDu musst auf einem Plot stehen."
+    Settings:
+      TimeToClear: 30
+      Unit: DAYS
 
 Settings:
   ColoredChat:
