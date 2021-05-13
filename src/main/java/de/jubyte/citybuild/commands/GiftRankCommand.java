@@ -40,6 +40,7 @@ public class GiftRankCommand extends AbstractCommand {
                             Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), MessagesData.GIFTRANK_COMMAND_SETTINGS_DISPATCHCOMMAND.replace("[targetPlayer]", targetPlayer.getName()));
                             player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_ADDED_RANK.replace("[targetPlayer]", targetPlayer.getName()));
                             cooldownPlayer.setGiftRank();
+                            targetPlayer.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_RANK_SET.replace("[player]", player.getName()));
                             if(MessagesData.GIFTRANK_COMMAND_SETTING_KICK)
                             targetPlayer.kickPlayer(MessagesData.GIFTRANK_COMMAND_MESSAGE_KICK_SCREEN.replace("[targetPlayer]", player.getName()));
                         }else{
