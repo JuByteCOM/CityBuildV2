@@ -209,6 +209,8 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new GiftRankCommand();
             command.register();
         }
+
+        new CheckPlotCommand().register();
     }
 
     private void loadListener() {
