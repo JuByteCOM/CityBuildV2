@@ -4,7 +4,7 @@
     <root id="archive" name="CityBuildV2.jar">
       <element id="module-output" name="CityBuildV2" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/de/crashmash/developerapi/DeveloperAPI/1.6.12-SNAPSHOT/DeveloperAPI-1.6.12-20210510.172513-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/de/crashmash/developerapi/DeveloperAPI/1.7.1-SNAPSHOT/DeveloperAPI-1.7.1-SNAPSHOT.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

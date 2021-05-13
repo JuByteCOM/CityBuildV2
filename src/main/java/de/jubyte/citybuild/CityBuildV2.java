@@ -3,6 +3,8 @@ package de.jubyte.citybuild;
 import com.google.common.base.Charsets;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import de.crashmash.developerapi.utils.MessageHandler;
+import de.crashmash.developerapi.web.Ressource;
+import de.crashmash.developerapi.web.Spiget;
 import de.jubyte.citybuild.commands.*;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.listener.*;

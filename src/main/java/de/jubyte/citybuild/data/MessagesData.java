@@ -47,7 +47,7 @@ public class MessagesData {
     public static String FOOD_COMMAND_MESSAGE_NAME = messageHandler.getPrefixString("Commands.Food.Settings.PigName");
     public static double FOOD_COMMAND_SETTINGS_HEALTH = plugin.getMessagesConfig().getDouble("Commands.Food.Settings.Health");
     public static int FOOD_COMMAND_SETTINGS_EXP = plugin.getMessagesConfig().getInt("Commands.Food.Settings.Exp");
-    public static int FOOD_COMMAND_SETTINGS_RESPAWNTIME = plugin.getMessagesConfig().getInt("Commands.Food.Settings.RespawnTime");
+    public static long FOOD_COMMAND_SETTINGS_RESPAWNTIME = plugin.getMessagesConfig().getLong("Commands.Food.Settings.RespawnTime");
 
     //Todo: Teleport-Command
     public static String TELEPORT_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Teleport.Permissions.Use");

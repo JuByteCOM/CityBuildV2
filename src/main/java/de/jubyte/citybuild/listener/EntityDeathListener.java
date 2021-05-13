@@ -24,7 +24,7 @@ public class EntityDeathListener implements Listener {
         Entity entity = event.getEntity();
         if(entity.getType() == EntityType.PIG) {
             if(entity.getCustomName() != null) {
-                if (Objects.requireNonNull(entity.getCustomName()).equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
+                if (entity.getCustomName().equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
                     for (int iD : FoodLocation.getLocationNames()) {
                         Location foodLocation = FoodLocation.getLocation(iD);
                         Location entityLocation = entity.getLocation();
@@ -39,7 +39,7 @@ public class EntityDeathListener implements Listener {
                                 livingEntity.setCustomName(MessagesData.FOOD_COMMAND_MESSAGE_NAME);
                                 livingEntity.setAI(false);
                                 livingEntity.setHealth(MessagesData.FOOD_COMMAND_SETTINGS_HEALTH);
-                            }, MessagesData.FOOD_COMMAND_SETTINGS_RESPAWNTIME);
+                            }, 20L * MessagesData.FOOD_COMMAND_SETTINGS_RESPAWNTIME);
                         }
                     }
                 }
