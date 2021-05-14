@@ -111,7 +111,6 @@ public class CityBuildV2 extends JavaPlugin {
             return;
         }
 
-
         this.playerDataHandler = new DefaultPlayerDataHandlerImplementation();
     }
 

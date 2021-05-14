@@ -11,8 +11,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import javax.swing.text.html.Option;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 public class CheckPlotCommand extends AbstractCommand {
@@ -36,7 +38,17 @@ public class CheckPlotCommand extends AbstractCommand {
                         Plot plot = PlotUtils.getPlot(player.getLocation());
 
                         UUID ownerUUID = plot.getOwner();
-                        long lastOnlineTime = (long) CachedPlayerData.getCacheEntry(ownerUUID).get().getCacheValue(CachedPlayerData.CacheDataType.LAST_JOIN);
+
+                        Optional<CachedPlayerData> search = CachedPlayerData.getCacheEntry(ownerUUID);
+
+                        long lastOnlineTime;
+
+                        if(search.isPresent()) {
+                            lastOnlineTime = (long) search.get().getCacheValue(CachedPlayerData.CacheDataType.LAST_JOIN);
+                        }else{
+                            lastOnlineTime = CityBuildV2.getPLUGIN().getPlayerDataHandler().getLastJoin(player.getUniqueId());
+                            new CachedPlayerData(player.getUniqueId()).cache(CachedPlayerData.CacheDataType.LAST_JOIN, lastOnlineTime);
+                        }
                         long clearTime = MessagesData.CHECKPLOT_UNIT.toMillis(MessagesData.CHECKPLOT_TIME);
 
                         long clearAllowed = lastOnlineTime + clearTime;
