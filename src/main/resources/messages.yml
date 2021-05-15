@@ -54,6 +54,7 @@ Commands:
         &f========================
       PigSpawned: '[prefix] &7Das Schwein wurde erfolgreich &agespawnt&7.'
       PigRemoved: '[prefix] &7Das Schwein mit der Id &e[id] &7wurde &centfernt&7.'
+      NumberFormatException: '[prefix] &7Du musst eine &cZahl &7als &cID &7eingeben!'
       List: '&bID: &f[id]'
       Hover: '&b&lKlicken zum Teleportieren.'
     Settings:

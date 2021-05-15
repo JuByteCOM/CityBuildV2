@@ -44,6 +44,7 @@ public class MessagesData {
     public static String FOOD_COMMAND_MESSAGE_SPAWNED = messageHandler.getPrefixString("Commands.Food.Messages.PigSpawned");
     public static String FOOD_COMMAND_MESSAGE_LIST = messageHandler.getPrefixString("Commands.Food.Messages.List");
     public static String FOOD_COMMAND_MESSAGE_HOVER = messageHandler.getPrefixString("Commands.Food.Messages.Hover");
+    public static String FOOD_COMMAND_MESSAGE_NUMBERFORMATEXCEPTION = messageHandler.getPrefixString("Commands.Food.Messages.NumberFormatException");
     public static String FOOD_COMMAND_MESSAGE_NAME = messageHandler.getPrefixString("Commands.Food.Settings.PigName");
     public static double FOOD_COMMAND_SETTINGS_HEALTH = plugin.getMessagesConfig().getDouble("Commands.Food.Settings.Health");
     public static int FOOD_COMMAND_SETTINGS_EXP = plugin.getMessagesConfig().getInt("Commands.Food.Settings.Exp");
