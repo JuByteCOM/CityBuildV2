@@ -17,10 +17,6 @@ public class PlayerJoinListener implements Listener {
     public void handleJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        //Todo: Cache
-        CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
-        CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(player.getUniqueId());
-
         //Todo: Status
         if(player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
             StatusPlayer statusPlayer = CityBuildV2.getPLUGIN().getStatusCache().getPlayerByUUID(player.getUniqueId());
