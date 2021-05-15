@@ -3,19 +3,15 @@ package de.jubyte.citybuild;
 import com.google.common.base.Charsets;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import de.crashmash.developerapi.utils.MessageHandler;
-import de.crashmash.developerapi.web.Ressource;
-import de.crashmash.developerapi.web.Spiget;
 import de.jubyte.citybuild.commands.*;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.listener.*;
+import de.jubyte.citybuild.manager.checkplot.CheckPlotCache;
 import de.jubyte.citybuild.manager.cooldown.CooldownCache;
 import de.jubyte.citybuild.manager.food.FoodLocation;
 import de.jubyte.citybuild.manager.glow.GlowCache;
 import de.jubyte.citybuild.manager.locations.Locations;
 import de.jubyte.citybuild.manager.mutep.MutePCache;
-import de.jubyte.citybuild.manager.playerdata.AbstractPlayerDataHandler;
-import de.jubyte.citybuild.manager.playerdata.implementation.DKBansPlayerDataHandlerImplementation;
-import de.jubyte.citybuild.manager.playerdata.implementation.DefaultPlayerDataHandlerImplementation;
 import de.jubyte.citybuild.manager.startkick.StartKickCache;
 import de.jubyte.citybuild.manager.status.StatusCache;
 import de.jubyte.citybuild.storage.FoodSQL;
@@ -55,13 +51,12 @@ public class CityBuildV2 extends JavaPlugin {
     private MutePCache mutePCache;
     private GlowCache glowCache;
     private StatusCache statusCache;
+    private CheckPlotCache checkPlotCache;
 
     private final List<String> VOTING_YES = new ArrayList<>();
     private final List<String> VOTING_NO = new ArrayList<>();
 
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
-
-    private AbstractPlayerDataHandler playerDataHandler;
 
     private FileConfiguration newConfig = null;
     private final File configFile = new File(getDataFolder(), "messages.yml");
@@ -94,24 +89,13 @@ public class CityBuildV2 extends JavaPlugin {
         mutePCache = new MutePCache();
         glowCache = new GlowCache();
         statusCache = new StatusCache();
+        checkPlotCache = new CheckPlotCache();
 
         loadListener();
         setupSignEdit();
         loadCommands();
 
         loadLocations();
-
-        findPlayerDataProvider();
-    }
-
-    private void findPlayerDataProvider() {
-
-        if (Bukkit.getPluginManager().isPluginEnabled("DKBans")) {
-            this.playerDataHandler = new DKBansPlayerDataHandlerImplementation();
-            return;
-        }
-
-        this.playerDataHandler = new DefaultPlayerDataHandlerImplementation();
     }
 
     @Override
@@ -324,10 +308,6 @@ public class CityBuildV2 extends JavaPlugin {
         return mutePCache;
     }
 
-    public AbstractPlayerDataHandler getPlayerDataHandler() {
-        return playerDataHandler;
-    }
-
     public GlowCache getGlowCache() {
         return glowCache;
     }
@@ -338,5 +318,9 @@ public class CityBuildV2 extends JavaPlugin {
 
     public MessageHandler getMessageHandler() {
         return messageHandler;
+    }
+
+    public CheckPlotCache getCheckPlotCache() {
+        return checkPlotCache;
     }
 }

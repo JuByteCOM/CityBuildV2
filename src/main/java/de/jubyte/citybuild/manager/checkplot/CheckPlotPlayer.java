@@ -28,21 +28,14 @@ public class CheckPlotPlayer {
         return firstJoin;
     }
 
-    public void setFirstJoin(long firstJoin) {
-        this.firstJoin = firstJoin;
-        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update()
-                .set("FirstJoin", firstJoin)
-                .where("UUID", uuid).executeAsync();
-    }
-
     public long getLastJoin() {
         return lastJoin;
     }
 
-    public void setLastJoin(long lastJoin) {
-        this.lastJoin = lastJoin;
+    public void setLastJoin() {
+        this.lastJoin = System.currentTimeMillis();
         CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update()
-                .set("LastJoin", firstJoin)
+                .set("LastJoin", System.currentTimeMillis())
                 .where("UUID", uuid).executeAsync();
     }
 

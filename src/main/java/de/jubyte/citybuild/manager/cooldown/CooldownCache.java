@@ -44,7 +44,7 @@ public class CooldownCache {
                     .set("Head", 0)
                     .set("BreakBlock", 0)
                     .set("GiftRank", 0)
-                    .executeAsync();
+                    .execute();
     }
 
     public CooldownPlayer getPlayerByUUID(UUID uuid) {

@@ -1,12 +1,17 @@
 package de.jubyte.citybuild.manager.checkplot;
 
+import ch.dkrieger.bansystem.lib.BanSystem;
 import de.jubyte.citybuild.CityBuildV2;
 import net.pretronic.databasequery.api.collection.DatabaseCollection;
 import net.pretronic.databasequery.api.query.result.QueryResultEntry;
+import net.pretronic.dkbans.api.DKBans;
+import net.pretronic.dkbans.api.player.DKBansPlayer;
 import net.pretronic.libraries.caching.ArrayCache;
 import net.pretronic.libraries.caching.Cache;
 import net.pretronic.libraries.caching.CacheQuery;
 import org.bukkit.Bukkit;
+import org.mcnative.runtime.api.McNative;
+import org.mcnative.runtime.api.player.MinecraftPlayer;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -42,13 +47,34 @@ public class CheckPlotCache {
     }
 
     private void insertCheckplotPlayer(UUID uuid) {
-        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
-                .set("UUID", uuid)
-                .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
-                .set("FirstJoin", System.currentTimeMillis())
-                .set("LastJoin", System.currentTimeMillis())
-                .set("Playtime", 0)
-                .executeAsync();
+        if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") == null) {
+            CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
+                    .set("UUID", uuid)
+                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
+                    .set("FirstJoin", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getFirstLogin())
+                    .set("LastJoin", System.currentTimeMillis())
+                    .set("Playtime", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getOnlineTime())
+                    .execute();
+        } else if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") != null) {
+            MinecraftPlayer minecraftPlayer = McNative.getInstance().getPlayerManager().getPlayer(uuid);
+            DKBansPlayer dkBansPlayer = DKBans.getInstance().getPlayerManager().getPlayer(uuid);
+            CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
+                    .set("UUID", uuid)
+                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
+                    .set("FirstJoin", minecraftPlayer.getFirstPlayed())
+                    .set("LastJoin", System.currentTimeMillis())
+                    .set("Playtime", dkBansPlayer.getOnlineTime())
+                    .execute();
+        } else {
+            CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
+                    .set("UUID", uuid)
+                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
+                    .set("FirstJoin", System.currentTimeMillis())
+                    .set("LastJoin", System.currentTimeMillis())
+                    .set("Playtime", 0)
+                    .execute();
+        }
+
     }
 
     public CheckPlotPlayer getPlayerByUUID(UUID uuid) {
