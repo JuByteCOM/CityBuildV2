@@ -320,6 +320,7 @@ Commands:
       ClearNotReady: "[prefix] &cDas Plot darf erst am &e[date] &cgecleart werden!"
       Cleared: "[prefix] &aDas Plot wurde gecleart."
       NotInPlot: "[prefix] &cDu musst auf einem Plot stehen."
+      CantUse: "[prefix] &cDieses Grundstück hat keinen Besitzer."
     Settings:
       TimeToClear: 30
       Unit: DAYS

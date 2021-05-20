@@ -33,11 +33,17 @@ public class CheckPlotCommand extends AbstractCommand {
                     if (player.hasPermission(MessagesData.CHECKPLOT_USE_PERM)) {
                         if (PlotUtils.isInPlot(player.getLocation())) {
                             Plot plot = PlotUtils.getPlot(player.getLocation());
+
+                            if(!plot.hasOwner()){
+                                player.sendMessage(MessagesData.CHECKPLOT_CANT_USE);
+                                return false;
+                            }
+
                             UUID ownerUUID = plot.getOwner();
                             CheckPlotPlayer checkPlotPlayer = CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(ownerUUID);
                             long clearTime = MessagesData.CHECKPLOT_UNIT.toMillis(MessagesData.CHECKPLOT_TIME);
                             long clearAllowed = checkPlotPlayer.getPlayTime() + clearTime;
-                            boolean clear = clearAllowed < System.currentTimeMillis();
+                            boolean clear = clearAllowed > System.currentTimeMillis();
                             if (clear) {
                                 player.sendMessage(MessagesData.CHECKPLOT_CLEAR_READY);
                                 if (player.hasPermission(MessagesData.CHECKPLOT_CLEAR_PERM)) {

@@ -257,6 +257,7 @@ public class MessagesData {
     public static String CHECKPLOT_USAGE = messageHandler.getPrefixString("Commands.CheckPlot.Messages.Usage");
     public static String CHECKPLOT_CLEAR_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearReady");
     public static String CHECKPLOT_CLEAR_NOT_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearNotReady");
+    public static String CHECKPLOT_CANT_USE = messageHandler.getPrefixString("Commands.CheckPlot.Messages.CantUse");
     public static String CHECKPLOT_CLEARED = messageHandler.getPrefixString("Commands.CheckPlot.Messages.Cleared");
     public static Long CHECKPLOT_TIME = Long.valueOf(messageHandler.getString("Commands.CheckPlot.Settings.TimeToClear"));
     public static TimeUnit CHECKPLOT_UNIT = TimeUnit.valueOf(messageHandler.getString("Commands.CheckPlot.Settings.Unit"));
