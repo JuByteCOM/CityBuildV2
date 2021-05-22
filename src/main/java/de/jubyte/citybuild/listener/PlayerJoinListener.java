@@ -38,5 +38,7 @@ public class PlayerJoinListener implements Listener {
                 player.teleport(Locations.getLocation("Spawn"));
             }
         }
+
+        CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(player.getUniqueId()).setLastJoin();
     }
 }

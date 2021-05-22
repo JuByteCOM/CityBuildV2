@@ -194,8 +194,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new GiftRankCommand();
             command.register();
         }
-
-        new CheckPlotCommand().register();
+        if(ConfigData.CONFIG_COMMAND_CHECKPLOT_ACTIVE) {
+            AbstractCommand command = new CheckPlotCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {

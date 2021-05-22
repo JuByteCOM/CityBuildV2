@@ -7,14 +7,12 @@ import java.util.UUID;
 public class CheckPlotPlayer {
 
     private UUID uuid;
-    private String name;
     private long firstJoin;
     private long lastJoin;
     private long playTime;
 
-    public CheckPlotPlayer(UUID uuid, String name, long firstJoin, long lastJoin, long playTime) {
+    public CheckPlotPlayer(UUID uuid, long firstJoin, long lastJoin, long playTime) {
         this.uuid = uuid;
-        this.name = name;
         this.firstJoin = firstJoin;
         this.lastJoin = lastJoin;
         this.playTime = playTime;

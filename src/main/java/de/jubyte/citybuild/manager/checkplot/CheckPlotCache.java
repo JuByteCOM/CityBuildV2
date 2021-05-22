@@ -13,7 +13,6 @@ import org.bukkit.Bukkit;
 import org.mcnative.runtime.api.McNative;
 import org.mcnative.runtime.api.player.MinecraftPlayer;
 
-import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -34,9 +33,9 @@ public class CheckPlotCache {
 
                         if (entry == null) {
                             insertCheckplotPlayer(uuid);
-                            return new CheckPlotPlayer(uuid, Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName(), System.currentTimeMillis(),System.currentTimeMillis(), 0);
+                            return new CheckPlotPlayer(uuid, System.currentTimeMillis(),System.currentTimeMillis(), 0);
                         }
-                        return new CheckPlotPlayer(uuid, entry.getString("Name"), entry.getLong("FirstJoin"), entry.getLong("LastJoin"), entry.getLong("Playtime"));
+                        return new CheckPlotPlayer(uuid, entry.getLong("FirstJoin"), entry.getLong("LastJoin"), entry.getLong("Playtime"));
                     }
 
                     @Override
@@ -50,7 +49,6 @@ public class CheckPlotCache {
         if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") == null) {
             CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
                     .set("UUID", uuid)
-                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
                     .set("FirstJoin", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getFirstLogin())
                     .set("LastJoin", System.currentTimeMillis())
                     .set("Playtime", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getOnlineTime())
@@ -60,7 +58,6 @@ public class CheckPlotCache {
             DKBansPlayer dkBansPlayer = DKBans.getInstance().getPlayerManager().getPlayer(uuid);
             CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
                     .set("UUID", uuid)
-                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
                     .set("FirstJoin", minecraftPlayer.getFirstPlayed())
                     .set("LastJoin", System.currentTimeMillis())
                     .set("Playtime", dkBansPlayer.getOnlineTime())
@@ -68,7 +65,6 @@ public class CheckPlotCache {
         } else {
             CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
                     .set("UUID", uuid)
-                    .set("Name", Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName())
                     .set("FirstJoin", System.currentTimeMillis())
                     .set("LastJoin", System.currentTimeMillis())
                     .set("Playtime", 0)

@@ -61,7 +61,7 @@ public class StartKickPlayer {
         if (player.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
             return true;
         }
-        return System.currentTimeMillis() >= getCooldown();
+        return System.currentTimeMillis() < getCooldown();
     }
 
     public boolean isStartKicked() {

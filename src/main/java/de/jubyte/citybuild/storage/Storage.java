@@ -105,7 +105,6 @@ public class Storage {
 
         this.playerInformation = database.createCollection("PlayerInformations")
                 .field("UUID", DataType.UUID, FieldOption.PRIMARY_KEY)
-                .field("Name", DataType.STRING)
                 .field("FirstJoin", DataType.LONG)
                 .field("LastJoin", DataType.LONG)
                 .field("Playtime", DataType.LONG)

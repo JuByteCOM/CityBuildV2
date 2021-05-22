@@ -87,3 +87,7 @@ Settings:
       Name: 'giftrank'
       Aliases: ['premium', 'gold']
       Active: true
+    CheckPlot:
+      Name: 'checkplot'
+      Aliases: []
+      Active: true

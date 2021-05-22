@@ -61,7 +61,7 @@ Commands:
       PigName: '&cTöte mich!'
       Health: 8
       Exp: 0
-      RespawnTime: 100
+      RespawnTime: 5
   Teleport:
     Permissions:
       Use: 'citybuild.teleport.use'
@@ -316,11 +316,11 @@ Commands:
       Clear: 'citybuild.checkplot.clear'
     Messages:
       Usage: "[prefix] &cBitte nutze: &e/checkplot"
-      ClearReady: "[prefix] &aDas Plot darf gecleart werden!"
-      ClearNotReady: "[prefix] &cDas Plot darf erst am &e[date] &cgecleart werden!"
-      Cleared: "[prefix] &aDas Plot wurde gecleart."
-      NotInPlot: "[prefix] &cDu musst auf einem Plot stehen."
-      CantUse: "[prefix] &cDieses Grundstück hat keinen Besitzer."
+      ClearReady: "[prefix] &7Das &eGrundstück &akann &7gelöscht werden!"
+      ClearNotReady: "[prefix] &7Das Grundstück kann am &e[date] &cgelöscht werden!"
+      Cleared: "[prefix] &7Das Grundstück wurde &agelöscht&7."
+      NotInPlot: "[prefix] &7Du &cmusst &7dich auf einem &eGrundstück &7befinden."
+      CantUse: "[prefix] &7Dieses Grundstück hat &ckeinen &eBesitzer&7."
     Settings:
       TimeToClear: 30
       Unit: DAYS

@@ -3,6 +3,7 @@ package de.jubyte.citybuild.commands;
 import com.plotsquared.core.plot.Plot;
 import de.crashmash.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.CityBuildV2;
+import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
 import de.jubyte.citybuild.utils.PlotUtils;
@@ -18,7 +19,7 @@ import java.util.UUID;
 public class CheckPlotCommand extends AbstractCommand {
 
     public CheckPlotCommand() {
-        super("checkplot");
+        super(ConfigData.CONFIG_COMMAND_CHECKPLOT_NAME, null, "With this command, you can clear plots.", ConfigData.CONFIG_COMMAND_CHECKPLOT_ALIASES);
     }
 
     @Override
@@ -33,18 +34,15 @@ public class CheckPlotCommand extends AbstractCommand {
                     if (player.hasPermission(MessagesData.CHECKPLOT_USE_PERM)) {
                         if (PlotUtils.isInPlot(player.getLocation())) {
                             Plot plot = PlotUtils.getPlot(player.getLocation());
-
                             if(!plot.hasOwner()){
                                 player.sendMessage(MessagesData.CHECKPLOT_CANT_USE);
                                 return false;
                             }
-
                             UUID ownerUUID = plot.getOwner();
                             CheckPlotPlayer checkPlotPlayer = CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(ownerUUID);
                             long clearTime = MessagesData.CHECKPLOT_UNIT.toMillis(MessagesData.CHECKPLOT_TIME);
-                            long clearAllowed = checkPlotPlayer.getPlayTime() + clearTime;
-                            boolean clear = clearAllowed > System.currentTimeMillis();
-                            if (clear) {
+                            long clearAllowed = checkPlotPlayer.getLastJoin() + clearTime;
+                            if (clearAllowed < System.currentTimeMillis()) {
                                 player.sendMessage(MessagesData.CHECKPLOT_CLEAR_READY);
                                 if (player.hasPermission(MessagesData.CHECKPLOT_CLEAR_PERM)) {
                                     plot.deletePlot(() -> player.sendMessage(MessagesData.CHECKPLOT_CLEARED));

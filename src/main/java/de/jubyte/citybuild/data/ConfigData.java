@@ -93,4 +93,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_GIFTRANK_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.GiftRank.Aliases");
     public static boolean CONFIG_COMMAND_GIFTRANK_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.GiftRank.Active");
 
+    public static String CONFIG_COMMAND_CHECKPLOT_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.CheckPlot.Name");
+    public static List<String> CONFIG_COMMAND_CHECKPLOT_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.CheckPlot.Aliases");
+    public static boolean CONFIG_COMMAND_CHECKPLOT_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.CheckPlot.Active");
+
 }
