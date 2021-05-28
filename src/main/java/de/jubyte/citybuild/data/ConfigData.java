@@ -97,4 +97,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_CHECKPLOT_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.CheckPlot.Aliases");
     public static boolean CONFIG_COMMAND_CHECKPLOT_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.CheckPlot.Active");
 
+    public static String CONFIG_COMMAND_SUDO_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Sudo.Name");
+    public static List<String> CONFIG_COMMAND_SUDO_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Sudo.Aliases");
+    public static boolean CONFIG_COMMAND_SUDO_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Sudo.Active");
+
 }

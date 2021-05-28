@@ -246,6 +246,14 @@ public class MessagesData {
     public static boolean GIFTRANK_COMMAND_SETTING_KICK = plugin.getMessagesConfig().getBoolean("Commands.GiftRank.Settings.KickTargetPlayer");
     public static String GIFTRANK_COMMAND_SETTINGS_DISPATCHCOMMAND = messageHandler.getString("Commands.GiftRank.Settings.DispatchCommand");
 
+    //Todo: Sudo
+    public static String SUDO_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Sudo.Permissions.Use");
+    public static String SUDO_COMMAND_PERMISSION_BYPASS = messageHandler.getString("Commands.Sudo.Permissions.Bypass");
+    public static String SUDO_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Sudo.Messages.Usage");
+    public static String SUDO_COMMAND_MESSAGE_HAS_BYPASS = messageHandler.getPrefixString("Commands.Sudo.Messages.HasBypass");
+    public static String SUDO_COMMAND_MESSAGE_HAS_PERFORMED = messageHandler.getPrefixString("Commands.Sudo.Messages.Performed");
+    public static String SUDO_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Sudo.Messages.TargetPlayerOffline");
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 

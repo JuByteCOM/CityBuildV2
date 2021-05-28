@@ -198,6 +198,10 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new CheckPlotCommand();
             command.register();
         }
+        if (ConfigData.CONFIG_COMMAND_SUDO_ACTIVE){
+            AbstractCommand command = new SudoCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
