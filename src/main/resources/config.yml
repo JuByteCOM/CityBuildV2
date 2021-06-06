@@ -95,3 +95,11 @@ Settings:
       Name: 'sudo'
       Aliases: ['perform']
       Active: true
+    Clear:
+      Name: 'clear'
+      Aliases: [ 'ci', 'clearinventory' ]
+      Active: true
+    Fly:
+      Name: 'fly'
+      Aliases: ['flymode']
+      Active: true

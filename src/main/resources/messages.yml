@@ -333,6 +333,31 @@ Commands:
       HasBypass: '[prefix] &7Der Spieler hat einen Bypass und kann keine Fremdbefehle senden!'
       Performed: '[prefix] &7Du hast dem Spieler&e [targetPlayer] &7den Befehl &7"&6/[command]&7" &7ausführen lassen!'
       TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
+  Fly:
+    Permissions:
+      Use:
+        Self: 'citybuild.fly.use'
+        Other: 'citybuild.fly.use.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/fly <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
+      Deactivated:
+        Self: '[prefix] &7Du bist jetzt &cnicht &7mehr im &aFlugmodus&7!'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &caus &7den &aFlugmodus &7gesetzt!'
+      Activated:
+        Self: '[prefix] &7Du bist &ejetzt &7im &aFlugmodus&7!'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ain &7den &aFlugmodus &7gesetzt!'
+  Clear:
+    Permissions:
+      Use:
+        Self: 'citybuild.clear.use'
+        Other: 'citybuild.clear.use.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/clear <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
+      Cleared:
+        Self: '[prefix] &7Dein Inventar wurde &ageleert&7!'
+        Other: '[prefix] &7Du hast das Inventar von &e[targetPlayer] &ageleert&7!'
 
 Settings:
   ColoredChat:

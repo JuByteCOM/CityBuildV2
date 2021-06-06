@@ -69,7 +69,7 @@ public class GameModeCommand extends AbstractCommand {
                         commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_USAGE);
                     }
                 } else {
-                    commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_PLAYER_NOT_FOUND);
+                    commandSender.sendMessage(MessagesData.GAMEMODE_COMMAND_MESSAGE_PLAYER_NOT_FOUND.replace("[targetPlayer]", strings[1]));
                 }
             } else {
                 commandSender.sendMessage(MessagesData.NOPERMS);

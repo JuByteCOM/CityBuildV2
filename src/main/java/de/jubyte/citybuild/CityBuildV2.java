@@ -202,6 +202,14 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new SudoCommand();
             command.register();
         }
+        if (ConfigData.CONFIG_COMMAND_CLEAR_ACTIVE){
+            AbstractCommand command = new ClearCommand();
+            command.register();
+        }
+        if (ConfigData.CONFIG_COMMAND_FLY_ACTIVE){
+            AbstractCommand command = new FlyCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {

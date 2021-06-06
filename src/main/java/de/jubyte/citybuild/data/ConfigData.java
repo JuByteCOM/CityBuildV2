@@ -101,4 +101,16 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_SUDO_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Sudo.Aliases");
     public static boolean CONFIG_COMMAND_SUDO_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Sudo.Active");
 
+    public static String CONFIG_COMMAND_SIGN_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Sign.Name");
+    public static List<String> CONFIG_COMMAND_SIGN_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Sign.Aliases");
+    public static boolean CONFIG_COMMAND_SIGN_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Sign.Active");
+
+    public static String CONFIG_COMMAND_CLEAR_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Clear.Name");
+    public static List<String> CONFIG_COMMAND_CLEAR_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Clear.Aliases");
+    public static boolean CONFIG_COMMAND_CLEAR_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Clear.Active");
+
+    public static String CONFIG_COMMAND_FLY_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Fly.Name");
+    public static List<String> CONFIG_COMMAND_FLY_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Fly.Aliases");
+    public static boolean CONFIG_COMMAND_FLY_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Fly.Active");
+
 }

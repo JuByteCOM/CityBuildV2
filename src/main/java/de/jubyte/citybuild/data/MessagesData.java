@@ -254,6 +254,24 @@ public class MessagesData {
     public static String SUDO_COMMAND_MESSAGE_HAS_PERFORMED = messageHandler.getPrefixString("Commands.Sudo.Messages.Performed");
     public static String SUDO_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Sudo.Messages.TargetPlayerOffline");
 
+    //Todo: Fly
+    public static String FLY_COMMAND_PERMISSION_USE_SELF = messageHandler.getString("Commands.Fly.Permissions.Use.Self");
+    public static String FLY_COMMAND_PERMISSION_USE_OTHER = messageHandler.getString("Commands.Fly.Permissions.Use.Other");
+    public static String FLY_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Fly.Messages.Usage");
+    public static String FLY_COMMAND_MESSAGE_ACTIVATED_SELF = messageHandler.getPrefixString("Commands.Fly.Messages.Activated.Self");
+    public static String FLY_COMMAND_MESSAGE_ACTIVATED_OTHER = messageHandler.getPrefixString("Commands.Fly.Messages.Activated.Other");
+    public static String FLY_COMMAND_MESSAGE_DEACTIVATED_SELF = messageHandler.getPrefixString("Commands.Fly.Messages.Deactivated.Self");
+    public static String FLY_COMMAND_MESSAGE_DEACTIVATED_OTHER = messageHandler.getPrefixString("Commands.Fly.Messages.Deactivated.Other");
+    public static String FLY_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Fly.Messages.TargetPlayerOffline");
+
+    //Todo: Clear
+    public static String CLEAR_COMMAND_PERMISSION_CLEAR_SELF = messageHandler.getString("Commands.Clear.Permissions.Use.Self");
+    public static String CLEAR_COMMAND_PERMISSION_CLEAR_OTHER = messageHandler.getString("Commands.Clear.Permissions.Use.Other");
+    public static String CLEAR_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Clear.Messages.Usage");
+    public static String CLEAR_COMMAND_MESSAGE_CLEARED_SELF = messageHandler.getPrefixString("Commands.Clear.Messages.Cleared.Self");
+    public static String CLEAR_COMMAND_MESSAGE_CLEARED_OTHER = messageHandler.getPrefixString("Commands.Clear.Messages.Cleared.Other");
+    public static String CLEAR_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Clear.Messages.TargetPlayerOffline");
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 
