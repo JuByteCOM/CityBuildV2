@@ -330,8 +330,8 @@ Commands:
       Bypass: 'citybuild.sudo.bypass'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/sudo <playerName> <command>'
-      HasBypass: '[prefix] &7Der Spieler hat einen Bypass und kann keine Fremdbefehle senden!'
-      Performed: '[prefix] &7Du hast dem Spieler&e [targetPlayer] &7den Befehl &7"&6/[command]&7" &7ausführen lassen!'
+      HasBypass: '[prefix] &7Der &eSpieler hat einen &cBypass &7und kann &ckeine &7Fremdbefehle senden!'
+      Performed: '[prefix] &7Du hast dem Spieler &e[targetPlayer] &7den Befehl &7"&6/[command]&7" &7ausführen lassen!'
       TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
   Fly:
     Permissions:

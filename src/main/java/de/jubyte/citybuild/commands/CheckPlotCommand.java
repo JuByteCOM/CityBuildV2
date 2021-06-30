@@ -42,7 +42,7 @@ public class CheckPlotCommand extends AbstractCommand {
                             CheckPlotPlayer checkPlotPlayer = CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(ownerUUID);
                             long clearTime = MessagesData.CHECKPLOT_UNIT.toMillis(MessagesData.CHECKPLOT_TIME);
                             long clearAllowed = checkPlotPlayer.getLastJoin() + clearTime;
-                            if (clearAllowed < System.currentTimeMillis()) {
+                            if (clearAllowed < System.currentTimeMillis() && checkPlotPlayer.getLastJoin() != 0) {
                                 player.sendMessage(MessagesData.CHECKPLOT_CLEAR_READY);
                                 if (player.hasPermission(MessagesData.CHECKPLOT_CLEAR_PERM)) {
                                     plot.deletePlot(() -> player.sendMessage(MessagesData.CHECKPLOT_CLEARED));

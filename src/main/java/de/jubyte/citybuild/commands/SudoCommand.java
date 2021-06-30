@@ -8,9 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class SudoCommand extends AbstractCommand {
 
@@ -21,11 +19,15 @@ public class SudoCommand extends AbstractCommand {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
+       if (!(commandSender instanceof Player)){
+           commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
+       }else{
+
            Player player = (Player) commandSender;
 
-           if (commandSender.hasPermission(MessagesData.SUDO_COMMAND_PERMISSION_USE)){
+           if (player.hasPermission(MessagesData.SUDO_COMMAND_PERMISSION_USE)){
                if (strings.length < 2){
-                   commandSender.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_USAGE);
+                   player.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_USAGE);
                }else{
 
                    Player target = Bukkit.getPlayer(strings[0]);
@@ -33,7 +35,7 @@ public class SudoCommand extends AbstractCommand {
                    if (target != null){
 
                        if (target.hasPermission(MessagesData.SUDO_COMMAND_PERMISSION_BYPASS)){
-                           commandSender.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_HAS_BYPASS);
+                           player.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_HAS_BYPASS);
                            return true;
                        }
 
@@ -42,27 +44,19 @@ public class SudoCommand extends AbstractCommand {
 
                        target.performCommand(newCommand);
 
-                       commandSender.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_HAS_PERFORMED.replace("[command]", newCommand).replace("[targetPlayer]", target.getName()));
+                       player.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_HAS_PERFORMED.replace("[command]", newCommand).replace("[targetPlayer]", target.getName()));
 
                    }else{
-                       commandSender.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE);
+                       player.sendMessage(MessagesData.SUDO_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE);
                    }
 
                }
            }else{
-               commandSender.sendMessage(MessagesData.NOPERMS);
+               player.sendMessage(MessagesData.NOPERMS);
            }
+
+       }
 
         return false;
     }
-
-    @Override
-    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-        final List<String> players = new ArrayList<>();
-        for(Player all : Bukkit.getOnlinePlayers()) {
-            players.add(all.getName());
-        }
-        return players;
-    }
-
 }

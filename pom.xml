@@ -67,8 +67,8 @@
         </repository>
         <!--JuByte-->
         <repository>
-            <id>JuByte</id>
-            <url>http://45.88.110.196:8088/repository/jubyte/</url>
+            <id>jubyte</id>
+            <url>http://161.97.171.168:8888/repository/jubyte/</url>
         </repository>
         <!--DKBansV2-->
         <repository>
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

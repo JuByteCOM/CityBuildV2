@@ -1,7 +1,9 @@
 package de.jubyte.citybuild.listener;
 
 import de.jubyte.citybuild.CityBuildV2;
+import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
+import de.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
 import de.jubyte.citybuild.manager.glow.GlowPlayer;
 import de.jubyte.citybuild.manager.locations.Locations;
 import de.jubyte.citybuild.manager.status.StatusPlayer;
@@ -33,12 +35,13 @@ public class PlayerJoinListener implements Listener {
         }
 
         //Todo: SpawnTP
-        if (MessagesData.SPAWN_COMMAND_SETTING_SPAWN_ON_JOIN) {
+        if (MessagesData.SPAWN_COMMAND_SETTING_SPAWN_ON_JOIN && ConfigData.CONFIG_COMMAND_SPAWN_ACTIVE) {
             if (Locations.exitsLocation("Spawn")) {
                 player.teleport(Locations.getLocation("Spawn"));
             }
         }
 
-        CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(player.getUniqueId()).setLastJoin();
+        CheckPlotPlayer checkPlotPlayer = CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(player.getUniqueId());
+        checkPlotPlayer.setLastJoin();
     }
 }

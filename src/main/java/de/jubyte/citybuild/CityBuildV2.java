@@ -20,6 +20,7 @@ import de.jubyte.citybuild.storage.Storage;
 import de.jubyte.citybuild.utils.LibDownloader;
 import de.jubyte.citybuild.utils.SignEdit;
 import de.jubyte.citybuild.utils.SignEdit_1_16_R3;
+import de.jubyte.citybuild.utils.SignEdit_1_17_R1;
 import net.pretronic.libraries.logging.PretronicLogger;
 import net.pretronic.libraries.logging.PretronicLoggerFactory;
 import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
@@ -237,8 +238,18 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private boolean setupSignEdit() {
-        signedit = new SignEdit_1_16_R3();
-        return true;
+        String version;
+        try {
+            version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+        if(version.equals("v1_16_3")) {
+            signedit = new SignEdit_1_16_R3();
+        } else if(version.equals("v1_17_1")) {
+            signedit = new SignEdit_1_17_R1();
+        }
+        return signedit != null;
     }
 
     public void reloadMessagesConfig() {

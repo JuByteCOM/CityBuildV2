@@ -67,9 +67,11 @@ public class FoodCommand extends AbstractCommand {
                         if(FoodLocation.exitsLocation(Integer.parseInt(strings[1]))) {
                             Location location = FoodLocation.getLocation(Integer.parseInt(strings[1]));
                             World world = FoodLocation.getLocation(Integer.parseInt(strings[1])).getWorld();
-                            for (Entity entity : world.getNearbyEntities(location, 1, 1, 1)) {
-                                if (entity.getType() == EntityType.PIG && entity.getCustomName().equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
-                                    entity.remove();
+                            if(world != null) {
+                                for (Entity entity : world.getNearbyEntities(location, 1, 1, 1)) {
+                                    if (entity.getType() == EntityType.PIG && entity.getCustomName().equalsIgnoreCase(MessagesData.FOOD_COMMAND_MESSAGE_NAME)) {
+                                        entity.remove();
+                                    }
                                 }
                             }
                             FoodLocation.FOOD_LOCATIONS.remove(Integer.parseInt(strings[1]));
