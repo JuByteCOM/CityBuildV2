@@ -21,7 +21,7 @@ public class AsynPlayerChatListener implements Listener {
     @EventHandler
     public void handleAsyncPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        event.setMessage(ColoredChat.format(event.getMessage(), player));
+        //event.setMessage(ColoredChat.format(event.getMessage(), player));
 
         if(SlowChatCommand.SLOWCHAT_STATUS) {
             if(SLOWCHAT_PLAYER.contains(player)) {

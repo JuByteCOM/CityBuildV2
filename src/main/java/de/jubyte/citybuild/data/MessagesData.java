@@ -272,6 +272,22 @@ public class MessagesData {
     public static String CLEAR_COMMAND_MESSAGE_CLEARED_OTHER = messageHandler.getPrefixString("Commands.Clear.Messages.Cleared.Other");
     public static String CLEAR_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Clear.Messages.TargetPlayerOffline");
 
+    //Todo: Feed
+    public static String FEED_COMMAND_PERMISSION_SELF = messageHandler.getString("Commands.Feed.Permissions.Use.Self");
+    public static String FEED_COMMAND_PERMISSION_OTHER = messageHandler.getString("Commands.Feed.Permissions.Use.Other");
+    public static String FEED_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Feed.Messages.Usage");
+    public static String FEED_COMMAND_MESSAGE_SELF = messageHandler.getPrefixString("Commands.Feed.Messages.Self");
+    public static String FEED_COMMAND_MESSAGE_OTHER = messageHandler.getPrefixString("Commands.Feed.Messages.Other");
+    public static String FEED_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Feed.Messages.TargetPlayerOffline");
+
+    //Todo: Heal
+    public static String HEAL_COMMAND_PERMISSION_SELF = messageHandler.getString("Commands.Heal.Permissions.Use.Self");
+    public static String HEAL_COMMAND_PERMISSION_OTHER = messageHandler.getString("Commands.Heal.Permissions.Use.Other");
+    public static String HEAL_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Heal.Messages.Usage");
+    public static String HEAL_COMMAND_MESSAGE_SELF = messageHandler.getPrefixString("Commands.Heal.Messages.Self");
+    public static String HEAL_COMMAND_MESSAGE_OTHER = messageHandler.getPrefixString("Commands.Heal.Messages.Other");
+    public static String HEAL_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Heal.Messages.TargetPlayerOffline");
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 

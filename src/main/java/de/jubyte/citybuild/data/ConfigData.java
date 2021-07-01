@@ -113,4 +113,12 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_FLY_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Fly.Aliases");
     public static boolean CONFIG_COMMAND_FLY_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Fly.Active");
 
+    public static String CONFIG_COMMAND_FEED_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Feed.Name");
+    public static List<String> CONFIG_COMMAND_FEED_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Feed.Aliases");
+    public static boolean CONFIG_COMMAND_FEED_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Feed.Active");
+
+    public static String CONFIG_COMMAND_HEAL_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Heal.Name");
+    public static List<String> CONFIG_COMMAND_HEAL_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Heal.Aliases");
+    public static boolean CONFIG_COMMAND_HEAL_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Heal.Active");
+
 }

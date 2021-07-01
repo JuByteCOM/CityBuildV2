@@ -211,6 +211,14 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new FlyCommand();
             command.register();
         }
+        if (ConfigData.CONFIG_COMMAND_FEED_ACTIVE){
+            AbstractCommand command = new FeedCommand();
+            command.register();
+        }
+        if (ConfigData.CONFIG_COMMAND_HEAL_ACTIVE){
+            AbstractCommand command = new HealCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {

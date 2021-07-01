@@ -58,6 +58,8 @@ public class ClearCommand extends AbstractCommand {
                 }else{
                     player.sendMessage(MessagesData.NOPERMS);
                 }
+            }else{
+                player.sendMessage(MessagesData.CLEAR_COMMAND_MESSAGE_USAGE);
             }
 
         }

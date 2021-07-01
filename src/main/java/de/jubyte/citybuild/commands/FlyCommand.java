@@ -57,6 +57,8 @@ public class FlyCommand extends AbstractCommand {
                     }else{
                         player.sendMessage(MessagesData.NOPERMS);
                     }
+                }else{
+                    player.sendMessage(MessagesData.FLY_COMMAND_MESSAGE_USAGE);
                 }
             }else{
                 player.sendMessage(MessagesData.NOPERMS);

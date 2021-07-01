@@ -358,6 +358,26 @@ Commands:
       Cleared:
         Self: '[prefix] &7Dein Inventar wurde &ageleert&7!'
         Other: '[prefix] &7Du hast das Inventar von &e[targetPlayer] &ageleert&7!'
+  Feed:
+    Permissions:
+      Use:
+        Self: 'citybuild.feed.use'
+        Other: 'citybuild.feed.use.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/feed <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
+      Self: '[prefix] &7Du wurdest &agefüttert&7!'
+      Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &agefüttert&7!'
+  Heal:
+    Permissions:
+      Use:
+        Self: 'citybuild.heal.use'
+        Other: 'citybuild.heal.use.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/heal <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
+      Self: '[prefix] &7Du wurdest &ageheilt&7!'
+      Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ageheilt&7!'
 
 Settings:
   ColoredChat:
