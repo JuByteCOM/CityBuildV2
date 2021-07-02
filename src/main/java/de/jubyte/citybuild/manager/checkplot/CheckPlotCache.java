@@ -1,6 +1,5 @@
 package de.jubyte.citybuild.manager.checkplot;
 
-import ch.dkrieger.bansystem.lib.BanSystem;
 import de.jubyte.citybuild.CityBuildV2;
 import net.pretronic.databasequery.api.collection.DatabaseCollection;
 import net.pretronic.databasequery.api.query.result.QueryResultEntry;
@@ -46,14 +45,7 @@ public class CheckPlotCache {
     }
 
     private void insertCheckplotPlayer(UUID uuid) {
-        if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") == null) {
-            CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
-                    .set("UUID", uuid)
-                    .set("FirstJoin", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getFirstLogin())
-                    .set("LastJoin", System.currentTimeMillis())
-                    .set("Playtime", BanSystem.getInstance().getPlayerManager().getPlayer(uuid).getOnlineTime())
-                    .execute();
-        } else if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") != null) {
+        if(Bukkit.getPluginManager().getPlugin("DKBans") != null && Bukkit.getPluginManager().getPlugin("McNative") != null) {
             MinecraftPlayer minecraftPlayer = McNative.getInstance().getPlayerManager().getPlayer(uuid);
             DKBansPlayer dkBansPlayer = DKBans.getInstance().getPlayerManager().getPlayer(uuid);
             CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().insert()
