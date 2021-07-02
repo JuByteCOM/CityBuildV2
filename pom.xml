@@ -103,6 +103,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.bukkit.craftbukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/spigot-1.16.5.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.plotsquared</groupId>
             <artifactId>PlotSquared-Core</artifactId>
             <version>5.13.3</version>
