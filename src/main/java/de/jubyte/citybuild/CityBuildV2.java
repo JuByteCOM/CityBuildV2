@@ -103,7 +103,7 @@ public class CityBuildV2 extends JavaPlugin {
     public void onDisable() {
         sendMessage("§cDisabled");
 
-        if(storage.isConnected()) {
+        if(storage != null) {
             storage.deleteConnection();
         }
     }
@@ -249,6 +249,7 @@ public class CityBuildV2 extends JavaPlugin {
         String version;
         try {
             version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+            System.out.println(version);
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }

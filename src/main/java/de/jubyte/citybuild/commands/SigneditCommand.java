@@ -3,8 +3,8 @@ package de.jubyte.citybuild.commands;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
-import de.jubyte.citybuild.utils.PlotUtils;
 import de.crashmash.developerapi.commands.AbstractCommand;
+import de.jubyte.citybuild.utils.PlotUtilsV6;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -28,13 +28,14 @@ public class SigneditCommand extends AbstractCommand {
                 if(player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_USE)) {
                     Block block = player.getTargetBlock(null, 5);
                     if (block.getState() instanceof Sign) {
-                        if (PlotUtils.getPlot(player.getTargetBlock(null,5).getLocation()) != null ||
+                        if (PlotUtilsV6.getPlot(player.getTargetBlock(null,5).getLocation()) != null ||
                                 player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOTONPLOT)) {
-                            if(PlotUtils.isInPlot(player.getLocation()) ||
+                            if(PlotUtilsV6.isInPlot(player.getLocation()) ||
                                     player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
-                                if (PlotUtils.getPlot(player.getLocation()).isOwner(player.getUniqueId()) ||
+                                if (PlotUtilsV6.getPlot(player.getLocation()).isOwner(player.getUniqueId()) ||
                                         player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
                                     Sign sign = (Sign) block.getState();
+                                    System.out.println();
                                     CityBuildV2.getSignEdit().editSign(player, sign);
                                 } else {
                                     player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTOWNER);

@@ -1,12 +1,12 @@
 package de.jubyte.citybuild.commands;
 
-import com.plotsquared.core.api.PlotAPI;
+import com.plotsquared.core.PlotAPI;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.cooldown.CooldownPlayer;
-import de.jubyte.citybuild.utils.PlotUtils;
 import de.crashmash.developerapi.commands.AbstractCommand;
+import de.jubyte.citybuild.utils.PlotUtilsV6;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -17,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -84,7 +85,7 @@ public class BreakblockCommand extends AbstractCommand {
                                         }
                                         block.setType(Material.AIR);
                                     } else {
-                                        if (plotAPI.getPlotSquared().getPlotAreas().stream().filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
+                                        if (Arrays.stream(plotAPI.getPlotSquared().getPlotAreaManager().getAllPlotAreas()).filter(y -> block.getWorld().getName().equalsIgnoreCase(String.valueOf(y))).collect(Collectors.toSet()).isEmpty()) {
                                             breackBlockPlayers.remove(player);
                                             player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                             cooldownPlayer.setBreakBlock();
@@ -94,8 +95,8 @@ public class BreakblockCommand extends AbstractCommand {
                                             }
                                             block.setType(Material.AIR);
                                         } else {
-                                            if (PlotUtils.getPlot(player.getTargetBlock(null, 5).getLocation()) != null) {
-                                                if (PlotUtils.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
+                                            if (PlotUtilsV6.getPlot(player.getTargetBlock(null, 5).getLocation()) != null) {
+                                                if (PlotUtilsV6.getPlot(block.getLocation()).isOwner(player.getUniqueId())) {
                                                     breackBlockPlayers.remove(player);
                                                     player.sendMessage(MessagesData.BREAKBLOCK_COMMAND_MESSAGE_CONFIRM_BLOCK_REMOVED);
                                                     cooldownPlayer.setBreakBlock();

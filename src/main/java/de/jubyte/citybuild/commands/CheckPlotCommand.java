@@ -6,7 +6,7 @@ import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
-import de.jubyte.citybuild.utils.PlotUtils;
+import de.jubyte.citybuild.utils.PlotUtilsV6;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -32,8 +32,8 @@ public class CheckPlotCommand extends AbstractCommand {
             if(strings.length == 0){
                 if(Bukkit.getPluginManager().getPlugin("PlotSquared") != null) {
                     if (player.hasPermission(MessagesData.CHECKPLOT_USE_PERM)) {
-                        if (PlotUtils.isInPlot(player.getLocation())) {
-                            Plot plot = PlotUtils.getPlot(player.getLocation());
+                        if (PlotUtilsV6.isInPlot(player.getLocation())) {
+                            Plot plot = PlotUtilsV6.getPlot(player.getLocation());
                             if(!plot.hasOwner()){
                                 player.sendMessage(MessagesData.CHECKPLOT_CANT_USE);
                                 return false;
@@ -45,7 +45,8 @@ public class CheckPlotCommand extends AbstractCommand {
                             if (clearAllowed < System.currentTimeMillis() && checkPlotPlayer.getLastJoin() != 0) {
                                 player.sendMessage(MessagesData.CHECKPLOT_CLEAR_READY);
                                 if (player.hasPermission(MessagesData.CHECKPLOT_CLEAR_PERM)) {
-                                    plot.deletePlot(() -> player.sendMessage(MessagesData.CHECKPLOT_CLEARED));
+                                    plot.unclaim();
+                                    player.sendMessage(MessagesData.CHECKPLOT_CLEARED);
                                 }
                             } else {
                                 player.sendMessage(MessagesData.CHECKPLOT_CLEAR_NOT_READY.replace("[date]", new SimpleDateFormat("dd.MM.yyyy").format(new Date(clearAllowed))));
