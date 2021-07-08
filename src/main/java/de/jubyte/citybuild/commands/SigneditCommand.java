@@ -35,7 +35,6 @@ public class SigneditCommand extends AbstractCommand {
                                 if (PlotUtilsV6.getPlot(player.getLocation()).isOwner(player.getUniqueId()) ||
                                         player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
                                     Sign sign = (Sign) block.getState();
-                                    System.out.println();
                                     CityBuildV2.getSignEdit().editSign(player, sign);
                                 } else {
                                     player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTOWNER);
