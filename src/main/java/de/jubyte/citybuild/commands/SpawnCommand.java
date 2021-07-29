@@ -1,12 +1,10 @@
 package de.jubyte.citybuild.commands;
 
-import de.jubyte.citybuild.CityBuildV2;
+import de.crashmash.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.locations.Locations;
 import de.jubyte.citybuild.storage.LocationSQL;
-import de.crashmash.developerapi.commands.AbstractCommand;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -26,6 +24,7 @@ public class SpawnCommand extends AbstractCommand {
             Player player = (Player) commandSender;
             if(strings.length == 0) {
                 if (player.hasPermission(MessagesData.SPAWN_COMMAND_PERMISSION_USE)) {
+                    System.out.println(Locations.LOCATIONS);
                     if (Locations.exitsLocation("Spawn")) {
                         Location location = Locations.getLocation("Spawn");
                         player.teleport(location);
@@ -51,13 +50,8 @@ public class SpawnCommand extends AbstractCommand {
                         float Yaw = player.getLocation().getYaw();
                         float Pitch = player.getLocation().getPitch();
                         String World = player.getLocation().getWorld().getName();
-                        if (!Locations.exitsLocation("Spawn")) {
-                            LocationSQL.createLocation("Spawn", LocX, LocY, LocZ, Yaw, Pitch, World);
-                        } else {
-                            LocationSQL.updateLocation("Spawn", LocX, LocY, LocZ, Yaw, Pitch, World);
-                        }
-                        Locations.LOCATIONS.clear();
-                        Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPLUGIN(), () -> Locations.setLocations(LocationSQL.loadLocations()),10);
+                        LocationSQL.createLocation("Spawn", LocX, LocY, LocZ, Yaw, Pitch, World);
+                        Locations.LOCATIONS.put("Spawn", player.getLocation());
                         player.sendMessage(MessagesData.SPAWN_COMMAND_MESSAGE_SPAWN_SET);
                     } else if (strings[1].equalsIgnoreCase("remove")) {
                         if (Locations.exitsLocation("Spawn")) {

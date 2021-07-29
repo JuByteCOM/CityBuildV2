@@ -1,5 +1,6 @@
 package de.jubyte.citybuild.listener;
 
+import de.crashmash.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
@@ -14,10 +15,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoinListener implements Listener {
 
+    private final static MessageHandler messageHandler = CityBuildV2.getPLUGIN().getMessageHandler();
+
     @EventHandler
     public void handleJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
         //Todo: Status
         if (player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
             StatusPlayer statusPlayer = CityBuildV2.getPLUGIN().getStatusCache().getPlayerByUUID(player.getUniqueId());
@@ -43,5 +45,11 @@ public class PlayerJoinListener implements Listener {
 
         CheckPlotPlayer checkPlotPlayer = CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(player.getUniqueId());
         checkPlotPlayer.setLastJoin();
+
+        if(CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.PlayerJoin.Enabled")) {
+            event.setJoinMessage(messageHandler.getPrefixString("Settings.PlayerJoin.Message").replace("[player]", player.getName()));
+        } else {
+            event.setJoinMessage(null);
+        }
     }
 }

@@ -121,4 +121,12 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_HEAL_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Heal.Aliases");
     public static boolean CONFIG_COMMAND_HEAL_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Heal.Active");
 
+    public static String CONFIG_COMMAND_NETHER_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Nether.Name");
+    public static List<String> CONFIG_COMMAND_NETHER_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Nether.Aliases");
+    public static boolean CONFIG_COMMAND_NETHER_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Nether.Active");
+
+    public static String CONFIG_COMMAND_FARMWORLD_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Farmworld.Name");
+    public static List<String> CONFIG_COMMAND_FARMWORLD_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Farmworld.Aliases");
+    public static boolean CONFIG_COMMAND_FARMWORLD_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Farmworld.Active");
+
 }

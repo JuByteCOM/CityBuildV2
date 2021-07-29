@@ -111,3 +111,11 @@ Settings:
       Name: 'heal'
       Aliases: [ 'leben' ]
       Active: true
+    Farmworld:
+      Name: 'farmworld'
+      Aliases: ['farmwelt']
+      Active: true
+    Nether:
+      Name: 'nether'
+      Aliases: ['']
+      Active: true

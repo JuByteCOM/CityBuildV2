@@ -112,10 +112,6 @@ public class Storage {
 
     }
 
-    public boolean isConnected() {
-        return this.databaseDriver.isConnected();
-    }
-
     public void deleteConnection() {
         this.databaseDriver.disconnect();
     }

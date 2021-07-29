@@ -21,10 +21,6 @@ import de.jubyte.citybuild.utils.LibDownloader;
 import de.jubyte.citybuild.utils.SignEdit;
 import de.jubyte.citybuild.utils.SignEdit_1_16_R3;
 import de.jubyte.citybuild.utils.SignEdit_1_17_R1;
-import net.pretronic.libraries.logging.PretronicLogger;
-import net.pretronic.libraries.logging.PretronicLoggerFactory;
-import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
-import net.pretronic.libraries.logging.level.LogLevel;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -35,6 +31,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.InaccessibleObjectException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,14 +63,20 @@ public class CityBuildV2 extends JavaPlugin {
     public void onEnable() {
         PLUGIN = this;
 
-        if (!Bukkit.getPluginManager().isPluginEnabled("McNative"))
-            LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
-
-        PretronicLogger logger = PretronicLoggerFactory.getLogger();
-        logger.setLevel(LogLevel.INFO);
-        SLF4JStaticBridge.trySetLogger(logger);
-
         sendMessage("§aEnabled");
+
+        System.out.println(System.getProperty("java.version"));
+        if (!Bukkit.getPluginManager().isPluginEnabled("McNative")) {
+            try {
+                LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
+            } catch (ExceptionInInitializerError | InaccessibleObjectException e) {
+                Bukkit.getLogger().warning("§r[§9CityBuild§eV2§r] §eJava 16 §ris §cnot §ryet supported. In order to be able to use this plugin with §eJava 16 §ranyway, add the following to your §estart.sh§7. \n" +
+                        "§2--add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED\n\n" +
+                        "§9If you need help setting up, contact us at Discord Support. https://discord.jubyte.com");
+                if(Bukkit.getPluginManager().isPluginEnabled(this))
+                    Bukkit.getPluginManager().disablePlugin(this);
+            }
+        }
 
         loadMySQLConfig();
         loadConfig();
@@ -104,6 +107,7 @@ public class CityBuildV2 extends JavaPlugin {
         sendMessage("§cDisabled");
 
         if(storage != null) {
+            System.out.println("Funktioniert!");
             storage.deleteConnection();
         }
     }
@@ -219,6 +223,14 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new HealCommand();
             command.register();
         }
+        if (ConfigData.CONFIG_COMMAND_NETHER_ACTIVE){
+            AbstractCommand command = new NetherCommand();
+            command.register();
+        }
+        if (ConfigData.CONFIG_COMMAND_FARMWORLD_ACTIVE){
+            AbstractCommand command = new FarmworldCommand();
+            command.register();
+        }
     }
 
     private void loadListener() {
@@ -245,20 +257,18 @@ public class CityBuildV2 extends JavaPlugin {
         Bukkit.getServer().getScheduler().runTaskLater(this, () -> Locations.setLocations(LocationSQL.loadLocations()),10);
     }
 
-    private boolean setupSignEdit() {
+    private void setupSignEdit() {
         String version;
         try {
             version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-            System.out.println(version);
         } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
+            return;
         }
-        if(version.equals("v1_16_3")) {
+        if(version.equalsIgnoreCase("v1_16_R3")) {
             signedit = new SignEdit_1_16_R3();
-        } else if(version.equals("v1_17_1")) {
+        } else if(version.equalsIgnoreCase("v1_17_R1")) {
             signedit = new SignEdit_1_17_R1();
         }
-        return signedit != null;
     }
 
     public void reloadMessagesConfig() {

@@ -26,8 +26,7 @@ public class SignEdit_1_17_R1 implements SignEdit {
 
         player.sendSignChange(sign.getLocation(), lines);
         PacketPlayOutOpenSignEditor packet2 = new PacketPlayOutOpenSignEditor(tes.getPosition());
-        EntityPlayer entityPlayer = ((CraftPlayer) player).getHandle();
-        PlayerConnection connection = entityPlayer.b;
+        PlayerConnection connection = ((CraftPlayer)player).getHandle().b;
         connection.sendPacket(packet2);
     }
 }

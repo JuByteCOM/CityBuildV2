@@ -9,7 +9,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_9">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -33,7 +33,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-driverloader:1.2.59.86-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-api:1.2.59.86-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.17-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: org.bukkit.craftbukkit:craftbukkit:1.0">
         <CLASSES>

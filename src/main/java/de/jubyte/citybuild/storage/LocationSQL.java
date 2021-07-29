@@ -16,26 +16,26 @@ public class LocationSQL {
     }
 
     public static void createLocation(String name, double locX, double locY, double locZ, float yaw, float pitch, String world) {
-        CityBuildV2.getPLUGIN().getStorage().getLocationCollection().insert()
-                .set("Name", name)
-                .set("LocX", locX)
-                .set("LocY", locY)
-                .set("LocZ", locZ)
-                .set("Yaw", yaw)
-                .set("Pitch", pitch)
-                .set("World", world)
-                .executeAsync();
-    }
-
-    public static void updateLocation(String name, double locX, double locY, double locZ, float yaw, float pitch, String world) {
-        CityBuildV2.getPLUGIN().getStorage().getLocationCollection().update()
-                .set("LocX", locX)
-                .set("LocY", locY)
-                .set("LocZ", locZ)
-                .set("Yaw", yaw)
-                .set("Pitch", pitch)
-                .set("World", world)
-                .where("Name", name).executeAsync();
+        if(!existsLocation(name)) {
+            CityBuildV2.getPLUGIN().getStorage().getLocationCollection().insert()
+                    .set("Name", name)
+                    .set("LocX", locX)
+                    .set("LocY", locY)
+                    .set("LocZ", locZ)
+                    .set("Yaw", yaw)
+                    .set("Pitch", pitch)
+                    .set("World", world)
+                    .executeAsync();
+        } else {
+            CityBuildV2.getPLUGIN().getStorage().getLocationCollection().update()
+                    .set("LocX", locX)
+                    .set("LocY", locY)
+                    .set("LocZ", locZ)
+                    .set("Yaw", yaw)
+                    .set("Pitch", pitch)
+                    .set("World", world)
+                    .where("Name", name).executeAsync();
+        }
     }
 
     public static void deleteLoc(String name) {

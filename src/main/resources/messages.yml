@@ -41,7 +41,7 @@ Commands:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/status <off/message>'
       HasNotStatus: '[prefix] &cDu hast noch kein Status gesetzt. Dies tust du mit &e/status <message>&c.'
-      SetStatus: '[prefix] §7Du hast deinen Status geändert zu &b[status]&7.'
+      SetStatus: '[prefix] &7Du hast deinen Status geändert zu &b[status]&7.'
   Food:
     Permissions:
       Use: 'citybuild.food.use'
@@ -249,7 +249,7 @@ Commands:
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/tphere <player>'
       PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
-      TeleportPlayerToYou: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7zu dir teleportiert!'
+      TeleportPlayerToYou: '[prefix] &7Du hast den Spieler &e[targetPlayer] &7zu dir teleportiert!'
   Glow:
     Permissions:
       Use: 'citybuild.glow.use'
@@ -265,17 +265,17 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/gamemode <0,1,2,3> {player}'
       PlayerNotFound: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
       Survival:
-        Self: '[prefix] &7Du bist jetzt im §aSurvival-Modus§7.'
-        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aSurvival-Modus §7gesetzt.'
+        Self: '[prefix] &7Du bist jetzt im &aSurvival-Modus&7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &7in den &aSurvival-Modus &7gesetzt.'
       Creative:
-        Self: '[prefix] &7Du bist jetzt im §aCreative-Modus§7.'
-        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aCreative-Modus §7gesetzt.'
+        Self: '[prefix] &7Du bist jetzt im &aCreative-Modus&7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &7in den &aCreative-Modus &7gesetzt.'
       Adventure:
-        Self: '[prefix] &7Du bist jetzt im §aAdventure-Modus§7.'
-        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aAdventure-Modus §7gesetzt.'
+        Self: '[prefix] &7Du bist jetzt im &aAdventure-Modus&7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &7in den &aAdventure-Modus &7gesetzt.'
       Spectator:
-        Self: '[prefix] &7Du bist jetzt im §aSpectator-Modus§7.'
-        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] §7in den &aSpectator-Modus §7gesetzt.'
+        Self: '[prefix] &7Du bist jetzt im &aSpectator-Modus&7.'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &7in den &aSpectator-Modus &7gesetzt.'
   Spawn:
     Permissions:
       Use: 'citybuild.spawn.use'
@@ -305,7 +305,7 @@ Commands:
       KickScreen: |-
         [prefix]
         &6
-        &7Du hast einen §6Premium-Rang §7von §e[targetPlayer] §7bekommen&7!
+        &7Du hast einen &6Premium-Rang &7von &e[targetPlayer] &7bekommen&7!
     Settings:
       Cooldown: 1209600
       KickTargetPlayer: true
@@ -378,8 +378,33 @@ Commands:
       TargetPlayerOffline: '[prefix] &7Der Spieler ist &coffline&7.'
       Self: '[prefix] &7Du wurdest &ageheilt&7!'
       Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ageheilt&7!'
+  Farmworld:
+    Permission: 
+      Admin: 'citybuild.farmworld.admin'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/farmworld'
+      Teleported: '[prefix] &7Du wurdest zum &bWarp &eFarmwelt &ateleportiert&7.'
+      NotFound: '[prefix] &7Der &bWarp &eFarmwelt &7existiert &cnicht&7.'
+      WarpSet: '[prefix] &7Du hast den &bWarp &eFarmwelt &agesetzt&7.'
+      WarpRemove: '[prefix] &7Du hast den &bWarp &eFarmwelt &centfernt&7.'
+  Nether:
+    Permission:
+      Admin: 'citybuild.nether.admin'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/nether'
+      Teleported: '[prefix] &7Du wurdest zum &bWarp &eNether &ateleportiert&7.'
+      NotFound: '[prefix] &7Der &bWarp &eNether &7existiert &cnicht&7.'
+      WarpSet: '[prefix] &7Du hast den &bWarp &eNether &agesetzt&7.'
+      WarpRemove: '[prefix] &7Du hast den &bWarp &eNether &centfernt&7.'
+    
 
 Settings:
   ColoredChat:
     Permissions:
       Use: 'citybuild.chat.color'
+  PlayerJoin:
+    Enabled: true
+    Message: '&8[&a+&8] &7» &e[player]'
+  PlayerQuit:
+    Enabled: true
+    Message: '&8[&c-&8] &7» &e[player]'

@@ -110,7 +110,7 @@ public class LibDownloader {
         }
     }
 
-    public static void addURL(URL u) throws IOException {
+    public static void addURL(URL u) {
         // get the classloader to load into
         ClassLoader classLoader = CityBuildV2.class.getClassLoader();
 

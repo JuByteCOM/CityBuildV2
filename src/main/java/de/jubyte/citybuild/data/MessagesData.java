@@ -288,6 +288,22 @@ public class MessagesData {
     public static String HEAL_COMMAND_MESSAGE_OTHER = messageHandler.getPrefixString("Commands.Heal.Messages.Other");
     public static String HEAL_COMMAND_MESSAGE_TARGETPLAYER_OFFLINE = messageHandler.getPrefixString("Commands.Heal.Messages.TargetPlayerOffline");
 
+    //Todo: Farmworld
+    public static String FARMWORLD_COMMAND_PERMISSION_ADMIN = messageHandler.getString("Commands.Farmworld.Permissions.Admin");
+    public static String FARMWORLD_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Farmworld.Messages.Usage");
+    public static String FARMWORLD_COMMAND_MESSAGE_TELEPORTED = messageHandler.getPrefixString("Commands.Farmworld.Messages.Teleported");
+    public static String FARMWORLD_COMMAND_MESSAGE_NOT_FOUND = messageHandler.getPrefixString("Commands.Farmworld.Messages.NotFound");
+    public static String FARMWORLD_COMMAND_MESSAGE_WARP_SET = messageHandler.getPrefixString("Commands.Farmworld.Messages.WarpSet");
+    public static String FARMWORLD_COMMAND_MESSAGE_WARP_REMOVE = messageHandler.getPrefixString("Commands.Farmworld.Messages.WarpRemove");
+
+    //Todo: Nether
+    public static String NETHER_COMMAND_PERMISSION_ADMIN = messageHandler.getString("Commands.Nether.Permissions.Admin");
+    public static String NETHER_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Nether.Messages.Usage");
+    public static String NETHER_COMMAND_MESSAGE_TELEPORTED = messageHandler.getPrefixString("Commands.Nether.Messages.Teleported");
+    public static String NETHER_COMMAND_MESSAGE_NOT_FOUND = messageHandler.getPrefixString("Commands.Nether.Messages.NotFound");
+    public static String NETHER_COMMAND_MESSAGE_WARP_SET = messageHandler.getPrefixString("Commands.Nether.Messages.WarpSet");
+    public static String NETHER_COMMAND_MESSAGE_WARP_REMOVE = messageHandler.getPrefixString("Commands.Nether.Messages.WarpRemove");
+
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 
