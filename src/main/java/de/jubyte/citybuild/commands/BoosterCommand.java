@@ -1,7 +1,7 @@
 package de.jubyte.citybuild.commands;
 
+import com.jubyte.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.data.MessagesData;
-import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

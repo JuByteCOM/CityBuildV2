@@ -1,5 +1,6 @@
 package de.jubyte.citybuild.listener;
 
+import com.jubyte.developerapi.utils.ItemBuilder;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.food.FoodLocation;
@@ -30,10 +31,11 @@ public class EntityDeathListener implements Listener {
                         Location entityLocation = entity.getLocation();
                         if (foodLocation.equals(entityLocation)) {
                             event.setDroppedExp(MessagesData.FOOD_COMMAND_SETTINGS_EXP);
-                            for (ItemStack drop : event.getDrops()) {
-                                drop.setType(Material.PORKCHOP);
-                                Objects.requireNonNull(event.getEntity().getLocation().getWorld()).dropItemNaturally(entity.getLocation(), drop);
-                            }
+                            event.getDrops().clear();
+                            ItemStack drop = new ItemBuilder(Material.getMaterial(MessagesData.FOOD_COMMAND_SETTINGS_DROPPED_ITEMS_MATERIAL))
+                                    .setAmount(MessagesData.FOOD_COMMAND_SETTINGS_DROPPED_ITEMS_AMOUNT)
+                                    .build();
+                            event.getEntity().getLocation().getWorld().dropItemNaturally(entity.getLocation(), drop);
                             Bukkit.getServer().getScheduler().runTaskLater(CityBuildV2.getPLUGIN(), () -> {
                                 LivingEntity livingEntity = entity.getWorld().spawn(entity.getLocation(), Pig.class);
                                 livingEntity.setCustomName(MessagesData.FOOD_COMMAND_MESSAGE_NAME);

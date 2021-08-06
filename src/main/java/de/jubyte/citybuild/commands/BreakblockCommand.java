@@ -1,11 +1,11 @@
 package de.jubyte.citybuild.commands;
 
+import com.jubyte.developerapi.commands.AbstractCommand;
 import com.plotsquared.core.PlotAPI;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.cooldown.CooldownPlayer;
-import de.crashmash.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.utils.PlotUtilsV6;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

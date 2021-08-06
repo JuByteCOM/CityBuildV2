@@ -1,9 +1,9 @@
 package de.jubyte.citybuild.commands;
 
+import com.jubyte.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
-import de.crashmash.developerapi.commands.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -82,10 +82,12 @@ public class AllOrNothingCommand extends AbstractCommand {
                         if (amount >= 0) {
                             if (strings[2].equalsIgnoreCase("maxingamemoney")) {
                                 CityBuildV2.getPLUGIN().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxIngamemoney", amount);
+                                CityBuildV2.getPLUGIN().saveMessagesConfig();
                                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                                 player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_INGAMEMONEY.replace("[amount]", String.valueOf(amount)));
                             } else if (strings[2].equalsIgnoreCase("maxrealmoney")) {
                                 CityBuildV2.getPLUGIN().getMessagesConfig().set("Commands.AllOrNothing.Settings.MaxRealmoney", amount);
+                                CityBuildV2.getPLUGIN().saveMessagesConfig();
                                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                                 player.sendMessage(MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_REALMONEY.replace("[amount]", String.valueOf(amount)));
                             } else {

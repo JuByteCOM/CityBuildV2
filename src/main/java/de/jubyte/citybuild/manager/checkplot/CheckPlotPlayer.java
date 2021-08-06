@@ -45,6 +45,7 @@ public class CheckPlotPlayer {
         this.playTime = playTime;
         CityBuildV2.getPLUGIN().getStorage().getPlayerInformation().update()
                 .set("LastJoin", firstJoin)
-                .where("UUID", uuid).executeAsync();
+                .where("UUID", uuid)
+                .executeAsync();
     }
 }

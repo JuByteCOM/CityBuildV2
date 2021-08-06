@@ -1,6 +1,6 @@
 package de.jubyte.citybuild.listener;
 
-import de.crashmash.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;

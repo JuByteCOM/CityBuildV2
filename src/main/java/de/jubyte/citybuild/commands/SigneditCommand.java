@@ -1,11 +1,15 @@
 package de.jubyte.citybuild.commands;
 
+import com.jubyte.developerapi.commands.AbstractCommand;
+import com.plotsquared.core.location.Location;
+import com.plotsquared.core.player.PlotPlayer;
+import com.plotsquared.core.plot.Plot;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
-import de.crashmash.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.utils.PlotUtilsV6;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.command.Command;
@@ -24,16 +28,17 @@ public class SigneditCommand extends AbstractCommand {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         } else {
             Player player = (Player)commandSender;
-            if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") != null) {
+            if(Bukkit.getServer().getPluginManager().getPlugin("PlotSquared") != null && Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
                 if(player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_USE)) {
                     Block block = player.getTargetBlock(null, 5);
                     if (block.getState() instanceof Sign) {
-                        if (PlotUtilsV6.getPlot(player.getTargetBlock(null,5).getLocation()) != null ||
+                        PlotPlayer<Player> plotPlayer = PlotPlayer.from(player);
+                        Plot plot = plotPlayer.getCurrentPlot();
+                        if (PlotUtilsV6.getPlot(block.getLocation()) != null ||
                                 player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOTONPLOT)) {
-                            if(PlotUtilsV6.isInPlot(player.getLocation()) ||
-                                    player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
-                                if (PlotUtilsV6.getPlot(player.getLocation()).isOwner(player.getUniqueId()) ||
-                                        player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
+                            if(plot != null || player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
+                                if (plot != null && plot.hasOwner() || plot != null &&
+                                        plot.isOwner(player.getUniqueId()) || player.hasPermission(MessagesData.SCHILD_COMMAND_PERMISSION_NOPLOTOWNER)) {
                                     Sign sign = (Sign) block.getState();
                                     CityBuildV2.getSignEdit().editSign(player, sign);
                                 } else {

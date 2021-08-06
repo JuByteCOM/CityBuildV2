@@ -62,9 +62,19 @@
       <option name="url" value="http://repo.inventivetalent.org/content/groups/public/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="dmulloy2-repo" />
+      <option name="name" value="dmulloy2-repo" />
+      <option name="url" value="https://repo.dmulloy2.net/repository/public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="public" />
       <option name="name" value="Public Repositories" />
       <option name="url" value="http://repo.mvdw-software.be/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jubyte" />
+      <option name="name" value="jubyte" />
+      <option name="url" value="https://repository.pretronic.net/repository/jubyte/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -80,6 +90,11 @@
       <option name="id" value="enginehub" />
       <option name="name" value="enginehub" />
       <option name="url" value="https://maven.enginehub.org/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jubyte" />
+      <option name="name" value="jubyte" />
+      <option name="url" value="https://repo.jubyte.com" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="nms-repo" />

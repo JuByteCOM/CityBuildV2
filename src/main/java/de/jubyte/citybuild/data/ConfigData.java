@@ -129,4 +129,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_FARMWORLD_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Farmworld.Aliases");
     public static boolean CONFIG_COMMAND_FARMWORLD_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Farmworld.Active");
 
+    public static String CONFIG_COMMAND_INVSEE_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.Invsee.Name");
+    public static List<String> CONFIG_COMMAND_INVSEE_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Invsee.Aliases");
+    public static boolean CONFIG_COMMAND_INVSEE_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Invsee.Active");
+
 }

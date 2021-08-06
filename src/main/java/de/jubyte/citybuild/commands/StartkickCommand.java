@@ -1,10 +1,11 @@
 package de.jubyte.citybuild.commands;
 
+import com.jubyte.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.startkick.StartKickPlayer;
-import de.crashmash.developerapi.commands.AbstractCommand;
+
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;

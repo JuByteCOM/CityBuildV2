@@ -1,5 +1,5 @@
 name: CityBuildV2
-version: 2.9.0-RELEASE
+version: 2.10.0-RELEASE
 authors:
   - Justin_SGD
   - KeinByte
@@ -11,4 +11,5 @@ softdepend:
   - DeveloperAPI
   - DKBans
   - McNative
+  - ProtocolLib
 api-version: 1.13

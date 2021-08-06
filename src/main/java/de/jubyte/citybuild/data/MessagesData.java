@@ -1,6 +1,6 @@
 package de.jubyte.citybuild.data;
 
-import de.crashmash.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.CityBuildV2;
 
 import java.util.List;
@@ -49,6 +49,8 @@ public class MessagesData {
     public static double FOOD_COMMAND_SETTINGS_HEALTH = plugin.getMessagesConfig().getDouble("Commands.Food.Settings.Health");
     public static int FOOD_COMMAND_SETTINGS_EXP = plugin.getMessagesConfig().getInt("Commands.Food.Settings.Exp");
     public static long FOOD_COMMAND_SETTINGS_RESPAWNTIME = plugin.getMessagesConfig().getLong("Commands.Food.Settings.RespawnTime");
+    public static String FOOD_COMMAND_SETTINGS_DROPPED_ITEMS_MATERIAL = plugin.getMessagesConfig().getString("Commands.Food.Settings.DroppedItemsMaterial");
+    public static int FOOD_COMMAND_SETTINGS_DROPPED_ITEMS_AMOUNT = plugin.getMessagesConfig().getInt("Commands.Food.Settings.DroppedItemsAmount");
 
     //Todo: Teleport-Command
     public static String TELEPORT_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Teleport.Permissions.Use");
@@ -303,6 +305,13 @@ public class MessagesData {
     public static String NETHER_COMMAND_MESSAGE_NOT_FOUND = messageHandler.getPrefixString("Commands.Nether.Messages.NotFound");
     public static String NETHER_COMMAND_MESSAGE_WARP_SET = messageHandler.getPrefixString("Commands.Nether.Messages.WarpSet");
     public static String NETHER_COMMAND_MESSAGE_WARP_REMOVE = messageHandler.getPrefixString("Commands.Nether.Messages.WarpRemove");
+
+    //Todo: Invsee
+    public static String INVSEE_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Invsee.Permission.Use");
+    public static String INVSEE_COMMAND_PERMISSION_ACCESS = messageHandler.getPrefixString("Commands.Invsee.Permission.Access");
+    public static String INVSEE_COMMAND_PERMISSION_BYPASS = messageHandler.getPrefixString("Commands.Invsee.Permission.Bypass");
+    public static String INVSEE_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Invsee.Messages.Usage");
+    public static String INVSEE_COMMAND_MESSAGE_WARP_PLAYERISOFFLINE = messageHandler.getPrefixString("Commands.Invsee.Messages.PlayerIsOffline");
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");

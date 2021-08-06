@@ -97,7 +97,7 @@ Settings:
       Active: true
     Clear:
       Name: 'clear'
-      Aliases: [ 'ci', 'clearinventory' ]
+      Aliases: ['ci', 'clearinventory']
       Active: true
     Fly:
       Name: 'fly'
@@ -105,17 +105,21 @@ Settings:
       Active: true
     Feed:
       Name: 'feed'
-      Aliases: [ 'essen' ]
+      Aliases: ['essen']
       Active: true
     Heal:
       Name: 'heal'
-      Aliases: [ 'leben' ]
+      Aliases: ['leben']
       Active: true
     Farmworld:
       Name: 'farmworld'
-      Aliases: ['farmwelt']
+      Aliases: ['farmwelt', 'farm']
       Active: true
     Nether:
       Name: 'nether'
       Aliases: ['']
+      Active: true
+    Invsee:
+      Name: 'invsee'
+      Aliases: ['inventar']
       Active: true

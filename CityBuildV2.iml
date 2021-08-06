@@ -43,7 +43,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Maven: de.crashmash.developerapi:DeveloperAPI:1.7.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.jubyte.developerapi:DeveloperAPI:1.8.2-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-sql:1.2.20.46-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-common:1.2.20.46-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.libraries:pretroniclibraries-document:1.1.15.126-SNAPSHOT" level="project" />
@@ -51,42 +51,43 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: mysql:mysql-connector-java:8.0.19" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.zaxxer:HikariCP:3.4.1" level="project" />
-    <orderEntry type="library" name="Maven: com.plotsquared:PlotSquared-Core:6.0.6-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: net.kyori:adventure-api:4.8.1" level="project" />
-    <orderEntry type="library" name="Maven: net.kyori:adventure-key:4.8.1" level="project" />
-    <orderEntry type="library" name="Maven: net.kyori:examination-api:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: net.kyori:examination-string:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
-    <orderEntry type="library" name="Maven: net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.google.inject:guice:5.0.1" level="project" />
-    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:5.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.khelekore:prtree:1.7.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.intellectualsites:Pipeline:1.4.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
-    <orderEntry type="library" name="Maven: com.intellectualsites.arkitektonika:Arkitektonika-Client:2.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.intellectualsites.http:HTTP4J:1.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.intellectualsites.paster:Paster:1.0.2-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.14.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:21.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.28" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:annotations:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: net.jcip:jcip-annotations:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.sk89q.worldedit:worldedit-core:7.2.6-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.sk89q.worldedit.worldedit-libs:core:7.2.6-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:antlr4:4.9.1" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:ST4:4.3" level="project" />
-    <orderEntry type="library" name="Maven: org.abego.treelayout:org.abego.treelayout.core:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:61.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: de.schlichtherle:truezip:6.8.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mozilla:rhino-runtime:1.7.13" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: it.unimi.dsi:fastutil:8.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.antlr:antlr4-runtime:4.9.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fastasyncworldedit:FAWE-Bukkit:1.17-15" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.14.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.plotsquared:PlotSquared-Core:6.0.6-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-api:4.8.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-key:4.8.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-api:1.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-string:1.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.inject:guice:5.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.inject.extensions:guice-assistedinject:5.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.khelekore:prtree:1.7.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.intellectualsites:Pipeline:1.4.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.intellectualsites.arkitektonika:Arkitektonika-Client:2.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.intellectualsites.http:HTTP4J:1.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.intellectualsites.paster:Paster:1.0.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.checkerframework:checker-qual:3.14.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:guava:21.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.28" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.findbugs:annotations:3.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.jcip:jcip-annotations:1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.sk89q.worldedit:worldedit-core:7.2.6-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.sk89q.worldedit.worldedit-libs:core:7.2.6-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.antlr:antlr4:4.9.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.antlr:ST4:4.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.abego.treelayout:org.abego.treelayout.core:1.0.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.ibm.icu:icu4j:61.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.mozilla:rhino-runtime:1.7.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: it.unimi.dsi:fastutil:8.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.antlr:antlr4-runtime:4.9.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fastasyncworldedit:FAWE-Bukkit:1.17-15" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.logging.log4j:log4j-api:2.14.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.7.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.bytebuddy:byte-buddy:1.11.0" level="project" />
   </component>
 </module>

@@ -1,8 +1,8 @@
 package de.jubyte.citybuild;
 
 import com.google.common.base.Charsets;
-import de.crashmash.developerapi.commands.AbstractCommand;
-import de.crashmash.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.commands.AbstractCommand;
+import com.jubyte.developerapi.utils.MessageHandler;
 import de.jubyte.citybuild.commands.*;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.listener.*;
@@ -17,10 +17,8 @@ import de.jubyte.citybuild.manager.status.StatusCache;
 import de.jubyte.citybuild.storage.FoodSQL;
 import de.jubyte.citybuild.storage.LocationSQL;
 import de.jubyte.citybuild.storage.Storage;
-import de.jubyte.citybuild.utils.LibDownloader;
 import de.jubyte.citybuild.utils.SignEdit;
-import de.jubyte.citybuild.utils.SignEdit_1_16_R3;
-import de.jubyte.citybuild.utils.SignEdit_1_17_R1;
+import de.jubyte.citybuild.utils.SignEdit_ProtocolLib;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -29,13 +27,14 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.InaccessibleObjectException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class CityBuildV2 extends JavaPlugin {
 
@@ -56,8 +55,11 @@ public class CityBuildV2 extends JavaPlugin {
 
     private final Map<Player, Player> COMMANDSPY_MAP = new HashMap<>();
 
-    private FileConfiguration newConfig = null;
-    private final File configFile = new File(getDataFolder(), "messages.yml");
+    private FileConfiguration newMessageConfig = null;
+    private final File messageFile = new File(getDataFolder(), "messages.yml");
+
+    private FileConfiguration newMySQLConfig = null;
+    private final File mySQLFile = new File(getDataFolder(), "mysql.yml");
 
     @Override
     public void onEnable() {
@@ -65,22 +67,13 @@ public class CityBuildV2 extends JavaPlugin {
 
         sendMessage("§aEnabled");
 
-        System.out.println(System.getProperty("java.version"));
-        if (!Bukkit.getPluginManager().isPluginEnabled("McNative")) {
-            try {
-                LibDownloader.downloadLib(LibDownloader.Library.HTMMLUNIT);
-            } catch (ExceptionInInitializerError | InaccessibleObjectException e) {
-                Bukkit.getLogger().warning("§r[§9CityBuild§eV2§r] §eJava 16 §ris §cnot §ryet supported. In order to be able to use this plugin with §eJava 16 §ranyway, add the following to your §estart.sh§7. \n" +
-                        "§2--add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED\n\n" +
-                        "§9If you need help setting up, contact us at Discord Support. https://discord.jubyte.com");
-                if(Bukkit.getPluginManager().isPluginEnabled(this))
-                    Bukkit.getPluginManager().disablePlugin(this);
-            }
-        }
-
         loadMySQLConfig();
         loadConfig();
         loadMessagesConfig();
+
+        setConfigKeys();
+        setMessagesConfigKeys();
+        setMySQLConfigKeys();
 
         File file = new File(getDataFolder(), "messages.yml");
         this.messageHandler = new MessageHandler(file, "Prefix", "[prefix]");
@@ -107,7 +100,6 @@ public class CityBuildV2 extends JavaPlugin {
         sendMessage("§cDisabled");
 
         if(storage != null) {
-            System.out.println("Funktioniert!");
             storage.deleteConnection();
         }
     }
@@ -231,6 +223,12 @@ public class CityBuildV2 extends JavaPlugin {
             AbstractCommand command = new FarmworldCommand();
             command.register();
         }
+        if(ConfigData.CONFIG_COMMAND_INVSEE_ACTIVE) {
+            AbstractCommand invseeCommand = new InvseeCommand();
+            invseeCommand.register();
+        }
+        AbstractCommand reloadConfigCommand = new ReloadConfigCommand();
+        reloadConfigCommand.register();
     }
 
     private void loadListener() {
@@ -242,6 +240,7 @@ public class CityBuildV2 extends JavaPlugin {
         pluginManager.registerEvents(new AsynPlayerChatListener(), this);
         pluginManager.registerEvents(new PlayerLoginListener(), this);
         pluginManager.registerEvents(new PlayerCommandPreprocessListener(), this);
+        pluginManager.registerEvents(new InventoryClickListener(), this);
     }
 
     private void sendMessage(String status) {
@@ -258,28 +257,44 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     private void setupSignEdit() {
-        String version;
+        signedit = new SignEdit_ProtocolLib();
+    }
+
+    public void saveMessagesConfig() {
         try {
-            version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return;
+            this.getMessagesConfig().save(this.messageFile);
+        } catch (IOException var2) {
+            Bukkit.getLogger().warning("Could not save config to " + this.messageFile + ": "+ var2);
         }
-        if(version.equalsIgnoreCase("v1_16_R3")) {
-            signedit = new SignEdit_1_16_R3();
-        } else if(version.equalsIgnoreCase("v1_17_R1")) {
-            signedit = new SignEdit_1_17_R1();
+
+    }
+
+    public void saveMySQLConfig() {
+        try {
+            this.getMySQLConfig().save(this.mySQLFile);
+        } catch (IOException var2) {
+            Bukkit.getLogger().warning("Could not save config to " + this.mySQLFile + ": "+ var2);
         }
+
     }
 
     public void reloadMessagesConfig() {
-        this.newConfig = YamlConfiguration.loadConfiguration(this.configFile);
+        this.newMessageConfig = YamlConfiguration.loadConfiguration(this.messageFile);
         InputStream defConfigStream = this.getResource("messages.yml");
         if (defConfigStream != null) {
-            this.newConfig.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
+            this.newMessageConfig.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
         }
     }
 
-    private void loadConfig() {
+    public void reloadMySQLConfig() {
+        this.newMySQLConfig = YamlConfiguration.loadConfiguration(this.mySQLFile);
+        InputStream defConfigStream = this.getResource("mysql.yml");
+        if (defConfigStream != null) {
+            this.newMySQLConfig.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
+        }
+    }
+
+    public void loadConfig() {
         File file = new File(getDataFolder(), "config.yml");
         if (!file.exists()) {
             file.getParentFile().mkdirs();
@@ -287,7 +302,7 @@ public class CityBuildV2 extends JavaPlugin {
         }
     }
 
-    private void loadMySQLConfig() {
+    public void loadMySQLConfig() {
         File file = new File(getDataFolder(), "mysql.yml");
         if (!file.exists()) {
             file.getParentFile().mkdirs();
@@ -296,8 +311,10 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     public FileConfiguration getMySQLConfig() {
-        File file = new File(getDataFolder(), "mysql.yml");
-        return YamlConfiguration.loadConfiguration(file);
+        if (this.newMySQLConfig == null) {
+            this.reloadMySQLConfig();
+        }
+        return this.newMySQLConfig;
     }
 
     public void loadMessagesConfig() {
@@ -309,11 +326,52 @@ public class CityBuildV2 extends JavaPlugin {
     }
 
     public FileConfiguration getMessagesConfig() {
-        if (this.newConfig == null) {
+        if (this.newMessageConfig == null) {
             this.reloadMessagesConfig();
         }
+        return this.newMessageConfig;
+    }
 
-        return this.newConfig;
+    public void setConfigKeys() {
+        List<String> keyList = new ArrayList<>(this.getConfig().getDefaults().getKeys(true));
+        for(String key : getConfig().getKeys(true)) {
+            keyList.remove(key);
+        }
+        if(keyList.size() >= 1) {
+            for(String key : keyList) {
+                getConfig().set(key, this.getConfig().getDefaults().get(key));
+            }
+            saveConfig();
+        }
+        keyList.clear();
+    }
+
+    public void setMessagesConfigKeys() {
+        List<String> keyList = new ArrayList<>(this.getMessagesConfig().getDefaults().getKeys(true));
+        for(String key : getMessagesConfig().getKeys(true)) {
+            keyList.remove(key);
+        }
+        if(keyList.size() >= 1) {
+            for(String key : keyList) {
+                getMessagesConfig().set(key, this.getMessagesConfig().getDefaults().get(key));
+            }
+            saveMessagesConfig();
+        }
+        keyList.clear();
+    }
+
+    public void setMySQLConfigKeys() {
+        List<String> keyList = new ArrayList<>(this.getMySQLConfig().getDefaults().getKeys(true));
+        for(String key : getMySQLConfig().getKeys(true)) {
+            keyList.remove(key);
+        }
+        if(keyList.size() >= 1) {
+            for(String key : keyList) {
+                getMySQLConfig().set(key, this.getMySQLConfig().getDefaults().get(key));
+            }
+            saveMySQLConfig();
+        }
+        keyList.clear();
     }
 
     public static SignEdit getSignEdit() {

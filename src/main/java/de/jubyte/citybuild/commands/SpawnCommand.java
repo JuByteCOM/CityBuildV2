@@ -1,6 +1,7 @@
 package de.jubyte.citybuild.commands;
 
-import de.crashmash.developerapi.commands.AbstractCommand;
+
+import com.jubyte.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.locations.Locations;
@@ -24,7 +25,6 @@ public class SpawnCommand extends AbstractCommand {
             Player player = (Player) commandSender;
             if(strings.length == 0) {
                 if (player.hasPermission(MessagesData.SPAWN_COMMAND_PERMISSION_USE)) {
-                    System.out.println(Locations.LOCATIONS);
                     if (Locations.exitsLocation("Spawn")) {
                         Location location = Locations.getLocation("Spawn");
                         player.teleport(location);

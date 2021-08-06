@@ -1,6 +1,7 @@
 package de.jubyte.citybuild.commands;
 
-import de.crashmash.developerapi.commands.AbstractCommand;
+
+import com.jubyte.developerapi.commands.AbstractCommand;
 import de.jubyte.citybuild.CityBuildV2;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;

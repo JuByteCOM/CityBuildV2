@@ -1,8 +1,9 @@
 package de.jubyte.citybuild.commands;
 
-import de.crashmash.developerapi.commands.AbstractCommand;
-import de.jubyte.citybuild.commands.subcommand.Nether.NetherRemoveCommand;
-import de.jubyte.citybuild.commands.subcommand.Nether.NetherSetCommand;
+
+import com.jubyte.developerapi.commands.AbstractCommand;
+import de.jubyte.citybuild.commands.subcommand.nether.NetherRemoveCommand;
+import de.jubyte.citybuild.commands.subcommand.nether.NetherSetCommand;
 import de.jubyte.citybuild.data.ConfigData;
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.locations.Locations;
@@ -22,8 +23,8 @@ public class NetherCommand extends AbstractCommand {
     private final Map<String, SubCommand> subCommandMap = new LinkedHashMap<>();
 
     public NetherCommand() {
-        super(ConfigData.CONFIG_COMMAND_FARMWORLD_NAME, null,
-                "Teleport to Farm world.", ConfigData.CONFIG_COMMAND_FARMWORLD_ALIASES);
+        super(ConfigData.CONFIG_COMMAND_NETHER_NAME, null,
+                "Teleport to Farm world.", ConfigData.CONFIG_COMMAND_NETHER_ALIASES);
         this.subCommandMap.put("set", new NetherSetCommand());
         this.subCommandMap.put("remove", new NetherRemoveCommand());
     }

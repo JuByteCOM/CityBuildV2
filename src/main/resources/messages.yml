@@ -62,6 +62,8 @@ Commands:
       Health: 8
       Exp: 0
       RespawnTime: 5
+      DroppedItemsMaterial: 'PORKCHOP'
+      DroppedItemsAmount: 3
   Teleport:
     Permissions:
       Use: 'citybuild.teleport.use'
@@ -396,7 +398,14 @@ Commands:
       NotFound: '[prefix] &7Der &bWarp &eNether &7existiert &cnicht&7.'
       WarpSet: '[prefix] &7Du hast den &bWarp &eNether &agesetzt&7.'
       WarpRemove: '[prefix] &7Du hast den &bWarp &eNether &centfernt&7.'
-    
+  Invsee:
+    Permission:
+      Use: 'citybuild.invsee.use'
+      Access: 'citybuild.invsee.access'
+      Bypass: 'citybuild.invsee.admin'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/invsee <player>'
+      PlayerIsOffline: '[prefix] &7Der Spieler &e[player] &7ist &coffline&7.'
 
 Settings:
   ColoredChat:

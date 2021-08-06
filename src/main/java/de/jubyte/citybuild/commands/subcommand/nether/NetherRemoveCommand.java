@@ -1,4 +1,4 @@
-package de.jubyte.citybuild.commands.subcommand.Farmworld;
+package de.jubyte.citybuild.commands.subcommand.nether;
 
 import de.jubyte.citybuild.data.MessagesData;
 import de.jubyte.citybuild.manager.locations.Locations;
@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
  * @since 29.07.2021
  */
 
-public class FarmworldRemoveCommand implements SubCommand {
+public class NetherRemoveCommand implements SubCommand {
 
     @Override
     public String getName() {
@@ -21,11 +21,11 @@ public class FarmworldRemoveCommand implements SubCommand {
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
         if(strings.length == 1 && strings[0].equalsIgnoreCase(getName())) {
-            if(commandSender.hasPermission(MessagesData.FARMWORLD_COMMAND_PERMISSION_ADMIN)) {
-                if (Locations.exitsLocation("Farm")) {
-                    LocationSQL.deleteLoc("Farm");
-                    Locations.LOCATIONS.remove("Farm");
-                    commandSender.sendMessage(MessagesData.FARMWORLD_COMMAND_MESSAGE_WARP_REMOVE);
+            if(commandSender.hasPermission(MessagesData.NETHER_COMMAND_PERMISSION_ADMIN)) {
+                if (Locations.exitsLocation("Nether")) {
+                    LocationSQL.deleteLoc("Nether");
+                    Locations.LOCATIONS.remove("Nether");
+                    commandSender.sendMessage(MessagesData.NETHER_COMMAND_MESSAGE_WARP_REMOVE);
                 }
             } else {
                 commandSender.sendMessage(MessagesData.NOPERMS);
