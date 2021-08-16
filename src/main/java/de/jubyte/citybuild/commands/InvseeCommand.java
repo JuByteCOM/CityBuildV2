@@ -34,7 +34,7 @@ public class InvseeCommand extends AbstractCommand {
                     if(targetPlayer != null) {
                         player.openInventory(targetPlayer.getInventory());
                     } else {
-                        player.sendMessage(MessagesData.INVSEE_COMMAND_MESSAGE_WARP_PLAYERISOFFLINE);
+                        player.sendMessage(MessagesData.INVSEE_COMMAND_MESSAGE_PLAYERISOFFLINE);
                     }
                 } else {
                     player.sendMessage(MessagesData.NOPERMS);

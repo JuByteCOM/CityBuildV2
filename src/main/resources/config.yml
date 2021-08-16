@@ -123,3 +123,7 @@ Settings:
       Name: 'invsee'
       Aliases: ['inventar']
       Active: true
+    God:
+      Name: 'god'
+      Aliases: ['invulnerable']
+      Active: true

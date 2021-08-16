@@ -313,7 +313,7 @@ Commands:
       KickTargetPlayer: true
       DispatchCommand: 'lp user [targetPlayer] parent set Premium'
   CheckPlot:
-    Permission:
+    Permissions:
       Use: 'citybuild.checkplot.use'
       Clear: 'citybuild.checkplot.clear'
     Messages:
@@ -381,7 +381,7 @@ Commands:
       Self: '[prefix] &7Du wurdest &ageheilt&7!'
       Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ageheilt&7!'
   Farmworld:
-    Permission: 
+    Permissions:
       Admin: 'citybuild.farmworld.admin'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/farmworld'
@@ -390,7 +390,7 @@ Commands:
       WarpSet: '[prefix] &7Du hast den &bWarp &eFarmwelt &agesetzt&7.'
       WarpRemove: '[prefix] &7Du hast den &bWarp &eFarmwelt &centfernt&7.'
   Nether:
-    Permission:
+    Permissions:
       Admin: 'citybuild.nether.admin'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/nether'
@@ -399,13 +399,26 @@ Commands:
       WarpSet: '[prefix] &7Du hast den &bWarp &eNether &agesetzt&7.'
       WarpRemove: '[prefix] &7Du hast den &bWarp &eNether &centfernt&7.'
   Invsee:
-    Permission:
+    Permissions:
       Use: 'citybuild.invsee.use'
       Access: 'citybuild.invsee.access'
       Bypass: 'citybuild.invsee.admin'
     Messages:
       Usage: '[prefix] &cBitte nutze: &e/invsee <player>'
       PlayerIsOffline: '[prefix] &7Der Spieler &e[player] &7ist &coffline&7.'
+  God:
+    Permissions:
+      Use: 'citybuild.god.use'
+      Other: 'citybuild.god.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/fly <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      Deactivated:
+        Self: '[prefix] &7Du bist jetzt &cnicht &7mehr im &eGod-Modus&7!'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &caus &7den &eGod-Modus &7gesetzt!'
+      Activated:
+        Self: '[prefix] &7Du bist &ajetzt &7im &eGod-Modus&7!'
+        Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ain &7den &eGod-Modus &7gesetzt!'
 
 Settings:
   ColoredChat:
@@ -417,3 +430,6 @@ Settings:
   PlayerQuit:
     Enabled: true
     Message: '&8[&c-&8] &7» &e[player]'
+  ColoredAnvil:
+    Permissions:
+      Use: 'citybuild.anvil.color'

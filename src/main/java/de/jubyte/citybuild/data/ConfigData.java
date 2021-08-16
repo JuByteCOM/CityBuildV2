@@ -133,4 +133,8 @@ public class ConfigData {
     public static List<String> CONFIG_COMMAND_INVSEE_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.Invsee.Aliases");
     public static boolean CONFIG_COMMAND_INVSEE_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.Invsee.Active");
 
+    public static String CONFIG_COMMAND_GOD_NAME = CityBuildV2.getPLUGIN().getConfig().getString("Settings.Commands.God.Name");
+    public static List<String> CONFIG_COMMAND_GOD_ALIASES = CityBuildV2.getPLUGIN().getConfig().getStringList("Settings.Commands.God.Aliases");
+    public static boolean CONFIG_COMMAND_GOD_ACTIVE = CityBuildV2.getPLUGIN().getConfig().getBoolean("Settings.Commands.God.Active");
+
 }

@@ -307,20 +307,37 @@ public class MessagesData {
     public static String NETHER_COMMAND_MESSAGE_WARP_REMOVE = messageHandler.getPrefixString("Commands.Nether.Messages.WarpRemove");
 
     //Todo: Invsee
-    public static String INVSEE_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Invsee.Permission.Use");
-    public static String INVSEE_COMMAND_PERMISSION_ACCESS = messageHandler.getPrefixString("Commands.Invsee.Permission.Access");
-    public static String INVSEE_COMMAND_PERMISSION_BYPASS = messageHandler.getPrefixString("Commands.Invsee.Permission.Bypass");
+    public static String INVSEE_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.Invsee.Permissions.Use");
+    public static String INVSEE_COMMAND_PERMISSION_ACCESS = messageHandler.getPrefixString("Commands.Invsee.Permissions.Access");
+    public static String INVSEE_COMMAND_PERMISSION_BYPASS = messageHandler.getPrefixString("Commands.Invsee.Permissions.Bypass");
     public static String INVSEE_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.Invsee.Messages.Usage");
-    public static String INVSEE_COMMAND_MESSAGE_WARP_PLAYERISOFFLINE = messageHandler.getPrefixString("Commands.Invsee.Messages.PlayerIsOffline");
+    public static String INVSEE_COMMAND_MESSAGE_PLAYERISOFFLINE = messageHandler.getPrefixString("Commands.Invsee.Messages.PlayerIsOffline");
+
+    /**
+     * God Command
+     */
+    public static String GOD_COMMAND_PERMISSION_USE = messageHandler.getString("Commands.God.Permissions.Use");
+    public static String GOD_COMMAND_PERMISSION_OTHER = messageHandler.getPrefixString("Commands.God.Permissions.Other");
+    public static String GOD_COMMAND_MESSAGE_USAGE = messageHandler.getPrefixString("Commands.God.Messages.Usage");
+    public static String GOD_COMMAND_MESSAGE_PLAYERISOFFLINE = messageHandler.getPrefixString("Commands.God.Messages.TargetPlayerOffline");
+    public static String GOD_COMMAND_MESSAGE_DEACTIVATED_SELF = messageHandler.getPrefixString("Commands.God.Messages.Deactivated.Self");
+    public static String GOD_COMMAND_MESSAGE_DEACTIVATED_OTHER = messageHandler.getPrefixString("Commands.God.Messages.Deactivated.Other");
+    public static String GOD_COMMAND_MESSAGE_ACTIVATED_SELF = messageHandler.getPrefixString("Commands.God.Messages.Activated.Self");
+    public static String GOD_COMMAND_MESSAGE_ACTIVATED_OTHER = messageHandler.getPrefixString("Commands.God.Messages.Activated.Self");
 
     //Todo: ColoredChat
     public static String SETTINGS_PERMISSION_COLORED_CHAT = plugin.getMessagesConfig().getString("Settings.ColoredChat.Permissions.Use");
 
+    /**
+     * ColoredAnvil
+     */
+    public static String SETTINGS_PERMISSION_COLORED_ANVIL = plugin.getMessagesConfig().getString("Settings.ColoredAnvil.Permissions.Use");
+
     /*
     CheckPlot
      */
-    public static String CHECKPLOT_USE_PERM = messageHandler.getString("Commands.CheckPlot.Permission.Use");
-    public static String CHECKPLOT_CLEAR_PERM = messageHandler.getString("Commands.CheckPlot.Permission.Clear");
+    public static String CHECKPLOT_USE_PERM = messageHandler.getString("Commands.CheckPlot.Permissions.Use");
+    public static String CHECKPLOT_CLEAR_PERM = messageHandler.getString("Commands.CheckPlot.Permissions.Clear");
     public static String CHECKPLOT_USAGE = messageHandler.getPrefixString("Commands.CheckPlot.Messages.Usage");
     public static String CHECKPLOT_CLEAR_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearReady");
     public static String CHECKPLOT_CLEAR_NOT_READY = messageHandler.getPrefixString("Commands.CheckPlot.Messages.ClearNotReady");
