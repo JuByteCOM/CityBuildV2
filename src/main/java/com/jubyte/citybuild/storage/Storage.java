@@ -101,7 +101,7 @@ public class Storage {
     if (MySQLData.MYSQL_DIALECT_NAME.equalsIgnoreCase("MySQL")) {
       SQLDatabase sqlDatabase = (SQLDatabase) database;
       String query =
-          "ALTER TABLE `CityBuildV2`.`Cooldowns` ADD IF NOT EXISTS `ClearChat` BIGINT NOT NULL AFTER `GiftRank`;";
+          "ALTER TABLE `" + MySQLData.MYSQL_DATABASE + "`.`Cooldowns` ADD IF NOT EXISTS `ClearChat` BIGINT NOT NULL AFTER `GiftRank`;";
       sqlDatabase.executeUpdateQuery(query, true);
     }
 
