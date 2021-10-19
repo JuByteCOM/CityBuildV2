@@ -1,10 +1,11 @@
 name: CityBuildV2
-version: 2.11.0-RELEASE
+version: $VERSION
 authors:
+  - JuByte
   - Justin_SGD
   - KeinByte
   - Forumat
-main: de.jubyte.citybuild.CityBuildV2
+main: com.jubyte.citybuild.CityBuildV2
 softdepend:
   - PlotSquared
   - AutoUpdaterAPI

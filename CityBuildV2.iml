@@ -5,9 +5,14 @@
       <configuration>
         <autoDetectTypes>
           <platformType>SPIGOT</platformType>
+          <platformType>MCP</platformType>
+          <platformType>ADVENTURE</platformType>
         </autoDetectTypes>
       </configuration>
     </facet>
+  </component>
+  <component name="McpModuleSettings">
+    <option name="srgType" value="SRG" />
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_9">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -34,16 +39,8 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-api:1.2.59.86-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: org.bukkit.craftbukkit:craftbukkit:1.0">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/spigot-1.16.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Maven: com.jubyte.developerapi:DeveloperAPI:1.8.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.jubyte.developerapi:DeveloperAPI:1.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-sql:1.2.20.46-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-common:1.2.20.46-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.libraries:pretroniclibraries-document:1.1.15.126-SNAPSHOT" level="project" />
@@ -56,7 +53,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-key:4.8.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-api:1.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-string:1.1.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.inject:guice:5.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.inject:javax.inject:1" level="project" />
@@ -89,5 +85,8 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.logging.log4j:log4j-api:2.14.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.bytebuddy:byte-buddy:1.11.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
+    <orderEntry type="library" name="Maven: org.bstats:bstats-bukkit:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bstats:bstats-base:2.2.1" level="project" />
   </component>
 </module>

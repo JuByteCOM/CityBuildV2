@@ -1,7 +1,9 @@
 MySQL:
+  dialectName: 'MySQL'
   Connection: 'CityBuildV2'
   Host: 'localhost'
   Port: 3306
   Database: 'CityBuildV2'
   User: 'root'
   Password: 'Test'
+  useSSL: false

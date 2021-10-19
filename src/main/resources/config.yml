@@ -2,128 +2,128 @@ Settings:
   Commands:
     CityBuildV2:
       Name: 'citybuildv2'
-      Aliases: ['cbv2']
+      Aliases: [ 'cbv2' ]
     Signedit:
       Name: 'signedit'
-      Aliases: ['schild']
+      Aliases: [ 'schild' ]
       Active: true
     ClearChat:
       Name: 'clearchat'
-      Aliases: ['cc', 'chatclear']
+      Aliases: [ 'cc', 'chatclear' ]
       Active: true
     Status:
       Name: 'status'
-      Aliases: []
+      Aliases: [ ]
       Active: true
     Food:
       Name: 'food'
-      Aliases: []
+      Aliases: [ ]
       Active: true
     Teleport:
       Name: 'teleport'
-      Aliases: ['tp']
+      Aliases: [ 'tp' ]
       Active: true
     StartKick:
       Name: 'startkick'
-      Aliases: ['votekick']
+      Aliases: [ 'votekick' ]
       Active: true
     Unstartkick:
       Name: 'unstartkick'
-      Aliases: ['unvotekick']
+      Aliases: [ 'unvotekick' ]
       Active: true
     YesCommand:
       Name: 'yes'
-      Aliases: ['ja']
+      Aliases: [ 'ja' ]
       Active: true
     NoCommand:
       Name: 'no'
-      Aliases: ['nein']
+      Aliases: [ 'nein' ]
       Active: true
     SlowChat:
       Name: 'slowchat'
-      Aliases: ['chatslow']
+      Aliases: [ 'chatslow' ]
       Active: true
     Head:
       Name: 'head'
-      Aliases: ['kopf', 'skull']
+      Aliases: [ 'kopf', 'skull' ]
       Active: true
     Breakblock:
       Name: 'breakblock'
-      Aliases: ['bb']
+      Aliases: [ 'bb' ]
       Active: true
     CommandSpy:
       Name: 'commandspy'
-      Aliases: ['cspy']
+      Aliases: [ 'cspy' ]
       Active: true
     AllOrNothing:
       Name: 'allornothing'
-      Aliases: ['allesodernichts', 'aon']
+      Aliases: [ 'allesodernichts', 'aon' ]
       Active: true
     MuteP:
       Name: 'mutep'
-      Aliases: ['muteplayer']
+      Aliases: [ 'muteplayer' ]
       Active: true
     UnmuteP:
       Name: 'unmutep'
-      Aliases: ['unmuteplayer']
+      Aliases: [ 'unmuteplayer' ]
       Active: true
     TpHere:
       Name: 'tphere'
-      Aliases: ['tph']
+      Aliases: [ 'tph' ]
       Active: true
     Glow:
       Name: 'glow'
-      Aliases: ['light']
+      Aliases: [ 'light' ]
       Active: true
     GameMode:
       Name: 'gamemode'
-      Aliases: ['gm']
+      Aliases: [ 'gm' ]
       Active: true
     Spawn:
       Name: 'Spawn'
-      Aliases: []
+      Aliases: [ ]
       Active: true
     GiftRank:
       Name: 'giftrank'
-      Aliases: ['premium', 'gold']
+      Aliases: [ 'premium', 'gold' ]
       Active: true
     CheckPlot:
       Name: 'checkplot'
-      Aliases: []
+      Aliases: [ ]
       Active: true
     Sudo:
       Name: 'sudo'
-      Aliases: ['perform']
+      Aliases: [ 'perform' ]
       Active: true
     Clear:
       Name: 'clear'
-      Aliases: ['ci', 'clearinventory']
+      Aliases: [ 'ci', 'clearinventory' ]
       Active: true
     Fly:
       Name: 'fly'
-      Aliases: ['flymode']
+      Aliases: [ 'flymode' ]
       Active: true
     Feed:
       Name: 'feed'
-      Aliases: ['essen']
+      Aliases: [ 'essen' ]
       Active: true
     Heal:
       Name: 'heal'
-      Aliases: ['leben']
+      Aliases: [ 'leben' ]
       Active: true
     Farmworld:
       Name: 'farmworld'
-      Aliases: ['farmwelt', 'farm']
+      Aliases: [ 'farmwelt', 'farm' ]
       Active: true
     Nether:
       Name: 'nether'
-      Aliases: ['']
+      Aliases: [ '' ]
       Active: true
     Invsee:
       Name: 'invsee'
-      Aliases: ['inventar']
+      Aliases: [ 'inventar' ]
       Active: true
     God:
       Name: 'god'
-      Aliases: ['invulnerable']
+      Aliases: [ 'invulnerable' ]
       Active: true

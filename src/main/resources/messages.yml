@@ -112,7 +112,7 @@ Commands:
       Cooldown: 43200
       Duration: 300
       Counter: 30
-      CounterTimes: [30, 15, 10, 5, 3, 2, 1]
+      CounterTimes: [ 30, 15, 10, 5, 3, 2, 1 ]
       PlaySound: true
       StartSound: 'entity.lightning_bolt.thunder'
       CounterSound: 'block.note_block.pling'
@@ -177,9 +177,9 @@ Commands:
       IsntPlotOwner: '[prefix] &cDu bist nicht der Besitzer des Grundstückes.'
       BlockIsntOnPlot: '[prefix] &cDer Block muss sich auf einem Grundstück befinden.'
     Settings:
-      AviableWorlds: ['world', 'Plotworld']
-      DisabledBlockHeights: [0, 1, 2, 3, 4, 5]
-      BlockedBlocks: [GRASS_BLOCK]
+      AviableWorlds: [ 'world', 'Plotworld' ]
+      DisabledBlockHeights: [ 0, 1, 2, 3, 4, 5 ]
+      BlockedBlocks: [ GRASS_BLOCK ]
       DropBlock: false
       Cooldown: 1800
   CommandSpy:
@@ -214,7 +214,7 @@ Commands:
         [prefix] &bEchtgeld: &f[realMoney]€
     Settings:
       Counter: 5
-      CounterTimes: [5, 4, 3, 2, 1]
+      CounterTimes: [ 5, 4, 3, 2, 1 ]
       MaxIngamemoney: 200000
       MinIngamemoney: 0
       MaxRealmoney: 50

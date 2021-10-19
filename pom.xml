@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.crashmash.citybuild</groupId>
+    <groupId>com.jubyte.citybuild</groupId>
     <artifactId>CityBuildV2</artifactId>
-    <version>2.11.0-RELEASE</version>
+    <version>2.12.2-RELEASE</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,9 +28,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.1.0</version>
                 <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.bstats</pattern>
+                            <!-- Replace this with your package! -->
+                            <shadedPattern>com.jubyte</shadedPattern>
+                        </relocation>
+                    </relocations>
                 </configuration>
                 <executions>
                     <execution>
@@ -45,6 +51,27 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>maven-replacer-plugin</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>target/classes/*</include>
+                    </includes>
+                    <regex>false</regex>
+                    <token>$VERSION</token>
+                    <value>${project.version}</value>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -106,16 +133,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.bukkit.craftbukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/spigot-1.16.5.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>com.jubyte.developerapi</groupId>
             <artifactId>DeveloperAPI</artifactId>
-            <version>1.8.2-SNAPSHOT</version>
+            <version>1.13.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -155,6 +175,20 @@
             <artifactId>ProtocolLib</artifactId>
             <version>4.7.0</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--bStats-->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>2.2.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
