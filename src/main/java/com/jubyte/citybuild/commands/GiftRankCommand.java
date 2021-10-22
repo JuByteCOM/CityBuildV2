@@ -38,7 +38,7 @@ public class GiftRankCommand extends AbstractCommand {
           if (targetPlayer != null) {
             CooldownPlayer cooldownPlayer =
                 CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
-            if (!cooldownPlayer.hasGiftRankCooldown(player)) {
+            if (cooldownPlayer.hasGiftRankCooldown(player)) {
               if (targetPlayer.hasPermission(
                   MessagesData.GIFTRANK_COMMAND_PERMISSION_HIGHER_RANK)) {
                 player.sendMessage(MessagesData.GIFTRANK_COMMAND_MESSAGE_HIGHER_RANK);

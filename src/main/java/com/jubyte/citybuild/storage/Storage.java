@@ -98,13 +98,6 @@ public class Storage {
             .field("ClearChat", DataType.LONG)
             .create();
 
-    if (MySQLData.MYSQL_DIALECT_NAME.equalsIgnoreCase("MySQL")) {
-      SQLDatabase sqlDatabase = (SQLDatabase) database;
-      String query =
-          "ALTER TABLE `" + MySQLData.MYSQL_DATABASE + "`.`Cooldowns` ADD IF NOT EXISTS `ClearChat` BIGINT NOT NULL AFTER `GiftRank`;";
-      sqlDatabase.executeUpdateQuery(query, true);
-    }
-
     this.mutePCollection =
         database
             .createCollection("MuteP")
@@ -142,6 +135,13 @@ public class Storage {
             .field("LastJoin", DataType.LONG)
             .field("Playtime", DataType.LONG)
             .create();
+
+    if (MySQLData.MYSQL_DIALECT_NAME.equalsIgnoreCase("MySQL")) {
+      SQLDatabase sqlDatabase = (SQLDatabase) database;
+      String query =
+              "ALTER TABLE `" + MySQLData.MYSQL_DATABASE + "`.`Cooldowns` ADD IF NOT EXISTS `ClearChat` BIGINT NOT NULL AFTER `GiftRank`;";
+      sqlDatabase.executeUpdateQuery(query, true);
+    }
   }
 
   public void deleteConnection() {
