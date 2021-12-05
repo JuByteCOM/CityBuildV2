@@ -1,4 +1,4 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.player;
 
 import com.jubyte.citybuild.CityBuildV2;
 import com.jubyte.citybuild.data.MessagesData;

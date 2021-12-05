@@ -1,4 +1,4 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.inventory;
 
 import com.jubyte.citybuild.data.MessagesData;
 import org.bukkit.entity.Player;

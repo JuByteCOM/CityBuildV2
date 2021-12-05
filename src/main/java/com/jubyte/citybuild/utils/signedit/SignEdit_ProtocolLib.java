@@ -1,4 +1,4 @@
-package com.jubyte.citybuild.utils;
+package com.jubyte.citybuild.utils.signedit;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
@@ -23,6 +23,9 @@ public class SignEdit_ProtocolLib implements SignEdit {
       sign.getLine(i);
       lines[i] = sign.getLine(i).replaceAll("§", "&");
     }
+
+    sign.setEditable(true);
+    sign.update(true);
 
     ProtocolManager protocolManager = ProtocolLibrary.getProtocolManager();
     PacketContainer packetContainer = new PacketContainer(PacketType.Play.Server.OPEN_SIGN_EDITOR);

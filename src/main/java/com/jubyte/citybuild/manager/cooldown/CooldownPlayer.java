@@ -47,16 +47,16 @@ public class CooldownPlayer {
 
   public boolean hasHeadCooldown(Player player) {
     if (player.hasPermission(MessagesData.HEAD_COMMAND_PERMISSION_BYPASS)) {
-      return true;
+      return false;
     }
-    return System.currentTimeMillis() > getHead();
+    return System.currentTimeMillis() < getHead();
   }
 
   public boolean hasBreakblockCooldown(Player player) {
     if (player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_BYPASS)) {
-      return true;
+      return false;
     }
-    return System.currentTimeMillis() > getBreakBlock();
+    return System.currentTimeMillis() < getBreakBlock();
   }
 
   public void setGiftRank() {
@@ -73,8 +73,8 @@ public class CooldownPlayer {
 
   public boolean hasGiftRankCooldown(Player player) {
     if (player.hasPermission(MessagesData.GIFTRANK_COMMAND_PERMISSION_BYPASS)) {
-      return true;
+      return false;
     }
-    return System.currentTimeMillis() > getGiftRank();
+    return System.currentTimeMillis() < getGiftRank();
   }
 }

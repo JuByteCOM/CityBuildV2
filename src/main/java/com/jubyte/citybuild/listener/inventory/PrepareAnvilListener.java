@@ -1,12 +1,13 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.inventory;
 
 import com.jubyte.citybuild.data.MessagesData;
-import com.jubyte.developerapi.utils.ItemBuilder;
+import com.jubyte.developerapi.utils.color.ColorAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  * @author Justin_SGD
@@ -20,10 +21,10 @@ public class PrepareAnvilListener implements Listener {
     Player player = (Player) event.getView().getPlayer();
     if (player.hasPermission(MessagesData.SETTINGS_PERMISSION_COLORED_ANVIL)) {
       if (itemStack != null && itemStack.getItemMeta() != null) {
-        event.setResult(
-            new ItemBuilder(itemStack.getType())
-                .setDisplayName(itemStack.getItemMeta().getDisplayName().replaceAll("&", "§"))
-                .build());
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(ColorAPI.process(itemStack.getItemMeta().getDisplayName()));
+        itemStack.setItemMeta(itemMeta);
+        event.setResult(itemStack);
       }
     }
   }

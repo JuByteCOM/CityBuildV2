@@ -1,7 +1,7 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.player;
 
 import com.jubyte.citybuild.CityBuildV2;
-import com.jubyte.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.utils.config.MessageHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PlayerQuitListener implements Listener {
 
-  private final List<Player> slowchatPlayer = AsynPlayerChatListener.SLOWCHAT_PLAYER;
+  private final List<Player> slowchatPlayer = AsyncPlayerChatListener.SLOW_CHAT_PLAYER;
   private static final MessageHandler messageHandler = CityBuildV2.getPLUGIN().getMessageHandler();
 
   @EventHandler

@@ -1,4 +1,4 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.player;
 
 import com.jubyte.citybuild.CityBuildV2;
 import com.jubyte.citybuild.data.ConfigData;
@@ -7,7 +7,7 @@ import com.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
 import com.jubyte.citybuild.manager.glow.GlowPlayer;
 import com.jubyte.citybuild.manager.locations.Locations;
 import com.jubyte.citybuild.manager.status.StatusPlayer;
-import com.jubyte.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.utils.config.MessageHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

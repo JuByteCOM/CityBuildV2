@@ -1,9 +1,9 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.entity;
 
 import com.jubyte.citybuild.CityBuildV2;
 import com.jubyte.citybuild.data.MessagesData;
 import com.jubyte.citybuild.manager.food.FoodLocation;
-import com.jubyte.developerapi.utils.ItemBuilder;
+import com.jubyte.developerapi.utils.inventory.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

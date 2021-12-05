@@ -1,4 +1,4 @@
-package com.jubyte.citybuild.listener;
+package com.jubyte.citybuild.listener.block;
 
 import com.jubyte.citybuild.data.MessagesData;
 import org.bukkit.ChatColor;

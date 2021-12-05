@@ -46,7 +46,7 @@ public class BreakblockCommand extends AbstractCommand {
           CooldownPlayer cooldownPlayer =
               CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
           if (strings.length == 0) {
-            if (cooldownPlayer.hasBreakblockCooldown(player)) {
+            if (!cooldownPlayer.hasBreakblockCooldown(player)) {
               if (!breackBlockPlayers.contains(player)) {
                 breackBlockPlayers.add(player);
               }

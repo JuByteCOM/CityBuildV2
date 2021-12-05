@@ -1,7 +1,7 @@
 package com.jubyte.citybuild.data;
 
 import com.jubyte.citybuild.CityBuildV2;
-import com.jubyte.developerapi.utils.MessageHandler;
+import com.jubyte.developerapi.utils.config.MessageHandler;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
