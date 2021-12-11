@@ -45,7 +45,7 @@ public class CheckPlotCommand extends AbstractCommand {
               }
               UUID ownerUUID = plot.getOwner();
               CheckPlotPlayer checkPlotPlayer =
-                  CityBuildV2.getPLUGIN().getCheckPlotCache().getPlayerByUUID(ownerUUID);
+                  CityBuildV2.getPlugin().getCheckPlotCache().getPlayerByUUID(ownerUUID);
               long clearTime = MessagesData.CHECKPLOT_UNIT.toMillis(MessagesData.CHECKPLOT_TIME);
               long clearAllowed = checkPlotPlayer.getLastJoin() + clearTime;
               if (clearAllowed < System.currentTimeMillis() && checkPlotPlayer.getLastJoin() != 0) {

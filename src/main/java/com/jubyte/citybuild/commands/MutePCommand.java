@@ -36,7 +36,7 @@ public class MutePCommand extends AbstractCommand {
       if (player.hasPermission(MessagesData.MUTEP_COMMAND_PERMISSION_USE)) {
         if (strings.length >= 2) {
           MutepPlayer mutepPlayer =
-              CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(player.getUniqueId());
+              CityBuildV2.getPlugin().getMutePCache().getPlayerByUUID(player.getUniqueId());
           if (mutepPlayer.hasCooldown(player)) {
             Player targetPlayer = Bukkit.getPlayer(strings[0]);
             if (targetPlayer != null) {
@@ -44,7 +44,7 @@ public class MutePCommand extends AbstractCommand {
                 if (!targetPlayer.hasPermission(
                     MessagesData.MUTEP_COMMAND_PERMISSION_BYPASS_MUTE)) {
                   MutepPlayer mutepTargetPlayer =
-                      CityBuildV2.getPLUGIN()
+                      CityBuildV2.getPlugin()
                           .getMutePCache()
                           .getPlayerByUUID(targetPlayer.getUniqueId());
                   if (!mutepTargetPlayer.playerIsMutep()) {

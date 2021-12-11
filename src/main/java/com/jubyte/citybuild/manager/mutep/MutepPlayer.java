@@ -36,7 +36,7 @@ public class MutepPlayer {
 
   public void setReason(String reason) {
     this.reason = reason;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getMutePCollection()
         .update()
@@ -47,7 +47,7 @@ public class MutepPlayer {
 
   public void setDuration(long duration) {
     this.duration = duration;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getMutePCollection()
         .update()
@@ -59,7 +59,7 @@ public class MutepPlayer {
   public void setCooldown() {
     this.cooldown =
         System.currentTimeMillis() + MessagesData.MUTEP_COMMAND_SETTINGS_COOLDOWN * 1000L;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getMutePCollection()
         .update()
@@ -74,7 +74,7 @@ public class MutepPlayer {
 
   public void setCreator(UUID creator) {
     this.creator = creator;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getMutePCollection()
         .update()

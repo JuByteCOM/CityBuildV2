@@ -26,7 +26,7 @@ public class GlowCache {
                   public GlowPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getGlowCollection();
+                        CityBuildV2.getPlugin().getStorage().getGlowCollection();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -45,7 +45,7 @@ public class GlowCache {
   }
 
   private void insertGlowPlayer(UUID uuid) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getGlowCollection()
         .insert()

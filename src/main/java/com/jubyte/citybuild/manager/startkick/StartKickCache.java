@@ -28,7 +28,7 @@ public class StartKickCache {
                   public StartKickPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getStartKickCollection();
+                        CityBuildV2.getPlugin().getStorage().getStartKickCollection();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -51,7 +51,7 @@ public class StartKickCache {
   }
 
   private void insertStartKickPlayer(UUID uuid) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStartKickCollection()
         .insert()

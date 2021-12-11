@@ -38,7 +38,7 @@ public class StartKickPlayer {
 
   public void setReason(String reason) {
     this.reason = reason;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStartKickCollection()
         .update()
@@ -49,7 +49,7 @@ public class StartKickPlayer {
 
   public void setDuration(long duration) {
     this.duration = duration;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStartKickCollection()
         .update()
@@ -61,7 +61,7 @@ public class StartKickPlayer {
   public void setCooldown() {
     this.cooldown =
         System.currentTimeMillis() + MessagesData.STARTKICK_COMMAND_SETTING_COOLDOWN * 1000L;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStartKickCollection()
         .update()

@@ -26,7 +26,7 @@ public class MutePCache {
                   public MutepPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getMutePCollection();
+                        CityBuildV2.getPlugin().getStorage().getMutePCollection();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -50,7 +50,7 @@ public class MutePCache {
   }
 
   private void insertMutepPlayer(UUID uuid) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getMutePCollection()
         .insert()

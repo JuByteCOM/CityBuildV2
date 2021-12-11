@@ -39,14 +39,14 @@ public class AsyncPlayerChatListener implements Listener {
           SLOW_CHAT_PLAYER.add(player);
           Bukkit.getScheduler()
               .runTaskLater(
-                  CityBuildV2.getPLUGIN(),
+                  CityBuildV2.getPlugin(),
                   () -> SLOW_CHAT_PLAYER.remove(player),
                   MessagesData.SLOWCHAT_COMMAND_SETTINGS_CHAT_COOLDOWN * 20);
         }
       }
     }
     MutepPlayer mutepPlayer =
-        CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(player.getUniqueId());
+        CityBuildV2.getPlugin().getMutePCache().getPlayerByUUID(player.getUniqueId());
     if (mutepPlayer.playerIsMutep()) {
       Player creator = Bukkit.getPlayer(mutepPlayer.getCreator());
       if (creator != null) {

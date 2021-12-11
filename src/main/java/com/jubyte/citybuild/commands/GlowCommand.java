@@ -31,7 +31,7 @@ public class GlowCommand extends AbstractCommand {
       if (player.hasPermission(MessagesData.GLOW_COMMAND_PERMISSION_USE)) {
         if (strings.length == 0) {
           GlowPlayer glowPlayer =
-              CityBuildV2.getPLUGIN().getGlowCache().getPlayerByUUID(player.getUniqueId());
+              CityBuildV2.getPlugin().getGlowCache().getPlayerByUUID(player.getUniqueId());
           if (glowPlayer.isState()) {
             glowPlayer.setState(false);
             player.setGlowing(false);

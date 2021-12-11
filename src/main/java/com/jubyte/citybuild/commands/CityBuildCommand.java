@@ -21,9 +21,9 @@ public class CityBuildCommand extends AbstractCommand {
       CommandSender commandSender, Command command, String s, String[] strings) {
     commandSender.sendMessage("§7===============================");
     commandSender.sendMessage(
-        "§bVersion: §f" + CityBuildV2.getPLUGIN().getDescription().getVersion());
+        "§bVersion: §f" + CityBuildV2.getPlugin().getDescription().getVersion());
     commandSender.sendMessage(
-        "§bAuthors: §f" + CityBuildV2.getPLUGIN().getDescription().getAuthors());
+        "§bAuthors: §f" + CityBuildV2.getPlugin().getDescription().getAuthors());
     commandSender.sendMessage("§7===============================");
     return false;
   }

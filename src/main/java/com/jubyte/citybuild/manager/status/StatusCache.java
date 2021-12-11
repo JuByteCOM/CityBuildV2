@@ -26,7 +26,7 @@ public class StatusCache {
                   public StatusPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getStatusCollection();
+                        CityBuildV2.getPlugin().getStorage().getStatusCollection();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -45,7 +45,7 @@ public class StatusCache {
   }
 
   private void insertStatusPlayer(UUID uuid) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStatusCollection()
         .insert()

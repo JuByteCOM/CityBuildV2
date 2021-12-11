@@ -31,7 +31,7 @@ public class CheckPlotCache {
                   public CheckPlotPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getPlayerInformation();
+                        CityBuildV2.getPlugin().getStorage().getPlayerInformation();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -59,7 +59,7 @@ public class CheckPlotCache {
         && Bukkit.getPluginManager().getPlugin("McNative") != null) {
       MinecraftPlayer minecraftPlayer = McNative.getInstance().getPlayerManager().getPlayer(uuid);
       DKBansPlayer dkBansPlayer = DKBans.getInstance().getPlayerManager().getPlayer(uuid);
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getPlayerInformation()
           .insert()
@@ -69,7 +69,7 @@ public class CheckPlotCache {
           .set("Playtime", dkBansPlayer.getOnlineTime())
           .execute();
     } else {
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getPlayerInformation()
           .insert()

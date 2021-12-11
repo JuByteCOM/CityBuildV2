@@ -32,7 +32,7 @@ public class UnmutePCommand extends AbstractCommand {
         Player targetPlayer = Bukkit.getPlayer(strings[0]);
         if (targetPlayer != null) {
           MutepPlayer mutepPlayer =
-              CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(targetPlayer.getUniqueId());
+              CityBuildV2.getPlugin().getMutePCache().getPlayerByUUID(targetPlayer.getUniqueId());
           if (targetPlayer.isOnline()) {
             if (mutepPlayer.playerIsMutep()) {
               mutepPlayer.playerUnmutep();
@@ -51,7 +51,7 @@ public class UnmutePCommand extends AbstractCommand {
         } else {
           OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(strings[0]);
           MutepPlayer mutepPlayer =
-              CityBuildV2.getPLUGIN().getMutePCache().getPlayerByUUID(offlinePlayer.getUniqueId());
+              CityBuildV2.getPlugin().getMutePCache().getPlayerByUUID(offlinePlayer.getUniqueId());
           if (offlinePlayer != null) {
             if (mutepPlayer.playerIsMutep()) {
               mutepPlayer.playerUnmutep();

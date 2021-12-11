@@ -13,7 +13,7 @@ public class BoosterSQL {
 
   public static List<BoosterEntry> getBoosters(UUID uuid) {
     QueryResult queryResult =
-        CityBuildV2.getPLUGIN()
+        CityBuildV2.getPlugin()
             .getStorage()
             .getBoosterCollection()
             .find()
@@ -32,7 +32,7 @@ public class BoosterSQL {
 
   public static BoosterEntry getBoosterEntry(UUID uuid, BoosterType boosterType) {
     QueryResult queryResult =
-        CityBuildV2.getPLUGIN()
+        CityBuildV2.getPlugin()
             .getStorage()
             .getBoosterCollection()
             .find()
@@ -51,7 +51,7 @@ public class BoosterSQL {
   }
 
   public static void setBooster(UUID uuid, BoosterType boosterType, int amount) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getBoosterCollection()
         .update()
@@ -64,7 +64,7 @@ public class BoosterSQL {
   public static void createPlayer(UUID uuid) {
     for (BoosterType boosterType : BoosterType.values()) {
       if (!hasBooster(uuid, boosterType)) {
-        CityBuildV2.getPLUGIN()
+        CityBuildV2.getPlugin()
             .getStorage()
             .getBoosterCollection()
             .insert()

@@ -49,7 +49,7 @@ public class AllOrNothingCommand extends AbstractCommand {
             startCountdown =
                 Bukkit.getScheduler()
                     .scheduleSyncRepeatingTask(
-                        CityBuildV2.getPLUGIN(),
+                        CityBuildV2.getPlugin(),
                         () -> {
                           for (int i : MessagesData.ALLORNOTHING_COMMAND_SETTINGS_COUNTERTIMES) {
                             if (i != 0 && i != 1) {
@@ -97,19 +97,19 @@ public class AllOrNothingCommand extends AbstractCommand {
           if (strings[0].equalsIgnoreCase("admin") && strings[1].equalsIgnoreCase("set")) {
             if (amount >= 0) {
               if (strings[2].equalsIgnoreCase("maxingamemoney")) {
-                CityBuildV2.getPLUGIN()
+                CityBuildV2.getPlugin()
                     .getMessagesConfig()
                     .set("Commands.AllOrNothing.Settings.MaxIngamemoney", amount);
-                CityBuildV2.getPLUGIN().saveMessagesConfig();
+                CityBuildV2.getPlugin().saveMessagesConfig();
                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                 player.sendMessage(
                     MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_INGAMEMONEY.replace(
                         "[amount]", String.valueOf(amount)));
               } else if (strings[2].equalsIgnoreCase("maxrealmoney")) {
-                CityBuildV2.getPLUGIN()
+                CityBuildV2.getPlugin()
                     .getMessagesConfig()
                     .set("Commands.AllOrNothing.Settings.MaxRealmoney", amount);
-                CityBuildV2.getPLUGIN().saveMessagesConfig();
+                CityBuildV2.getPlugin().saveMessagesConfig();
                 MessagesData.ALLORNOTHING_COMMAND_SETTINGS_MAX_INGAMEMONEY = amount;
                 player.sendMessage(
                     MessagesData.ALLORNOTHING_COMMAND_MESSAGE_SET_MAX_REALMONEY.replace(

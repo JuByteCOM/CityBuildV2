@@ -32,7 +32,7 @@ public class CheckPlotPlayer {
 
   public void setLastJoin() {
     this.lastJoin = System.currentTimeMillis();
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getPlayerInformation()
         .update()
@@ -47,7 +47,7 @@ public class CheckPlotPlayer {
 
   public void setPlayTime(long playTime) {
     this.playTime = playTime;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getPlayerInformation()
         .update()

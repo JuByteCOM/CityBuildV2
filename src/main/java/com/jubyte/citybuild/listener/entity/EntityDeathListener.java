@@ -44,7 +44,7 @@ public class EntityDeathListener implements Listener {
               Bukkit.getServer()
                   .getScheduler()
                   .runTaskLater(
-                      CityBuildV2.getPLUGIN(),
+                      CityBuildV2.getPlugin(),
                       () -> {
                         LivingEntity livingEntity =
                             entity.getWorld().spawn(entity.getLocation(), Pig.class);

@@ -44,7 +44,7 @@ public class BreakblockCommand extends AbstractCommand {
         PlotAPI plotAPI = new PlotAPI();
         if (player.hasPermission(MessagesData.BREAKBLOCK_COMMAND_PERMISSION_USE)) {
           CooldownPlayer cooldownPlayer =
-              CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
+              CityBuildV2.getPlugin().getCooldownCache().getPlayerByUUID(player.getUniqueId());
           if (strings.length == 0) {
             if (!cooldownPlayer.hasBreakblockCooldown(player)) {
               if (!breackBlockPlayers.contains(player)) {

@@ -26,7 +26,7 @@ public class CooldownCache {
                   public CooldownPlayer load(Object[] identifiers) {
                     UUID uuid = (UUID) identifiers[0];
                     DatabaseCollection collection =
-                        CityBuildV2.getPLUGIN().getStorage().getcooldownCollection();
+                        CityBuildV2.getPlugin().getStorage().getcooldownCollection();
                     QueryResultEntry entry =
                         collection.find().where("UUID", uuid).execute().firstOrNull();
 
@@ -50,7 +50,7 @@ public class CooldownCache {
   }
 
   private void insertCooldownPlayer(UUID uuid) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getcooldownCollection()
         .insert()

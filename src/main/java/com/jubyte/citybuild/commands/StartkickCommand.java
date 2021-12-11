@@ -18,7 +18,7 @@ import java.util.List;
 
 public class StartkickCommand extends AbstractCommand {
 
-  private final CityBuildV2 plugin = CityBuildV2.getPLUGIN();
+  private final CityBuildV2 plugin = CityBuildV2.getPlugin();
   public static boolean isStartkick = false;
 
   private int counter = MessagesData.STARTKICK_COMMAND_SETTING_COUNTER;
@@ -70,7 +70,7 @@ public class StartkickCommand extends AbstractCommand {
     if (commandSender instanceof Player) {
       Player player = (Player) commandSender;
       StartKickPlayer startKickPlayer =
-          CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(player.getUniqueId());
+          CityBuildV2.getPlugin().getStartKickCache().getPlayerByUUID(player.getUniqueId());
       if (!commandSender.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {
         if (startKickPlayer.hasCooldown(player)) {
           SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -230,7 +230,7 @@ public class StartkickCommand extends AbstractCommand {
       for (Player all : Bukkit.getOnlinePlayers()) all.sendMessage("§c" + no_string);
     }
     StartKickPlayer startKickPlayer =
-        CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(targetPlayer.getUniqueId());
+        CityBuildV2.getPlugin().getStartKickCache().getPlayerByUUID(targetPlayer.getUniqueId());
     if (yes_int > no_int) {
       for (Player all : Bukkit.getOnlinePlayers())
         all.sendMessage(

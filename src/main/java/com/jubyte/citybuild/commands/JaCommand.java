@@ -22,9 +22,9 @@ public class JaCommand extends AbstractCommand {
       CommandSender commandSender, Command command, String s, String[] strings) {
     if (strings.length == 0) {
       if (StartkickCommand.isStartkick) {
-        if (!CityBuildV2.getPLUGIN().getVOTING_YES().contains(commandSender.getName())) {
-          if (!CityBuildV2.getPLUGIN().getVOTING_NO().contains(commandSender.getName())) {
-            CityBuildV2.getPLUGIN().getVOTING_YES().add(commandSender.getName());
+        if (!CityBuildV2.getPlugin().getVOTING_YES().contains(commandSender.getName())) {
+          if (!CityBuildV2.getPlugin().getVOTING_NO().contains(commandSender.getName())) {
+            CityBuildV2.getPlugin().getVOTING_YES().add(commandSender.getName());
             commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_SUCCESFUL_VOTED);
           } else {
             commandSender.sendMessage(MessagesData.YES_COMMAND_MESSAGE_VOTED_FOR_NO);

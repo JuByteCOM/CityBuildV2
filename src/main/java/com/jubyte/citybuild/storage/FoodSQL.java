@@ -12,7 +12,7 @@ import java.util.Map;
 public class FoodSQL {
 
   public static boolean existsFood(int id) {
-    return !CityBuildV2.getPLUGIN()
+    return !CityBuildV2.getPlugin()
         .getStorage()
         .getFoodCollection()
         .find()
@@ -23,7 +23,7 @@ public class FoodSQL {
 
   public static void createFood(
       double locX, double locY, double locZ, float yaw, float pitch, String world) {
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getFoodCollection()
         .insert()
@@ -38,7 +38,7 @@ public class FoodSQL {
 
   public static void deleteFood(int id) {
     if (existsFood(id)) {
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getFoodCollection()
           .delete()
@@ -50,7 +50,7 @@ public class FoodSQL {
   public static Map<Integer, Location> loadFood() {
     Map<Integer, Location> locations = new HashMap<>();
     QueryResult queryResult =
-        CityBuildV2.getPLUGIN().getStorage().getFoodCollection().find().execute();
+        CityBuildV2.getPlugin().getStorage().getFoodCollection().find().execute();
     for (QueryResultEntry entry : queryResult) {
       Location location =
           new Location(

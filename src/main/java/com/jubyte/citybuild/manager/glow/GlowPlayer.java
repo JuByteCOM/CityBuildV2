@@ -24,7 +24,7 @@ public class GlowPlayer {
 
   public void setState(boolean state) {
     this.state = state;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getGlowCollection()
         .update()

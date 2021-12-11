@@ -12,7 +12,7 @@ import java.util.Map;
 public class LocationSQL {
 
   public static boolean existsLocation(String name) {
-    return !CityBuildV2.getPLUGIN()
+    return !CityBuildV2.getPlugin()
         .getStorage()
         .getLocationCollection()
         .find()
@@ -24,7 +24,7 @@ public class LocationSQL {
   public static void createLocation(
       String name, double locX, double locY, double locZ, float yaw, float pitch, String world) {
     if (!existsLocation(name)) {
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getLocationCollection()
           .insert()
@@ -37,7 +37,7 @@ public class LocationSQL {
           .set("World", world)
           .executeAsync();
     } else {
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getLocationCollection()
           .update()
@@ -54,7 +54,7 @@ public class LocationSQL {
 
   public static void deleteLoc(String name) {
     if (existsLocation(name)) {
-      CityBuildV2.getPLUGIN()
+      CityBuildV2.getPlugin()
           .getStorage()
           .getLocationCollection()
           .delete()
@@ -66,7 +66,7 @@ public class LocationSQL {
   public static Map<String, Location> loadLocations() {
     Map<String, Location> locations = new HashMap<>();
     QueryResult result =
-        CityBuildV2.getPLUGIN().getStorage().getLocationCollection().find().execute();
+        CityBuildV2.getPlugin().getStorage().getLocationCollection().find().execute();
     for (QueryResultEntry entry : result) {
       Location location =
           new Location(

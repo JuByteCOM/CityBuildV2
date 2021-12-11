@@ -430,6 +430,9 @@ Settings:
   PlayerQuit:
     Enabled: true
     Message: '&8[&c-&8] &7» &e[player]'
+  PlayerFirstJoin:
+    Enabled: true
+    Message: '&8[&b✔&8] &7» &e[player] <R1>hat zum ersten Mal das Netzwerk betreten.</R>'
   ColoredAnvil:
     Permissions:
       Use: 'citybuild.anvil.color'

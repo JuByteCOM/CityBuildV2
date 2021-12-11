@@ -95,21 +95,21 @@ public class LibDownloader {
   public static void downloadLib(String url, String name, String description, String fileName) {
     String localPath = "./plugins/CityBuildV2/lib/" + fileName + ".jar";
     if (!(new File(localPath).exists())) {
-      CityBuildV2.getPLUGIN().getLogger().info("Downloading " + name + " ...");
-      CityBuildV2.getPLUGIN().getLogger().info("Description: " + description);
+      CityBuildV2.getPlugin().getLogger().info("Downloading " + name + " ...");
+      CityBuildV2.getPlugin().getLogger().info("Description: " + description);
       try {
         HtmlUtils.downloadFile(url, localPath);
       } catch (IOException e) {
-        CityBuildV2.getPLUGIN()
+        CityBuildV2.getPlugin()
             .getLogger()
             .severe("An error occured while downloading a required lib.");
         e.printStackTrace();
       }
     }
-    CityBuildV2.getPLUGIN().getLogger().info("Loading dependency " + name + " ...");
+    CityBuildV2.getPlugin().getLogger().info("Loading dependency " + name + " ...");
     try {
       addURL(new URL("jar:file:" + localPath + "!/"));
-      CityBuildV2.getPLUGIN().getLogger().info(name + " is now loaded!");
+      CityBuildV2.getPlugin().getLogger().info(name + " is now loaded!");
     } catch (Exception ex) {
       ex.printStackTrace();
     }

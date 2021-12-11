@@ -42,7 +42,7 @@ public class SetWarpCommand extends AbstractCommand {
           Bukkit.getServer()
               .getScheduler()
               .runTaskLater(
-                  CityBuildV2.getPLUGIN(),
+                  CityBuildV2.getPlugin(),
                   () -> Locations.setLocations(LocationSQL.loadLocations()),
                   10);
           player.sendMessage(MessagesData.SPAWN_COMMAND_MESSAGE_SPAWN_SET);

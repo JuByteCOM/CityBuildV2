@@ -29,7 +29,7 @@ public class StatusCommand extends AbstractCommand {
       if (player.hasPermission(MessagesData.STATUS_COMMAND_PERMISSION_USE)) {
         if (strings.length >= 1) {
           StatusPlayer statusPlayer =
-              CityBuildV2.getPLUGIN().getStatusCache().getPlayerByUUID(player.getUniqueId());
+              CityBuildV2.getPlugin().getStatusCache().getPlayerByUUID(player.getUniqueId());
           if (strings[0].equalsIgnoreCase("off") || strings[0].equalsIgnoreCase("deaktiviert")) {
             if (statusPlayer.hasStatus()) {
               statusPlayer.setStatus(null);

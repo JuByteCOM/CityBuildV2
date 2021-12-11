@@ -34,7 +34,7 @@ public class HeadCommand extends AbstractCommand {
       if (player.hasPermission(MessagesData.HEAD_COMMAND_PERMISSION_USE)) {
         if (strings.length == 1) {
           CooldownPlayer cooldownPlayer =
-              CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
+              CityBuildV2.getPlugin().getCooldownCache().getPlayerByUUID(player.getUniqueId());
           if (!cooldownPlayer.hasHeadCooldown(player)) {
             ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD, 1);
             SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();

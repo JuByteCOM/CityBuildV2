@@ -17,7 +17,7 @@ public class PlayerLoginListener implements Listener {
     Player player = event.getPlayer();
     // Todo: Cache
     StartKickPlayer startKickPlayer =
-        CityBuildV2.getPLUGIN().getStartKickCache().getPlayerByUUID(player.getUniqueId());
+        CityBuildV2.getPlugin().getStartKickCache().getPlayerByUUID(player.getUniqueId());
     // Todo: Startkick Check
     if (startKickPlayer.isStartKicked()) {
       SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");

@@ -28,7 +28,7 @@ public class UnstartKickCommand extends AbstractCommand {
         OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(strings[0]);
         if (null != targetPlayer) {
           StartKickPlayer startKickPlayer =
-              CityBuildV2.getPLUGIN()
+              CityBuildV2.getPlugin()
                   .getStartKickCache()
                   .getPlayerByUUID(targetPlayer.getUniqueId());
           if (startKickPlayer.isStartKicked()) {

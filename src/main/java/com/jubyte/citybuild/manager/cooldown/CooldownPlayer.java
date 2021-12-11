@@ -20,7 +20,7 @@ public class CooldownPlayer {
 
   public void setHead() {
     this.head = System.currentTimeMillis() + MessagesData.HEAD_COMMAND_SETTINGS_COOLDOWN * 1000L;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getcooldownCollection()
         .update()
@@ -36,7 +36,7 @@ public class CooldownPlayer {
   public void setBreakBlock() {
     this.breakBlock =
         System.currentTimeMillis() + MessagesData.BREAKBLOCK_COMMAND_SETTINGS_COOLDOWN * 1000L;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getcooldownCollection()
         .update()
@@ -62,7 +62,7 @@ public class CooldownPlayer {
   public void setGiftRank() {
     this.giftRank =
         System.currentTimeMillis() + MessagesData.GIFTRANK_COMMAND_SETTING_COOLDOWN * 1000L;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getcooldownCollection()
         .update()

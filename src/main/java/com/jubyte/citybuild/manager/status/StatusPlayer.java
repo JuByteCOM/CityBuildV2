@@ -24,7 +24,7 @@ public class StatusPlayer {
 
   public void setStatus(String status) {
     this.status = status;
-    CityBuildV2.getPLUGIN()
+    CityBuildV2.getPlugin()
         .getStorage()
         .getStatusCollection()
         .update()

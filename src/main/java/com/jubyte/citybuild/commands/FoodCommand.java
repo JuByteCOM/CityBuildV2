@@ -52,7 +52,7 @@ public class FoodCommand extends AbstractCommand {
             String World = Objects.requireNonNull(player.getLocation().getWorld()).getName();
             FoodSQL.createFood(LocX, LocY, LocZ, Yaw, Pitch, World);
             FoodLocation.FOOD_LOCATIONS.clear();
-            CityBuildV2.getPLUGIN().loadLocations();
+            CityBuildV2.getPlugin().loadLocations();
             player.sendMessage(MessagesData.FOOD_COMMAND_MESSAGE_SPAWNED);
           } else if (strings[0].equalsIgnoreCase("list")) {
             for (int iD : FoodLocation.getLocationNames()) {

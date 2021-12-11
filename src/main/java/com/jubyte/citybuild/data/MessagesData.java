@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MessagesData {
 
-  private static final CityBuildV2 plugin = CityBuildV2.getPLUGIN();
-  private static final MessageHandler messageHandler = CityBuildV2.getPLUGIN().getMessageHandler();
+  private static final CityBuildV2 plugin = CityBuildV2.getPlugin();
+  private static final MessageHandler messageHandler = CityBuildV2.getPlugin().getMessageHandler();
 
   // Todo: General
   public static String NOPERMS = messageHandler.getPrefixString("NoPerms");

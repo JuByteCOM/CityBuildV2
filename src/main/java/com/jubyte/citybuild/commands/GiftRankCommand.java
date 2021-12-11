@@ -37,7 +37,7 @@ public class GiftRankCommand extends AbstractCommand {
           Player targetPlayer = Bukkit.getPlayer(strings[0]);
           if (targetPlayer != null) {
             CooldownPlayer cooldownPlayer =
-                CityBuildV2.getPLUGIN().getCooldownCache().getPlayerByUUID(player.getUniqueId());
+                CityBuildV2.getPlugin().getCooldownCache().getPlayerByUUID(player.getUniqueId());
             if (!cooldownPlayer.hasGiftRankCooldown(player)) {
               if (targetPlayer.hasPermission(
                   MessagesData.GIFTRANK_COMMAND_PERMISSION_HIGHER_RANK)) {

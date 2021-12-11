@@ -37,7 +37,7 @@ public class Storage {
             MySQLData.MYSQL_CONNECTION,
             new SQLDatabaseDriverConfigBuilder()
                 .setDialect(Dialect.byName(MySQLData.MYSQL_DIALECT_NAME))
-                .setLocation(new File(CityBuildV2.getPLUGIN().getDataFolder() + "/datafolder"))
+                .setLocation(new File(CityBuildV2.getPlugin().getDataFolder() + "/datafolder"))
                 .setAddress(new InetSocketAddress(MySQLData.MYSQL_HOST, MySQLData.MYSQL_PORT))
                 .setDataSourceClassName(HikariDataSource.class.getName())
                 .setUsername(MySQLData.MYSQL_USER)

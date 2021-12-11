@@ -44,7 +44,7 @@ import java.util.Map;
 @Getter
 public class CityBuildV2 extends JavaPlugin {
 
-  private static CityBuildV2 PLUGIN;
+  @Getter private static CityBuildV2 plugin;
   private Storage storage;
   private static SignEdit signedit;
   private MessageHandler messageHandler;
@@ -71,7 +71,7 @@ public class CityBuildV2 extends JavaPlugin {
 
   @Override
   public void onEnable() {
-    PLUGIN = this;
+    plugin = this;
 
     loadMySQLConfig();
     loadConfig();
@@ -396,9 +396,5 @@ public class CityBuildV2 extends JavaPlugin {
 
   public static SignEdit getSignEdit() {
     return signedit;
-  }
-
-  public static CityBuildV2 getPLUGIN() {
-    return PLUGIN;
   }
 }

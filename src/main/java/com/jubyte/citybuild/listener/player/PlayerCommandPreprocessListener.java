@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class PlayerCommandPreprocessListener implements Listener {
 
-  private final Map<Player, Player> commandSpy_Map = CityBuildV2.getPLUGIN().getCOMMANDSPY_MAP();
+  private final Map<Player, Player> commandSpy_Map = CityBuildV2.getPlugin().getCOMMANDSPY_MAP();
 
   @EventHandler
   public void handlePlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {

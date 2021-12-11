@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class CommandSpyCommand extends AbstractCommand {
 
-  private final Map<Player, Player> commandSpy_Map = CityBuildV2.getPLUGIN().getCOMMANDSPY_MAP();
+  private final Map<Player, Player> commandSpy_Map = CityBuildV2.getPlugin().getCOMMANDSPY_MAP();
 
   public CommandSpyCommand() {
     super(
