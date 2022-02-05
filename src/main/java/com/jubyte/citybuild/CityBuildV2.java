@@ -31,6 +31,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.checkerframework.checker.units.qual.Speed;
 
 import java.io.File;
 import java.io.IOException;
@@ -239,6 +240,10 @@ public class CityBuildV2 extends JavaPlugin {
     if (ConfigData.CONFIG_COMMAND_GOD_ACTIVE) {
       AbstractCommand godCommand = new GodCommand();
       godCommand.register();
+    }
+    if (ConfigData.CONFIG_COMMAND_SPEED_ACTIVE){
+      AbstractCommand speedCommand = new SpeedCommand();
+      speedCommand.register();
     }
   }
 

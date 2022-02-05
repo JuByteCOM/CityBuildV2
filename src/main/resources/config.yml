@@ -127,3 +127,7 @@ Settings:
       Name: 'god'
       Aliases: [ 'invulnerable' ]
       Active: true
+    Speed:
+      Name: 'speed'
+      Aliases: [ 'speeding' ]
+      Active: true

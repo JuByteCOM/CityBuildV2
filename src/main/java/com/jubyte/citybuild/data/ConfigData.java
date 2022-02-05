@@ -228,6 +228,13 @@ public class ConfigData {
   public static boolean CONFIG_COMMAND_INVSEE_ACTIVE =
       CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Invsee.Active");
 
+  public static String CONFIG_COMMAND_SPEED_NAME =
+          CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Speed.Name");
+  public static List<String> CONFIG_COMMAND_SPEED_ALIASES =
+          CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Speed.Aliases");
+  public static boolean CONFIG_COMMAND_SPEED_ACTIVE =
+          CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Speed.Active");
+
   public static String CONFIG_COMMAND_GOD_NAME =
       CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.God.Name");
   public static List<String> CONFIG_COMMAND_GOD_ALIASES =

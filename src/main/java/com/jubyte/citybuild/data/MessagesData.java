@@ -603,4 +603,16 @@ public class MessagesData {
       TimeUnit.valueOf(messageHandler.getString("Commands.CheckPlot.Settings.Unit"));
   public static String CHECKPLOT_NOT_IN_PLOT =
       messageHandler.getPrefixString("Commands.CheckPlot.Messages.NotInPlot");
+
+  // Todo: Speed
+  public static String SPEED_COMMAND_PERMISSION_USE =
+          messageHandler.getString("Commands.Speed.Permissions.Use");
+  public static String SPEED_COMMAND_PERMISSION_USE_OTHER =
+          messageHandler.getString("Commands.Speed.Permissions.Use.Other");
+  public static String SPEED_COMMAND_USAGE =
+          messageHandler.getPrefixString("Commands.Speed.Messages.Usage");
+  public static String SPEED_COMMAND_NOT_VALID_SPEED_LEVEL =
+          messageHandler.getPrefixString("Commands.Speed.Messages.NotValidSpeedLevel");
+  public static String SPEED_COMMAND_ =
+          messageHandler.getPrefixString("Commands.Speed.Messages.NotValidSpeedLevel");
 }
