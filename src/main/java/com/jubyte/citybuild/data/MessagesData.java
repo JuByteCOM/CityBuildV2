@@ -611,8 +611,16 @@ public class MessagesData {
           messageHandler.getString("Commands.Speed.Permissions.Use.Other");
   public static String SPEED_COMMAND_USAGE =
           messageHandler.getPrefixString("Commands.Speed.Messages.Usage");
-  public static String SPEED_COMMAND_NOT_VALID_SPEED_LEVEL =
-          messageHandler.getPrefixString("Commands.Speed.Messages.NotValidSpeedLevel");
-  public static String SPEED_COMMAND_ =
-          messageHandler.getPrefixString("Commands.Speed.Messages.NotValidSpeedLevel");
+  public static String SPEED_COMMAND_FLY_SPEED_SET_SELF =
+          messageHandler.getPrefixString("Commands.Speed.Messages.FlySpeedSet.Self");
+  public static String SPEED_COMMAND_WALK_SPEED_SET_SELF =
+          messageHandler.getPrefixString("Commands.Speed.Messages.WalkSpeedSet.Self");
+  public static String SPEED_COMMAND_FLY_SPEED_SET_OTHER =
+          messageHandler.getPrefixString("Commands.Speed.Messages.FlySpeedSet.Other");
+  public static String SPEED_COMMAND_WALK_SPEED_SET_OTHER =
+          messageHandler.getPrefixString("Commands.Speed.Messages.WalkSpeedSet.Other");
+  public static String SPEED_COMMAND_NO_VALID_LEVEL =
+          messageHandler.getPrefixString("Commands.Speed.Messages.NoValidLevel");
+  public static String SPEED_COMMAND_PLAYER_OFFLINE =
+          messageHandler.getPrefixString("Commands.Speed.Messages.TargetPlayerOffline");
 }

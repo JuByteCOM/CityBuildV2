@@ -27,61 +27,61 @@ public class SpeedCommand extends AbstractCommand {
             commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
         }else{
             Player player = (Player) commandSender;
-            if (player.hasPermission("speed.use")){
+            if (player.hasPermission(MessagesData.SPEED_COMMAND_PERMISSION_USE)){
                 if (strings.length == 0){
-                    player.sendMessage("/speed <1-10> <Spieler>");
+                    player.sendMessage(MessagesData.SPEED_COMMAND_USAGE);
                 }else if (strings.length == 1){
                     if (strings[0].matches("[0-9]+")){
                         int SPEED = Integer.parseInt(strings[0]);
                         float REAL_SPEED = SPEED / 10.0F;
                         if (SPEED > 10 || SPEED < 1){
-                            player.sendMessage("§cEs sind nur Werte von 1 bis 10 gültig!");
+                            player.sendMessage(MessagesData.SPEED_COMMAND_NO_VALID_LEVEL);
                         }else{
                             if (player.isFlying()){
                                 player.setFlySpeed(REAL_SPEED);
-                                player.sendMessage("§aDeine Fluggeschwindigkeit wurde auf §6" + SPEED + " §agesetzt!");
+                                player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
                             }else{
                                 player.setWalkSpeed(REAL_SPEED);
-                                player.sendMessage("§aDeine Laufgeschwindigkeit wurde auf §6" + SPEED + " §agesetzt!");
+                                player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
                             }
                         }
                     }else{
-                        player.sendMessage("KEIN GÜLTIGER WERT");
+                        player.sendMessage(MessagesData.SPEED_COMMAND_NO_VALID_LEVEL);
                     }
                 }else if (strings.length == 2){
-                    if (player.hasPermission("speed.use.other")){
+                    if (player.hasPermission(MessagesData.SPEED_COMMAND_PERMISSION_USE_OTHER)){
                         if (strings[0].matches("[0-9]+")){
                             Player targetPlayer = Bukkit.getPlayer(strings[1]);
                             if (targetPlayer != null){
                                 int SPEED = Integer.parseInt(strings[0]);
                                 float REAL_SPEED = SPEED / 10.0F;
                                 if (SPEED > 10 || SPEED < 1){
-                                    player.sendMessage("§cEs sind nur Werte von 1 bis 10 gültig!");
+                                    player.sendMessage(MessagesData.SPEED_COMMAND_NO_VALID_LEVEL);
                                 }else{
                                     if (player.isFlying()){
                                         targetPlayer.setFlySpeed(REAL_SPEED);
-                                        targetPlayer.sendMessage("§aDeine Fluggeschwindigkeit wurde auf §6" + SPEED + " §agesetzt!");
-                                        targetPlayer.sendMessage("§aDu hast die Fluggeschwindigkeit für §6" + targetPlayer.getName() + "  §aauf §6" + SPEED + " §agesetzt!");
+                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
+                                        player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_OTHER.replace("%speed%", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
                                     }else{
                                         targetPlayer.setWalkSpeed(REAL_SPEED);
-                                        targetPlayer.sendMessage("§aDeine Laufgeschwindigkeit wurde auf §6" + SPEED + " §agesetzt!");
-                                        targetPlayer.sendMessage("§aDu hast die Laufgeschwindigkeit für §6" + targetPlayer.getName() + "  §aauf §6" + SPEED + " §agesetzt!");
+                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
+                                        player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_OTHER.replace("%speed%", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
                                     }
                                 }
                             }else{
-                                player.sendMessage("§cDieser Spieler ist nicht online!");
+                                player.sendMessage(MessagesData.SPEED_COMMAND_PLAYER_OFFLINE);
                             }
                         }else{
-                            player.sendMessage("KEIN GÜLTIGER WERT");
+                            player.sendMessage(MessagesData.SPEED_COMMAND_NO_VALID_LEVEL);
                         }
                     }else{
-                        player.sendMessage("KEINE RECHTE");
+                        player.sendMessage(MessagesData.NOPERMS);
                     }
                  }else{
-                    player.sendMessage("USAGE");
+                    player.sendMessage(MessagesData.SPEED_COMMAND_USAGE);
                 }
             }else{
-                player.sendMessage("KEINE RECHTE");
+                player.sendMessage(MessagesData.NOPERMS);
             }
         }
 

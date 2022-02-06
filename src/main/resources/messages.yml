@@ -419,6 +419,20 @@ Commands:
       Activated:
         Self: '[prefix] &7Du bist &ajetzt &7im &eGod-Modus&7!'
         Other: '[prefix] &7Du hast den Spieler &e[targetPlayer] &ain &7den &eGod-Modus &7gesetzt!'
+  Speed:
+    Permissions:
+      Use: 'citybuild.speed.use'
+      Other: 'citybuild.speed.other'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/speed <0-10> <playerName>'
+      TargetPlayerOffline: '[prefix] &7Der Spieler &e[targetPlayer] &7ist &coffline&7.'
+      NoValidLevel: '[prefix] &7Dies ist kein gültiges Level&8[&a0-10&8]&7!'
+      FlySpeedSet:
+        Self: '[prefix] &7Deine Fluggeschwindigkeit wurde auf &a%speed% &7gesetzt!'
+        Other: '[prefix] &7Die Fluggeschwindigkeit von &6%targetPlayer% &7wurde auf &a%speed% &7gesetzt!'
+      WalkSpeedSet:
+        Self: '[prefix] &7Deine Laufgeschwindigkeit wurde auf &a%speed% &7gesetzt!'
+        Other: '[prefix] &7Die Laufgeschwindigkeit von &6%targetPlayer% &7wurde auf &a%speed% &7gesetzt!'
 
 Settings:
   ColoredChat:
