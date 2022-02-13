@@ -39,10 +39,10 @@ public class SpeedCommand extends AbstractCommand {
                         }else{
                             if (player.isFlying()){
                                 player.setFlySpeed(REAL_SPEED);
-                                player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
+                                player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("[speed]", String.valueOf(SPEED)));
                             }else{
                                 player.setWalkSpeed(REAL_SPEED);
-                                player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
+                                player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("[speed]", String.valueOf(SPEED)));
                             }
                         }
                     }else{
@@ -60,16 +60,16 @@ public class SpeedCommand extends AbstractCommand {
                                 }else{
                                     if (player.isFlying()){
                                         targetPlayer.setFlySpeed(REAL_SPEED);
-                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
-                                        player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_OTHER.replace("%speed%", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
+                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_SELF.replace("[speed]", String.valueOf(SPEED)));
+                                        player.sendMessage(MessagesData.SPEED_COMMAND_FLY_SPEED_SET_OTHER.replace("[speed]", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
                                     }else{
                                         targetPlayer.setWalkSpeed(REAL_SPEED);
-                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("%speed%", String.valueOf(SPEED)));
-                                        player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_OTHER.replace("%speed%", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
+                                        targetPlayer.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_SELF.replace("[speed]", String.valueOf(SPEED)));
+                                        player.sendMessage(MessagesData.SPEED_COMMAND_WALK_SPEED_SET_OTHER.replace("[speed]", String.valueOf(SPEED).replace("[targetPlayer]", targetPlayer.getName())));
                                     }
                                 }
                             }else{
-                                player.sendMessage(MessagesData.SPEED_COMMAND_PLAYER_OFFLINE);
+                                player.sendMessage(MessagesData.SPEED_COMMAND_PLAYER_OFFLINE.replace("[targetPlayer]", strings[1]));
                             }
                         }else{
                             player.sendMessage(MessagesData.SPEED_COMMAND_NO_VALID_LEVEL);
