@@ -84,7 +84,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-codec:commons-codec:1.11" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.httpcomponents:httpcore:4.4.14" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:jcl-over-slf4j:1.7.30" level="project" />
-    <orderEntry type="library" name="Maven: com.jubyte.developerapi:DeveloperAPI:1.14.11" level="project" />
+    <orderEntry type="library" name="Maven: com.jubyte.developerapi:DeveloperAPI:1.16.4" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-sql:1.2.65.93-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pretronic.databasequery:pretronicdatabasequery-common:1.2.65.93-SNAPSHOT" level="project" />

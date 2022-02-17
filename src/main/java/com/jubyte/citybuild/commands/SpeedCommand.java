@@ -8,6 +8,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author KeinByte
  * @since 24.12.2021
@@ -87,4 +90,17 @@ public class SpeedCommand extends AbstractCommand {
 
         return false;
     }
+
+    public List<String> onTabComplete(
+            CommandSender commandSender, Command command, String s, String[] strings) {
+        if (strings.length == 2) {
+            final List<String> players = new ArrayList<>();
+            for (Player all : Bukkit.getOnlinePlayers()) {
+                players.add(all.getName());
+            }
+            return players;
+        }
+        return null;
+    }
+
 }
