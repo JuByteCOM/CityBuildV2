@@ -433,6 +433,13 @@ Commands:
       WalkSpeedSet:
         Self: '[prefix] &7Deine Laufgeschwindigkeit wurde auf &a[speed] &7gesetzt!'
         Other: '[prefix] &7Die Laufgeschwindigkeit von &6[targetPlayer] &7wurde auf &a%speed% &7gesetzt!'
+  Back:
+    Permissions:
+      Use: 'citybuild.back.use'
+    Messages:
+      Usage: '[prefix] &cBitte nutze: &e/back'
+      TeleportSuccessful: '[prefix] &7Du wurdest zu deinem letzten Todespunkt teleportiert!'
+      NoBackPoint: '[prefix] &7Es konnte kein Todespunkt gefunden werden!'
 
 Settings:
   ColoredChat:

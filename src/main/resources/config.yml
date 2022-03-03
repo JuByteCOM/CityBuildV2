@@ -131,3 +131,7 @@ Settings:
       Name: 'speed'
       Aliases: [ 'speeding' ]
       Active: true
+    Back:
+      Name: 'back'
+      Aliases: [ 'zurück', 'lastdeathlocation' ]
+      Active: true

@@ -623,4 +623,14 @@ public class MessagesData {
           messageHandler.getPrefixString("Commands.Speed.Messages.NoValidLevel");
   public static String SPEED_COMMAND_PLAYER_OFFLINE =
           messageHandler.getPrefixString("Commands.Speed.Messages.TargetPlayerOffline");
+
+  // Todo: Back
+  public static String BACK_COMMAND_PERMISSION_USE =
+          messageHandler.getString("Commands.Back.Permissions.Use");
+  public static String BACK_COMMAND_USAGE =
+          messageHandler.getPrefixString("Commands.Back.Messages.Usage");
+  public static String BACK_COMMAND_TELEPORT_SUCCESSFUL =
+          messageHandler.getPrefixString("Commands.Back.Messages.TeleportSuccessful");
+  public static String BACK_COMMAND_NO_BACK_POINT =
+          messageHandler.getPrefixString("Commands.Back.Messages.NoBackPoint");
 }

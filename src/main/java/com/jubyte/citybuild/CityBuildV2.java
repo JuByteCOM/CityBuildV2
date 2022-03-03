@@ -245,6 +245,10 @@ public class CityBuildV2 extends JavaPlugin {
       AbstractCommand speedCommand = new SpeedCommand();
       speedCommand.register();
     }
+    if (ConfigData.CONFIG_COMMAND_BACk_ACTIVE){
+      AbstractCommand backCommand = new BackCommand();
+      backCommand.register();
+    }
   }
 
   private void loadListener() {
