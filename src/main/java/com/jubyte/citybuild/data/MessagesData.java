@@ -633,4 +633,6 @@ public class MessagesData {
           messageHandler.getPrefixString("Commands.Back.Messages.TeleportSuccessful");
   public static String BACK_COMMAND_NO_BACK_POINT =
           messageHandler.getPrefixString("Commands.Back.Messages.NoBackPoint");
+  public static boolean BACK_COMMAND_SAVE_BACK_LOCATION_BY_DEATH =
+          plugin.getMessagesConfig().getBoolean("Commands.Back.SaveBackLocationByDeath.Enabled");
 }

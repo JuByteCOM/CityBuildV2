@@ -1,6 +1,7 @@
 package com.jubyte.citybuild.listener.player;
 
 import com.google.common.collect.Maps;
+import com.jubyte.citybuild.CityBuildV2;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +21,9 @@ public class PlayerDeathListener implements Listener {
 
     @EventHandler
     public void handlePlayerDeath(PlayerDeathEvent event){
-        BACK_LOCATION.put(event.getEntity(), event.getEntity().getLocation());
+        if (CityBuildV2.getPlugin().getMessagesConfig().getBoolean("Commands.Back.SaveBackLocationByDeath.Enabled")){
+            BACK_LOCATION.put(event.getEntity(), event.getEntity().getLocation());
+        }
     }
 
 }

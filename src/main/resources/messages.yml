@@ -440,6 +440,8 @@ Commands:
       Usage: '[prefix] &cBitte nutze: &e/back'
       TeleportSuccessful: '[prefix] &7Du wurdest zu deinem letzten Todespunkt teleportiert!'
       NoBackPoint: '[prefix] &7Es konnte kein Todespunkt gefunden werden!'
+    SaveBackLocationByDeath:
+      Enabled: true
 
 Settings:
   ColoredChat:
