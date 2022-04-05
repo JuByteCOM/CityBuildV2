@@ -135,7 +135,7 @@
         <dependency>
             <groupId>com.jubyte.developerapi</groupId>
             <artifactId>DeveloperAPI</artifactId>
-            <version>1.14.11</version>
+            <version>1.16.4</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

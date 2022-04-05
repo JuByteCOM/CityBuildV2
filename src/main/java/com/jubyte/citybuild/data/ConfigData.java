@@ -241,4 +241,12 @@ public class ConfigData {
       CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.God.Aliases");
   public static boolean CONFIG_COMMAND_GOD_ACTIVE =
       CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.God.Active");
+
+  public static String CONFIG_COMMAND_BACk_NAME =
+          CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Back.Name");
+  public static List<String> CONFIG_COMMAND_BACk_ALIASES =
+          CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Back.Aliases");
+  public static boolean CONFIG_COMMAND_BACk_ACTIVE =
+          CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Back.Active");
+
 }

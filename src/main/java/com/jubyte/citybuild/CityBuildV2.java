@@ -245,6 +245,10 @@ public class CityBuildV2 extends JavaPlugin {
       AbstractCommand speedCommand = new SpeedCommand();
       speedCommand.register();
     }
+    if (ConfigData.CONFIG_COMMAND_BACk_ACTIVE){
+      AbstractCommand backCommand = new BackCommand();
+      backCommand.register();
+    }
   }
 
   private void loadListener() {
@@ -258,6 +262,7 @@ public class CityBuildV2 extends JavaPlugin {
     pluginManager.registerEvents(new PlayerCommandPreprocessListener(), this);
     pluginManager.registerEvents(new InventoryClickListener(), this);
     pluginManager.registerEvents(new PrepareAnvilListener(), this);
+    pluginManager.registerEvents(new PlayerDeathListener(), this);
   }
 
   private void sendMessage(String status) {
