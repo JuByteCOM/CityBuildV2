@@ -12,57 +12,56 @@ import java.util.concurrent.TimeUnit;
 
 public class CooldownCache {
 
-  private final Cache<CooldownPlayer> cooldownCache;
+    private final Cache<CooldownPlayer> cooldownCache;
 
-  public CooldownCache() {
-    cooldownCache =
-        new ArrayCache<CooldownPlayer>()
-            .setExpireAfterAccess(15, TimeUnit.MINUTES)
-            .setMaxSize(500)
-            .registerQuery(
-                "byUUID",
-                new CacheQuery<>() {
-                  @Override
-                  public CooldownPlayer load(Object[] identifiers) {
-                    UUID uuid = (UUID) identifiers[0];
-                    DatabaseCollection collection =
-                        CityBuildV2.getPlugin().getStorage().getcooldownCollection();
-                    QueryResultEntry entry =
-                        collection.find().where("UUID", uuid).execute().firstOrNull();
+    public CooldownCache() {
+        cooldownCache =
+                new ArrayCache<CooldownPlayer>()
+                        .setExpireAfterAccess(15, TimeUnit.MINUTES)
+                        .setMaxSize(500)
+                        .registerQuery(
+                                "byUUID",
+                                new CacheQuery<>() {
+                                    @Override
+                                    public boolean check(CooldownPlayer cooldownPlayer, Object[] objects) {
+                                        return cooldownPlayer.getUuid().equals(objects[0]);
+                                    }
+                                    @Override
+                                    public CooldownPlayer load(Object[] identifiers) {
+                                        UUID uuid = (UUID) identifiers[0];
+                                        DatabaseCollection collection =
+                                                CityBuildV2.getPlugin().getStorage().getcooldownCollection();
+                                        QueryResultEntry entry =
+                                                collection.find().where("UUID", uuid).execute().firstOrNull();
 
-                    if (entry == null) {
-                      insertCooldownPlayer(uuid);
-                      return new CooldownPlayer(uuid, 0, 0, 0, 0);
-                    }
-                    return new CooldownPlayer(
-                        uuid,
-                        entry.getLong("Head"),
-                        entry.getLong("BreakBlock"),
-                        entry.getLong("GiftRank"),
-                        entry.getLong("ClearChat"));
-                  }
+                                        if (entry == null) {
+                                            insertCooldownPlayer(uuid);
+                                            return new CooldownPlayer(uuid, 0, 0, 0, 0);
+                                        }
+                                        return new CooldownPlayer(
+                                                uuid,
+                                                entry.getLong("Head"),
+                                                entry.getLong("BreakBlock"),
+                                                entry.getLong("GiftRank"),
+                                                entry.getLong("ClearChat"));
+                                    }
+                                });
+    }
 
-                  @Override
-                  public boolean check(CooldownPlayer cooldownPlayer, Object[] objects) {
-                    return cooldownPlayer.getUuid().equals(objects[0]);
-                  }
-                });
-  }
+    private void insertCooldownPlayer(UUID uuid) {
+        CityBuildV2.getPlugin()
+                .getStorage()
+                .getcooldownCollection()
+                .insert()
+                .set("UUID", uuid)
+                .set("Head", 0)
+                .set("BreakBlock", 0)
+                .set("GiftRank", 0)
+                .set("ClearChat", 0)
+                .execute();
+    }
 
-  private void insertCooldownPlayer(UUID uuid) {
-    CityBuildV2.getPlugin()
-        .getStorage()
-        .getcooldownCollection()
-        .insert()
-        .set("UUID", uuid)
-        .set("Head", 0)
-        .set("BreakBlock", 0)
-        .set("GiftRank", 0)
-        .set("ClearChat", 0)
-        .execute();
-  }
-
-  public CooldownPlayer getPlayerByUUID(UUID uuid) {
-    return cooldownCache.get("byUUID", uuid);
-  }
+    public CooldownPlayer getPlayerByUUID(UUID uuid) {
+        return cooldownCache.get("byUUID", uuid);
+    }
 }

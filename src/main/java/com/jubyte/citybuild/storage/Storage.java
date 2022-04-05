@@ -1,7 +1,6 @@
 package com.jubyte.citybuild.storage;
 
 import com.jubyte.citybuild.CityBuildV2;
-import com.jubyte.citybuild.data.MySQLData;
 import com.zaxxer.hikari.HikariDataSource;
 import net.pretronic.databasequery.api.Database;
 import net.pretronic.databasequery.api.collection.DatabaseCollection;
@@ -9,7 +8,6 @@ import net.pretronic.databasequery.api.collection.field.FieldOption;
 import net.pretronic.databasequery.api.datatype.DataType;
 import net.pretronic.databasequery.api.driver.DatabaseDriver;
 import net.pretronic.databasequery.api.driver.DatabaseDriverFactory;
-import net.pretronic.databasequery.sql.SQLDatabase;
 import net.pretronic.databasequery.sql.dialect.Dialect;
 import net.pretronic.databasequery.sql.driver.config.SQLDatabaseDriverConfigBuilder;
 
@@ -34,19 +32,20 @@ public class Storage {
   public void createConnection() {
     this.databaseDriver =
         DatabaseDriverFactory.create(
-            MySQLData.MYSQL_CONNECTION,
+            CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Connection"),
             new SQLDatabaseDriverConfigBuilder()
-                .setDialect(Dialect.byName(MySQLData.MYSQL_DIALECT_NAME))
+                .setDialect(Dialect.byName(CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.dialectName")))
                 .setLocation(new File(CityBuildV2.getPlugin().getDataFolder() + "/datafolder"))
-                .setAddress(new InetSocketAddress(MySQLData.MYSQL_HOST, MySQLData.MYSQL_PORT))
+                .setAddress(new InetSocketAddress(CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Host"),
+                        CityBuildV2.getPlugin().getMySQLConfig().getInt("MySQL.Port")))
                 .setDataSourceClassName(HikariDataSource.class.getName())
-                .setUsername(MySQLData.MYSQL_USER)
-                .setPassword(MySQLData.MYSQL_PASSWORD)
-                .setUseSSL(MySQLData.MYSQL_USE_SSL)
+                .setUsername(CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.User"))
+                .setPassword(CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Password"))
+                .setUseSSL(CityBuildV2.getPlugin().getMySQLConfig().getBoolean("MySQL.useSSL"))
                 .build());
 
     this.databaseDriver.connect();
-    this.database = databaseDriver.getDatabase(MySQLData.MYSQL_DATABASE);
+    this.database = databaseDriver.getDatabase(CityBuildV2.getPlugin().getMySQLConfig().getString("MySQL.Database"));
 
     createCollections();
   }
@@ -135,13 +134,6 @@ public class Storage {
             .field("LastJoin", DataType.LONG)
             .field("Playtime", DataType.LONG)
             .create();
-
-    if (MySQLData.MYSQL_DIALECT_NAME.equalsIgnoreCase("MySQL")) {
-      SQLDatabase sqlDatabase = (SQLDatabase) database;
-      String query =
-              "ALTER TABLE `" + MySQLData.MYSQL_DATABASE + "`.`Cooldowns` ADD IF NOT EXISTS `ClearChat` BIGINT NOT NULL AFTER `GiftRank`;";
-      sqlDatabase.executeUpdateQuery(query, true);
-    }
   }
 
   public void deleteConnection() {

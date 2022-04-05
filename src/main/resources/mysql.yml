@@ -1,5 +1,5 @@
 MySQL:
-  dialectName: 'MySQL'
+  dialectName: 'H2Portable'
   Connection: 'CityBuildV2'
   Host: 'localhost'
   Port: 3306
