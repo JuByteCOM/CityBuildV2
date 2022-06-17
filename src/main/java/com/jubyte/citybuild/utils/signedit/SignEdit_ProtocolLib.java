@@ -30,8 +30,8 @@ public class SignEdit_ProtocolLib implements SignEdit {
     ProtocolManager protocolManager = ProtocolLibrary.getProtocolManager();
     PacketContainer packetContainer = new PacketContainer(PacketType.Play.Server.OPEN_SIGN_EDITOR);
     packetContainer
-        .getBlockPositionModifier()
-        .write(0, new BlockPosition(sign.getX(), sign.getY(), sign.getZ()));
+            .getBlockPositionModifier()
+            .write(0, new BlockPosition(sign.getX(), sign.getY(), sign.getZ()));
     try {
       protocolManager.sendServerPacket(player, packetContainer);
     } catch (InvocationTargetException e) {
