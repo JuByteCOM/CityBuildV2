@@ -1,7 +1,15 @@
 pipeline {
     agent any
-    tools {
-       jdk 'jdk16'
+    stages {
+        stage("Change Java Version") {
+            tools {
+               jdk 'jdk16'
+            }
+            steps {
+                echo 'Changing java version'
+                sh "java -version"
+             }
+        }
     }
     stages {
         stage("Build") {
