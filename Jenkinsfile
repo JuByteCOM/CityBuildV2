@@ -13,7 +13,7 @@ pipeline {
 node {
   // https://support.cloudbees.com/hc/en-us/articles/115001595227-How-To-Specify-A-Specific-JDK-In-Pipeline-
   // configure the JDK in Manage Jenkins > Global Tool Configuration > JDK
-  jdk = tool name: 'JDK17'
+  jdk = tool name: 'JDK16'
   env.JAVA_HOME = "${jdk}"
 
   echo "jdk installation path is: ${jdk}"
