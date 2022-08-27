@@ -10,8 +10,6 @@ pipeline {
                 sh "java -version"
              }
         }
-    }
-    stages {
         stage("Build") {
             steps {
                 echo 'building the application...'
