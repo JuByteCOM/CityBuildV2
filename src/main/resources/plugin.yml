@@ -10,7 +10,6 @@ softdepend:
   - PlotSquared
   - AutoUpdaterAPI
   - DeveloperAPI
-  - DKBans
-  - McNative
+  - JuByteLibraries
   - ProtocolLib
 api-version: 1.13

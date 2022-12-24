@@ -21,27 +21,27 @@ public class StatusCache {
             .setMaxSize(500)
             .registerQuery(
                 "byUUID",
-                new CacheQuery<StatusPlayer>() {
-                  @Override
-                  public StatusPlayer load(Object[] identifiers) {
-                    UUID uuid = (UUID) identifiers[0];
-                    DatabaseCollection collection =
-                        CityBuildV2.getPlugin().getStorage().getStatusCollection();
-                    QueryResultEntry entry =
-                        collection.find().where("UUID", uuid).execute().firstOrNull();
+                    new CacheQuery<>() {
+                        @Override
+                        public StatusPlayer load(Object[] identifiers) {
+                            UUID uuid = (UUID) identifiers[0];
+                            DatabaseCollection collection =
+                                    CityBuildV2.getPlugin().getStorage().getStatusCollection();
+                            QueryResultEntry entry =
+                                    collection.find().where("UUID", uuid).execute().firstOrNull();
 
-                    if (entry == null) {
-                      insertStatusPlayer(uuid);
-                      return new StatusPlayer(uuid, null);
-                    }
-                    return new StatusPlayer(uuid, entry.getString("Status"));
-                  }
+                            if (entry == null) {
+                                insertStatusPlayer(uuid);
+                                return new StatusPlayer(uuid, null);
+                            }
+                            return new StatusPlayer(uuid, entry.getString("Status"));
+                        }
 
-                  @Override
-                  public boolean check(StatusPlayer statusPlayer, Object[] objects) {
-                    return statusPlayer.getUuid().equals(objects[0]);
-                  }
-                });
+                        @Override
+                        public boolean check(StatusPlayer statusPlayer, Object[] objects) {
+                            return statusPlayer.getUuid().equals(objects[0]);
+                        }
+                    });
   }
 
   private void insertStatusPlayer(UUID uuid) {

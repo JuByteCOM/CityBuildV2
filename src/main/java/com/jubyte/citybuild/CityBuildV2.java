@@ -3,10 +3,10 @@ package com.jubyte.citybuild;
 import com.google.common.base.Charsets;
 import com.jubyte.citybuild.commands.*;
 import com.jubyte.citybuild.data.ConfigData;
+import com.jubyte.citybuild.listener.block.SignChangeListener;
 import com.jubyte.citybuild.listener.entity.EntityDeathListener;
 import com.jubyte.citybuild.listener.inventory.InventoryClickListener;
 import com.jubyte.citybuild.listener.inventory.PrepareAnvilListener;
-import com.jubyte.citybuild.listener.block.SignChangeListener;
 import com.jubyte.citybuild.listener.player.*;
 import com.jubyte.citybuild.manager.checkplot.CheckPlotCache;
 import com.jubyte.citybuild.manager.cooldown.CooldownCache;
@@ -22,8 +22,13 @@ import com.jubyte.citybuild.storage.Storage;
 import com.jubyte.citybuild.utils.signedit.SignEdit;
 import com.jubyte.citybuild.utils.signedit.SignEdit_ProtocolLib;
 import com.jubyte.developerapi.commands.AbstractCommand;
+import com.jubyte.developerapi.utils.LibDownloader;
 import com.jubyte.developerapi.utils.config.MessageHandler;
 import lombok.Getter;
+import net.pretronic.libraries.logging.PretronicLogger;
+import net.pretronic.libraries.logging.PretronicLoggerFactory;
+import net.pretronic.libraries.logging.bridge.slf4j.SLF4JStaticBridge;
+import net.pretronic.libraries.logging.level.LogLevel;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -31,7 +36,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.Speed;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,6 +50,8 @@ import java.util.Map;
 public class CityBuildV2 extends JavaPlugin {
 
   @Getter private static CityBuildV2 plugin;
+
+  private LibDownloader libDownloader;
   private Storage storage;
   private static SignEdit signedit;
   private MessageHandler messageHandler;
@@ -71,8 +77,18 @@ public class CityBuildV2 extends JavaPlugin {
   private Metrics metrics;
 
   @Override
+  public void onLoad() {
+    this.libDownloader = new LibDownloader();
+    this.libDownloader.downloadLibrary();
+  }
+
+  @Override
   public void onEnable() {
     plugin = this;
+
+    PretronicLogger logger = PretronicLoggerFactory.getLogger();
+    logger.setLevel(LogLevel.INFO);
+    SLF4JStaticBridge.trySetLogger(logger);
 
     loadMySQLConfig();
     loadConfig();

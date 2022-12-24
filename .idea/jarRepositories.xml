@@ -52,6 +52,11 @@
       <option name="url" value="http://164.68.98.148:8888/repository/jubyte" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="jubyte" />
+      <option name="name" value="jubyte" />
+      <option name="url" value="https://repo.jubyte.com/repository/jubyte/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="inventive-repo" />
       <option name="name" value="inventive-repo" />
       <option name="url" value="https://repo.inventivetalent.org/content/groups/public/" />
@@ -90,6 +95,11 @@
       <option name="id" value="enginehub" />
       <option name="name" value="enginehub" />
       <option name="url" value="https://maven.enginehub.org/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="pretronic" />
+      <option name="name" value="pretronic" />
+      <option name="url" value="https://repo.jubyte.com/repository/pretronic/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jubyte" />

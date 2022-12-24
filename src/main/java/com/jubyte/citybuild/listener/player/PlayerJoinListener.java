@@ -7,6 +7,7 @@ import com.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
 import com.jubyte.citybuild.manager.glow.GlowPlayer;
 import com.jubyte.citybuild.manager.locations.Locations;
 import com.jubyte.citybuild.manager.status.StatusPlayer;
+import com.jubyte.developerapi.utils.color.ColorAPI;
 import com.jubyte.developerapi.utils.config.MessageHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -36,7 +37,7 @@ public class PlayerJoinListener implements Listener {
       StatusPlayer statusPlayer =
           CityBuildV2.getPlugin().getStatusCache().getPlayerByUUID(player.getUniqueId());
       if (statusPlayer.hasStatus()) {
-        player.chat(statusPlayer.getStatus().replaceAll("&", "§"));
+        player.chat(ColorAPI.process(statusPlayer.getStatus()));
       }
     }
 
