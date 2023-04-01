@@ -67,8 +67,7 @@ public class StartkickCommand extends AbstractCommand {
         return false;
       }
     }
-    if (commandSender instanceof Player) {
-      Player player = (Player) commandSender;
+    if (commandSender instanceof Player player) {
       StartKickPlayer startKickPlayer =
           CityBuildV2.getPlugin().getStartKickCache().getPlayerByUUID(player.getUniqueId());
       if (!commandSender.hasPermission(MessagesData.STARTKICK_COMMAND_PERMISSION_TIME_BYPASS)) {

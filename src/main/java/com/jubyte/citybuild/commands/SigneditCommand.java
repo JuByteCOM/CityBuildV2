@@ -64,7 +64,7 @@ public class SigneditCommand extends AbstractCommand {
         }
       } else {
         if (player.hasPermission("citybuild.schild.admin")) {
-          player.sendMessage("§cPlotSquaredV6 is missing.");
+          player.sendMessage("§cPlotSquaredV6 is missing or ProtocolLib missing.");
         } else {
           player.sendMessage(MessagesData.SCHILD_COMMAND_MESSAGE_NOPLOTSQUARED);
         }

@@ -37,7 +37,7 @@ public class PlayerJoinListener implements Listener {
       StatusPlayer statusPlayer =
           CityBuildV2.getPlugin().getStatusCache().getPlayerByUUID(player.getUniqueId());
       if (statusPlayer.hasStatus()) {
-        player.chat(ColorAPI.process(statusPlayer.getStatus()));
+        event.setJoinMessage(player.getCustomName() + " " + ColorAPI.process(statusPlayer.getStatus()));
       }
     }
 
