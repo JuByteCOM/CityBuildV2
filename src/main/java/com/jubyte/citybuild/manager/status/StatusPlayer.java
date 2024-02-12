@@ -25,12 +25,12 @@ public class StatusPlayer {
   public void setStatus(String status) {
     this.status = status;
     CityBuildV2.getPlugin()
-        .getStorage()
-        .getStatusCollection()
-        .update()
-        .set("Status", status)
-        .where("UUID", uuid)
-        .executeAsync();
+            .getStorage()
+            .getStatusCollection()
+            .update()
+            .set("Status", status)
+            .where("UUID", uuid)
+            .executeAsync();
   }
 
   public boolean hasStatus() {

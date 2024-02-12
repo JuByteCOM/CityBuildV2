@@ -53,6 +53,7 @@ public class PlayerJoinListener implements Listener {
     // Todo: SpawnTP
     if (MessagesData.SPAWN_COMMAND_SETTING_SPAWN_ON_JOIN
         && ConfigData.CONFIG_COMMAND_SPAWN_ACTIVE) {
+      if(Locations.LOCATIONS.size() == 0) return;
       if (Locations.exitsLocation("Spawn")) {
         if (!player.hasPlayedBefore()) {
           player.teleport(Locations.getLocation("Spawn"));

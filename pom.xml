@@ -6,7 +6,7 @@
 
     <groupId>com.jubyte.citybuild</groupId>
     <artifactId>CityBuildV2</artifactId>
-    <version>2.16.1-RELEASE</version>
+    <version>2.16.2-RELEASE</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -123,7 +123,7 @@
         <dependency>
             <groupId>com.jubyte.developerapi</groupId>
             <artifactId>DeveloperAPI</artifactId>
-            <version>1.18.1</version>
+            <version>1.19.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

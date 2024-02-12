@@ -249,4 +249,11 @@ public class ConfigData {
   public static boolean CONFIG_COMMAND_BACk_ACTIVE =
           CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Back.Active");
 
+  public static String CONFIG_COMMAND_VANISH_NAME =
+          CityBuildV2.getPlugin().getConfig().getString("Settings.Commands.Vanish.Name");
+  public static List<String> CONFIG_COMMAND_VANISH_ALIASES =
+          CityBuildV2.getPlugin().getConfig().getStringList("Settings.Commands.Vanish.Aliases");
+  public static boolean CONFIG_COMMAND_VANISH_ACTIVE =
+          CityBuildV2.getPlugin().getConfig().getBoolean("Settings.Commands.Vanish.Active");
+
 }
