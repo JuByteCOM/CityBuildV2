@@ -171,6 +171,7 @@
             <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
+
         <!--bStats-->
         <dependency>
             <groupId>org.bstats</groupId>
