@@ -12,14 +12,14 @@
       <option name="url" value="http://161.97.171.168:8888/repository/jubyte/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="jitpack.io" />
-      <option name="name" value="jitpack.io" />
-      <option name="url" value="https://jitpack.io" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="OSS Sonatype" />
       <option name="name" value="OSS Sonatype" />
       <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jitpack.io" />
+      <option name="name" value="jitpack.io" />
+      <option name="url" value="https://jitpack.io" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="IntellectualSites" />
@@ -87,14 +87,14 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="JuByte" />
-      <option name="name" value="JuByte" />
-      <option name="url" value="http://45.88.110.196:8080/repository/jubyte/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="enginehub" />
       <option name="name" value="enginehub" />
       <option name="url" value="https://maven.enginehub.org/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="JuByte" />
+      <option name="name" value="JuByte" />
+      <option name="url" value="http://45.88.110.196:8080/repository/jubyte/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="pretronic" />
