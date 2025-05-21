@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jubyte.citybuild</groupId>
   <artifactId>CityBuildV2</artifactId>
-  <version>2.16.4-RELEASE</version>
+  <version>2.16.5-RELEASE</version>
   <build>
     <plugins>
       <plugin>
@@ -64,7 +64,7 @@
   <repositories>
     <repository>
       <id>pretronic</id>
-      <url>https://repo.jubyte.com/repository/pretronic/</url>
+      <url>https://repo.jubyte.com/artifactory/pretronic/</url>
     </repository>
     <repository>
       <id>IntellectualSites</id>
@@ -76,7 +76,7 @@
     </repository>
     <repository>
       <id>jubyte</id>
-      <url>https://repo.jubyte.com/repository/jubyte/</url>
+      <url>https://repo.jubyte.com/artifactory/jubyte/</url>
     </repository>
     <repository>
       <id>enginehub</id>
@@ -101,7 +101,7 @@
     <dependency>
       <groupId>net.pretronic.databasequery</groupId>
       <artifactId>pretronicdatabasequery-sql</artifactId>
-      <version>1.2.67.97-SNAPSHOT</version>
+      <version>1.2.67.98-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
