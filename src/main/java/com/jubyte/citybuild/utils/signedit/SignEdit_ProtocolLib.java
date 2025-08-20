@@ -32,10 +32,6 @@ public class SignEdit_ProtocolLib implements SignEdit {
     packetContainer
             .getBlockPositionModifier()
             .write(0, new BlockPosition(sign.getX(), sign.getY(), sign.getZ()));
-    try {
       protocolManager.sendServerPacket(player, packetContainer);
-    } catch (InvocationTargetException e) {
-      Bukkit.getLogger().warning("Error!");
-    }
   }
 }
