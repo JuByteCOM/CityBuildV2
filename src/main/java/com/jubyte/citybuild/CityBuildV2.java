@@ -265,6 +265,10 @@ public class CityBuildV2 extends JavaPlugin {
       AbstractCommand backCommand = new BackCommand();
       backCommand.register();
     }
+    if (ConfigData.CONFIG_COMMAND_VANISH_ACTIVE) {
+      AbstractCommand vanishCommand = new VanishCommand();
+      vanishCommand.register();
+    }
   }
 
   private void loadListener() {

@@ -135,3 +135,7 @@ Settings:
       Name: 'back'
       Aliases: [ 'zurück', 'lastdeathlocation' ]
       Active: true
+    Vanish:
+      Name: 'vanish'
+      Aliases: [ 'v' ]
+      Active: true

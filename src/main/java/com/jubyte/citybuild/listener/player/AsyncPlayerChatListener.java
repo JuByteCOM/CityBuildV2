@@ -34,7 +34,6 @@ public class AsyncPlayerChatListener implements Listener {
     }
     if (SlowChatCommand.SLOWCHAT_STATUS) {
       if (!player.hasPermission(MessagesData.SLOWCHAT_COMMAND_PERMISSION_BYPASS)) {
-        System.out.println("Keine Rechte");
         if (!SLOW_CHAT_PLAYER.contains(player)) {
           SLOW_CHAT_PLAYER.add(player);
           Bukkit.getScheduler()
@@ -56,7 +55,9 @@ public class AsyncPlayerChatListener implements Listener {
                 .replace("[reason]", mutepPlayer.getReason()));
       } else {
         String offlineCreator = Bukkit.getOfflinePlayer(mutepPlayer.getCreator()).getName();
-        assert offlineCreator != null;
+        if (offlineCreator == null) {
+          offlineCreator = "Unknown";
+        }
         player.sendMessage(
             MessagesData.MUTEP_COMMAND_MESSAGE_MUTE_SCREEN
                 .replace("[player]", offlineCreator)
