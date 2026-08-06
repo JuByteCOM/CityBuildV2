@@ -1,6 +1,7 @@
 package com.jubyte.citybuild.listener.player;
 
 import com.jubyte.citybuild.CityBuildV2;
+import com.jubyte.citybuild.commands.VanishCommand;
 import com.jubyte.citybuild.data.ConfigData;
 import com.jubyte.citybuild.data.MessagesData;
 import com.jubyte.citybuild.manager.checkplot.CheckPlotPlayer;
@@ -75,5 +76,13 @@ public class PlayerJoinListener implements Listener {
     CheckPlotPlayer checkPlotPlayer =
         CityBuildV2.getPlugin().getCheckPlotCache().getPlayerByUUID(player.getUniqueId());
     checkPlotPlayer.setLastJoin();
+
+    if (!player.hasPermission(MessagesData.VANISH_COMMAND_PERMISSION_USE)) {
+      for (Player online : Bukkit.getOnlinePlayers()) {
+        if (VanishCommand.isVanished(online.getUniqueId())) {
+          player.hidePlayer(CityBuildV2.getPlugin(), online);
+        }
+      }
+    }
   }
 }

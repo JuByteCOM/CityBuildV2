@@ -30,6 +30,7 @@ public class CommandSpyCommand extends AbstractCommand {
       CommandSender commandSender, Command command, String s, String[] strings) {
     if (!(commandSender instanceof Player)) {
       commandSender.sendMessage(MessagesData.ISNOT_PLAYER);
+      return false;
     }
     Player player = (Player) commandSender;
     if (player.hasPermission(MessagesData.COMMANDSPY_COMMAND_PERMISSION_USE)) {

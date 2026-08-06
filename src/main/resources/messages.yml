@@ -442,6 +442,12 @@ Commands:
       NoBackPoint: '[prefix] &7Es konnte kein Todespunkt gefunden werden!'
     SaveBackLocationByDeath:
       Enabled: true
+  Vanish:
+    Permissions:
+      Use: 'citybuild.vanish.use'
+    Messages:
+      Activated: '[prefix] &7Du bist jetzt &eunsichtbar&7.'
+      Deactivated: '[prefix] &7Du bist jetzt wieder &esichtbar&7.'
 
 Settings:
   ColoredChat:

@@ -635,4 +635,12 @@ public class MessagesData {
           messageHandler.getPrefixString("Commands.Back.Messages.NoBackPoint");
   public static boolean BACK_COMMAND_SAVE_BACK_LOCATION_BY_DEATH =
           plugin.getMessagesConfig().getBoolean("Commands.Back.SaveBackLocationByDeath.Enabled");
+
+  /** Vanish Command */
+  public static String VANISH_COMMAND_PERMISSION_USE =
+          messageHandler.getString("Commands.Vanish.Permissions.Use");
+  public static String VANISH_COMMAND_MESSAGE_ACTIVATED =
+          messageHandler.getPrefixString("Commands.Vanish.Messages.Activated");
+  public static String VANISH_COMMAND_MESSAGE_DEACTIVATED =
+          messageHandler.getPrefixString("Commands.Vanish.Messages.Deactivated");
 }

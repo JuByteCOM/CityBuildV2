@@ -43,21 +43,26 @@ public class TeleportCommand extends AbstractCommand {
                     "[targetPlayer]", strings[0]));
           }
         } else if (strings.length == 3) {
-          double x = Double.parseDouble(strings[0]);
-          double y = Double.parseDouble(strings[1]);
-          double z = Double.parseDouble(strings[2]);
-          if ((x < 3.0E7D)
-              || (y < 3.0E7D)
-              || (z < 3.0E7D)
-              || (x > -3.0E7D)
-              || (y > -3.0E7D)
-              || (z > -3.0E7D)) {
-            Location location = new Location(player.getWorld(), x, y, z);
-            player.teleport(location);
-            player.sendMessage(
-                MessagesData.TELEPORT_COMMAND_MESSAGE_TPTOLOCATION.replace(
-                    "[location]", location.toString()));
-          } else {
+          try {
+            double x = Double.parseDouble(strings[0]);
+            double y = Double.parseDouble(strings[1]);
+            double z = Double.parseDouble(strings[2]);
+            // Bugfix: previously used OR instead of AND, which made this check almost always
+            // true and allowed teleports far outside the Minecraft world border.
+            if ((x > -3.0E7D && x < 3.0E7D)
+                && (y > -3.0E7D && y < 3.0E7D)
+                && (z > -3.0E7D && z < 3.0E7D)) {
+              Location location = new Location(player.getWorld(), x, y, z);
+              player.teleport(location);
+              player.sendMessage(
+                  MessagesData.TELEPORT_COMMAND_MESSAGE_TPTOLOCATION.replace(
+                      "[location]", location.toString()));
+            } else {
+              player.sendMessage(MessagesData.TELEPORT_COMMAND_MESSAGE_FALSELOCATION);
+            }
+          } catch (NumberFormatException exception) {
+            // Bugfix: invalid (non-numeric) coordinates previously threw an uncaught
+            // NumberFormatException that aborted command handling without feedback.
             player.sendMessage(MessagesData.TELEPORT_COMMAND_MESSAGE_FALSELOCATION);
           }
         }
